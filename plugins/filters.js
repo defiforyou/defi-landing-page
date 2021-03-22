@@ -8,3 +8,7 @@ Vue.filter('number', (val, format = '0,0') => {
 Vue.filter('abs', (val) => {
   return Math.abs(val)
 })
+
+Vue.filter('percentage', (val) => {
+  return val * 100
+})

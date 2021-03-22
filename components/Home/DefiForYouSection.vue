@@ -1,8 +1,15 @@
 <template lang="pug">
 section.defi-for-you
   .container
-    .dfy-flex
-      .images
+    .dfy-flex.layout
+      .wallets
+        .screens
+          .screen.metamask
+            img(src="/img/wallet.metamask.jpg")
+          .screen.binance
+            img(src="/img/wallet.binance.jpg")
+          .screen.trustwallet
+            img(src="/img/wallet.trustwallet.jpg")
       .text
         h2.title We've built a decentralized P2P loan economy on the blockchain.
         .description
@@ -16,8 +23,42 @@ section.defi-for-you
 
 <style lang="scss" scoped>
 section.defi-for-you {
-  .images {
+  padding: 8em 0;
+  .layout {
+    align-items: center;
+  }
+  .wallets {
     flex: 1;
+    .screens {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 500px;
+      .screen {
+        min-width: 0;
+        flex: 1;
+        position: relative;
+        &.metamask {
+          z-index: 2;
+          margin-top: 5em;
+        }
+        &.binance {
+          z-index: 3;
+          margin-top: 10em;
+          margin-left: -136px;
+          margin-right: -136px;
+        }
+        &.trustwallet {
+          z-index: 1;
+        }
+        > img {
+          width: 275px;
+          max-width: 275px;
+          border-radius: 24px;
+          box-shadow: 0 20px 40px 0 rgba($--color-background-page, .5);
+        }
+      }
+    }
   }
   .text {
     flex: 1;

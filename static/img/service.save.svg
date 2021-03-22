@@ -6,7 +6,7 @@
 </mask>
 <rect x="18.04" y="12.3" width="31.16" height="6.56" rx="1.64" stroke="white" stroke-width="4.8" mask="url(#path-3-inside-1)"/>
 <defs>
-<radialGradient id="paint0_angular" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(12.3 21.1709) rotate(90) scale(49.2 45.1)">
+<radialGradient id="paint0_angular" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(12.3 21.1709) rotate(90) scale(72.8291 66.76)">
 <stop stop-color="#F8B017"/>
 <stop offset="0.916361" stop-color="#F7931A"/>
 <stop offset="0.987707" stop-color="#F7931A" stop-opacity="0"/>

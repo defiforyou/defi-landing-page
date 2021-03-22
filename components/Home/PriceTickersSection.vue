@@ -1,33 +1,38 @@
 <template lang="pug">
-section.price-tickers
-  .container
-    .tickers
-      .ticker(v-for="i, k in pairs" :key="k")
-        .name(v-text="i.name")
-        .price(:class="{'price--up': i.change > 0, 'price--down': i.change < 0}")
-          .current(v-text="i.price")
-          .change {{ i.change | abs | number('0,0.00') }}%
-        .volume
-          span 24H VOL
-          span.value {{ i.volume | number }}
+client-only
+  section.price-tickers
+    .container
+      .tickers(v-if="!loading")
+        .ticker(v-for="i, k in pairs" :key="k")
+          .name {{ i.symbol }} / usd
+          .price(:class="{'price--up': i.price_change_percentage_24h > 0, 'price--down': i.price_change_percentage_24h < 0}")
+            .current {{ i.current_price }}
+            .change {{ i.price_change_percentage_24h | abs | number('0,0.00') }}%
+          .volume
+            span 24H VOL
+            span.value {{ i.total_volume | number }}
 </template>
 
 <script>
 export default {
   data () {
     return {
-      pairs: [{
-        name: 'AVA / USDT',
-        price: 3.73,
-        change: 3,
-        volume: 28922490
-      }, {
-        name: 'XRP / USDT',
-        price: 0.4312345,
-        change: -1.23,
-        volume: 123456789
-      }]
+      loading: false,
+      pairs: []
     }
+  },
+
+  mounted () {
+    this.loading = true
+    this.$apis
+      .getMarketPrices()
+      .then((res) => {
+        this.pairs = res
+        console.log(this.pairs)
+      })
+      .finally(() => {
+        this.loading = false
+      })
   }
 }
 </script>
@@ -54,6 +59,7 @@ export default {
   line-height: 1.5em;
   .name {
     font-family: $--font-family-heading;
+    text-transform: uppercase;
     color: white;
   }
   .price {

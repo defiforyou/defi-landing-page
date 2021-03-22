@@ -2,7 +2,7 @@
 <path d="M6.4 16.8H16M6.4 32H16M6.4 46.4H16M27.2 16.8H41.6M27.2 28H41.6M27.2 38.4H31.2M14.4 60.8H52.8C54.5673 60.8 56 59.3673 56 57.6V6.39995C56 4.63264 54.5673 3.19995 52.8 3.19995H14.4C12.6327 3.19995 11.2 4.63264 11.2 6.39995V57.6C11.2 59.3673 12.6327 60.8 14.4 60.8Z" stroke="url(#paint0_angular)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M41.6 53.5999L47.2 59.1999L60 46.3999" stroke="white" stroke-width="2.4"/>
 <defs>
-<radialGradient id="paint0_angular" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(33.6 32) rotate(90) scale(40 41.4815)">
+<radialGradient id="paint0_angular" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(33.6 32) rotate(90) scale(46.5001 48.2223)">
 <stop stop-color="#F8B017"/>
 <stop offset="0.713542" stop-color="#F7931A"/>
 <stop offset="0.838542" stop-color="#F7931A" stop-opacity="0"/>

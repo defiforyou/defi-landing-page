@@ -1,15 +1,15 @@
 <template lang="pug">
 section.services
   .container
-    .dfy-flex
-      .introduce
+    .dfy-flex.layout
+      .introduce.dfy-half
         h2.title Our Services
         .description
           p We've built a decentralised loan economy on the blockchain, whereby the irrefutable reputation of the individual - as verifiable on the public ledger (blockchain) - is combined with type and terms of collateral, creating a bid and ask economy.
           p This is true decentralised finance.
-      .features
+      .features.dfy-half
         .feature
-          img.icon(src="/img/service.pawbrocker-service.svg")
+          img.icon(src="/img/service.pawnbrocker-service.svg")
           div
             .name Pawnbrocker Service
             p High-value goods will be pawned on the DeFi For You platform, using intermediaries to assess the value and legitimacy of collateral.
@@ -27,11 +27,18 @@ section.services
 </template>
 
 <style lang="scss" scoped>
-
 section.services {
+  padding: 8em 0;
+  .layout {
+    align-items: center;
+  }
   .features {
     .feature {
       display: flex;
+      align-items: flex-start;
+      &:not(:first-child) {
+        margin-top: 4em;
+      }
       .icon {
         margin-right: 2.25em;
         flex: 0 4em;

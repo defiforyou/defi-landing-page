@@ -49,6 +49,7 @@ export default {
 <style lang="scss" scoped>
 section.team {
   text-align: center;
+  padding: 6em 0;
   .members {
     margin-top: 3em;
     display: grid;
