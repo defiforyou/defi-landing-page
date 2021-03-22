@@ -2,12 +2,12 @@
 section.services
   .container
     .dfy-flex.layout
-      .introduce.dfy-half
+      .introduce.half
         h2.title Our Services
         .description
           p We've built a decentralised loan economy on the blockchain, whereby the irrefutable reputation of the individual - as verifiable on the public ledger (blockchain) - is combined with type and terms of collateral, creating a bid and ask economy.
           p This is true decentralised finance.
-      .features.dfy-half
+      .features.half
         .feature
           img.icon(src="/img/service.pawnbrocker-service.svg")
           div
@@ -29,19 +29,51 @@ section.services
 <style lang="scss" scoped>
 section.services {
   padding: 8em 0;
+  @include media(sm-down) {
+    padding: 2em 0;
+    margin-top: $--gap-home-section;
+  }
   .layout {
     align-items: center;
+    @include media(sm-down) {
+      flex-direction: column;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .half {
+      flex: 1;
+    }
+  }
+  .introduce {
+    @include media(md) {
+      > * {
+        max-width: 380px;
+      }
+    }
   }
   .features {
+    @include media(sm-down) {
+      margin-top: 2em;
+    }
     .feature {
       display: flex;
       align-items: flex-start;
+      > * {
+        min-width: 0;
+      }
       &:not(:first-child) {
-        margin-top: 4em;
+        margin-top: 2em;
+        @include media(md) {
+          margin-top: 4em;
+        }
       }
       .icon {
-        margin-right: 2.25em;
-        flex: 0 4em;
+        margin-right: 1.5em;
+        flex: 0 0 3.5em;
+        @include media(md) {
+          margin-right: 2.4em;
+          flex: 0 0 4em;
+        }
       }
       .name {
         font-family: $--font-family-heading;

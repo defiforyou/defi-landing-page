@@ -50,6 +50,10 @@ export default {
 section.team {
   text-align: center;
   padding: 6em 0;
+  @include media(sm-down) {
+    padding: 2em 0;
+    margin-top: $--gap-home-section;
+  }
   .members {
     margin-top: 3em;
     display: grid;

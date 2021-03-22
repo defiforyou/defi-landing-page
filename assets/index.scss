@@ -36,14 +36,30 @@ a {
 .container {
   margin-left: auto;
   margin-right: auto;
-  max-width: 1180px;
   padding-left: 1rem;
   padding-right: 1rem;
+  max-width: 480px;
+  @include media(sm) {
+    max-width: 720px;
+  }
+  @include media(md) {
+    max-width: 960px;
+  }
+  @include media(lg) {
+    max-width: 1180px;
+  }
 }
 
 .dfy-decorator {
-  font-size: 9em;
+  font-size: 4em;
   line-height: 1em;
+  margin-bottom: -.5em;
+  @include media(sm) {
+    font-size: 6.5em;
+  }
+  @include media(md) {
+    font-size: 9em;
+  }
   color: transparent;
   -webkit-text-stroke: 1px #252F3F;
   font-family: $--font-family-heading;
@@ -59,10 +75,6 @@ a {
   > * {
     min-width: 0;
   }
-}
-
-.dfy-half {
-  flex: 1;  
 }
 
 .dfy-button {

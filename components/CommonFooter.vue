@@ -118,11 +118,18 @@ export default {
 .footer {
   .navigation {
     position: relative;
-    padding: 10em 0 5em 0;
+    padding: 5em 0;
+    @include media(sm-down) {
+      padding: 2em 0;
+      margin-top: $--gap-home-section;
+    }
     .title {
       font-family: $--font-family-heading;
       color: white;
       margin-bottom: 2em;
+      @include media(sm-down) {
+        margin-bottom: 1em;
+      }
     }
     .grid {
       display: grid;
@@ -220,11 +227,18 @@ export default {
   .copyright {
     color: #4B5563;
     font-size: 14px;
-    padding: 1rem 0 1.5rem 0;
     background: #13171f;
+    padding: 1rem 0 1.5rem 0;
+    @include media(sm-down) {
+      padding: 1em 0;
+    }
     .layout {
       align-items: center;
+      flex-wrap: wrap;
       justify-content: space-between;
+      @include media(xs-only) {
+        justify-content: center;
+      }
     }
     .links {
       a {

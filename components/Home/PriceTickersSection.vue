@@ -2,23 +2,53 @@
 client-only
   section.price-tickers
     .container
-      .tickers(v-if="!loading")
-        .ticker(v-for="i, k in pairs" :key="k")
-          .name {{ i.symbol }} / usd
-          .price(:class="{'price--up': i.price_change_percentage_24h > 0, 'price--down': i.price_change_percentage_24h < 0}")
-            .current {{ i.current_price }}
-            .change {{ i.price_change_percentage_24h | abs | number('0,0.00') }}%
-          .volume
-            span 24H VOL
-            span.value {{ i.total_volume | number }}
+      swiper.tickers(
+        v-if="!loading"
+        ref="swiper"
+        :options="options")
+        swiper-slide(v-for="i, k in pairs" :key="k")
+          .ticker
+            .name {{ i.symbol }} / usd
+            .price(:class="{'price--up': i.price_change_percentage_24h > 0, 'price--down': i.price_change_percentage_24h < 0}")
+              .current {{ i.current_price }}
+              .change {{ i.price_change_percentage_24h | abs | number('0,0.00') }}%
+            .volume
+              span 24H VOL
+              span.value {{ i.total_volume | number }}
 </template>
 
 <script>
+import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
+import 'swiper/swiper.min.css'
+
 export default {
+  components: {
+    Swiper,
+    SwiperSlide
+  },
+
   data () {
     return {
       loading: false,
-      pairs: []
+      pairs: [],
+      options: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        breakpoints: {
+          480: {
+            slidesPerView: 2
+          },
+          768: {
+            slidesPerView: 3
+          },
+          992: {
+            slidesPerView: 4
+          },
+          1200: {
+            slidesPerView: 6
+          }
+        }
+      }
     }
   },
 
@@ -42,20 +72,11 @@ export default {
   padding: 2rem 0;
 }
 
-.tickers {
-  display: flex;
-  > *:not(:last-child) {
-    border-right: 1px solid #252F3F;
-  }
-  > *:not(:first-child) {
-    padding-left: 1.2em;
-  }
-}
-
 .ticker {
   min-width: 180px;
   font-size: 14px;
   line-height: 1.5em;
+  border-right: 1px solid #252F3F;
   .name {
     font-family: $--font-family-heading;
     text-transform: uppercase;

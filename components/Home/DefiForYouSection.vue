@@ -24,16 +24,47 @@ section.defi-for-you
 <style lang="scss" scoped>
 section.defi-for-you {
   padding: 8em 0;
+  @include media(sm-down) {
+    padding: 2em 0;
+    margin-top: $--gap-home-section;
+  }
   .layout {
     align-items: center;
+    @include media(sm-down) {
+      flex-direction: column;
+    }
   }
   .wallets {
     flex: 1;
+    position: relative;
+    @include media(sm-down) {
+      flex: 0 640px;
+      overflow: hidden;
+      margin-bottom: -360px;
+      opacity: .25;
+      &:after {
+        content: '';
+        z-index: 4;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        height: 50%;
+        background: linear-gradient(0deg, $--color-background-page, transparent);
+      }
+    }
+    @include media(xs-only) {
+      flex: 0 480px;
+      margin-bottom: -280px;
+    }
     .screens {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
-      max-width: 500px;
+      max-width: 420px;
+      @include media(lg) {
+        max-width: 500px;
+      }
       .screen {
         min-width: 0;
         flex: 1;
@@ -41,6 +72,7 @@ section.defi-for-you {
         &.metamask {
           z-index: 2;
           margin-top: 5em;
+          opacity: .75;
         }
         &.binance {
           z-index: 3;
@@ -50,11 +82,18 @@ section.defi-for-you {
         }
         &.trustwallet {
           z-index: 1;
+          opacity: .5;
         }
         > img {
-          width: 275px;
-          max-width: 275px;
-          border-radius: 24px;
+          border-radius: 16px;
+          @include media(md) {
+            width: 220px;
+            border-radius: 16px;
+          }
+          @include media(lg) {
+            width: 275px;
+            border-radius: 24px;
+          }
           box-shadow: 0 20px 40px 0 rgba($--color-background-page, .5);
         }
       }
@@ -62,6 +101,11 @@ section.defi-for-you {
   }
   .text {
     flex: 1;
+    z-index: 5;
+    @include media(sm-down) {
+      max-width: 560px;
+      margin: 0 auto;
+    }
   }
 }
 </style>

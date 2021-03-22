@@ -16,10 +16,23 @@ section.network
 <style lang="scss" scoped>
 section.network {
   text-align: center;
+  padding: 8em 0;
+  @include media(sm-down) {
+    padding: 2em 0;
+    margin-top: $--gap-home-section;
+  }
   .actions {
+    @include media(sm-down) {
+      text-align: center;
+      > * {
+        margin: .5em .75em;
+      }
+    }
     > * {
-      &:not(:last-child) {
-        margin-right: 1.5em;
+      @include media(md) {
+        &:not(:last-child) {
+          margin: 0 1.5em 0 0;
+        }
       }
     }
   }

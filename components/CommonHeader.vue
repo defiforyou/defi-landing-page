@@ -43,6 +43,9 @@ export default {
   display: flex;
   font-size: 14px;
   align-items: center;
+  @include media(sm-down) {
+    display: none;
+  }
   > * {
     &:not(:last-child) {
       margin-right: 2.5em;
