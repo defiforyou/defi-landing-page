@@ -28,7 +28,6 @@ export default {
       .getMarketPrices()
       .then((res) => {
         this.pairs = res
-        console.log(this.pairs)
       })
       .finally(() => {
         this.loading = false
