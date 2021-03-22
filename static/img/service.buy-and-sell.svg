@@ -1,0 +1,27 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.2 8.00005C11.2 6.23274 12.6327 4.80005 14.4 4.80005H48C49.7673 4.80005 51.2 6.23274 51.2 8.00005V60.8L32.6763 51.1677C31.7509 50.6865 30.6491 50.6865 29.7237 51.1677L11.2 60.8V8.00005Z" stroke="url(#paint0_angular)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+<mask id="path-2-inside-1" fill="white">
+<rect x="40" y="1.6001" width="8.65041" height="8.65041" rx="1.6"/>
+</mask>
+<rect x="40" y="1.6001" width="8.65041" height="8.65041" rx="1.6" stroke="white" stroke-width="4.8" mask="url(#path-2-inside-1)"/>
+<mask id="path-3-inside-2" fill="white">
+<rect x="40" y="13.2163" width="8.65041" height="8.65041" rx="1.6"/>
+</mask>
+<rect x="40" y="13.2163" width="8.65041" height="8.65041" rx="1.6" stroke="white" stroke-width="4.8" mask="url(#path-3-inside-2)"/>
+<mask id="path-4-inside-3" fill="white">
+<rect x="51.6161" y="1.6001" width="8.65041" height="8.65041" rx="1.6"/>
+</mask>
+<rect x="51.6161" y="1.6001" width="8.65041" height="8.65041" rx="1.6" stroke="white" stroke-width="4.8" mask="url(#path-4-inside-3)"/>
+<mask id="path-5-inside-4" fill="white">
+<rect x="51.6161" y="13.2163" width="8.65041" height="8.65041" rx="1.6"/>
+</mask>
+<rect x="51.6161" y="13.2163" width="8.65041" height="8.65041" rx="1.6" stroke="white" stroke-width="4.8" mask="url(#path-5-inside-4)"/>
+<defs>
+<radialGradient id="paint0_angular" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(32.8 32) rotate(-90) scale(40)">
+<stop stop-color="#F7931A" stop-opacity="0"/>
+<stop offset="0.229167" stop-color="#F7931A" stop-opacity="0"/>
+<stop offset="0.395833" stop-color="#F7931A"/>
+<stop offset="1" stop-color="#F8B017"/>
+</radialGradient>
+</defs>
+</svg>

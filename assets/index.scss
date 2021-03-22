@@ -1,0 +1,93 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $--font-family-body;
+  font-size: 16px;
+  line-height: 1.5em;
+  background: $--color-background-page;
+  color: $--color-text-body;
+}
+
+img {
+  max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $--font-family-heading;
+  color: $--color-text-heading;
+  font-weight: normal;
+  line-height: 1.15em;
+}
+
+a {
+  color: $--color-text-body;
+  text-decoration: none;
+  &:hover {
+    color: $--color-primary;
+  }
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1180px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.dfy-decorator {
+  font-size: 9em;
+  line-height: 1em;
+  color: transparent;
+  -webkit-text-stroke: 1px #252F3F;
+  font-family: $--font-family-heading;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  user-select: none;
+  pointer-events: none;
+}
+
+.dfy-flex {
+  display: flex;
+  > * {
+    min-width: 0;
+  }
+}
+
+.dfy-button {
+  height: 3rem;
+  padding: .9rem 1.5rem;
+  box-sizing: border-box;
+  border-radius: 1000px;
+  display: inline-flex;
+  align-items: center;
+  appearance: none;
+  border: none;
+  outline: none;
+  font-family: $--font-family-body;
+  font-size: 1em;
+  cursor: pointer;
+  &--overlay {
+    background: rgba(#F9FAFB, .05);
+    color: white;
+    &:hover {
+      color: white;
+    }
+  }
+  &--primary {
+    background: $--color-primary;
+    color: white;
+    &:hover {
+      color: white;
+    }
+  }
+  &--ghost {
+    border: 1px solid #374151;
+    color: $--color-text-body;
+    &:hover {
+      color: $--color-text-body;
+    }
+  }
+}

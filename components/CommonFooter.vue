@@ -1,0 +1,244 @@
+<template lang="pug">
+section.footer
+  .navigation
+    .dfy-decorator DEFI FOR YOU
+    .container
+      .grid
+        .company
+          .branding
+            nuxt-link(:to="{name: 'index'}")
+              img.logo(src="/img/logo.png" width="228px")
+          .metas
+            .language
+              globe-icon.icon(size="24" stroke-width="1")
+              span English (United States) ->
+            .email(v-if="contact.email")
+              mail-icon.icon(size="24" stroke-width="1")
+              a(:href="`mailto:${contact.email}`" target="_blank" v-text="contact.email")
+
+        .office(v-for="i, k in offices" :style="{gridArea: `office-${k + 1}`}")
+          .title(v-text="i.name")
+          .phone
+            a(v-if="i.vie" :href="`tel:${i.vie}`")
+              span.number {{ i.vie }}
+              span.flag 🇻🇳
+          .phone
+            a(v-if="i.eng" :href="`tel:${i.eng}`")
+              span.number {{ i.eng }}
+              span.flag 🇬🇧
+          .address(v-text="i.address")
+
+        .social
+          .title Find us on
+          .networks
+            a(
+              v-if="urls.github"
+              :href="urls.github"
+              target="_blank"
+              title="Github")
+              github-icon(size="24" stroke-width="1")
+            a(
+              v-if="urls.facebook"
+              :href="urls.facebook"
+              target="_blank"
+              title="Facebook")
+              facebook-icon(size="24" stroke-width="1")
+            a(
+              v-if="urls.youtube"
+              :href="urls.youtube"
+              target="_blank"
+              title="Youtube")
+              youtube-icon(size="24" stroke-width="1")
+            a(
+              v-if="urls.linkedin"
+              :href="urls.linkedin"
+              target="_blank"
+              title="Linkedin")
+              linkedin-icon(size="24" stroke-width="1")
+            a(
+              v-if="urls.twitter"
+              :href="urls.twitter"
+              target="_blank"
+              title="Twitter")
+              twitter-icon(size="24" stroke-width="1")
+
+        .quick-links
+          .title Quick Navigation
+          ul.links
+            li
+              a(:href="urls.whitepaper") Whitepaper ->
+            li
+              a(:href="urls.app") Get the mobile app ->
+            li
+              a(:href="urls.buy") Buy DFY on Exchanges ->
+
+  .copyright
+    .container
+      .layout.dfy-flex
+        .trademark(v-text="copyright")
+        .links
+          nuxt-link(:to="{name: 'terms-of-service'}") Terms of Service
+          nuxt-link(:to="{name: 'privacy-policy'}") Privacy Policy
+</template>
+
+<script>
+import {
+  GlobeIcon,
+  MailIcon,
+  GithubIcon,
+  FacebookIcon,
+  YoutubeIcon,
+  LinkedinIcon,
+  TwitterIcon
+} from 'vue-feather-icons'
+
+import { COPYRIGHT, URLS, OFFICES, CONTACT } from '~/settings'
+
+export default {
+  components: {
+    GlobeIcon,
+    MailIcon,
+    GithubIcon,
+    FacebookIcon,
+    YoutubeIcon,
+    LinkedinIcon,
+    TwitterIcon
+  },
+
+  computed: {
+    copyright: () => COPYRIGHT,
+    urls: () => URLS,
+    offices: () => OFFICES,
+    contact: () => CONTACT
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.footer {
+  .navigation {
+    position: relative;
+    padding: 10em 0 5em 0;
+    .title {
+      font-family: $--font-family-heading;
+      color: white;
+      margin-bottom: 2em;
+    }
+    .grid {
+      display: grid;
+      font-size: 14px;
+      grid-template-columns: 1fr;
+      grid-row-gap: 3em;
+      grid-template-areas:
+        'company'
+        'office-1'
+        'office-2'
+        'social'
+        'quick-links';
+      @include media(sm) {
+        grid-template-columns: 2fr 3fr;
+        grid-column-gap: 20px;
+        grid-row-gap: 3em;
+        grid-template-areas:
+          'company office-1'
+          'social office-2'
+          'quick-links office-2';
+      }
+      @include media(md) {
+        grid-template-columns: 3fr 4fr 3fr;
+        grid-row-gap: 4em;
+        grid-template-areas:
+          'company office-1 social'
+          'company office-2 quick-links';
+      }
+      @include media(lg) {
+        grid-template-columns: 4fr 4fr 3fr;
+      }
+    }
+    .company {
+      grid-area: company;
+      .metas {
+        margin-top: 1.8em;
+        > * {
+          display: flex;
+          align-items: center;
+          &:not(:first-child) {
+            margin-top: .6em;
+          }
+          > * {
+            flex: 1;
+          }
+          .icon {
+            color: #374151;
+            flex: 0 24px;
+            margin-right: .9em;
+          }
+        }
+      }
+    }
+    .office {
+      a {
+        color: $--color-primary;
+      }
+      .phone {
+        .number {
+          width: 128px;
+          display: inline-block;
+        }
+      }
+      > * {
+        &:not(:first-child) {
+          margin-top: .6em;
+        }
+      }
+    }
+    .social {
+      grid-area: social;
+      .networks {
+        display: flex;
+        > * {
+          &:not(:last-child) {
+            margin-right: 2em;
+          }
+        }
+      }
+    }
+    .quick-links {
+      grid-area: quick-links;
+      > ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        > li {
+          &:not(:last-child) {
+            margin-bottom: .6em;
+          }
+        }
+      }
+    }
+  }
+  .copyright {
+    color: #4B5563;
+    font-size: 14px;
+    padding: 1rem 0 1.5rem 0;
+    background: #13171f;
+    .layout {
+      align-items: center;
+      justify-content: space-between;
+    }
+    .links {
+      a {
+        color: #4B5563;
+        &:hover {
+          color: $--color-text-body;
+        }
+        &:not(:last-child) {
+          padding-right: 1em;
+          margin-right: 1em;
+          border-right: 1px solid #161E2E;
+        }
+      }
+    }
+  }
+}
+</style>
