@@ -91,7 +91,7 @@ export const TEAM_MEMBERS = [{
   },
   email: '',
   facebook: 'https://www.facebook.com/Socoboy',
-  linkedin: null
+  linkedin: 'https://www.linkedin.com/in/d%C6%B0%C6%A1ng-thanh-t%C3%B9ng-845aa764/'
 }, {
   position: 'Chief Marketing Officer',
   image: '/img/team.billy-gray.jpg',
