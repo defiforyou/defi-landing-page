@@ -1,3 +1,4 @@
+export const OG_ROOT = 'https://defi-c5be4.web.app'
 export const COPYRIGHT = '© 2021 DeFi For You. All rights reserved.'
 
 export const CONTACT = {

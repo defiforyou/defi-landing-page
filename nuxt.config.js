@@ -1,3 +1,5 @@
+import { OG_ROOT } from './settings'
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -7,12 +9,23 @@ export default {
     htmlAttrs: {
       lang: 'en'
     },
-    title: 'DeFi For You',
+    title: 'DeFi For You.',
     titleTemplate: '%s | DeFi For You Vietnam',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      { hid: 'description', name: 'description', content: 'DeFi For You.™ — A new decentralized P2P loan economy and NFT trading platform built on the Binance Smart Chain, powered by the $DFY smart contract token.' },
+      { property: 'og:title', content: 'DeFi For You. | DeFi For You Vietnam' },
+      { property: 'og:description', content: 'DeFi For You.™ — A new decentralized P2P loan economy and NFT trading platform built on the Binance Smart Chain, powered by the $DFY smart contract token.' },
+      { property: 'og:image', content: `${OG_ROOT}/img/og.png` },
+      { property: 'og:image:type', content: 'image/png' },
+      { property: 'og:type', content: 'article' },
+      { property: 'og:url', content: OG_ROOT },
+      { property: 'twitter:card', content: 'summary' },
+      { property: 'twitter:title', content: 'DeFi For You. | DeFi For You Vietnam' },
+      { property: 'twitter:image', content: `${OG_ROOT}/img/og.png` },
+      { property: 'twitter:image:alt', content: 'DeFi For You.™' },
+      { property: 'twitter:description', content: 'DeFi For You.™ — A new decentralized P2P loan economy and NFT trading platform built on the Binance Smart Chain, powered by the $DFY smart contract token.' }
     ],
     link: [
       { rel: 'icon', type: 'image/png', href: '/favicon.png' },
