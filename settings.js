@@ -42,7 +42,7 @@ export const TEAM_MEMBERS = [{
     link: 'https://www.travala.com/'
   },
   email: '',
-  facebook: 'https://defi.com.vn/vendor/img/facebook_icon.png',
+  facebook: 'https://www.facebook.com/adamchaplin1968',
   linkedin: 'https://www.linkedin.com/in/adamchristopherchaplin/'
 }, {
   position: 'CTO',

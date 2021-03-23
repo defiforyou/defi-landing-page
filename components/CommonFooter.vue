@@ -7,14 +7,14 @@ section.footer
         .company
           .branding
             nuxt-link(:to="{name: 'index'}")
-              img.logo(src="/img/logo.png")
+              img.logo(src="/img/logo.png" alt="DeFi For You")
           .metas
             .language
               globe-icon.icon(size="24" stroke-width="1")
               span English (United States) ->
             .email(v-if="contact.email")
               mail-icon.icon(size="24" stroke-width="1")
-              a(:href="`mailto:${contact.email}`" target="_blank" v-text="contact.email")
+              a(:href="`mailto:${contact.email}`" target="_blank" rel="noopener" v-text="contact.email")
 
         .office(v-for="i, k in offices" :style="{gridArea: `office-${k + 1}`}")
           .title(v-text="i.name")
@@ -34,31 +34,31 @@ section.footer
             a(
               v-if="urls.github"
               :href="urls.github"
-              target="_blank"
+              target="_blank" rel="noopener"
               title="Github")
               github-icon(size="24" stroke-width="1")
             a(
               v-if="urls.facebook"
               :href="urls.facebook"
-              target="_blank"
+              target="_blank" rel="noopener"
               title="Facebook")
               facebook-icon(size="24" stroke-width="1")
             a(
               v-if="urls.youtube"
               :href="urls.youtube"
-              target="_blank"
+              target="_blank" rel="noopener"
               title="Youtube")
               youtube-icon(size="24" stroke-width="1")
             a(
               v-if="urls.linkedin"
               :href="urls.linkedin"
-              target="_blank"
+              target="_blank" rel="noopener"
               title="Linkedin")
               linkedin-icon(size="24" stroke-width="1")
             a(
               v-if="urls.twitter"
               :href="urls.twitter"
-              target="_blank"
+              target="_blank" rel="noopener"
               title="Twitter")
               twitter-icon(size="24" stroke-width="1")
 
@@ -69,17 +69,17 @@ section.footer
               a(
                 v-if="urls.whitepaper"
                 :href="urls.whitepaper"
-                target="_blank") Whitepaper ->
+                target="_blank" rel="noopener") Whitepaper ->
             li
               a(
                 v-if="urls.app"
                 :href="urls.app"
-                target="_blank") Get the mobile app ->
+                target="_blank" rel="noopener") Get the mobile app ->
             li
               a(
                 v-if="urls.buy"
                 :href="urls.buy"
-                target="_blank") Buy DFY on Exchanges ->
+                target="_blank" rel="noopener") Buy DFY on Exchanges ->
 
   .copyright
     .container

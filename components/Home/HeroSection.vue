@@ -10,21 +10,21 @@ section.hero
       .preview
         .video
           .thumbnail
-            img.badge(src="/img/badge.youtube.svg")
+            img.badge(src="/img/badge.youtube.svg" alt="Youtube")
         .description
           p DeFi For You.™ — A new decentralized P2P loan economy and NFT trading platform built on the Binance Smart Chain, powered by the&nbsp;
             strong $DFY
             | &nbsp;smart contract token.
       .actions
-        a.dfy-button.dfy-button--primary(:href="urls.buy" target="_blank") Buy DFY on Exchanges
-        a.dfy-button.dfy-button--ghost(:href="urls.whitepaper" target="_blank") Whitepaper
+        a.dfy-button.dfy-button--primary(:href="urls.buy" target="_blank" rel="noopener") Buy DFY on Exchanges
+        a.dfy-button.dfy-button--ghost(:href="urls.whitepaper" target="_blank" rel="noopener") Whitepaper
 
     .canvas
-      img.phone(src="/img/hero.phone.png")
-      img.token.bnb(src="/img/token.bnb.png")
-      img.token.dfy(src="/img/token.dfy.png")
-      img.token.nfts(src="/img/token.nfts.png")
-      img.token.btc(src="/img/token.btc.png")
+      img.phone(src="/img/hero.phone.png" alt="Phone")
+      img.token.bnb(src="/img/token.bnb.png" alt="BNB")
+      img.token.dfy(src="/img/token.dfy.png" alt="DFY")
+      img.token.nfts(src="/img/token.nfts.png" alt="NFTs")
+      img.token.btc(src="/img/token.btc.png" alt="BTC")
 </template>
 
 <script>

@@ -7,7 +7,7 @@ section.network
     p.description DeFi For You.™ Token (DFY) is an utility based cryptocurrency
       br
       | designed to be gas and fuel of DeFi For You.™ Network
-    img.map(src="/img/network.png")
+    img.map(src="/img/network.png" alt="Network")
     .actions
       a.dfy-button.dfy-button--primary(href="#") Buy DFY on Exchanges
       a.dfy-button.dfy-button--ghost(href="#") Whitepaper

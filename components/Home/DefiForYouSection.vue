@@ -5,11 +5,11 @@ section.defi-for-you
       .wallets
         .screens
           .screen.metamask
-            img(src="/img/wallet.metamask.jpg")
+            img(src="/img/wallet.metamask.jpg" alt="Metamask")
           .screen.binance
-            img(src="/img/wallet.binance.jpg")
+            img(src="/img/wallet.binance.jpg" alt="Binance")
           .screen.trustwallet
-            img(src="/img/wallet.trustwallet.jpg")
+            img(src="/img/wallet.trustwallet.jpg" alt="Trustwallet")
       .text
         h2.title We've built a decentralized P2P loan economy on the blockchain.
         .description

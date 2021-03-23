@@ -11,22 +11,22 @@ section.solution
         br
         | powered by the DFY smart contract BEP20 token.
       .stamp.decentralized
-        img.icon(src="/img/solution.decentralized.svg")
+        img.icon(src="/img/solution.decentralized.svg" alt="Decentralized")
         .caption Decentralized
       .stamp.permissionless
-        img.icon(src="/img/solution.permissionless.svg")
+        img.icon(src="/img/solution.permissionless.svg" alt="Permissionless")
         .caption Permissionless
       .stamp.censorship-resistant
-        img.icon(src="/img/solution.censorship-resistant.svg")
+        img.icon(src="/img/solution.censorship-resistant.svg" alt="Censorship Resistant")
         .caption Censorship Resistant
       .stamp.transparent
-        img.icon(src="/img/solution.transparent.svg")
+        img.icon(src="/img/solution.transparent.svg" alt="Transparent")
         .caption Transparent
       .stamp.programable
-        img.icon(src="/img/solution.programable.svg")
+        img.icon(src="/img/solution.programable.svg" alt="Programable")
         .caption Programable
       .stamp.trustless
-        img.icon(src="/img/solution.trustless.svg")
+        img.icon(src="/img/solution.trustless.svg" alt="Trustless")
         .caption Trustless
 </template>
 

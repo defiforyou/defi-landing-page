@@ -14,13 +14,13 @@ section.team
           .bio(v-text="i.bio")
         .links
           .external
-            a(v-if="i.other" :href="i.other.link" target="_blank" :title="i.other.name")
+            a(v-if="i.other" :href="i.other.link" target="_blank" rel="noopener" :title="i.other.name")
               img.logo(v-image="i.other.image")
-          a.email(v-if="i.email" :href="`mailto:${i.email}`" target="_blank" title="Email")
+          a.email(v-if="i.email" :href="`mailto:${i.email}`" target="_blank" rel="noopener" title="Email")
             mail-icon(size="24" stroke-width="1")
-          a.facebook(v-if="i.facebook" :href="i.facebook" target="_blank" title="Facebook")
+          a.facebook(v-if="i.facebook" :href="i.facebook" target="_blank" rel="noopener" title="Facebook")
             facebook-icon(size="24" stroke-width="1")
-          a.linkedin(v-if="i.linkedin" :href="i.linkedin" target="_blank" title="Linkedin")
+          a.linkedin(v-if="i.linkedin" :href="i.linkedin" target="_blank" rel="noopener" title="Linkedin")
             linkedin-icon(size="24" stroke-width="1")
 </template>
 
