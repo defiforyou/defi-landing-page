@@ -168,12 +168,13 @@ section.header {
       height: 100%;
       > a {
         font-family: $--font-family-heading;
-        font-size: 13px;
+        font-size: 16px;
         text-transform: uppercase;
         text-align: center;
-        padding: .5em 0;
+        padding: .75em 0;
         &.dfy-button {
-          padding: .5em 1.5em;
+          padding: .75em 1.5em;
+          height: auto;
         }
       }
     }

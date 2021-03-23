@@ -104,6 +104,7 @@ export default {
     }
   }
 }
+
 section.hero {
   overflow: hidden;
   .container {
