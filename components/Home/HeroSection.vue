@@ -7,9 +7,14 @@ section.hero
         | becoming
         br
         | your own bank?
-      p.description DeFi For You.™ — A new decentralized P2P loan economy and NFT trading platform built on the Binance Smart Chain, powered by the&nbsp;
-        strong $DFY
-        | &nbsp;smart contract token.
+      .preview
+        .video
+          .thumbnail
+            img.badge(src="/img/badge.youtube.svg")
+        .description
+          p DeFi For You.™ — A new decentralized P2P loan economy and NFT trading platform built on the Binance Smart Chain, powered by the&nbsp;
+            strong $DFY
+            | &nbsp;smart contract token.
       .actions
         a.dfy-button.dfy-button--primary(:href="urls.buy" target="_blank") Buy DFY on Exchanges
         a.dfy-button.dfy-button--ghost(:href="urls.whitepaper" target="_blank") Whitepaper
@@ -42,6 +47,9 @@ section.hero {
     right: 0;
     bottom: 0;
     width: 60%;
+    @include media(xs-only) {
+      display: none;
+    }
     .phone {
       position: absolute;
       top: 30%;
@@ -79,10 +87,10 @@ section.hero {
   .greeting {
     position: relative;
     z-index: 2;
-    padding: 11em 0;
-    width: 660px;
-    @include media(xs-only) {
-      width: 100%;
+    padding: 2em 0;
+    @include media(sm) {
+      padding: 9.5rem 0;
+      width: 660px;
     }
     .headline {
       margin: 0;
@@ -91,18 +99,57 @@ section.hero {
         font-size: 3.5rem;
       }
     }
-    .description {
-      margin: 2.5rem 0 0 0;
-      strong {
-        color: $--color-primary;
+    .preview {
+      align-items: center;
+      margin-top: 1rem;
+      @include media(sm) {
+        margin-top: 2.5rem;
+        display: flex;
+      }
+      .video {
+        cursor: pointer;
+        flex: 0 0 168px;
+        .thumbnail {
+          border-radius: 8px;
+          width: 100%;
+          height: 0;
+          padding-top: 57%;
+          background-image: url(/img/preview.introduction.jpg);
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+          border: 1px solid rgba(white, .05);
+          position: relative;
+          .badge {
+            position: absolute;
+            top: 0;
+            right: .5em;
+          }
+        }
+      }
+      .description {
+        flex: 1;
+        margin: 1rem 0 0 0;
+        @include media(sm) {
+          margin: 0 0 0 1.75em;
+        }
+        p {
+          margin: 0;
+          strong {
+            color: $--color-primary;
+          }
+        }
       }
     }
     .actions {
-      margin: 2.5rem 0 0 0;
+      margin: 1rem 0 0 0;
+      @include media(sm) {
+        margin: 2.5rem 0 0 0;
+      }
       > * {
         margin-bottom: .5em;
         &:not(:last-child) {
-          margin-right: 1.5em;
+          margin-right: 1em;
         }
       }
     }

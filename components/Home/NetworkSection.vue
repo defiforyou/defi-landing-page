@@ -25,13 +25,13 @@ section.network {
     @include media(sm-down) {
       text-align: center;
       > * {
-        margin: .5em .75em;
+        margin: .5em;
       }
     }
     > * {
       @include media(md) {
         &:not(:last-child) {
-          margin: 0 1.5em 0 0;
+          margin: 0 1em 0 0;
         }
       }
     }

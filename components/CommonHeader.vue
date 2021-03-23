@@ -52,19 +52,19 @@ export default {
     urls: () => URLS,
     menus: () => [{
       text: 'DeFi For You',
-      href: '#'
+      href: '#defi-for-you'
     }, {
       text: 'Solution',
-      href: '#'
+      href: '#solution'
     }, {
       text: 'Services',
-      href: '#'
+      href: '#services'
     }, {
       text: 'Team',
-      href: '#'
+      href: '#team'
     }, {
       text: 'Contact',
-      href: '#'
+      href: '#contact'
     }, {
       text: 'Whitepaper',
       href: URLS.whitepaper,
@@ -143,7 +143,7 @@ section.header {
     right: 0;
     transform: translate3d(0, 0, 0);
     backdrop-filter: blur(20px);
-    background: rgba($--color-background-page, .6);
+    background: rgba($--color-background-page, .75);
     .toggler {
       width: 4rem;
       height: 4rem;

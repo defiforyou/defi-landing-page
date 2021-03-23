@@ -32,8 +32,12 @@ export default {
       loading: false,
       pairs: [],
       options: {
-        slidesPerView: 1,
+        slidesPerView: 'auto',
         spaceBetween: 20,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false
+        },
         breakpoints: {
           480: {
             slidesPerView: 2
@@ -45,7 +49,7 @@ export default {
             slidesPerView: 4
           },
           1200: {
-            slidesPerView: 6
+            slidesPerView: 5
           }
         }
       }
@@ -69,14 +73,28 @@ export default {
 <style lang="scss" scoped>
 .price-tickers {
   background: linear-gradient(180deg, #13171F 0%, rgba($--color-background-page, 0) 100%);
-  padding: 2rem 0;
+  padding: 1rem 0;
+  @include media(sm) {
+    padding: 1.5rem 0;
+  }
+  @include media(md) {
+    padding: 2rem 0;
+  }
 }
-
+.tickers {
+  /deep/ .swiper-slide {
+    width: auto;
+  }
+}
 .ticker {
-  min-width: 180px;
-  font-size: 14px;
-  line-height: 1.5em;
+  font-size: 13px;
+  line-height: 1.6em;
+  padding-right: 20px;
   border-right: 1px solid #252F3F;
+  @include media(sm) {
+    font-size: 14px;
+    line-height: 1.5em;
+  }
   .name {
     font-family: $--font-family-heading;
     text-transform: uppercase;
@@ -107,12 +125,18 @@ export default {
   }
   .volume {
     color: #6B7280;
-    span:first-child {
-      margin-right: .5em;
+    display: flex;
+    white-space: nowrap;
+    > * {
+      min-width: 0;
     }
     .value {
+      flex: 1;
       color: white;
       font-weight: bold;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-left: .5em;
     }
   }
 }
