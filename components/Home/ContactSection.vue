@@ -122,6 +122,7 @@ section.contact {
       outline: none;
       border: none;
       border-bottom: 1px solid #4B5563;
+      border-radius: 0;
       padding: .5em 0;
       &::placeholder {
         color: darken($--color-text-body, 30);
