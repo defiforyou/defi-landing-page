@@ -82,12 +82,12 @@ section.solution {
       .sm {
         animation: spin 8s infinite linear reverse;
         width: 96px;
-        top: 10%;
+        top: 13%;
         left: 30%;
         @include media(sm-down) {
           width: 128px;
-          top: 18%;
-          left: 2%;
+          top: 15%;
+          left: -10%;
         }
         * {
           stroke-width: 2px;
@@ -114,59 +114,61 @@ section.solution {
       margin-bottom: 2em;
     }
     .stamp {
+      position: relative;
       z-index: 3;
       box-sizing: border-box;
       display: inline-flex;
       align-items: center;
       border-radius: 1000px;
-      background: rgba(white, .08);
+      // background: rgba(white, .08);
+      background: #2A2D36;
       font-size: 16px;
       padding: 0 1.5em;
       height: 64px;
       margin: .25em;
-      backdrop-filter: blur(4px);
       width: 280px;
+      // backdrop-filter: blur(6px);
       @include media(sm) {
+        position: absolute;
         width: auto;
         height: auto;
         padding: 1em 1.5em;
-        position: absolute;
+        &.permissionless {
+          top: 15%;
+          right: 20%;
+        }
+        &.transparent {
+          top: 45%;
+          right: -14%;
+        }
+        &.trustless {
+          bottom: 5%;
+          right: -12%;
+        }
+        &.censorship-resistant {
+          right: 28%;
+          bottom: -2%;
+        }
+        &.programable {
+          bottom: 20%;
+          left: -18%;
+        }
+        &.decentralized {
+          top: 30%;
+          left: -10%;
+        }
       }
       @include media(md) {
         font-size: 18px;
         padding: 1.15em 1.75em;
-      }
-      &.permissionless {
-        top: 15%;
-        right: 20%;
-      }
-      &.transparent {
-        top: 45%;
-        right: -14%;
-      }
-      &.trustless {
-        bottom: 5%;
-        right: -12%;
-      }
-      &.censorship-resistant {
-        right: 28%;
-        bottom: -2%;
-        @include media(md) {
+        &.censorship-resistant {
           bottom: -7%;
           right: 26%;
         }
-      }
-      &.programable {
-        bottom: 20%;
-        left: -18%;
-        @include media(md) {
+        &.programable {
           bottom: 20%;
           left: -14%;
         }
-      }
-      &.decentralized {
-        top: 30%;
-        left: -10%;
       }
       .icon {
         width: 2em;

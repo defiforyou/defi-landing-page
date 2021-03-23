@@ -5,6 +5,7 @@ client-only
       swiper.tickers(
         v-if="!loading"
         ref="swiper"
+        auto-update
         :options="options")
         swiper-slide(v-for="i, k in pairs" :key="k")
           .ticker
@@ -18,8 +19,14 @@ client-only
 </template>
 
 <script>
-import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
+import Vue from 'vue'
+import { Swiper as SwiperClass, Pagination, Mousewheel, Autoplay } from 'swiper/swiper.esm'
+import getAwesomeSwiper from 'vue-awesome-swiper/dist/exporter'
 import 'swiper/swiper.min.css'
+
+SwiperClass.use([Pagination, Mousewheel, Autoplay])
+Vue.use(getAwesomeSwiper(SwiperClass))
+const { Swiper, SwiperSlide } = getAwesomeSwiper(SwiperClass)
 
 export default {
   components: {
@@ -29,11 +36,12 @@ export default {
 
   data () {
     return {
-      loading: false,
+      loading: true,
       pairs: [],
       options: {
         slidesPerView: 'auto',
         spaceBetween: 20,
+        loop: true,
         autoplay: {
           delay: 2500,
           disableOnInteraction: false
