@@ -9,18 +9,18 @@ section.services
           p This is true decentralised finance.
       .features.half
         .feature
-          img.icon(src="/img/service.pawnbrocker-service.svg" alt="Pawnbrocker Service")
+          img.icon(src="/img/service.pawnbrocker-service.svg" alt="Pawnbrocker Service" width="64" height="64")
           div
             .name Pawnbrocker Service
             p High-value goods will be pawned on the DeFi For You platform, using intermediaries to assess the value and legitimacy of collateral.
             p Local P2P virtual pawnshops can also be established where lenders assess the value of smaller goods themselves.
         .feature
-          img.icon(src="/img/service.buy-and-sell.svg" alt="Buy & Sell")
+          img.icon(src="/img/service.buy-and-sell.svg" alt="Buy & Sell" width="64" height="64")
           div
             .name Buy &amp; Sell
             p Users can buy and sell goods on the DeFi For You marketplace using fiat cash or cryptocurrency payments.
         .feature
-          img.icon(src="/img/service.save.svg" alt="Save")
+          img.icon(src="/img/service.save.svg" alt="Save" width="64" height="64")
           div
             .name Save
             p Save up to 50% on sales taxes on luxury goods when buying on the DeFi For You Marketplace with the DFY token.

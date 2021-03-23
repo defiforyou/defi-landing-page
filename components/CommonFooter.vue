@@ -242,7 +242,7 @@ export default {
     }
   }
   .copyright {
-    color: lighten(#4B5563, 15);
+    color: lighten(#4B5563, 25);
     font-size: 14px;
     background: #13171f;
     padding: 1rem 0 1.5rem 0;
@@ -259,7 +259,7 @@ export default {
     }
     .links {
       a {
-        color: lighten(#4B5563, 15);
+        color: lighten(#4B5563, 25);
         &:hover {
           color: $--color-text-body;
         }

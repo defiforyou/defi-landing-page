@@ -14,9 +14,9 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'DeFi For You.™ — A new decentralized P2P loan economy and NFT trading platform built on the Binance Smart Chain, powered by the $DFY smart contract token.' },
+      { hid: 'description', name: 'description', content: 'A new decentralized P2P loan economy and NFT trading platform built on the Binance Smart Chain, powered by the $DFY smart contract token.' },
       { property: 'og:title', content: 'DeFi For You. | DeFi For You Vietnam' },
-      { property: 'og:description', content: 'DeFi For You.™ — A new decentralized P2P loan economy and NFT trading platform built on the Binance Smart Chain, powered by the $DFY smart contract token.' },
+      { property: 'og:description', content: 'A new decentralized P2P loan economy and NFT trading platform built on the Binance Smart Chain, powered by the $DFY smart contract token.' },
       { property: 'og:image', content: `${OG_ROOT}/img/og.png` },
       { property: 'og:image:type', content: 'image/png' },
       { property: 'og:type', content: 'article' },
@@ -25,7 +25,7 @@ export default {
       { property: 'twitter:title', content: 'DeFi For You. | DeFi For You Vietnam' },
       { property: 'twitter:image', content: `${OG_ROOT}/img/og.png` },
       { property: 'twitter:image:alt', content: 'DeFi For You.™' },
-      { property: 'twitter:description', content: 'DeFi For You.™ — A new decentralized P2P loan economy and NFT trading platform built on the Binance Smart Chain, powered by the $DFY smart contract token.' }
+      { property: 'twitter:description', content: 'A new decentralized P2P loan economy and NFT trading platform built on the Binance Smart Chain, powered by the $DFY smart contract token.' }
     ],
     link: [
       { rel: 'icon', type: 'image/png', href: '/favicon.png' },

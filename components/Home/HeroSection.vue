@@ -105,22 +105,40 @@ export default {
   }
 }
 section.hero {
-  position: relative;
+  overflow: hidden;
+  .container {
+    position: relative;
+  }
   .canvas {
     z-index: 1;
     position: absolute;
-    top: 0;
     right: 0;
     bottom: 0;
-    width: 60%;
     @include media(xs-only) {
       display: none;
     }
+    @include media(sm) {
+      right: -120px;
+      bottom: -220px;
+      width: (840px * .8);
+      height: (660px * .8);
+    }
+    @include media(md) {
+      right: -120px;
+      bottom: -220px;
+      width: (840px * .9);
+      height: (660px * .9);
+    }
+    @include media(lg) {
+      width: 840px;
+      height: 660px;
+      bottom: 0;
+    }
     .phone {
       position: absolute;
-      top: 30%;
-      left: 50%;
-      margin-left: -50%;
+      width: 100%;
+      bottom: -60px;
+      animation: floating 16s infinite ease-in-out;
     }
     > .token {
       position: absolute;
@@ -128,25 +146,29 @@ section.hero {
         width: 18%;
         max-width: 160px;
         left: 18%;
-        top: 18%;
+        top: 10%;
+        animation: floating 8s infinite ease-in-out reverse;
       }
       &.dfy {
-        width: 20%;
+        width: 18%;
         max-width: 160px;
-        left: 40%;
-        top: 10%;
+        left: 34%;
+        top: 2%;
+        animation: floating 9s infinite ease-in-out;
       }
       &.btc {
         width: 20%;
         max-width: 160px;
         right: 16%;
-        top: 23%;
+        top: 10%;
+        animation: floating 7s infinite ease-in-out reverse;
       }
       &.nfts {
         width: 20%;
         max-width: 160px;
         right: 35%;
-        top: 35%;
+        top: 17%;
+        animation: floating 10s infinite ease-in-out;
       }
     }
   }
@@ -155,6 +177,13 @@ section.hero {
     z-index: 2;
     padding: 2em 0;
     @include media(sm) {
+      padding: 5rem 0 14rem 0;
+      width: 660px;
+    }
+    @include media(md) {
+      padding: 5rem 0 14rem 0;
+    }
+    @include media(lg) {
       padding: 9.5rem 0;
       width: 660px;
     }

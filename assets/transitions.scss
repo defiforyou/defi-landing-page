@@ -13,6 +13,12 @@
   to { transform: rotate(360deg); }
 }
 
+@keyframes floating {
+  0% { transform: translateY(-20px); }
+  50% { transform: translateY(20px); }
+  100% { transform: translateY(-20px); }
+}
+
 .expose-backdrop-enter-active {
   animation: expose-backdrop .5s;
 }

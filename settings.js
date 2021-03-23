@@ -54,7 +54,7 @@ export const TEAM_MEMBERS = [{
   other: {
     image: '/img/logo.vietkey.png',
     name: 'Vietkey',
-    link: null
+    link: 'https://vi.wikipedia.org/wiki/Vietkey'
   },
   email: '',
   facebook: 'https://www.facebook.com/tuanvietkey',

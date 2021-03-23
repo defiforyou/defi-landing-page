@@ -15,22 +15,22 @@ section.solution
           br
           | powered by the DFY smart contract BEP20 token.
       .stamp.decentralized
-        img.icon(src="/img/solution.decentralized.svg" alt="Decentralized")
+        img.icon(src="/img/solution.decentralized.svg" alt="Decentralized" width="36" height="36")
         .caption Decentralized
       .stamp.permissionless
-        img.icon(src="/img/solution.permissionless.svg" alt="Permissionless")
+        img.icon(src="/img/solution.permissionless.svg" alt="Permissionless" width="36" height="36")
         .caption Permissionless
       .stamp.censorship-resistant
-        img.icon(src="/img/solution.censorship-resistant.svg" alt="Censorship Resistant")
+        img.icon(src="/img/solution.censorship-resistant.svg" alt="Censorship Resistant" width="36" height="36")
         .caption Censorship Resistant
       .stamp.transparent
-        img.icon(src="/img/solution.transparent.svg" alt="Transparent")
+        img.icon(src="/img/solution.transparent.svg" alt="Transparent" width="36" height="36")
         .caption Transparent
       .stamp.programable
-        img.icon(src="/img/solution.programable.svg" alt="Programable")
+        img.icon(src="/img/solution.programable.svg" alt="Programable" width="36" height="36")
         .caption Programable
       .stamp.trustless
-        img.icon(src="/img/solution.trustless.svg" alt="Trustless")
+        img.icon(src="/img/solution.trustless.svg" alt="Trustless" width="36" height="36")
         .caption Trustless
 </template>
 
