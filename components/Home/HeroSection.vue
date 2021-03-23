@@ -100,6 +100,7 @@ section.hero {
     .actions {
       margin: 2.5rem 0 0 0;
       > * {
+        margin-bottom: .5em;
         &:not(:last-child) {
           margin-right: 1.5em;
         }

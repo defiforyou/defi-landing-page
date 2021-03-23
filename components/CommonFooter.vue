@@ -7,7 +7,7 @@ section.footer
         .company
           .branding
             nuxt-link(:to="{name: 'index'}")
-              img.logo(src="/img/logo.png" width="228px")
+              img.logo(src="/img/logo.png")
           .metas
             .language
               globe-icon.icon(size="24" stroke-width="1")
@@ -164,6 +164,14 @@ export default {
     }
     .company {
       grid-area: company;
+      .branding {
+        .logo {
+          width: 10rem;
+          @include media(md) {
+            width: 14rem;
+          }
+        }
+      }
       .metas {
         margin-top: 1.8em;
         > * {
