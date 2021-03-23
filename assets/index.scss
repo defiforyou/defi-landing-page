@@ -26,6 +26,10 @@ img {
   max-width: 100%;
 }
 
+p {
+  line-height: 1.6em;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: $--font-family-heading;
   color: $--color-text-heading;
@@ -55,6 +59,23 @@ a {
   }
   @include media(lg) {
     max-width: 1180px;
+  }
+}
+
+.page {
+  &__gap {
+    height: 2rem;
+  }
+  &--article {
+    padding: 2rem 0 0 0;
+    max-width: 860px;
+    margin: auto;
+    article {
+      margin-top: 2em;
+      @include media(sm-down) {
+        font-size: 14px;
+      }
+    }
   }
 }
 

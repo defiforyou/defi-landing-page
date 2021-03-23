@@ -28,7 +28,8 @@ export const URLS = {
   app: '#',
   android: '#',
   ios: '#',
-  buy: '#'
+  buy: '#',
+  video: 'https://www.youtube.com/embed/rfazs3OpxlI?autoplay=1'
 }
 
 export const TEAM_MEMBERS = [{
