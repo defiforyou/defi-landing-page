@@ -2,14 +2,18 @@
 section.solution
   .container
     .diagram
-      h2.title Decentralized
-        br
-        | Finance
-      p.description A new decentralized P2P loan economy built on
-        br
-        | the Binance Smart Chain,
-        br
-        | powered by the DFY smart contract BEP20 token.
+      .cogs
+        cog-image.sm
+        cog-image.lg
+      .text
+        h2.title Decentralized
+          br
+          | Finance
+        p.description A new decentralized P2P loan economy built on
+          br
+          | the Binance Smart Chain,
+          br
+          | powered by the DFY smart contract BEP20 token.
       .stamp.decentralized
         img.icon(src="/img/solution.decentralized.svg" alt="Decentralized")
         .caption Decentralized
@@ -30,15 +34,28 @@ section.solution
         .caption Trustless
 </template>
 
+<script>
+import CogImage from '~/static/img/cog.svg?inline'
+
+export default {
+  components: {
+    CogImage
+  }
+}
+</script>
+
 <style lang="scss" scoped>
 section.solution {
+  overflow: hidden;
   text-align: center;
   margin: $--gap-home-section 0 0 0;
   @include media(sm) {
-    margin: 0 0 3rem 0;
+    padding-bottom: 2rem;
+    margin: 0 0 2rem 0;
   }
   @include media(md) {
-    margin: 0 0 6rem 0;
+    padding-bottom: 3rem;
+    margin: 0 0 3rem 0;
   }
   .diagram {
     position: relative;
@@ -57,7 +74,47 @@ section.solution {
       width: 720px;
       height: 560px;
     }
+    .cogs {
+      z-index: 1;
+      > * {
+        position: absolute;
+      }
+      .sm {
+        animation: spin 8s infinite linear reverse;
+        width: 96px;
+        top: 10%;
+        left: 30%;
+        @include media(sm-down) {
+          width: 128px;
+          top: 18%;
+          left: 2%;
+        }
+        * {
+          stroke-width: 2px;
+        }
+      }
+      .lg {
+        animation: spin 8s infinite linear;
+        width: 240px;
+        top: 40%;
+        left: 40%;
+        @include media(sm-down) {
+          width: 320px;
+          top: 50%;
+          left: 45%;
+        }
+        * {
+          stroke-width: 1px;
+        }
+      }
+    }
+    .text {
+      position: relative;
+      z-index: 2;
+      margin-bottom: 2em;
+    }
     .stamp {
+      z-index: 3;
       box-sizing: border-box;
       display: inline-flex;
       align-items: center;
@@ -66,13 +123,14 @@ section.solution {
       font-size: 16px;
       padding: 0 1.5em;
       height: 64px;
-      width: 220px;
       margin: .25em;
+      backdrop-filter: blur(4px);
+      width: 280px;
       @include media(sm) {
+        width: auto;
         height: auto;
         padding: 1em 1.5em;
         position: absolute;
-        width: auto;
       }
       @include media(md) {
         font-size: 18px;

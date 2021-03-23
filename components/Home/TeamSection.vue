@@ -15,7 +15,7 @@ section.team
         .links
           .external
             a(v-if="i.other" :href="i.other.link" target="_blank" rel="noopener" :title="i.other.name")
-              img.logo(v-image="i.other.image")
+              img.logo(v-image="i.other.image" :alt="i.other.name")
           a.email(v-if="i.email" :href="`mailto:${i.email}`" target="_blank" rel="noopener" title="Email")
             mail-icon(size="24" stroke-width="1")
           a.facebook(v-if="i.facebook" :href="i.facebook" target="_blank" rel="noopener" title="Facebook")
@@ -65,7 +65,7 @@ section.team {
       height: 100%;
       font-size: 14px;
       text-align: center;
-      background: #191C25;
+      background: lighten(#191C25, 1);
       .preview {
         padding: 1.5rem;
         flex: 1;

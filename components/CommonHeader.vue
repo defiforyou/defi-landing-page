@@ -4,7 +4,7 @@ section.header
     .dfy-flex.layout
       .branding
         nuxt-link(:to="{name: 'index'}")
-          img.logo(src="/img/logo.png" alt="DeFi For You")
+          img.logo(src="/img/logo.svg" alt="DeFi For You")
       .menu
         a(
           v-for="i, k in menus"

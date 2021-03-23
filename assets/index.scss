@@ -12,6 +12,7 @@ html {
 
 html,
 body {
+  font-display: optional;
   margin: 0;
   padding: 0;
   font-family: $--font-family-body;
@@ -119,9 +120,9 @@ a {
   }
   &--primary {
     background: $--color-primary;
-    color: white;
+    color: black;
     &:hover {
-      color: white;
+      color: black;
     }
   }
   &--ghost {

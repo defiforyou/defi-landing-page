@@ -23,7 +23,8 @@ section.defi-for-you
 
 <style lang="scss" scoped>
 section.defi-for-you {
-  padding: 8em 0;
+  padding: 4em 0;
+  overflow: hidden;
   @include media(sm-down) {
     padding: 2em 0;
     margin-top: $--gap-home-section;
@@ -38,9 +39,11 @@ section.defi-for-you {
     flex: 1;
     position: relative;
     @include media(sm-down) {
-      flex: 0 640px;
+      margin-left: -20%;
+      margin-right: -20%;
+      flex: 0 360px;
       overflow: hidden;
-      margin-bottom: -360px;
+      margin-bottom: -160px;
       opacity: .25;
       &:after {
         content: '';
@@ -61,7 +64,10 @@ section.defi-for-you {
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
-      max-width: 420px;
+      max-width: 640px;
+      @include media(md) {
+        max-width: 420px;
+      }
       @include media(lg) {
         max-width: 500px;
       }

@@ -7,7 +7,7 @@ section.footer
         .company
           .branding
             nuxt-link(:to="{name: 'index'}")
-              img.logo(src="/img/logo.png" alt="DeFi For You")
+              img.logo(src="/img/logo.svg" alt="DeFi For You")
           .metas
             .language
               globe-icon.icon(size="24" stroke-width="1")
@@ -242,7 +242,7 @@ export default {
     }
   }
   .copyright {
-    color: #4B5563;
+    color: lighten(#4B5563, 15);
     font-size: 14px;
     background: #13171f;
     padding: 1rem 0 1.5rem 0;
@@ -259,7 +259,7 @@ export default {
     }
     .links {
       a {
-        color: #4B5563;
+        color: lighten(#4B5563, 15);
         &:hover {
           color: $--color-text-body;
         }
