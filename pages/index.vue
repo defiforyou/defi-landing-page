@@ -1,6 +1,6 @@
 <template lang="pug">
 .page.home
-  home-hero-section#hero
+  home-hero-section#hero.sticky
   home-price-tickers-section#price-tickers
   home-defi-for-you-section#defi-for-you
   home-solution-section#solution

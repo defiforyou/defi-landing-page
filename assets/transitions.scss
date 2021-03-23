@@ -1,0 +1,33 @@
+@keyframes expose-backdrop {
+  0% {
+    backdrop-filter: blur(0);
+  }
+  100% {
+    backdrop-filter: blur(20);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.expose-backdrop-enter-active {
+  animation: expose-backdrop .5s;
+}
+
+.expose-backdrop-leave-active {
+  animation: expose-backdrop .5s reverse;
+}
+
+.fade-in-enter-active {
+  animation: fade .25s;
+}
+
+.fade-in-leave-active {
+  animation: fade-in .25s reverse;
+}

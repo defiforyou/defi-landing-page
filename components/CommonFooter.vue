@@ -66,11 +66,20 @@ section.footer
           .title Quick Navigation
           ul.links
             li
-              a(:href="urls.whitepaper") Whitepaper ->
+              a(
+                v-if="urls.whitepaper"
+                :href="urls.whitepaper"
+                target="_blank") Whitepaper ->
             li
-              a(:href="urls.app") Get the mobile app ->
+              a(
+                v-if="urls.app"
+                :href="urls.app"
+                target="_blank") Get the mobile app ->
             li
-              a(:href="urls.buy") Buy DFY on Exchanges ->
+              a(
+                v-if="urls.buy"
+                :href="urls.buy"
+                target="_blank") Buy DFY on Exchanges ->
 
   .copyright
     .container

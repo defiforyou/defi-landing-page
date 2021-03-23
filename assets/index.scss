@@ -1,3 +1,6 @@
+@import "fonts";
+@import "transitions";
+
 ::selection {
   color: black;
   background: $--color-primary;
@@ -68,6 +71,15 @@ a {
   white-space: nowrap;
   user-select: none;
   pointer-events: none;
+}
+
+.dfy-clearfix {
+  &:before,
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
 }
 
 .dfy-flex {
