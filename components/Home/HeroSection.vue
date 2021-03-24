@@ -2,7 +2,9 @@
 section.hero
   .container
     .greeting
-      h1.headline Ever thought of
+      h1.headline Ever&nbsp;
+        br.xso
+        | thought of
         br
         | becoming
         br
@@ -191,8 +193,14 @@ section.hero {
     .headline {
       margin: 0;
       font-size: 2.5rem;
+      br.xso {
+        display: none;
+        @include media(xs-only) {
+          display: block;
+        }
+      }
       @include media(sm) {
-        font-size: 3.5rem;
+        font-size: 3.35rem;
       }
     }
     .preview {

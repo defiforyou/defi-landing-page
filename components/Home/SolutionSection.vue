@@ -14,24 +14,25 @@ section.solution
           | the Binance Smart Chain,
           br
           | powered by the DFY smart contract BEP20 token.
-      .stamp.decentralized
-        img.icon(src="/img/solution.decentralized.svg" alt="Decentralized" width="36" height="36")
-        .caption Decentralized
-      .stamp.permissionless
-        img.icon(src="/img/solution.permissionless.svg" alt="Permissionless" width="36" height="36")
-        .caption Permissionless
-      .stamp.censorship-resistant
-        img.icon(src="/img/solution.censorship-resistant.svg" alt="Censorship Resistant" width="36" height="36")
-        .caption Censorship Resistant
-      .stamp.transparent
-        img.icon(src="/img/solution.transparent.svg" alt="Transparent" width="36" height="36")
-        .caption Transparent
-      .stamp.programable
-        img.icon(src="/img/solution.programable.svg" alt="Programable" width="36" height="36")
-        .caption Programable
-      .stamp.trustless
-        img.icon(src="/img/solution.trustless.svg" alt="Trustless" width="36" height="36")
-        .caption Trustless
+      .stamps
+        .stamp.decentralized
+          img.icon(src="/img/solution.decentralized.svg" alt="Decentralized" width="36" height="36")
+          .caption Decentralized
+        .stamp.permissionless
+          img.icon(src="/img/solution.permissionless.svg" alt="Permissionless" width="36" height="36")
+          .caption Permissionless
+        .stamp.censorship-resistant
+          img.icon(src="/img/solution.censorship-resistant.svg" alt="Censorship Resistant" width="36" height="36")
+          .caption Censorship Resistant
+        .stamp.transparent
+          img.icon(src="/img/solution.transparent.svg" alt="Transparent" width="36" height="36")
+          .caption Transparent
+        .stamp.programable
+          img.icon(src="/img/solution.programable.svg" alt="Programable" width="36" height="36")
+          .caption Programable
+        .stamp.trustless
+          img.icon(src="/img/solution.trustless.svg" alt="Trustless" width="36" height="36")
+          .caption Trustless
 </template>
 
 <script>
@@ -113,6 +114,33 @@ section.solution {
       z-index: 2;
       margin-bottom: 2em;
     }
+    .stamps {
+      @include media(xs-only) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 1px;
+        > .stamp {
+          display: flex;
+          flex-direction: column;
+          border-radius: 0;
+          width: auto;
+          height: auto;
+          margin: 0;
+          padding: 1em;
+          text-align: center;
+          background: transparent;
+          img {
+            margin-right: 0;
+            width: 56px;
+            height: auto;
+          }
+          .caption {
+            font-size: 14px;
+            margin-top: .5em;
+          }
+        }
+      }
+    }
     .stamp {
       position: relative;
       z-index: 3;
@@ -120,13 +148,14 @@ section.solution {
       display: inline-flex;
       align-items: center;
       border-radius: 1000px;
-      // background: rgba(white, .08);
-      background: #2A2D36;
       font-size: 16px;
       padding: 0 1.5em;
       height: 64px;
       margin: .25em;
       width: 280px;
+      text-align: left;
+      // background: rgba(white, .08);
+      background: #2A2D36;
       // backdrop-filter: blur(6px);
       @include media(sm) {
         position: absolute;
@@ -173,9 +202,6 @@ section.solution {
       .icon {
         width: 2em;
         margin-right: .65em;
-      }
-      .caption {
-        text-align: left;
       }
     }
   }

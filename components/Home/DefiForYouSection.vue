@@ -26,8 +26,7 @@ section.defi-for-you {
   padding: 4em 0;
   overflow: hidden;
   @include media(sm-down) {
-    padding: 2em 0;
-    margin-top: $--gap-home-section;
+    padding: 0;
   }
   .layout {
     align-items: center;

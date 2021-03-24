@@ -7,7 +7,14 @@ section.network
     p.description DFY is a BEP20 token built on Binance Smart Chain.
       br
       | This ensures transactions are practically instant with extremely low fees.
-    img.map(src="/img/network.png" alt="Network")
+  .canvas
+    .map
+    .tokens
+      img.token.bnb(src="/img/token.bnb.png" alt="BNB")
+      img.token.dfy(src="/img/token.dfy.png" alt="DFY")
+      img.token.nfts(src="/img/token.nfts.png" alt="NFTs")
+      img.token.btc(src="/img/token.btc.png" alt="BTC")
+  .container
     .actions
       a.dfy-button.dfy-button--primary(href="#") Buy DFY on Exchanges
       a.dfy-button.dfy-button--ghost(href="#") Whitepaper
@@ -20,6 +27,71 @@ section.network {
   @include media(sm-down) {
     padding: 2em 0;
     margin-top: $--gap-home-section;
+  }
+  .canvas {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+    background: url(/img/network.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 640px;
+    height: 320px;
+    @include media(sm) {
+      background-size: 1000px;
+      height: 500px;
+    }
+    .token {
+      position: absolute;
+      width: 27%;
+      @include media(sm) {
+        width: 20%;
+      }
+      @include media(md) {
+        width: 18%;
+      }
+      &.bnb {
+        top: 30%;
+        left: 7%;
+        animation: floating 8s infinite ease-in-out reverse;
+        @include media(md) {
+          top: 32%;
+          left: 24%;
+        }
+      }
+      &.nfts {
+        top: 47%;
+        left: 40%;
+        width: 30%;
+        animation: floating 9s infinite ease-in-out;
+        @include media(sm) {
+          width: 20%;
+        }
+        @include media(md) {
+          top: 46%;
+          left: 44%;
+        }
+      }
+      &.btc {
+        top: 20%;
+        right: 14%;
+        animation: floating 7s infinite ease-in-out reverse;
+        @include media(md) {
+          top: 20%;
+          right: 25%;
+        }
+      }
+      &.dfy {
+        top: 8%;
+        left: 30%;
+        animation: floating 10s infinite ease-in-out;
+        @include media(md) {
+          top: 12%;
+          left: 40%;
+        }
+      }
+    }
   }
   .actions {
     @include media(sm-down) {
