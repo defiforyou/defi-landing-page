@@ -44,7 +44,7 @@ export default {
     { src: '~/plugins/apis' },
     { src: '~/plugins/directives' },
     { src: '~/plugins/filters' },
-    { src: '~/plugins/scrollmagic', ssr: false }
+    { src: '~/plugins/scrollmagic', mode: 'client' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

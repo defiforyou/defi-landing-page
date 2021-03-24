@@ -26,6 +26,8 @@ $xl: 1920px;
     @media only screen and (max-width: $md - 1) { @content; }
   } @else if $media == md {
     @media only screen and (min-width: $md) { @content; }
+  } @else if $media == md-down {
+    @media only screen and (max-width: $lg - 1) { @content; }
   } @else if $media == lg {
     @media only screen and (min-width: $lg) { @content; }
   } @else if $media == xs-only {

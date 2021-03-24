@@ -56,7 +56,7 @@ section.solution {
   }
   @include media(md) {
     padding-bottom: 3rem;
-    margin: 0 0 3rem 0;
+    margin: 3rem 0;
   }
   .diagram {
     position: relative;
@@ -64,6 +64,7 @@ section.solution {
     background-position: center;
     margin: auto;
     box-sizing: border-box;
+    z-index: 6;
     @include media(sm) {
       background-image: url(/img/solution.cloud.svg);
       padding: 14em 0 0 0;

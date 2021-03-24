@@ -15,7 +15,7 @@ export default {
   mounted () {
     this.$scrollmagic
       .scene({
-        triggerElement: '#trigger'
+        triggerElement: '#app'
       })
       .setTween(TweenMax.to('.icon', 2, {
         y: '-=50',

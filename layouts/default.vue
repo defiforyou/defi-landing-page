@@ -1,5 +1,5 @@
 <template lang="pug">
-.app
+#app.app
   common-header
   nuxt
   common-footer

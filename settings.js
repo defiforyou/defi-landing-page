@@ -110,8 +110,8 @@ export const TEAM_MEMBERS = [{
   bio: 'Hoang\'s experience in accounting and management are demonstrated daily in his role as Chief Financial Officer at DeFi For You.',
   other: null,
   email: '',
-  facebook: 'https://www.facebook.com/billygraywriter/',
-  linkedin: 'https://www.linkedin.com/in/billygraywriter/'
+  facebook: '',
+  linkedin: ''
 }, {
   position: 'Vice Director of Internal Audit, VietBank',
   image: '/img/team.hoang-dung.jpg',
@@ -119,6 +119,6 @@ export const TEAM_MEMBERS = [{
   bio: 'Hoang\'s role as an advisor helps us to self-audit the project, alongside having third-parties like CertiK audit us, to ensure we\'re on track.',
   other: null,
   email: '',
-  facebook: 'https://www.facebook.com/billygraywriter/',
-  linkedin: 'https://www.linkedin.com/in/billygraywriter/'
+  facebook: '',
+  linkedin: ''
 }]
