@@ -21,11 +21,11 @@ section.footer
           .phone
             a(v-if="i.vie" :href="`tel:${i.vie}`")
               span.number {{ i.vie }}
-              span.flag 🇻🇳
+              img.flag(src="/img/flag.vn.png" alt="Vietnamese" width="24" height="24")
           .phone
             a(v-if="i.eng" :href="`tel:${i.eng}`")
               span.number {{ i.eng }}
-              span.flag 🇬🇧
+              img.flag(src="/img/flag.gb.png" alt="English" width="24" height="24")
           .address(v-text="i.address")
 
         .social
@@ -205,6 +205,9 @@ export default {
         color: $--color-primary;
       }
       .phone {
+        * {
+          vertical-align: middle;
+        }
         .number {
           width: 128px;
           display: inline-block;
