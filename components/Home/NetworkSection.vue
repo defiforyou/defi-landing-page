@@ -4,9 +4,9 @@ section.network
   .container
     h2.title DFY
       em .
-    p.description DeFi For You.™ Token (DFY) is an utility based cryptocurrency
+    p.description DFY is a BEP20 token built on Binance Smart Chain.
       br
-      | designed to be gas and fuel of DeFi For You.™ Network
+      | This ensures transactions are practically instant with extremely low fees.
     img.map(src="/img/network.png" alt="Network")
     .actions
       a.dfy-button.dfy-button--primary(href="#") Buy DFY on Exchanges

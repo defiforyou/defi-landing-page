@@ -36,8 +36,8 @@ export const URLS = {
 export const TEAM_MEMBERS = [{
   position: 'CEO & Founder',
   image: '/img/team.adam-c-chaplin.jpg',
-  name: 'Adam C. Chaplin',
-  bio: 'Former Royal Marine Commando & Founder of Travala',
+  name: 'Adam Chaplin',
+  bio: 'Adam was a co-founder of Travala (AVA) and is a former Royal Marine Commando. His decades of business and military experience make him a capable and reliable leader.',
   other: {
     image: '/img/logo.travala.png',
     name: 'Travala',
@@ -50,7 +50,7 @@ export const TEAM_MEMBERS = [{
   position: 'CTO',
   image: '/img/team.tuan-dang-minh.jpg',
   name: 'Dr. Tuan Dang Minh',
-  bio: 'Author of Vietkey, math scholar & expert in cryptography',
+  bio: 'Dr. Tuan was the inventor of Vietkey and is a P.h.D in Math and Cryptography. He\'s one of the leading blockchain experts in South East Asia.',
   other: {
     image: '/img/logo.vietkey.png',
     name: 'Vietkey',
@@ -60,10 +60,10 @@ export const TEAM_MEMBERS = [{
   facebook: 'https://www.facebook.com/tuanvietkey',
   linkedin: 'https://www.linkedin.com/in/dang-minh-tuan-a3b32551/'
 }, {
-  position: 'CEO of GEM',
+  position: 'CEO of Blockchain Developer Asia',
   image: '/img/team.cong-nguyen.jpg',
   name: 'Cong Nguyen',
-  bio: 'CEO of GEM, our strategic blockchain technology partner',
+  bio: 'Cong is developing the DeFi For You. platform, as well as blockchain projects for the Vietnamese government, banks, and industry.',
   other: {
     image: '/img/logo.gem.png',
     name: 'GEM',
@@ -73,19 +73,19 @@ export const TEAM_MEMBERS = [{
   facebook: 'https://www.facebook.com/cong.nguyen.1614',
   linkedin: 'https://www.linkedin.com/in/cong-nguyen-b5b274102'
 }, {
-  position: 'Business Coach',
+  position: 'Strategic Partner',
   image: '/img/team.sean-mason.jpg',
-  name: 'Mr. Sean Mason',
-  bio: 'World class business coach',
+  name: 'Sean Mason',
+  bio: 'Sean is a world-class business coach and strategic partner of DeFi For You, based in the UK.',
   other: null,
   email: '',
   facebook: 'https://www.facebook.com/SeanMasonKiani',
   linkedin: null
 }, {
-  position: 'Team Leader',
+  position: 'Tech Team Leader',
   image: '/img/team.tung-duong-thanh.jpg',
   name: 'Tung Duong Thanh',
-  bio: 'Former tech team leader of Travala, now team leader for DeFi',
+  bio: 'Tung was the tech team leader of Travala and is now heading up the troops at DeFi For You. He\'s a passionate developer and leader.',
   other: {
     image: '/img/logo.travala.png',
     name: 'Travala',
@@ -95,10 +95,28 @@ export const TEAM_MEMBERS = [{
   facebook: 'https://www.facebook.com/Socoboy',
   linkedin: 'https://www.linkedin.com/in/d%C6%B0%C6%A1ng-thanh-t%C3%B9ng-845aa764/'
 }, {
-  position: 'Chief Marketing Officer',
-  image: '/img/team.billy-gray.jpg',
-  name: 'Billy Gray',
-  bio: 'British online media and copywriter expert',
+  position: 'CMO',
+  image: '/img/team.william-gray.jpg',
+  name: 'William Gray',
+  bio: 'William is a digital marketing specialist and copywriter with a background working with eCommerce app developers, blockchain projects, and a national newspaper.',
+  other: null,
+  email: '',
+  facebook: 'https://www.facebook.com/billygraywriter/',
+  linkedin: 'https://www.linkedin.com/in/billygraywriter/'
+}, {
+  position: 'CFO',
+  image: '/img/team.hoang-dinh-ngoc.jpg',
+  name: 'Hoang Dinh Ngoc',
+  bio: 'Hoang\'s experience in accounting and management are demonstrated daily in his role as Chief Financial Officer at DeFi For You.',
+  other: null,
+  email: '',
+  facebook: 'https://www.facebook.com/billygraywriter/',
+  linkedin: 'https://www.linkedin.com/in/billygraywriter/'
+}, {
+  position: 'Vice Director of Internal Audit, VietBank',
+  image: '/img/team.hoang-dung.jpg',
+  name: 'Hoang Dung',
+  bio: 'Hoang\'s role as an advisor helps us to self-audit the project, alongside having third-parties like CertiK audit us, to ensure we\'re on track.',
   other: null,
   email: '',
   facebook: 'https://www.facebook.com/billygraywriter/',
