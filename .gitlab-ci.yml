@@ -63,7 +63,7 @@ docker build dev:
   image: codegym/gitlab-runner:docker
   dependencies: [job_package]
   only:
-    refs: [develop, feature/test-deploy-dev, feature/test-deploy-qc, feature/test-deploy-uat, ]
+    refs: [develop, feature/test-deploy-dev, feature/test-deploy-qc, feature/test-deploy-uat, feature/cicd]
   script:
     - ./build.sh $AWS_ACCESS_KEY_ID_DEV $AWS_SECRET_ACCESS_KEY_DEV $ECR_REPO_URI staging
 
