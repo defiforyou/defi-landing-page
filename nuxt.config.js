@@ -1,4 +1,4 @@
-import { OG_ROOT } from './settings'
+import { OG_ROOT, RECAPTCHA_SITE_KEY } from './settings'
 
 export default {
   // Target: https://go.nuxtjs.dev/config-target
@@ -30,7 +30,7 @@ export default {
     link: [
       { rel: 'icon', type: 'image/png', href: '/favicon.png' },
       { rel: 'preconnect', href: 'https://fonts.gstatic.com' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap' }
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/cssw2?family=Inter:wght@400;700&display=swap' }
     ]
   },
 
@@ -61,7 +61,8 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    '@nuxtjs/recaptcha'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -75,5 +76,13 @@ export default {
     scss: [
       '~/assets/settings.scss'
     ]
+  },
+
+  publicRuntimeConfig: {
+    recaptcha: {
+      siteKey: RECAPTCHA_SITE_KEY,
+      hideBadge: true,
+      version: 3
+    }
   }
 }

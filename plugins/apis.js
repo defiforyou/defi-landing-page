@@ -37,6 +37,11 @@ export default ({ $axios }, inject) => {
             Accept: 'application/json'
           }
         })
+    },
+
+    contactUs (data) {
+      return $axios
+        .$post('https://gw.defi.com.vn/defi-user-service/public-api/v1.0.0/contact-us', data)
     }
   })
 }

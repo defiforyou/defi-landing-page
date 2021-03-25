@@ -1,6 +1,8 @@
 export const OG_ROOT = 'https://defi-c5be4.web.app'
 export const COPYRIGHT = '© 2021 DeFi For You. All rights reserved.'
 
+export const RECAPTCHA_SITE_KEY = '6LdOtzgaAAAAAAs5iSvp_xM_p9dP9DMEMmSjS1NG'
+
 export const CONTACT = {
   email: 'ask@defi.com.vn',
   form: 'https://formspree.io/f/xeqvjeva'

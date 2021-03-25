@@ -3,50 +3,146 @@ section.contact
   .map
   .container
     .overlay
-      h2.title Get in touch
-      p.description Have an inquiry or some feedback for us?
-        br
-        | Fill out the form to contact our team.
-      form.form(ref="form")
-        .grid
-          .first-name
-            label First name
-              input(
-                type="text"
-                v-model="form.first_name"
-                placeholder="Your first name")
-          .last-name
-            label Last name
-              input(
-                type="text"
-                v-model="form.last_name"
-                placeholder="Your last name")
-          .email
-            label Email
-              input(
-                type="email"
-                v-model="form._replyto"
-                placeholder="your@email.com")
-          .phone
-            label Phone
-              input(
-                type="phone"
-                v-model="form.phone"
-                placeholder="Phone number")
-          .message
-            label Message
-              textarea(
-                v-model="form.message"
-                placeholder="How could we help you with?")
+      transition(name="fade-in" mode="out-in")
+        div(v-if="completed" key="completed")
+          h2.title Thank you
+          p.description Thank you for contacting us.
+            br
+            | We will contact you personally as soon as possible.
+          button.submit.dfy-button.dfy-button--ghost(
+            @click.prevent="reset") Send another message ->
 
-        button.submit.dfy-button.dfy-button--primary(type="submit") Send your message ->
+        div(v-else key="incompleted")
+          h2.title Get in touch
+          p.description Have an inquiry or some feedback for us?
+            br
+            | Fill out the form to contact our team.
+          form.form(
+            :class="{loading}"
+            ref="form"
+            @submit.prevent="submit")
+            .grid
+              .first-name
+                label
+                  span First name
+                  input(
+                    type="text"
+                    v-model="form.firstName"
+                    placeholder="Your first name")
+              .last-name
+                label
+                  span Last name
+                  input(
+                    type="text"
+                    v-model="form.lastName"
+                    placeholder="Your last name")
+              .email.required
+                label
+                  span Email
+                  input(
+                    type="email"
+                    v-model="form.email"
+                    placeholder="your@email.com"
+                    required)
+              .phone.required
+                label
+                  span Phone
+                  input(
+                    type="phone"
+                    v-model="form.phone"
+                    placeholder="Phone number"
+                    required)
+              .message.required
+                label
+                  span Message
+                  textarea(
+                    v-model="form.message"
+                    placeholder="How could we help you with?"
+                    required)
+
+            .error
+              transition(name="fade-in")
+                span(v-if="error" v-text="error")
+
+            button.submit.dfy-button.dfy-button--primary(
+              type="submit"
+              @click.prevent="submit") Send your message ->
 </template>
 
 <script>
 export default {
   data () {
     return {
-      form: {}
+      form: {
+        email: '',
+        phone: '',
+        message: ''
+      },
+      loading: false,
+      completed: false,
+      error: null
+    }
+  },
+
+  watch: {
+    form: {
+      deep: true,
+      handler () {
+        this.completed = false
+        this.error = null
+      }
+    }
+  },
+
+  async mounted () {
+    try {
+      await this.$recaptcha.init()
+    } catch (e) {}
+  },
+
+  methods: {
+    reset () {
+      this.form = {
+        email: '',
+        phone: '',
+        message: ''
+      }
+    },
+
+    validate () {
+      if (!/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(this.form.email.trim().toLowerCase()))
+        return Promise.reject(new Error('Please provide a valid email address.'))
+      if (!this.form.phone.trim().length)
+        return Promise.reject(new Error('Please provide a valid phone number.'))
+      if (!this.form.message.trim().length)
+        return Promise.reject(new Error('Please enter your message.'))
+      return Promise.resolve()
+    },
+
+    submit () {
+      this.validate()
+        .then(() => {
+          this.error = null
+          this.loading = true
+          return this.$recaptcha.execute('contact')
+            .then(token => {
+              console.log(token)
+              return this.$apis.contactUs(this.form)
+                .then(() => {
+                  this.completed = true
+                })
+            })
+            .catch(() => {
+              this.completed = false
+              this.error = 'Something went wrong. Please try again later.'
+            })
+            .finally(() => {
+              this.loading = false
+            })
+        })
+        .catch(e => {
+          this.error = e.message
+        })
     }
   }
 }
@@ -106,6 +202,12 @@ section.contact {
   }
   .form {
     margin-top: 3.75em;
+    transition: opacity .5s ease-in-out;
+    &.loading {
+      pointer-events: none;
+      user-select: none;
+      opacity: .5;
+    }
     label {
       font-size: 12px;
       color: white;
@@ -132,6 +234,22 @@ section.contact {
         border-bottom-color: $--color-primary;
       }
     }
+    .required {
+      > label > span {
+        &:after {
+          content: '*';
+          margin-left: .5em;
+          color: $--color-danger;
+          font-weight: bold;
+        }
+      }
+    }
+    .error {
+      min-height: 24px;
+      font-size: 14px;
+      margin-top: 1em;
+      color: $--color-danger;
+    }
   }
   .grid {
     display: grid;
@@ -143,7 +261,7 @@ section.contact {
     }
   }
   .submit {
-    margin-top: 2em;
+    margin-top: 1em;
   }
 }
 </style>

@@ -154,6 +154,7 @@ a {
     }
   }
   &--ghost {
+    background: transparent;
     border: 1px solid #374151;
     color: $--color-text-body;
     &:hover {

@@ -3,8 +3,9 @@ $--font-family-heading: 'dwm', sans-serif;
 $--font-family-body: $--font-family-sans-serif;
 
 $--color-primary: #F8B017;
+$--color-danger: #F05252;
 $--color-up: #31C48D;
-$--color-down: #F05252;
+$--color-down: $--color-danger;
 
 $--color-background-page: #171A23;
 $--color-text-body: #9FA6B2;
