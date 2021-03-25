@@ -12,10 +12,14 @@ section.defi-for-you
             img(src="/img/wallet.trustwallet.jpg" alt="Trustwallet")
 
         .flying-chips
-          img.chip-bnb(src="/img/token.bnb.png")
-          img.chip-btc(src="/img/token.btc.png")
-          img.chip-dfy(src="/img/token.dfy.png")
-          img.chip-nfts(src="/img/token.nfts.png")
+          .chip-bnb
+            img(src="/img/token.bnb.png")
+          .chip-btc
+            img(src="/img/token.btc.png")
+          .chip-dfy
+            img(src="/img/token.dfy.png")
+          .chip-nfts
+            img(src="/img/token.nfts.png")
 
       .text
         h2.title We've built a decentralized P2P loan economy on the blockchain.

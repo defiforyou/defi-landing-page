@@ -10,10 +10,10 @@ section.network
   .canvas
     .map
     .tokens
-      img.token.bnb(src="/img/token.bnb.png" alt="BNB")
-      img.token.dfy(src="/img/token.dfy.png" alt="DFY")
-      img.token.nfts(src="/img/token.nfts.png" alt="NFTs")
-      img.token.btc(src="/img/token.btc.png" alt="BTC")
+      img.bnb(src="/img/token.bnb.png" alt="BNB")
+      img.dfy(src="/img/token.dfy.png" alt="DFY")
+      img.nfts(src="/img/token.nfts.png" alt="NFTs")
+      img.btc(src="/img/token.btc.png" alt="BTC")
   .container
     .actions
       a.dfy-button.dfy-button--primary(href="#") Buy DFY on Exchanges
@@ -32,16 +32,19 @@ section.network {
   .canvas {
     max-width: 1000px;
     margin: 0 auto;
-    position: relative;
     width: 100%;
     background: url(/img/network.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 640px;
     height: 320px;
+    position: relative;
     @include media(sm) {
       background-size: 1000px;
       height: 500px;
+    }
+    @include media(md) {
+      position: inherit;
     }
     .tokens {
       @include media(lg) {
