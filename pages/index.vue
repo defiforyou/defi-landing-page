@@ -1,6 +1,16 @@
 <template lang="pug">
 .page.home
   .bulb
+  .flying-chips
+    .container
+      .chip-bnb
+        img(src="/img/token.bnb.png")
+      .chip-btc
+        img(src="/img/token.btc.png")
+      .chip-dfy
+        img(src="/img/token.dfy.png")
+      .chip-nfts
+        img(src="/img/token.nfts.png")
   .sections
     home-hero-section#hero.sticky
     home-price-tickers-section#price-tickers
@@ -14,13 +24,92 @@
 
 <script>
 export default {
+  mounted () {
+    this.setup()
+  },
+
+  methods: {
+    setup () {
+      this.pin(960, 400, '.chip-bnb', { x: 320 })
+      this.pin(1360, 300, '.chip-bnb', { x: 350 })
+      this.pin(1660, 1400, '.chip-bnb', { x: 380 })
+      this.pin(3060, 320, '.chip-bnb', { x: 200 })
+      this.pin(3380, 260, '.chip-bnb', { x: 320, width: 180 })
+
+      this.pin(1000, 400, '.chip-btc', { x: 80 })
+      this.pin(1400, 300, '.chip-btc', { x: 100 })
+      this.pin(1700, 1300, '.chip-btc', { x: 100 })
+      this.pin(3000, 320, '.chip-btc', { x: 400 })
+      this.pin(3320, 160, '.chip-btc', { x: 300, width: 180 })
+
+      this.pin(980, 400, '.chip-nfts', { x: 250 })
+      this.pin(1380, 300, '.chip-nfts', { x: 270 })
+      this.pin(1680, 1400, '.chip-nfts', { x: 240 })
+      this.pin(3080, 320, '.chip-nfts', { x: 160 })
+      this.pin(3400, 180, '.chip-nfts', { x: 480, width: 190 })
+
+      this.pin(900, 400, '.chip-dfy', { x: 100 })
+      this.pin(1300, 300, '.chip-dfy', { x: 120 })
+      this.pin(1600, 1600, '.chip-dfy', { x: 130 })
+      this.pin(3200, 320, '.chip-dfy', { x: 500 })
+      this.pin(3520, 100, '.chip-dfy', { x: 200 })
+    },
+
+    pin (offset, duration, chip, tween) {
+      return this.$scrollmagic
+        .scene({
+          triggerElement: '#app',
+          triggerHook: '0',
+          offset,
+          duration
+        })
+        .setPin(chip, { pushFollowers: false })
+        .setTween(chip, 1, tween)
+        .addTo(this.$scrollmagic.controller_)
+    }
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 .page.home {
-  *[class^='chip-'] {
-    position: absolute;
+  .flying-chips {
+    pointer-events: none;
+    user-select: none;
+    @include media(md-down) {
+      display: none;
+    }
+    .container {
+      position: relative;
+    }
+    *[class^='chip-'] {
+      position: absolute;
+      width: 150px;
+      &.chip-bnb {
+        top: 1220px;
+        left: 30px;
+        // animation: floating 8s infinite ease-in-out reverse;
+        // z-index: 3;
+      }
+      &.chip-btc {
+        top: 1350px;
+        left: 360px;
+        // animation: floating 7s infinite ease-in-out reverse;
+        // z-index: 3;
+      }
+      &.chip-dfy {
+        top: 1070px;
+        left: 300px;
+        // animation: floating 10s infinite ease-in-out;
+        // z-index: 5;
+      }
+      &.chip-nfts {
+        top: 1370px;
+        left: 70px;
+        // animation: floating 9s infinite ease-in-out;
+        // z-index: 5;
+      }
+    }
   }
   /deep/ {
     section {
