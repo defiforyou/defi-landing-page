@@ -33,7 +33,7 @@ export const URLS = {
   twitter: 'https://twitter.com/Defiforyou',
   pawn: '#',
   lending: '#',
-  stacking: '#',
+  stacking: 'https://app.defi.com.vn/staking',
   farming: '#',
   trade: '#',
   whitepaper: '/defi-for-you-whitepaper.v2.pdf',
