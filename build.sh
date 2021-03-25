@@ -9,7 +9,7 @@ AWS_SECRET_ACCESS_KEY=$2
 ECR_REPO_URI=$3
 ENV=$4
 
-DEFI_LANDING_PAGE_IMAGE=${ECR_REPO_URI}:${ENV}-l-${CI_PIPELINE_ID}
+DEFI_LANDING_PAGE_IMAGE=${ECR_REPO_URI}:${ENV}-landing-${CI_PIPELINE_ID}
 
 # config aws cli
 aws configure set aws_access_key_id     $AWS_ACCESS_KEY_ID

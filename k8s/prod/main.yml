@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: $SERVICE_NAME
-          image: ${ECR_REPO_URI}:${ENV}-cms-${CI_PIPELINE_ID}
+          image: ${ECR_REPO_URI}:${ENV}-landing-${CI_PIPELINE_ID}
           imagePullPolicy: Always
           livenessProbe:
             httpGet:
