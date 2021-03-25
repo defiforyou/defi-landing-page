@@ -1,0 +1,109 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: $SERVICE_NAME
+spec:
+  replicas: 1
+  progressDeadlineSeconds: 400
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      name: $SERVICE_NAME
+  template:
+    metadata:
+      name: $SERVICE_NAME
+      labels:
+        date: "$DATE"
+        name: $SERVICE_NAME
+    spec:
+      containers:
+        - name: $SERVICE_NAME
+          image: ${ECR_REPO_URI}:${ENV}-landing-${CI_PIPELINE_ID}
+          imagePullPolicy: Always
+          livenessProbe:
+            httpGet:
+              path: /nginx-health
+              port: 80
+              httpHeaders:
+                - name: X-Device-ID
+                  value: HealthCheck
+            initialDelaySeconds: 90
+            timeoutSeconds: 1
+          readinessProbe:
+            httpGet:
+              path: /nginx-health
+              port: 80
+              httpHeaders:
+                - name: X-Device-ID
+                  value: HealthCheck
+            initialDelaySeconds: 60
+            timeoutSeconds: 1
+          ports:
+            - name: http
+              containerPort: 80
+          # envFrom:
+          #   - configMapRef:
+          #       name: $SERVICE_CONFIG_NAME
+            # - secretRef:
+            #     name: $SERVICE_SECRET_NAME
+      restartPolicy: Always
+      imagePullSecrets:
+        - name: docker-image-pull-secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: $SERVICE_NAME
+  name: $SERVICE_NAME
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+  selector:
+    name: $SERVICE_NAME
+  type: ClusterIP
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    nginx.ingress.kubernetes.io/cors-allow-headers: "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization,X-Api-Key,TimezoneOffset"
+  name: $SERVICE_NAME
+spec:
+  rules:
+    - host: $HOST
+      http:
+        paths:
+          - backend:
+              serviceName: $SERVICE_NAME
+              servicePort: 80
+            path: /
+---
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: $SERVICE_NAME
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: $SERVICE_NAME
+  minReplicas: 1
+  maxReplicas: 1
+  metrics:
+  - type: Resource
+    resource:
+      name: memory
+      targetAverageValue: 650Mi
+  - type: Resource
+    resource:
+      name: cpu
+      targetAverageUtilization: 50
