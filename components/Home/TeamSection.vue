@@ -15,7 +15,10 @@ section.team
         .links
           .external
             a(v-if="i.other" :href="i.other.link" target="_blank" rel="noopener" :title="i.other.name")
-              img.logo(v-image="i.other.image" :alt="i.other.name")
+              img.logo(
+                v-image="i.other.image"
+                :alt="i.other.name"
+                :width="i.other.width")
           a.email(v-if="i.email" :href="`mailto:${i.email}`" target="_blank" rel="noopener" title="Email")
             mail-icon(size="24" stroke-width="1")
           a.facebook(v-if="i.facebook" :href="i.facebook" target="_blank" rel="noopener" title="Facebook")
@@ -102,8 +105,8 @@ section.team {
         .external {
           flex: 1;
           img {
-            max-height: 2em;
-            max-width: 7em;
+            // max-height: 2em;
+            max-width: 100%;
           }
         }
         > a {

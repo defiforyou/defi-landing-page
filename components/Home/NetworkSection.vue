@@ -16,9 +16,25 @@ section.network
       img.token.btc(src="/img/token.btc.png" alt="BTC")
   .container
     .actions
-      a.dfy-button.dfy-button--primary(href="#") Buy DFY on Exchanges
-      a.dfy-button.dfy-button--ghost(href="#") Whitepaper
+      a.dfy-button.dfy-button--primary(
+        :href="urls.buy"
+        target="_blank"
+        rel="noopener") Buy DFY on Exchanges
+      a.dfy-button.dfy-button--ghost(
+        :href="urls.whitepaper"
+        target="_blank"
+        rel="noopener") Whitepaper
 </template>
+
+<script>
+import { URLS } from '~/settings'
+
+export default {
+  computed: {
+    urls: () => URLS
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 section.network {

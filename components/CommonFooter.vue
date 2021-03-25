@@ -149,6 +149,7 @@ export default {
         'company'
         'office-1'
         'office-2'
+        'office-3'
         'social'
         'quick-links';
       @include media(sm) {
@@ -158,14 +159,15 @@ export default {
         grid-template-areas:
           'company office-1'
           'social office-2'
-          'quick-links office-2';
+          'quick-links office-3';
       }
       @include media(md) {
         grid-template-columns: 3fr 4fr 3fr;
         grid-row-gap: 4em;
         grid-template-areas:
           'company office-1 social'
-          'company office-2 quick-links';
+          'company office-2 quick-links'
+          'company office-3 quick-links';
       }
       @include media(lg) {
         grid-template-columns: 4fr 4fr 3fr;

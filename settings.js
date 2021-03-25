@@ -16,6 +16,11 @@ export const OFFICES = [{
   vie: '+84 9643 66605',
   eng: '+84 9644 41735',
   address: '370 Nguyen Van Quy, Phu Nhuan, Dist. 7, HCMC, Vietnam'
+}, {
+  name: 'DeFi For You — Bournemouth Office',
+  vie: '+84 9643 66605',
+  eng: '+84 9644 41735',
+  address: '9 The Old Coach House Clement Mews 5 RL Stevenson Ave, Bournemouth BH4 8AU'
 }]
 
 export const URLS = {
@@ -29,7 +34,7 @@ export const URLS = {
   stacking: '#',
   farming: '#',
   trade: '#',
-  whitepaper: '#',
+  whitepaper: '/defi-for-you-whitepaper.v2.pdf',
   app: '#',
   android: '#',
   ios: '#',
@@ -43,6 +48,7 @@ export const TEAM_MEMBERS = [{
   name: 'Adam Chaplin',
   bio: 'Adam was a co-founder of Travala (AVA) and is a former Royal Marine Commando. His decades of business and military experience make him a capable and reliable leader.',
   other: {
+    width: 100,
     image: '/img/logo.travala.png',
     name: 'Travala',
     link: 'https://www.travala.com/'
@@ -56,6 +62,7 @@ export const TEAM_MEMBERS = [{
   name: 'Dr. Tuan Dang Minh',
   bio: 'Dr. Tuan was the inventor of Vietkey and is a P.h.D in Math and Cryptography. He\'s one of the leading blockchain experts in South East Asia.',
   other: {
+    width: 64,
     image: '/img/logo.vietkey.png',
     name: 'Vietkey',
     link: 'https://vi.wikipedia.org/wiki/Vietkey'
@@ -69,9 +76,10 @@ export const TEAM_MEMBERS = [{
   name: 'Cong Nguyen',
   bio: 'Cong is developing the DeFi For You. platform, as well as blockchain projects for the Vietnamese government, banks, and industry.',
   other: {
-    image: '/img/logo.gem.png',
-    name: 'GEM',
-    link: 'https://gemvietnam.com/'
+    width: 180,
+    image: '/img/logo.blockchain-developer-asia.png',
+    name: 'Blockchain Developer Asia',
+    link: 'https://blockchaindeveloper.asia'
   },
   email: '',
   facebook: 'https://www.facebook.com/cong.nguyen.1614',
@@ -91,6 +99,7 @@ export const TEAM_MEMBERS = [{
   name: 'Tung Duong Thanh',
   bio: 'Tung was the tech team leader of Travala and is now heading up the troops at DeFi For You. He\'s a passionate developer and leader.',
   other: {
+    width: 100,
     image: '/img/logo.travala.png',
     name: 'Travala',
     link: 'https://www.travala.com/'
