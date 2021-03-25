@@ -108,7 +108,7 @@ deploy defi-landing-page to production:
     ENV: production
     ECR_REPO_URI: $ECR_REPO_URI_PROD
     SERVICE_NAME: defi-landing-page
-    HOST: demo-landing.defi.com.vn
+    HOST: defi.com.vn
   image:
     name: quay.io/defilab/kubectl:1.20
   # before_script:
