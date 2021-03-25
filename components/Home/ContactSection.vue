@@ -97,9 +97,7 @@ export default {
   async mounted () {
     try {
       await this.$recaptcha.init()
-    } catch (e) {
-      console.error(e)
-    }
+    } catch (e) {}
   },
 
   methods: {
@@ -128,7 +126,6 @@ export default {
           this.loading = true
           return this.$recaptcha.execute('contact')
             .then(token => {
-              console.log(token)
               return this.$apis.contactUs(this.form)
                 .then(() => {
                   this.completed = true
@@ -213,6 +210,13 @@ section.contact {
     label {
       font-size: 12px;
       color: white;
+    }
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus {
+      -webkit-text-fill-color: white;
+      background: transparent;
+      -webkit-box-shadow: 0 0 0px 1000px lighten($--color-background-page, 5) inset;
     }
     input,
     textarea {
