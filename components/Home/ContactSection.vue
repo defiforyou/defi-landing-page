@@ -97,7 +97,9 @@ export default {
   async mounted () {
     try {
       await this.$recaptcha.init()
-    } catch (e) {}
+    } catch (e) {
+      console.error(e)
+    }
   },
 
   methods: {
