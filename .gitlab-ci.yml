@@ -116,5 +116,5 @@ deploy defi-landing-page to production:
   #   - echo -n $KUBE_CONFIG_PROD | base64 -d > ~/.kube/config
   script:
     - ( cd k8s/prod && bash deploy.sh )
-  when: manual
+  # when: manual
 
