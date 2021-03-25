@@ -145,6 +145,13 @@ a {
       color: black;
     }
   }
+  &--special {
+    background: linear-gradient(30deg, #FA6565, #E88F8F);
+    color: white;
+    &:hover {
+      color: white;
+    }
+  }
   &--ghost {
     border: 1px solid #374151;
     color: $--color-text-body;

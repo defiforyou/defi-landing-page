@@ -51,14 +51,8 @@ export default {
   computed: {
     urls: () => URLS,
     menus: () => [{
-      text: 'DeFi For You',
-      href: '#defi-for-you'
-    }, {
       text: 'Solution',
-      href: '#solution'
-    }, {
-      text: 'Services',
-      href: '#services'
+      href: '#defi-for-you'
     }, {
       text: 'Team',
       href: '#team'
@@ -70,12 +64,28 @@ export default {
       href: URLS.whitepaper,
       target: '_blank'
     }, {
-      text: 'PAWN',
-      href: URLS.pawn,
+      text: 'Staking',
+      href: URLS.stacking,
       target: '_blank',
       classes: {
         'dfy-button': true,
         'dfy-button--overlay': true
+      }
+    }, {
+      text: 'Farming',
+      href: URLS.farming,
+      target: '_blank',
+      classes: {
+        'dfy-button': true,
+        'dfy-button--overlay': true
+      }
+    }, {
+      text: 'Trade NFTs',
+      href: URLS.trade,
+      target: '_blank',
+      classes: {
+        'dfy-button': true,
+        'dfy-button--special': true
       }
     }]
   }
@@ -118,8 +128,14 @@ section.header {
         display: none;
       }
       > * {
-        &:not(:last-child) {
-          margin-right: 2.5em;
+        &:not(:first-child) {
+          margin-left: 2.5em;
+        }
+      }
+      a.dfy-button {
+        padding: .9rem 1.2rem;
+        + a.dfy-button {
+          margin-left: 1rem;
         }
       }
     }
@@ -175,6 +191,7 @@ section.header {
         &.dfy-button {
           padding: .75em 1.5em;
           height: auto;
+          margin-top: .35em;
         }
       }
     }
