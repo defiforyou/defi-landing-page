@@ -4,6 +4,6 @@ import VueScrollMagic from 'vue-scrollmagic'
 Vue.use(VueScrollMagic, {
   vertical: true,
   globalSceneOptions: {},
-  loglevel: -1,
+  loglevel: 0,
   refreshInterval: 100
 })

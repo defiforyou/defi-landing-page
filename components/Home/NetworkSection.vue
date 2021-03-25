@@ -23,10 +23,11 @@ section.network
 <style lang="scss" scoped>
 section.network {
   text-align: center;
-  padding: 8em 0;
-  @include media(sm-down) {
+  padding: 2em 0;
+  margin-top: $--gap-home-section;
+  @include media(sm) {
     padding: 2em 0;
-    margin-top: $--gap-home-section;
+    margin-top: 0;
   }
   .canvas {
     max-width: 1000px;
@@ -41,6 +42,11 @@ section.network {
     @include media(sm) {
       background-size: 1000px;
       height: 500px;
+    }
+    .tokens {
+      @include media(lg) {
+        display: none;
+      }
     }
     .token {
       position: absolute;
