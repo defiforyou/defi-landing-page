@@ -14,12 +14,15 @@ section.hero
           .thumbnail(@click="playing = true")
             img.badge(src="/img/badge.youtube.svg" alt="Youtube")
         .description
-          p DeFi For You.™ — A new decentralized P2P loan economy and NFT trading platform built on the Binance Smart Chain, powered by the&nbsp;
+          p DeFi For You.™ — A new decentralized P2P loan economy and&nbsp;
+            strong.special NFT trading platform
+            | &nbsp;built on the Binance Smart Chain, powered by the&nbsp;
             strong $DFY
             | &nbsp;smart contract token.
       .actions
         a.dfy-button.dfy-button--primary(:href="urls.buy" target="_blank" rel="noopener") Buy DFY on Exchanges
-        a.dfy-button.dfy-button--ghost(:href="urls.whitepaper" target="_blank" rel="noopener") Whitepaper
+        //- a.dfy-button.dfy-button--ghost(:href="urls.whitepaper" target="_blank" rel="noopener") Whitepaper
+        a.dfy-button.dfy-button--special(:href="urls.trade" target="_blank" rel="noopener") Trade NFTs
 
     .canvas
       img.phone(src="/img/hero.phone.png" alt="Phone")
@@ -241,6 +244,12 @@ section.hero {
           margin: 0;
           strong {
             color: $--color-primary;
+            &.special {
+              background: linear-gradient(30deg, #FA6565, #E88F8F);
+              background-clip: text;
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+            }
           }
         }
       }

@@ -8142,7 +8142,7 @@ schema-utils@^3.0.0:
     ajv "^6.12.5"
     ajv-keywords "^3.5.2"
 
-scrollmagic@^2.0.7:
+scrollmagic@^2.0.7, scrollmagic@^2.0.8:
   version "2.0.8"
   resolved "https://registry.yarnpkg.com/scrollmagic/-/scrollmagic-2.0.8.tgz#e0d7aff804c393c022fdc0c566f1edce3b4e9ed7"
   integrity sha512-UYXEGBPVLziovXl3FjHGkY9c4UXKUKopIdXwWR2JapWxCo0U345wYegi7rcsv5vHf/ktc1bSNWy4QRFiV+Yccw==

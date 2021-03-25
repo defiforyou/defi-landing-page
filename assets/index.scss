@@ -4,6 +4,7 @@
 ::selection {
   color: black;
   background: $--color-primary;
+  -webkit-text-fill-color: black;
 }
 
 // html {
@@ -143,6 +144,13 @@ a {
     color: black;
     &:hover {
       color: black;
+    }
+  }
+  &--special {
+    background: linear-gradient(30deg, #FA6565, #E88F8F);
+    color: white;
+    &:hover {
+      color: white;
     }
   }
   &--ghost {

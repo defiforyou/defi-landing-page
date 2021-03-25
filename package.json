@@ -21,6 +21,7 @@
     "pug": "^3.0.2",
     "pug-plain-loader": "^1.1.0",
     "sass-loader": "10.1.1",
+    "scrollmagic": "^2.0.8",
     "swiper": "^6.5.0",
     "vue-awesome-swiper": "^4.1.1",
     "vue-feather-icons": "^5.1.0",

@@ -10,13 +10,6 @@ section.defi-for-you
             img(src="/img/wallet.binance.jpg" alt="Binance")
           .screen.trustwallet
             img(src="/img/wallet.trustwallet.jpg" alt="Trustwallet")
-
-        .flying-chips
-          img.chip-bnb(src="/img/token.bnb.png")
-          img.chip-btc(src="/img/token.btc.png")
-          img.chip-dfy(src="/img/token.dfy.png")
-          img.chip-nfts(src="/img/token.nfts.png")
-
       .text
         h2.title We've built a decentralized P2P loan economy on the blockchain.
         .description
@@ -65,36 +58,6 @@ section.defi-for-you {
     @include media(xs-only) {
       flex: 0 480px;
       margin-bottom: -280px;
-    }
-    .flying-chips {
-      pointer-events: none;
-      user-select: none;
-      @include media(md-down) {
-        display: none;
-      }
-      *[class^='chip-'] {
-        position: absolute;
-        &.chip-bnb {
-          top: 40%;
-          left: 0;
-          // z-index: 3;
-        }
-        &.chip-btc {
-          bottom: 10%;
-          right: 15%;
-          // z-index: 3;
-        }
-        &.chip-dfy {
-          top: 24%;
-          right: 22%;
-          // z-index: 5;
-        }
-        &.chip-nfts {
-          top: 58%;
-          left: 8%;
-          // z-index: 5;
-        }
-      }
     }
     .screens {
       display: flex;

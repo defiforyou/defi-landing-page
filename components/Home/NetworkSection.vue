@@ -23,24 +23,33 @@ section.network
 <style lang="scss" scoped>
 section.network {
   text-align: center;
-  padding: 8em 0;
-  @include media(sm-down) {
+  padding: 2em 0;
+  margin-top: $--gap-home-section;
+  @include media(sm) {
     padding: 2em 0;
-    margin-top: $--gap-home-section;
+    margin-top: 0;
   }
   .canvas {
     max-width: 1000px;
     margin: 0 auto;
-    position: relative;
     width: 100%;
     background: url(/img/network.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 640px;
     height: 320px;
+    position: relative;
     @include media(sm) {
       background-size: 1000px;
       height: 500px;
+    }
+    @include media(lg) {
+      position: inherit;
+    }
+    .tokens {
+      @include media(lg) {
+        display: none;
+      }
     }
     .token {
       position: absolute;
