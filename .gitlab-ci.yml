@@ -1,0 +1,120 @@
+#default: # Default Runner Tags and Image
+#  tags: [gitlab-org-docker]
+
+cache:
+  key: "$CI_PROJECT_NAMESPACE:$CI_PROJECT_NAME"
+  paths:
+    - node_modules/
+
+services:
+  - name: docker:18.09.7-dind
+    command: ["--experimental"]
+
+variables:
+  PROJECT: defi-landing-page
+  SERVICE_NAME: ${PROJECT}
+  SERVICE_CONFIG_NAME: ${PROJECT}
+  SERVICE_SECRET_NAME: ${PROJECT}
+  IMAGE_TAG: 1.0.2-edge
+  APP_NAME: defi-landing-page
+  DOCKER_HOST: tcp://127.0.0.1:2375
+
+stages:
+  - verify
+  - job_package
+  - docker_build
+  - deploy
+  - tag
+  - request deploy to production
+  - notify
+
+
+job_package:
+  image: node:12
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - node_modules/
+  artifacts:
+    paths:
+      - build/
+      - target/
+    expire_in: 1 hour
+  tags: [k8s-uat]
+  stage: job_package
+  script:
+    - if [ -z "${IMAGE_TAG}" ];then exit 1; fi
+    - node -v
+    - yarn -v
+    - if [ ${CI_COMMIT_REF_NAME} = "master" ] ; then echo "${prod_envapi}" > .env ; elif [ ${CI_COMMIT_REF_NAME} = "uat" ]; then echo "${uat_envapi}" > .env ; else echo "${dev_envapi}" > .env ; fi
+    - yarn add install
+    - if [ ${CI_COMMIT_REF_NAME} = "develop" ] ; then yarn build ; else yarn build ; fi
+    - yarn generate
+    - tar --directory ./dist/ -cvf ${APP_NAME}-${IMAGE_TAG}.tar .
+    - mkdir ./target/ && cp ${APP_NAME}-${IMAGE_TAG}.tar ./target/
+    - ls -al ./target/
+  except:
+    refs:
+      - docker-release
+
+docker build dev:
+  tags: [k8s-uat]
+  stage: docker_build
+  image: codegym/gitlab-runner:docker
+  dependencies: [job_package]
+  only:
+    refs: [develop, feature/test-deploy-dev, feature/test-deploy-qc, feature/test-deploy-uat, feature/cicd]
+  script:
+    - ./build.sh $AWS_ACCESS_KEY_ID_DEV $AWS_SECRET_ACCESS_KEY_DEV $ECR_REPO_URI staging
+
+
+docker build production:
+  tags: [k8s-uat]
+  stage: docker_build
+  image: codegym/gitlab-runner:docker
+  dependencies: [job_package]
+  only:
+    refs: [master]
+  script:
+    - ./build.sh $AWS_ACCESS_KEY_ID_PROD $AWS_SECRET_ACCESS_KEY_PROD $ECR_REPO_URI production
+
+deploy defi-landing-page to dev:
+  stage: deploy
+  tags: [k8s-uat]
+  only:
+    refs: [develop, feature/test-deploy-dev]
+  variables:
+    MODE: deploy
+    ENV: staging
+    ECR_REPO_URI: $ECR_REPO_URI_DEV
+    SERVICE_NAME: defi-landing-page
+    HOST: defi-landing-page.dev.defi.com.vn
+  image:
+    name: quay.io/defilab/kubectl:1.20
+  # before_script:
+  #   - mkdir -p ~/.kube
+  #   - echo "$KUBE_CONFIG_DEV" | base64 -d > ~/.kube/config
+  script:
+    - ( cd k8s/dev && bash deploy.sh )
+
+
+deploy defi-landing-page to production:
+  stage: deploy
+  tags: [k8s-prod]
+  only:
+    refs: [master, feature/test-deploy-prod]
+  variables:
+    MODE: deploy
+    ENV: production
+    ECR_REPO_URI: $ECR_REPO_URI_PROD
+    SERVICE_NAME: defi-landing-page
+    HOST: demo-landing.defi.com.vn
+  image:
+    name: quay.io/defilab/kubectl:1.20
+  # before_script:
+  #   - mkdir -p ~/.kube
+  #   - echo -n $KUBE_CONFIG_PROD | base64 -d > ~/.kube/config
+  script:
+    - ( cd k8s/prod && bash deploy.sh )
+  when: manual
+
