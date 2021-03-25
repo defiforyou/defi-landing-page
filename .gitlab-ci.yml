@@ -47,7 +47,7 @@ job_package:
     - node -v
     - yarn -v
     - if [ ${CI_COMMIT_REF_NAME} = "master" ] ; then echo "${prod_envapi}" > .env ; elif [ ${CI_COMMIT_REF_NAME} = "uat" ]; then echo "${uat_envapi}" > .env ; else echo "${dev_envapi}" > .env ; fi
-    - yarn install install
+    - yarn add install
     - if [ ${CI_COMMIT_REF_NAME} = "develop" ] ; then yarn build ; else yarn build ; fi
     - tar --directory ./build/ -cvf ${APP_NAME}-${IMAGE_TAG}.tar .
     - mkdir ./target/ && cp ${APP_NAME}-${IMAGE_TAG}.tar ./target/
