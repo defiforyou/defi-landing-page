@@ -30,6 +30,7 @@ export default {
 
   methods: {
     setup () {
+      if (window.innerWidth < 1200) { return }
       this.pin(960, 400, '.chip-bnb', { x: 320 })
       this.pin(1360, 300, '.chip-bnb', { x: 350 })
       this.pin(1660, 1400, '.chip-bnb', { x: 380 })

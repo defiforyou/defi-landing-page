@@ -64,6 +64,14 @@ export default {
       href: URLS.whitepaper,
       target: '_blank'
     }, {
+      text: 'P2P Lending',
+      href: URLS.lending,
+      target: '_blank',
+      classes: {
+        'dfy-button': true,
+        'dfy-button--overlay': true
+      }
+    }, {
       text: 'Staking',
       href: URLS.stacking,
       target: '_blank',
@@ -116,6 +124,9 @@ section.header {
       .logo {
         width: 9rem;
         @include media(md) {
+          width: 11rem;
+        }
+        @include media(lg) {
           width: 14rem;
         }
       }
@@ -129,13 +140,14 @@ section.header {
       }
       > * {
         &:not(:first-child) {
-          margin-left: 2.5em;
+          margin-left: 2em;
         }
       }
       a.dfy-button {
         padding: .9rem 1.2rem;
+        white-space: nowrap;
         + a.dfy-button {
-          margin-left: 1rem;
+          margin-left: .65rem;
         }
       }
     }

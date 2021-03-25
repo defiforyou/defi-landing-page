@@ -25,6 +25,7 @@ export const URLS = {
   linkedin: 'https://www.linkedin.com/company/defiforyou',
   twitter: 'https://twitter.com/Defiforyou',
   pawn: '#',
+  lending: '#',
   stacking: '#',
   farming: '#',
   trade: '#',
