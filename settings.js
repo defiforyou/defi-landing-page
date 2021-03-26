@@ -32,7 +32,7 @@ export const URLS = {
   linkedin: 'https://www.linkedin.com/company/defiforyou',
   twitter: 'https://twitter.com/Defiforyou',
   pawn: 'https://beta.app.defi.com.vn/pawn',
-  lending: '#',
+  lending: 'https://beta.app.defi.com.vn/pawn',
   stacking: 'https://app.defi.com.vn/staking',
   farming: '#',
   trade: '#',
