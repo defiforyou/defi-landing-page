@@ -1,5 +1,5 @@
 <template lang="pug">
-section.header
+section.header(:class="{sticky: sticky && !expanded}")
   .container
     .dfy-flex.layout
       .branding
@@ -25,9 +25,11 @@ section.header
           .toggler(@click="expanded = false")
             x-icon(size="36" stroke-width="1")
         .menu(@click="expanded = false")
-          a(
+          component(
             v-for="i, k in menus"
             :key="k"
+            :is="i.to ? 'nuxt-link' : 'a'"
+            :to="i.to"
             :href="i.href"
             :target="i.target || '_self'"
             :class="i.classes || {}"
@@ -46,7 +48,8 @@ export default {
 
   data () {
     return {
-      expanded: false
+      expanded: false,
+      sticky: true
     }
   },
 
@@ -113,6 +116,9 @@ section.header {
     top: 0;
     left: 0;
     right: 0;
+    z-index: 1000;
+    backdrop-filter: blur(16px);
+    background: rgba($--color-background-page, .25);
   }
   .layout {
     align-items: center;
@@ -148,6 +154,9 @@ section.header {
           margin-left: 2em;
         }
       }
+      a {
+        cursor: pointer;
+      }
       a.dfy-button {
         padding: .9rem 1.2rem;
         white-space: nowrap;
@@ -168,7 +177,7 @@ section.header {
     }
   }
   .mobile-menu {
-    z-index: 1000;
+    z-index: 1001;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -205,6 +214,7 @@ section.header {
         text-transform: uppercase;
         text-align: center;
         padding: .75em 0;
+        cursor: pointer;
         &.dfy-button {
           padding: .75em 1.5em;
           height: auto;
