@@ -7,6 +7,24 @@
 
 <script>
 export default {
+  data () {
+    return {
+      emptyLinkBlocker: null
+    }
+  },
+
+  mounted () {
+    this.emptyLinkBlocker = document.addEventListener('click', e => {
+      const el = e.target
+      if (el.tagName !== 'A') return
+      const href = el.getAttribute('href')
+      if (href === '#') e.preventDefault()
+    })
+  },
+
+  beforeDestroy () {
+    document.removeEventListener('click', this.emptyLinkBlocker)
+  }
 }
 </script>
 

@@ -2,6 +2,12 @@
 section.solution
   .container
     .diagram
+      svg(width="0" height="0" viewBox="0 0 1 1" fill="none" xmlns="http://www.w3.org/2000/svg")
+        defs
+          clipPath#clipper
+            path(d="M556.408 196.526H515.183C502.942 149.065 477.648 105.992 442.177 72.2034C406.705 38.4143 362.477 15.2632 314.518 5.38075C266.56 -4.50172 216.794 -0.719275 170.876 16.2983C124.958 33.3158 84.7279 62.8861 54.7582 101.649C24.7886 140.412 6.28062 186.813 1.33743 235.58C-3.60576 284.348 5.21402 333.525 26.7946 377.525C48.3752 421.524 81.8512 458.582 123.419 484.487C164.986 510.392 212.979 524.105 261.942 524.069H556.408C599.795 524.069 641.406 506.814 672.085 476.101C702.764 445.388 720 403.732 720 360.297C720 316.862 702.764 275.206 672.085 244.493C641.406 213.78 599.795 196.526 556.408 196.526Z" fill="#191C25")
+      .cloud
+
       .cogs
         cog-image.sm
         cog-image.lg
@@ -66,7 +72,6 @@ section.solution {
     box-sizing: border-box;
     z-index: 6;
     @include media(sm) {
-      background-image: url(/img/solution.cloud.svg);
       padding: 14em 0 0 0;
       background-size: 100%;
       width: 560px;
@@ -75,6 +80,23 @@ section.solution {
     @include media(md) {
       width: 720px;
       height: 560px;
+    }
+    .cloud {
+      position: absolute;
+      top: 32px;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: url(/img/solution.cloud.svg);
+      background-size: contain;
+      background-position: bottom;
+      background-repeat: no-repeat;
+      @include media(lg) {
+        background: rgba(lighten(#191C25, 5), .6);
+        backdrop-filter: blur(16px);
+        clip-path: url(#clipper);
+        background-size: 400% 400%;
+      }
     }
     .cogs {
       z-index: 1;
@@ -93,6 +115,7 @@ section.solution {
         }
         * {
           stroke-width: 2px;
+          stroke: darken($--color-text-body, 35);
         }
       }
       .lg {
@@ -107,6 +130,7 @@ section.solution {
         }
         * {
           stroke-width: 1px;
+          stroke: darken($--color-text-body, 35);
         }
       }
     }

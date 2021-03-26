@@ -4,13 +4,13 @@
   .flying-chips
     .container
       .chip-bnb
-        img(src="/img/token.bnb.png")
+        img(src="/img/token.bnb.png" alt="BNB")
       .chip-btc
-        img(src="/img/token.btc.png")
+        img(src="/img/token.btc.png" alt="BTC")
       .chip-dfy
-        img(src="/img/token.dfy.png")
+        img(src="/img/token.dfy.png" alt="DFY")
       .chip-nfts
-        img(src="/img/token.nfts.png")
+        img(src="/img/token.nfts.png" alt="NFTs")
   .sections
     home-hero-section#hero.sticky
     home-price-tickers-section#price-tickers

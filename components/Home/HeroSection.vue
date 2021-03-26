@@ -22,7 +22,10 @@ section.hero
       .actions
         a.dfy-button.dfy-button--primary(:href="urls.buy" target="_blank" rel="noopener") Buy DFY on Exchanges
         //- a.dfy-button.dfy-button--ghost(:href="urls.whitepaper" target="_blank" rel="noopener") Whitepaper
-        a.dfy-button.dfy-button--special(:href="urls.trade" target="_blank" rel="noopener") Trade NFTs
+        a.dfy-button.dfy-button--special.dfy-button--coming-soon(
+          :href="urls.trade"
+          target="_blank"
+          rel="noopener") Trade NFTs
 
     .canvas
       img.phone(src="/img/hero.phone.png" alt="Phone")

@@ -6,9 +6,11 @@ section.header
         nuxt-link(:to="{name: 'index'}")
           img.logo(src="/img/logo.svg" alt="DeFi For You")
       .menu
-        a(
+        component(
           v-for="i, k in menus"
           :key="k"
+          :is="i.to ? 'nuxt-link' : 'a'"
+          :to="i.to"
           :href="i.href"
           :target="i.target || '_self'"
           :class="i.classes || {}"
@@ -52,13 +54,13 @@ export default {
     urls: () => URLS,
     menus: () => [{
       text: 'Solution',
-      href: '#defi-for-you'
+      to: { name: 'index', hash: '#defi-for-you' }
     }, {
       text: 'Team',
-      href: '#team'
+      to: { name: 'index', hash: '#team' }
     }, {
       text: 'Contact',
-      href: '#contact'
+      to: { name: 'index', hash: '#contact' }
     }, {
       text: 'Whitepaper',
       href: URLS.whitepaper,
@@ -69,7 +71,8 @@ export default {
       target: '_blank',
       classes: {
         'dfy-button': true,
-        'dfy-button--overlay': true
+        'dfy-button--overlay': true,
+        'dfy-button--beta': true
       }
     }, {
       text: 'Staking',
@@ -85,7 +88,8 @@ export default {
       target: '_blank',
       classes: {
         'dfy-button': true,
-        'dfy-button--overlay': true
+        'dfy-button--overlay': true,
+        'dfy-button--coming-soon': true
       }
     }, {
       text: 'Trade NFTs',
@@ -93,7 +97,8 @@ export default {
       target: '_blank',
       classes: {
         'dfy-button': true,
-        'dfy-button--special': true
+        'dfy-button--special': true,
+        'dfy-button--coming-soon': true
       }
     }]
   }
@@ -204,6 +209,30 @@ section.header {
           padding: .75em 1.5em;
           height: auto;
           margin-top: .35em;
+          width: 296px;
+          > * {
+            justify-content: space-between;
+          }
+          &--beta,
+          &--coming-soon {
+            &:after {
+              position: initial;
+              background: rgba(black, .25);
+              margin-left: auto;
+              margin-right: -.65em;
+              transform: none;
+              padding: 4px 8px;
+              opacity: 1;
+            }
+            &:hover {
+              color: white;
+            }
+          }
+          &--coming-soon {
+            &:after {
+              content: 'Coming Soon';
+            }
+          }
         }
       }
     }

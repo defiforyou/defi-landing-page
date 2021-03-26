@@ -232,6 +232,7 @@ section.contact {
       border-bottom: 1px solid #4B5563;
       border-radius: 0;
       padding: .5em 0;
+      transition: .3s ease-in-out;
       &::placeholder {
         color: darken($--color-text-body, 30);
       }
