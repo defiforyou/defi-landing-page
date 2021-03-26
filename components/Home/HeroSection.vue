@@ -177,7 +177,9 @@ section.hero {
         max-width: 160px;
         right: 35%;
         top: 17%;
-        animation: floating 10s infinite ease-in-out;
+        animation:
+          floating 10s infinite ease-in-out,
+          shine-up .6s infinite ease-in-out;
       }
     }
   }

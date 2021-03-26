@@ -107,6 +107,13 @@ section.team {
           img {
             // max-height: 2em;
             max-width: 100%;
+            opacity: .8;
+            transition: .3s ease-in-out;
+          }
+          &:hover {
+            img {
+              opacity: 1;
+            }
           }
         }
         > a {

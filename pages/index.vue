@@ -107,6 +107,7 @@ export default {
       &.chip-nfts {
         top: 1370px;
         left: 70px;
+        animation: shine-up .6s infinite ease-in-out;
         // animation: floating 9s infinite ease-in-out;
         // z-index: 5;
       }

@@ -89,7 +89,9 @@ section.network {
         top: 47%;
         left: 40%;
         width: 30%;
-        animation: floating 9s infinite ease-in-out;
+        animation:
+          floating 9s infinite ease-in-out,
+          shine-up .8s infinite ease-in-out;
         @include media(sm) {
           width: 20%;
         }

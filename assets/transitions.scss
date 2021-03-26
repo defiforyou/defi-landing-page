@@ -3,6 +3,12 @@
   to { backdrop-filter: blur(20); }
 }
 
+@keyframes shine-up {
+  0% { filter: brightness(1); }
+  50% { filter: brightness(1.2); }
+  100% { filter: brightness(1); }
+}
+
 @keyframes fade-in {
   from { opacity: 0; }
   to { opacity: 1; }
