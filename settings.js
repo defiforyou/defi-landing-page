@@ -31,7 +31,7 @@ export const URLS = {
   youtube: 'https://www.youtube.com/channel/UCGaSCU17Zo_2CzJNaBeUHaA/featured',
   linkedin: 'https://www.linkedin.com/company/defiforyou',
   twitter: 'https://twitter.com/Defiforyou',
-  pawn: '#',
+  pawn: 'https://beta.app.defi.com.vn/pawn',
   lending: '#',
   stacking: 'https://app.defi.com.vn/staking',
   farming: '#',
