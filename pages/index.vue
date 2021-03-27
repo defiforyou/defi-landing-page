@@ -31,29 +31,36 @@ export default {
   methods: {
     setup () {
       if (window.innerWidth < 1200) { return }
-      this.pin(960, 400, '.chip-bnb', { x: 320 })
-      this.pin(1360, 300, '.chip-bnb', { x: 350 })
-      this.pin(1660, 1400, '.chip-bnb', { x: 380 })
-      this.pin(3060, 320, '.chip-bnb', { x: 200 })
-      this.pin(3380, 260, '.chip-bnb', { x: 320, width: 180 })
 
-      this.pin(1000, 400, '.chip-btc', { x: 80 })
-      this.pin(1400, 300, '.chip-btc', { x: 100 })
-      this.pin(1700, 1300, '.chip-btc', { x: 100 })
-      this.pin(3000, 320, '.chip-btc', { x: 400 })
-      this.pin(3320, 160, '.chip-btc', { x: 300, width: 180 })
+      const step = 50
 
+      let reduce = step * 4
       this.pin(980, 400, '.chip-nfts', { x: 250 })
       this.pin(1380, 300, '.chip-nfts', { x: 270 })
-      this.pin(1680, 1400, '.chip-nfts', { x: 240 })
-      this.pin(3080, 320, '.chip-nfts', { x: 160 })
-      this.pin(3400, 180, '.chip-nfts', { x: 480, width: 190 })
+      this.pin(1680, 1400, '.chip-nfts', { x: 240, y: reduce })
+      this.pin(3080, 320 - reduce, '.chip-nfts', { x: 160 })
+      this.pin(3400 - reduce, 180, '.chip-nfts', { x: 480, width: 190 })
 
+      reduce = step * 3
+      this.pin(1000, 400, '.chip-btc', { x: 80 })
+      this.pin(1400, 300, '.chip-btc', { x: 100 })
+      this.pin(1700, 1300, '.chip-btc', { x: 100, y: reduce })
+      this.pin(3000, 320 - reduce, '.chip-btc', { x: 400 })
+      this.pin(3320 - reduce, 160, '.chip-btc', { x: 300, width: 180 })
+
+      reduce = step * 2
+      this.pin(960, 400, '.chip-bnb', { x: 320 })
+      this.pin(1360, 300, '.chip-bnb', { x: 350 })
+      this.pin(1660, 1400, '.chip-bnb', { x: 380, y: reduce })
+      this.pin(3060, 320 - reduce, '.chip-bnb', { x: 200 })
+      this.pin(3380 - reduce, 260, '.chip-bnb', { x: 320, width: 180 })
+
+      reduce = step * 1
       this.pin(900, 400, '.chip-dfy', { x: 100 })
       this.pin(1300, 300, '.chip-dfy', { x: 120 })
-      this.pin(1600, 1600, '.chip-dfy', { x: 130 })
-      this.pin(3200, 320, '.chip-dfy', { x: 500 })
-      this.pin(3520, 100, '.chip-dfy', { x: 200 })
+      this.pin(1600, 1600, '.chip-dfy', { x: 130, y: reduce })
+      this.pin(3200, 320 - reduce, '.chip-dfy', { x: 500 })
+      this.pin(3520 - reduce, 100, '.chip-dfy', { x: 200 })
     },
 
     pin (offset, duration, chip, tween) {

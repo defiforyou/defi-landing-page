@@ -70,6 +70,7 @@ section.network {
     .token {
       position: absolute;
       width: 27%;
+      min-width: 120px;
       @include media(sm) {
         width: 20%;
       }
