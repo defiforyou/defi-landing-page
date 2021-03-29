@@ -2,7 +2,8 @@
 section.hero
   .container
     .greeting
-      h1.headline Ever&nbsp;
+      h1.headline First-ever platform where you can loan against NFTs
+      //- h1.headline Ever&nbsp;
         br.xso
         | thought of
         br
@@ -14,8 +15,8 @@ section.hero
           .thumbnail(@click="playing = true")
             img.badge(src="/img/badge.youtube.svg" alt="Youtube")
         .description
-          p DeFi For You.™ — A new decentralized P2P loan economy and&nbsp;
-            strong.special NFT trading platform
+          p DeFi For You.™ — A new decentralized P2P loan economy and the first-ever&nbsp;
+            strong.special P2P NFT trading platform
             | &nbsp;built on the Binance Smart Chain, powered by the&nbsp;
             strong $DFY
             | &nbsp;smart contract token.
