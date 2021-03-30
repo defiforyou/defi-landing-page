@@ -9,7 +9,7 @@ client-only
         :options="options")
         swiper-slide(v-for="i, k in pairs" :key="k")
           .ticker
-            .name {{ i.symbol }} / usd
+            .name {{ i.symbol }} / {{ i.target || 'usd' }}
             .price(:class="{'price--up': i.price_change_percentage_24h > 0, 'price--down': i.price_change_percentage_24h < 0}")
               .current {{ i.current_price }}
               .change {{ i.price_change_percentage_24h | abs | number('0,0.00') }}%
