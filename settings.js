@@ -27,6 +27,7 @@ export const OFFICES = [{
 
 export const URLS = {
   github: 'https://github.com/defi-vn/',
+  telegram: 'https://t.me/DeFiForYou_English',
   facebook: 'https://www.facebook.com/DeFiForYouDFY',
   youtube: 'https://www.youtube.com/channel/UCGaSCU17Zo_2CzJNaBeUHaA/featured',
   linkedin: 'https://www.linkedin.com/company/defiforyou',

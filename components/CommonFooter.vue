@@ -38,6 +38,12 @@ section.footer
               title="Github")
               github-icon(size="24" stroke-width="1")
             a(
+              v-if="urls.telegram"
+              :href="urls.telegram"
+              target="_blank" rel="noopener"
+              title="Telegram")
+              telegram-icon(width="24" height="24")
+            a(
               v-if="urls.facebook"
               :href="urls.facebook"
               target="_blank" rel="noopener"
@@ -100,6 +106,7 @@ import {
   LinkedinIcon,
   TwitterIcon
 } from 'vue-feather-icons'
+import TelegramIcon from '~/assets/icon.telegram.svg?inline'
 
 import { COPYRIGHT, URLS, OFFICES, CONTACT } from '~/settings'
 
@@ -107,6 +114,7 @@ export default {
   components: {
     GlobeIcon,
     MailIcon,
+    TelegramIcon,
     GithubIcon,
     FacebookIcon,
     YoutubeIcon,
@@ -227,7 +235,11 @@ export default {
         display: flex;
         > * {
           &:not(:last-child) {
-            margin-right: 2em;
+            margin-right: 1.6em;
+          }
+          path {
+            stroke-width: 1px;
+            stroke: currentColor;
           }
         }
       }
