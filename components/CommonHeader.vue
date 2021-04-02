@@ -151,7 +151,10 @@ section.header {
       }
       > * {
         &:not(:first-child) {
-          margin-left: 2em;
+          margin-left: 1.6em;
+          @include media(lg) {
+            margin-left: 2em;
+          }
         }
       }
       a {
