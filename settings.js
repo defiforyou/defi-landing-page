@@ -45,6 +45,20 @@ export const URLS = {
   video: 'https://www.youtube.com/embed/rfazs3OpxlI?autoplay=1'
 }
 
+export const PARTNERS = [{
+  name: 'CoinTiger',
+  url: 'https://www.cointiger.com/en-us/#/trade_pro?coin=dfy_usdt',
+  image: '/img/partner.cointiger.png'
+}, {
+  name: 'PancakeSwap',
+  url: 'https://pancakeswap.finance/',
+  image: '/img/partner.pancakeswap.png'
+}, {
+  name: 'BakerySwap',
+  url: 'www.bakeryswap.org',
+  image: '/img/partner.bakeryswap.png'
+}]
+
 export const TEAM_MEMBERS = [{
   position: 'CEO & Founder',
   image: '/img/team.adam-c-chaplin.jpg',
