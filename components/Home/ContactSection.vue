@@ -100,6 +100,10 @@ export default {
     } catch (e) {}
   },
 
+  beforeDestroy () {
+    this.$recaptcha.destroy()
+  },
+
   methods: {
     reset () {
       this.form = {

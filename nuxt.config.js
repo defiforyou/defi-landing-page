@@ -81,13 +81,5 @@ export default {
     scss: [
       '~/assets/settings.scss'
     ]
-  },
-
-  publicRuntimeConfig: {
-    recaptcha: {
-      siteKey: RECAPTCHA_SITE_KEY,
-      hideBadge: true,
-      version: 3
-    }
   }
 }
