@@ -18,6 +18,7 @@
     home-solution-section#solution
     home-services-section#services
     home-network-section#network
+    home-partners-section#partners
     home-team-section#team
     home-contact-section#contact
 </template>

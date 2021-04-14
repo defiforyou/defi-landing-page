@@ -27,6 +27,7 @@ export const OFFICES = [{
 
 export const URLS = {
   github: 'https://github.com/defi-vn/',
+  telegram: 'https://t.me/DeFiForYou_English',
   facebook: 'https://www.facebook.com/DeFiForYouDFY',
   youtube: 'https://www.youtube.com/channel/UCGaSCU17Zo_2CzJNaBeUHaA/featured',
   linkedin: 'https://www.linkedin.com/company/defiforyou',
@@ -43,6 +44,20 @@ export const URLS = {
   buy: '#',
   video: 'https://www.youtube.com/embed/rfazs3OpxlI?autoplay=1'
 }
+
+export const PARTNERS = [{
+  name: 'CoinTiger',
+  url: 'https://www.cointiger.com/en-us/#/trade_pro?coin=dfy_usdt',
+  image: '/img/partner.cointiger.png'
+}, {
+  name: 'PancakeSwap',
+  url: 'https://pancakeswap.finance/',
+  image: '/img/partner.pancakeswap.png'
+}, {
+  name: 'BakerySwap',
+  url: 'www.bakeryswap.org',
+  image: '/img/partner.bakeryswap.png'
+}]
 
 export const TEAM_MEMBERS = [{
   position: 'CEO & Founder',

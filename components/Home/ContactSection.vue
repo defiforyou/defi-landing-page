@@ -100,6 +100,10 @@ export default {
     } catch (e) {}
   },
 
+  beforeDestroy () {
+    this.$recaptcha.destroy()
+  },
+
   methods: {
     reset () {
       this.form = {
@@ -126,7 +130,11 @@ export default {
           this.loading = true
           return this.$recaptcha.execute('contact')
             .then(token => {
-              return this.$apis.contactUs(this.form)
+              return this.$apis
+                .contactUs({
+                  ...this.form,
+                  recaptchaResponse: token
+                })
                 .then(() => {
                   this.completed = true
                 })

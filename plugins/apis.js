@@ -8,6 +8,7 @@ export default ({ $axios }, inject) => {
           params: {
             vs_currency: 'usd',
             ids: [
+              'defi-for-you',
               'bitcoin',
               'ethereum',
               'concierge-io',
@@ -27,6 +28,13 @@ export default ({ $axios }, inject) => {
             sparkline: false,
             price_change_percentage: '24h'
           }
+        })
+        .then(res => {
+          res.sort((a, b) => {
+            if (a.symbol === 'dfy') return -1
+            return 0
+          })
+          return res
         })
     },
 
