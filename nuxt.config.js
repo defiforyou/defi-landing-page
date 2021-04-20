@@ -15,19 +15,19 @@ export default {
       lang: 'en'
     },
     title: 'DeFi For You.',
-    titleTemplate: '%s | DeFi For You Vietnam',
+    titleTemplate: '%s | DeFi For You UK',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'A new decentralized P2P loan economy and NFT trading platform built on the Binance Smart Chain, powered by the $DFY smart contract token.' },
-      { property: 'og:title', content: 'To DeFi For You | DeFi For You UK' },
+      { property: 'og:title', content: 'DeFi For You | DeFi For You UK' },
       { property: 'og:description', content: 'A new decentralized P2P loan economy and NFT trading platform built on the Binance Smart Chain, powered by the $DFY smart contract token.' },
       { property: 'og:image', content: `${OG_ROOT}/img/og.png` },
       { property: 'og:image:type', content: 'image/png' },
       { property: 'og:type', content: 'article' },
       { property: 'og:url', content: OG_ROOT },
       { property: 'twitter:card', content: 'summary' },
-      { property: 'twitter:title', content: 'To DeFi For You | DeFi For You UK' },
+      { property: 'twitter:title', content: 'DeFi For You | DeFi For You UK' },
       { property: 'twitter:image', content: `${OG_ROOT}/img/og.png` },
       { property: 'twitter:image:alt', content: 'DeFi For You.™' },
       { property: 'twitter:description', content: 'A new decentralized P2P loan economy and NFT trading platform built on the Binance Smart Chain, powered by the $DFY smart contract token.' }
