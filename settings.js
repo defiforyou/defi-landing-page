@@ -55,8 +55,16 @@ export const PARTNERS = [{
   image: '/img/partner.pancakeswap.png'
 }, {
   name: 'BakerySwap',
-  url: 'www.bakeryswap.org',
+  url: 'https://www.bakeryswap.org',
   image: '/img/partner.bakeryswap.png'
+}, {
+  name: 'JulSwap',
+  url: 'https://julswap.com/#/swap',
+  image: '/img/partner.julswap.png'
+}, {
+  name: 'Hotbit',
+  url: 'https://www.hotbit.io/exchange?symbol=DFY_USDT',
+  image: '/img/partner.hotbit.png'
 }]
 
 export const TEAM_MEMBERS = [{
