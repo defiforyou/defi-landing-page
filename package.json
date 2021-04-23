@@ -26,6 +26,7 @@
     "swiper": "^6.5.0",
     "vue-awesome-swiper": "^4.1.1",
     "vue-feather-icons": "^5.1.0",
+    "vue-popperjs": "^2.3.0",
     "vue-scrollmagic": "^1.2.0"
   },
   "devDependencies": {

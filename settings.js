@@ -47,24 +47,29 @@ export const URLS = {
 
 export const PARTNERS = [{
   name: 'CoinTiger',
-  url: 'https://www.cointiger.com/en-us/#/trade_pro?coin=dfy_usdt',
-  image: '/img/partner.cointiger.png'
+  url: 'https://www.cointiger.com/en-us/#/trade_center?coin=dfy_usdt',
+  image: '/img/partner.cointiger.png',
+  favicon: '/img/partner.cointiger@xs.png'
 }, {
   name: 'PancakeSwap',
-  url: 'https://pancakeswap.finance/',
-  image: '/img/partner.pancakeswap.png'
+  url: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=0xd98560689c6e748dc37bc410b4d3096b1aa3d8c2',
+  image: '/img/partner.pancakeswap.png',
+  favicon: '/img/partner.pancakeswap@xs.png'
 }, {
   name: 'BakerySwap',
-  url: 'https://www.bakeryswap.org',
-  image: '/img/partner.bakeryswap.png'
+  url: 'https://www.bakeryswap.org/#/swap?outputCurrency=0xd98560689c6e748dc37bc410b4d3096b1aa3d8c2',
+  image: '/img/partner.bakeryswap.png',
+  favicon: '/img/partner.bakeryswap@xs.png'
 }, {
   name: 'JulSwap',
-  url: 'https://julswap.com/#/swap',
-  image: '/img/partner.julswap.png'
+  url: 'https://julswap.com/#/swap?outputCurrency=0xd98560689c6e748dc37bc410b4d3096b1aa3d8c2',
+  image: '/img/partner.julswap.png',
+  favicon: '/img/partner.julswap@xs.png'
 }, {
   name: 'Hotbit',
   url: 'https://www.hotbit.io/exchange?symbol=DFY_USDT',
-  image: '/img/partner.hotbit.png'
+  image: '/img/partner.hotbit.png',
+  favicon: '/img/partner.hotbit@xs.png'
 }]
 
 export const TEAM_MEMBERS = [{

@@ -49,6 +49,7 @@ export default {
     { src: '~/plugins/apis' },
     { src: '~/plugins/directives' },
     { src: '~/plugins/filters' },
+    { src: '~/plugins/utilities' },
     { src: '~/plugins/scrollmagic', mode: 'client' }
   ],
 

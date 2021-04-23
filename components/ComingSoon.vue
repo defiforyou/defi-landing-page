@@ -1,15 +1,8 @@
 <template lang="pug">
-section.hero
+section.coming-soon
   .container
     .greeting
-      h1.headline First-ever platform where you can loan against NFTs
-      //- h1.headline Ever&nbsp;
-        br.xso
-        | thought of
-        br
-        | becoming
-        br
-        | your own bank?
+      h1.headline Coming soon...
       .preview
         .video
           .thumbnail(@click="playing = true")
@@ -20,14 +13,6 @@ section.hero
             | &nbsp;built on the Binance Smart Chain, powered by the&nbsp;
             strong $DFY
             | &nbsp;smart contract token.
-      .actions
-        popper-exchanges(trigger="clickToToggle" append-to-body)
-          a.dfy-button.dfy-button--primary Buy DFY on Exchanges
-
-        //- a.dfy-button.dfy-button--ghost(:href="urls.whitepaper" target="_blank" rel="noopener") Whitepaper
-        nuxt-link.dfy-button.dfy-button--special(
-          :to="{ name: 'trade-nfts' }"
-          rel="noopener") Trade NFTs
 
     .canvas
       img.phone(src="/img/hero.phone.png" alt="Phone")
@@ -116,7 +101,7 @@ export default {
   }
 }
 
-section.hero {
+section.coming-soon {
   overflow: hidden;
   .container {
     position: relative;
@@ -191,14 +176,14 @@ section.hero {
     z-index: 2;
     padding: 2em 0;
     @include media(sm) {
-      padding: 5rem 0 14rem 0;
+      padding: 5rem 0 18rem 0;
       width: 660px;
     }
     @include media(md) {
-      padding: 5rem 0 14rem 0;
+      padding: 5rem 0 24rem 0;
     }
     @include media(lg) {
-      padding: 9.5rem 0;
+      padding: 9.5rem 0 24rem 0;
       width: 660px;
     }
     .headline {
