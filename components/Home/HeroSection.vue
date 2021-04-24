@@ -21,7 +21,7 @@ section.hero
             strong $DFY
             | &nbsp;smart contract token.
       .actions
-        popper-exchanges(trigger="clickToToggle" append-to-body)
+        popover-exchanges
           a.dfy-button.dfy-button--primary Buy DFY on Exchanges
 
         //- a.dfy-button.dfy-button--ghost(:href="urls.whitepaper" target="_blank" rel="noopener") Whitepaper

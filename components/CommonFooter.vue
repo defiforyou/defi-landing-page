@@ -82,7 +82,7 @@ section.footer
                 :href="urls.app"
                 target="_blank" rel="noopener") Get the mobile app ->
             li
-              popper-exchanges(trigger="clickToToggle" append-to-body)
+              popover-exchanges(placement="top-start")
                 a(:href="urls.buy") Buy DFY on Exchanges ->
 
   .copyright
