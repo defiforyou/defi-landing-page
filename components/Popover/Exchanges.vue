@@ -1,8 +1,12 @@
 <template lang="pug">
-popper(v-bind="$attrs")
-  .popper.exchanges
+v-popover(auto-hide v-bind="$attrs")
+  slot
+  .exchanges(slot="popover")
     ul
-      li(v-for="i, k in partners" :key="k")
+      li(
+        v-for="i, k in partners"
+        v-if="i.exchange"
+        :key="k")
         a(
           :href="i.url"
           :title="i.title"
@@ -11,7 +15,6 @@ popper(v-bind="$attrs")
           .favicon
             img(:src="i.favicon")
           span.name(v-text="i.name")
-  slot(slot="reference")
 </template>
 
 <script>
@@ -27,7 +30,7 @@ export default {
 <style lang="scss" scoped>
 .exchanges {
   text-align: left;
-  min-width: 192px;
+  min-width: 160px;
   box-sizing: border-box;
   /deep/ {
     ul {

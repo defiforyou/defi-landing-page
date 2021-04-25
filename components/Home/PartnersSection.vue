@@ -10,6 +10,7 @@ section.partners
           :href="i.url"
           :title="i.title"
           target="_blank"
+          v-tooltip="i.description"
           rel="noopener")
           img.logo(
             :src="i.image"

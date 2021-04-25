@@ -46,30 +46,40 @@ export const URLS = {
 }
 
 export const PARTNERS = [{
+  name: 'Blockchain Developer Asia',
+  description: 'Blockchain Developer Asia is half-owned by DeFi For You and has more than 200 full-time developers, 30 of which are working on the DeFi For You platform.',
+  url: 'https://blockchaindeveloper.asia/',
+  image: '/img/partner.blockchain-developer-asia.png'
+}, {
   name: 'CoinTiger',
   url: 'https://www.cointiger.com/en-us/#/trade_center?coin=dfy_usdt',
   image: '/img/partner.cointiger.png',
-  favicon: '/img/partner.cointiger@xs.png'
+  favicon: '/img/partner.cointiger@xs.png',
+  exchange: true
 }, {
   name: 'PancakeSwap',
   url: 'https://exchange.pancakeswap.finance/#/swap?outputCurrency=0xd98560689c6e748dc37bc410b4d3096b1aa3d8c2',
   image: '/img/partner.pancakeswap.png',
-  favicon: '/img/partner.pancakeswap@xs.png'
+  favicon: '/img/partner.pancakeswap@xs.png',
+  exchange: true
 }, {
   name: 'BakerySwap',
   url: 'https://www.bakeryswap.org/#/swap?outputCurrency=0xd98560689c6e748dc37bc410b4d3096b1aa3d8c2',
   image: '/img/partner.bakeryswap.png',
-  favicon: '/img/partner.bakeryswap@xs.png'
+  favicon: '/img/partner.bakeryswap@xs.png',
+  exchange: true
 }, {
   name: 'JulSwap',
   url: 'https://julswap.com/#/swap?outputCurrency=0xd98560689c6e748dc37bc410b4d3096b1aa3d8c2',
   image: '/img/partner.julswap.png',
-  favicon: '/img/partner.julswap@xs.png'
+  favicon: '/img/partner.julswap@xs.png',
+  exchange: true
 }, {
   name: 'Hotbit',
   url: 'https://www.hotbit.io/exchange?symbol=DFY_USDT',
   image: '/img/partner.hotbit.png',
-  favicon: '/img/partner.hotbit@xs.png'
+  favicon: '/img/partner.hotbit@xs.png',
+  exchange: true
 }]
 
 export const TEAM_MEMBERS = [{

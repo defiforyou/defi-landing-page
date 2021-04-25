@@ -1,0 +1,109 @@
+.v-popover {
+  display: inline-block;
+}
+
+.tooltip {
+  display: inline-block;
+  z-index: 1000;
+  $bg: lighten($--color-background-page, 7);
+  $arrow: 7px;
+  max-width: 360px;
+
+  .tooltip-inner {
+    background: $bg;
+    color: white;
+    font-size: 14px;
+    border-radius: .5rem;
+    line-height: 1.65em;
+    padding: 1em 1.5em;
+    box-shadow: 0 10px 20px 0 rgba(black, .1);
+  }
+
+  .tooltip-arrow {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    position: absolute;
+    margin: $arrow;
+    border-color: $bg;
+  }
+
+  &[x-placement^="top"] {
+    margin-bottom: $arrow;
+
+    .tooltip-arrow {
+      border-width: $arrow $arrow 0 $arrow;
+      border-left-color: transparent !important;
+      border-right-color: transparent !important;
+      border-bottom-color: transparent !important;
+      bottom: -$arrow;
+      left: calc(50% - $arrow);
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  &[x-placement^="bottom"] {
+    margin-top: $arrow;
+
+    .tooltip-arrow {
+      border-width: 0 $arrow $arrow $arrow;
+      border-left-color: transparent !important;
+      border-right-color: transparent !important;
+      border-top-color: transparent !important;
+      top: -$arrow;
+      left: calc(50% - $arrow);
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  &[x-placement^="right"] {
+    margin-left: $arrow;
+
+    .tooltip-arrow {
+      border-width: $arrow $arrow $arrow 0;
+      border-left-color: transparent !important;
+      border-top-color: transparent !important;
+      border-bottom-color: transparent !important;
+      left: -$arrow;
+      top: calc(50% - $arrow);
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  &[x-placement^="left"] {
+    margin-right: $arrow;
+
+    .tooltip-arrow {
+      border-width: $arrow 0 $arrow $arrow;
+      border-top-color: transparent !important;
+      border-right-color: transparent !important;
+      border-bottom-color: transparent !important;
+      right: -$arrow;
+      top: calc(50% - $arrow);
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  &[aria-hidden='true'] {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .15s, visibility .15s;
+  }
+
+  &[aria-hidden='false'] {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity .15s;
+  }
+}
+
+.popover {
+  .popover-inner {
+    border-radius: .75rem;
+    padding: .75rem 1rem;
+  }
+}

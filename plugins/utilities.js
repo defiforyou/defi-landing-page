@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Popper from 'vue-popperjs'
-import '~/assets/popper.scss'
+import VueTooltip from 'v-tooltip'
+import '~/assets/tooltip.scss'
 
-Vue.component('Popper', Popper)
+Vue.use(VueTooltip)

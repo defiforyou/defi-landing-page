@@ -16,7 +16,7 @@ section.network
       img.token.btc(src="/img/token.btc.png" alt="BTC")
   .container
     .actions
-      popper-exchanges(trigger="clickToToggle" append-to-body)
+      popover-exchanges
         a.dfy-button.dfy-button--primary Buy DFY on Exchanges
       a.dfy-button.dfy-button--ghost(
         :href="urls.whitepaper"
