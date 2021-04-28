@@ -174,4 +174,13 @@ export const TEAM_MEMBERS = [{
   email: '',
   facebook: '',
   linkedin: ''
+}, {
+  position: 'Pawnbroker Partner',
+  image: '/img/team.miles-mann.jpg',
+  name: 'Miles Mann',
+  bio: 'Founder and MD of Cotswold Fine Jewellery Group and a fellow of the Gemmological Association of Great Britain, a member of the National Association of Goldsmiths, and the National Pawnbrokers Association.',
+  other: null,
+  email: '',
+  facebook: '',
+  linkedin: ''
 }]
