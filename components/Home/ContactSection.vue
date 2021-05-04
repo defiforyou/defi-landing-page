@@ -70,6 +70,8 @@ section.contact
 </template>
 
 <script>
+import { RECAPTCHA_ENABLED } from '~/settings'
+
 export default {
   data () {
     return {
@@ -95,13 +97,15 @@ export default {
   },
 
   async mounted () {
-    try {
-      await this.$recaptcha.init()
-    } catch (e) {}
+    if (RECAPTCHA_ENABLED) {
+      try {
+        await this.$recaptcha.init()
+      } catch (e) {}
+    }
   },
 
   beforeDestroy () {
-    this.$recaptcha.destroy()
+    if (RECAPTCHA_ENABLED) this.$recaptcha.destroy()
   },
 
   methods: {
@@ -123,22 +127,38 @@ export default {
       return Promise.resolve()
     },
 
+    tokenize () {
+      return this.$recaptcha.execute('contact')
+        .then(this.send)
+        .catch(() => {
+          this.completed = false
+          this.error = 'Something went wrong. Please try again later.'
+        })
+        .finally(() => {
+          this.loading = false
+        })
+    },
+
+    send (token) {
+      return this.$apis
+        .contactUs({
+          ...this.form,
+          recaptchaResponse: token
+        })
+        .then(() => {
+          this.completed = true
+        })
+    },
+
     submit () {
       this.validate()
         .then(() => {
           this.error = null
           this.loading = true
-          return this.$recaptcha.execute('contact')
-            .then(token => {
-              return this.$apis
-                .contactUs({
-                  ...this.form,
-                  recaptchaResponse: token
-                })
-                .then(() => {
-                  this.completed = true
-                })
-            })
+          const cb = RECAPTCHA_ENABLED
+            ? this.tokenize().then(this.send)
+            : this.send()
+          return cb
             .catch(() => {
               this.completed = false
               this.error = 'Something went wrong. Please try again later.'

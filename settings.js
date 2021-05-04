@@ -2,6 +2,7 @@ export const OG_ROOT = 'https://defi-c5be4.web.app'
 export const COPYRIGHT = '© 2021 DeFi For You. All rights reserved.'
 
 export const RECAPTCHA_SITE_KEY = '6LdOtzgaAAAAAAs5iSvp_xM_p9dP9DMEMmSjS1NG'
+export const RECAPTCHA_ENABLED = false
 
 export const CONTACT = {
   email: 'ask@defi.com.vn',
@@ -17,7 +18,7 @@ export const OFFICES = [{
   name: 'DeFi For You — HCMC Office',
   vie: '+84 9643 66605',
   eng: '+84 9644 41735',
-  address: '370 Nguyen Van Quy, Phu Nhuan, Dist. 7, HCMC, Vietnam'
+  address: '370 Nguyen Van Quy, Phu Thuan, Dist. 7, HCMC, Vietnam'
 }, {
   name: 'DeFi For You — Bournemouth Office',
   vie: '+84 9643 66605',
