@@ -25,7 +25,8 @@ section.hero
           a.dfy-button.dfy-button--primary Buy DFY on Exchanges
 
         //- a.dfy-button.dfy-button--ghost(:href="urls.whitepaper" target="_blank" rel="noopener") Whitepaper
-        nuxt-link.dfy-button.dfy-button--special(
+        a.dfy-button.dfy-button--special(:href="urls.trade" target="_blank" rel="noopener") Trade NFTs
+        //- nuxt-link.dfy-button.dfy-button--special(
           :to="{ name: 'trade-nfts' }"
           rel="noopener") Trade NFTs
 

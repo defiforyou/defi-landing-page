@@ -96,7 +96,8 @@ export default {
       }
     }, {
       text: 'Trade NFTs',
-      to: { name: 'trade-nfts' },
+      href: URLS.trade,
+      target: '_blank',
       classes: {
         'dfy-button': true,
         'dfy-button--special': true

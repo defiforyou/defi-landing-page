@@ -37,7 +37,7 @@ export const URLS = {
   lending: 'https://beta.app.defi.com.vn/pawn',
   stacking: 'https://app.defi.com.vn/staking',
   farming: '#',
-  trade: '#',
+  trade: 'https://beta.app.defi.com.vn/nft',
   whitepaper: '/defi-for-you-whitepaper.v2.pdf',
   app: '#',
   android: '#',
