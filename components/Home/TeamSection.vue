@@ -19,6 +19,8 @@ section.team
                 v-image="i.other.image"
                 :alt="i.other.name"
                 :width="i.other.width")
+          a.phone(v-if="i.phone" :href="`tel:${i.phone}`" target="_blank" rel="noopener" v-tooltip="i.phone")
+            smartphone-icon(size="24" stroke-width="1")
           a.email(v-if="i.email" :href="`mailto:${i.email}`" target="_blank" rel="noopener" title="Email")
             mail-icon(size="24" stroke-width="1")
           a.facebook(v-if="i.facebook" :href="i.facebook" target="_blank" rel="noopener" title="Facebook")
@@ -31,7 +33,8 @@ section.team
 import {
   MailIcon,
   FacebookIcon,
-  LinkedinIcon
+  LinkedinIcon,
+  SmartphoneIcon
 } from 'vue-feather-icons'
 
 import { TEAM_MEMBERS } from '~/settings'
@@ -40,7 +43,8 @@ export default {
   components: {
     MailIcon,
     FacebookIcon,
-    LinkedinIcon
+    LinkedinIcon,
+    SmartphoneIcon
   },
 
   computed: {

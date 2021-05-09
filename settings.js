@@ -154,6 +154,7 @@ export const TEAM_MEMBERS = [{
   name: 'William Gray',
   bio: 'William is a digital marketing specialist and copywriter with a background working with eCommerce app developers, blockchain projects, and a national newspaper.',
   other: null,
+  phone: '+84395340013',
   email: '',
   facebook: 'https://www.facebook.com/billygraywriter/',
   linkedin: 'https://www.linkedin.com/in/billygraywriter/'
