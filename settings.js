@@ -5,7 +5,7 @@ export const RECAPTCHA_SITE_KEY = '6LdOtzgaAAAAAAs5iSvp_xM_p9dP9DMEMmSjS1NG'
 export const RECAPTCHA_ENABLED = false
 
 export const CONTACT = {
-  email: 'ask@defi.com.vn',
+  email: 'ask@defiforyou.uk',
   form: 'https://formspree.io/f/xeqvjeva'
 }
 
@@ -33,11 +33,11 @@ export const URLS = {
   youtube: 'https://www.youtube.com/channel/UCGaSCU17Zo_2CzJNaBeUHaA/featured',
   linkedin: 'https://www.linkedin.com/company/defiforyou',
   twitter: 'https://twitter.com/Defiforyou',
-  pawn: 'https://beta.app.defi.com.vn/pawn',
-  lending: 'https://beta.app.defi.com.vn/pawn',
-  stacking: 'https://app.defi.com.vn/staking',
+  pawn: 'https://beta.app.defiforyou.uk/pawn',
+  lending: 'https://beta.app.defiforyou.uk/pawn',
+  stacking: 'https://app.defiforyou.uk/staking',
   farming: '#',
-  trade: 'https://beta.app.defi.com.vn/nft',
+  trade: 'https://beta.app.defiforyou.uk/nft',
   whitepaper: '/defi-for-you-whitepaper.v2.pdf',
   app: '#',
   android: '#',
