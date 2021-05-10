@@ -6,6 +6,7 @@ export const RECAPTCHA_ENABLED = false
 
 export const CONTACT = {
   email: 'ask@defiforyou.uk',
+  support: 'support@defiforyou.uk',
   form: 'https://formspree.io/f/xeqvjeva'
 }
 

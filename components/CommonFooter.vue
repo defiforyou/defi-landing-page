@@ -12,9 +12,12 @@ section.footer
             .language
               globe-icon.icon(size="24" stroke-width="1")
               span English (United States) ->
-            .email(v-if="contact.email")
+            .email.ask(v-if="contact.email")
               mail-icon.icon(size="24" stroke-width="1")
               a(:href="`mailto:${contact.email}`" target="_blank" rel="noopener" v-text="contact.email")
+            .email.support(v-if="contact.support")
+              mail-icon.icon(size="24" stroke-width="1")
+              a(:href="`mailto:${contact.support}`" target="_blank" rel="noopener" v-text="contact.support")
 
         .office(v-for="i, k in offices" :style="{gridArea: `office-${k + 1}`}")
           .title(v-text="i.name")
