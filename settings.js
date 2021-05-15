@@ -21,10 +21,13 @@ export const OFFICES = [{
   eng: '+84 9644 41735',
   address: '370 Nguyen Van Quy, Phu Thuan, Dist. 7, HCMC, Vietnam'
 }, {
-  name: 'DeFi For You — Bournemouth Office',
-  vie: '+84 9643 66605',
-  eng: '+84 9644 41735',
-  address: '9 The Old Coach House Clement Mews 5 RL Stevenson Ave, Bournemouth BH4 8AU'
+  name: 'DeFi For You — London Office',
+  vie: null,
+  eng: '+44 7479 739139',
+  engSupporter: 'Sean Mason - Business Coach',
+  address: 'Office 32 19-21 Crawford Street, London, United Kingdom, W1H 1PJ',
+  registrationNumber: '13126050',
+  companiesHouse: 'https://find-and-update.company-information.service.gov.uk/company/13126050?fbclid=IwAR3Fm3QHdllfP_z1QIZ9e9UX-warFarV1XuwBqsxXyPl0M3k-BLSvkNdXuE'
 }]
 
 export const URLS = {

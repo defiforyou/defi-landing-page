@@ -29,7 +29,18 @@ section.footer
             a(v-if="i.eng" :href="`tel:${i.eng}`")
               span.number {{ i.eng }}
               img.flag(src="/img/flag.gb.png" alt="English" width="24" height="24")
+              span.supporter(v-if="i.engSupporter") {{ i.engSupporter }}
           .address(v-text="i.address")
+          .registration-number(v-if="i.registrationNumber")
+            span Registration Number:&nbsp;
+            strong {{ i.registrationNumber }}
+          .companies-house
+            a(
+              v-if="i.companiesHouse"
+              tooltip="View on Companies House"
+              :href="i.companiesHouse"
+              target="_blank"
+              rel="noopener") View on Companies House ->
 
         .social
           .title Find us on
@@ -222,6 +233,9 @@ export default {
         .number {
           width: 128px;
           display: inline-block;
+        }
+        .flag {
+          margin-right: .65em;
         }
       }
       > * {
