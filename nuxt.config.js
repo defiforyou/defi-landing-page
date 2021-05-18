@@ -66,10 +66,15 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
+    '@nuxtjs/gtm',
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
     '@nuxtjs/recaptcha'
   ],
+
+  gtm: {
+    id: 'G-S83LVZJV2Q'
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
