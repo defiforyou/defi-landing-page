@@ -137,7 +137,7 @@ export const TEAM_MEMBERS = [
     position: 'CFO',
     image: '/img/team.sean-mason.jpg',
     name: 'Sean Mason',
-    bio: 'Seasoned business veteran of 20+ years and owner of bankruptcy.co.uk',
+    bio: 'Sean Mason draws on decades of experience running several companies to help manage the finances of DeFi For You. He is also charged with expanding the project into the UK and EU markets.',
     other: null,
     email: '',
     facebook: 'https://www.facebook.com/SeanMasonKiani',
