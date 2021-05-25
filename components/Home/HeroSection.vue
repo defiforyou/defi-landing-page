@@ -2,24 +2,21 @@
 section.hero
   .container
     .greeting
-      h1.headline First-ever platform where you can loan against NFTs
-      //- h1.headline Ever&nbsp;
-        br.xso
-        | thought of
-        br
-        | becoming
-        br
-        | your own bank?
+      //- h1.headline First-ever platform where you can loan against NFTs
+      h1.headline Finance crypto, digital, and hard assets without selling them
       .preview
         .video
           .thumbnail(@click="playing = true")
             img.badge(src="/img/badge.youtube.svg" alt="Youtube")
         .description
-          p DeFi For You.™ — A new decentralized P2P loan economy and the first-ever&nbsp;
+          //- p DeFi For You.™ — A new decentralized P2P loan economy and the first-ever&nbsp;
             strong.special P2P NFT trading platform
             | &nbsp;built on the Binance Smart Chain, powered by the&nbsp;
             strong $DFY
             | &nbsp;smart contract token.
+          p DeFi For You is a P2P finance and NFT minting platform that lets you lend and borrow against crypto, digital, and hard assets.
+          p Trillions of dollars worth of hard assets just opened up to the blockchain.
+          p Buy the DFY token to become your own bank today.
       .actions
         popover-exchanges
           a.dfy-button.dfy-button--primary Buy DFY on Exchanges
@@ -196,10 +193,10 @@ section.hero {
       width: 660px;
     }
     @include media(md) {
-      padding: 5rem 0 14rem 0;
+      padding: 5rem 0 12rem 0;
     }
     @include media(lg) {
-      padding: 9.5rem 0;
+      padding: 8rem 0 6rem 0;
       width: 660px;
     }
     .headline {
@@ -216,7 +213,7 @@ section.hero {
       }
     }
     .preview {
-      align-items: center;
+      align-items: top;
       margin-top: 1rem;
       @include media(sm) {
         margin-top: 2.5rem;
@@ -224,7 +221,7 @@ section.hero {
       }
       .video {
         cursor: pointer;
-        flex: 0 0 168px;
+        flex: 0 0 240px;
         .thumbnail {
           border-radius: 8px;
           width: 100%;
@@ -250,7 +247,7 @@ section.hero {
           margin: 0 0 0 1.75em;
         }
         p {
-          margin: 0;
+          margin: 0 0 .5rem 0;
           strong {
             color: $--color-primary;
             &.special {

@@ -2,11 +2,21 @@
 section.network
   .dfy-decorator NETWORK
   .container
-    h2.title DFY
+    //- h2.title DFY
       em .
-    p.description DFY is a BEP20 token built on Binance Smart Chain.
+    //- p.description DFY is a BEP20 token built on Binance Smart Chain.
       br
       | This ensures transactions are practically instant with extremely low fees.
+    h2.title The DFY token
+    .description DFY is the native crypto currency of the DeFi For You platform.
+      br
+      | It’s an exchange token that has several uses.
+    .blocks
+      p Users who hold more than a million tokens can partner with DeFi For You Ltd to receive financing for a crypto pawnshop.
+      p Users who hold more than 200,000 DFY tokens can open a crypto pawnshop and manually run it without financing from DeFi For You Ltd.
+      p Users with 2,000 DFY tokens can issue P2P loans.
+      p The DFY token is used for fees on the DeFi For You platform. It can also be borrowed or staked as collateral for a loan.
+
   .canvas
     .map
     .tokens
@@ -42,6 +52,48 @@ section.network {
   @include media(sm) {
     padding: 2em 0;
     margin-top: 0;
+  }
+  .blocks {
+    display: grid;
+    text-align: left;
+    font-size: .9em;
+    grid-gap: 1.5em;
+    margin: 2.5em 0;
+    @include media(sm) {
+      margin: 2.5em auto -2em;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      max-width: 640px;
+    }
+    @include media(lg) {
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      max-width: 1024px;
+    }
+    > * {
+      margin: 0;
+      position: relative;
+      z-index: 1;
+      padding-left: 2em;
+      @include media(sm) {
+        padding: 1em 1.5em;
+        border-radius: 1em;
+        backdrop-filter: blur(6px);
+        background: rgba(lighten(#191C25, 2), .95);
+      }
+      &:before {
+        content: '';
+        display: block;
+        width: .6em;
+        height: .6em;
+        border-radius: .2em;
+        background: $--color-primary;
+        position: absolute;
+        top: .6em;
+        left: 0;
+        @include media(sm) {
+          display: none;
+        }
+      }
+    }
   }
   .canvas {
     max-width: 1000px;

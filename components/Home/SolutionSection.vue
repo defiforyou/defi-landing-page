@@ -180,7 +180,7 @@ section.solution {
       width: 280px;
       text-align: left;
       // background: rgba(white, .08);
-      background: #2A2D36;
+      background: #2a2d36;
       // backdrop-filter: blur(6px);
       @include media(sm) {
         position: absolute;
