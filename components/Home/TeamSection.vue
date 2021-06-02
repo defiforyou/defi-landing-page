@@ -83,6 +83,7 @@ section.team {
           background-size: cover;
           background-color: $--color-background-page;
           border-radius: 1000px;
+          filter: grayscale(1);
         }
         .position {
           text-align: left;
