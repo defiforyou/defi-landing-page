@@ -38,7 +38,7 @@ export const URLS = {
   linkedin: 'https://www.linkedin.com/company/defiforyou',
   twitter: 'https://twitter.com/Defiforyou',
   pawn: 'https://app.defiforyou.uk/pawn',
-  lending: 'https://app.defiforyou.uk/pawn?type=2',
+  lending: 'https://app.defiforyou.uk/pawn',
   stacking: 'https://app.defiforyou.uk/staking',
   farming: '#',
   trade: 'https://app.defiforyou.uk/nft',
