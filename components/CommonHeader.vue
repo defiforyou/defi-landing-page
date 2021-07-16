@@ -75,7 +75,7 @@ export default {
       classes: {
         'dfy-button': true,
         'dfy-button--overlay': true,
-        'dfy-button--beta': true
+        'dfy-button--beta': false
       }
     }, {
       text: 'Staking',
