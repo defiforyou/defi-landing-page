@@ -41,6 +41,7 @@ export default {
   },
 
   async created () {
+    await this.getStatus()
     await this.getBanners()
   },
 
@@ -49,7 +50,7 @@ export default {
   },
 
   methods: {
-    ...mapActions('reward', ['getBanners']),
+    ...mapActions('reward', ['getBanners', 'getStatus']),
     ...mapMutations('reward', ['SET_IS_REWARD']),
     setup () {
       if (window.innerWidth < 1200) { return }
