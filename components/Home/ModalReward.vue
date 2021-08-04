@@ -1,7 +1,11 @@
 <template>
   <div class="modal-root">
     <div class="modal-wrapper" @click.self="$emit('close')">
-      <div class="reward">
+      <div
+        v-if="$device.isMobile"
+        class="reward"
+        :style="{ backgroundImage: 'url(' + get(banners[0], 'imageMobileUrl', '') + ')' }"
+      >
         <span class="close" @click="$emit('close')">
           <img src="~assets/img/x-circle.png" alt="">
         </span>
@@ -12,7 +16,39 @@
           </h3>
 
           <div class="reward-text">
-            Register new DeFi For You account from  <span>01/08/2021</span> to <span>31/12/2021</span> to have 100% chance of receiving DFY tokens
+            Register new DeFi For You account from  <span>{{ $convertTime(get(banners[0], 'startAt', '')) }}</span> to
+            <span>{{ $convertTime(get(banners[0], 'stopAt', '')) }}</span> to have 100% chance of receiving DFY tokens
+          </div>
+
+          <div class="reward-btn">
+            <button>
+              Sign up to get reward
+            </button>
+
+            <button class="btn-disable">
+              Sign up to get reward
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div
+        v-if="$device.isDesktopOrTablet"
+        class="reward"
+        :style="{ backgroundImage: 'url(' + get(banners[0], 'imageUrl', '') + ')' }"
+      >
+        <span class="close" @click="$emit('close')">
+          <img src="~assets/img/x-circle.png" alt="">
+        </span>
+
+        <div class="reward__content">
+          <h3 class="reward-title">
+            Exclusive on DeFi For You!!!
+          </h3>
+
+          <div class="reward-text">
+            Register new DeFi For You account from  <span>{{ $convertTime(get(banners[0], 'startAt', '')) }}</span> to
+            <span>{{ $convertTime(get(banners[0], 'stopAt', '')) }}</span> to have 100% chance of receiving DFY tokens
           </div>
 
           <div class="reward-btn">
@@ -31,8 +67,16 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+import get from 'lodash/get'
 export default {
+  computed: {
+    ...mapState('reward', ['banners'])
+  },
 
+  methods: {
+    get
+  }
 }
 </script>
 
@@ -65,9 +109,10 @@ export default {
 }
 
 .reward {
-  background: url('~assets/img/bg-reward-mobile.png') no-repeat;
-  background-position: initial;
-  background-size: cover;
+  // background: url('~assets/img/bg-reward-mobile.png') no-repeat;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
   border-radius: 20px;
   position: relative;
   display: block;
@@ -87,7 +132,7 @@ export default {
 
   @media(min-width: 960px) {
     background-position: center;
-    background: url('~assets/img/bg-reward.png') no-repeat;
+    // background: url('~assets/img/bg-reward.png') no-repeat;
     height: 476px;
     max-width: 1135px;
   }
@@ -95,48 +140,67 @@ export default {
 
 .close {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 10px;
+  right: 22px;
   cursor: pointer;
+
+  @media (min-width: 960px) {
+    top: 20px;
+    right: 20px;
+  }
+
+  img {
+    width: 27px;
+    height: 27px;
+
+    @media (min-width: 960px) {
+      width: unset;
+      height: unset;
+    }
+  }
 }
 
 .reward__content {
-  margin: 80px 20px 0 20px;
+  margin: 20px 20px 0 20px;
 
   @media(min-width: 960px) {
     position: absolute;
-    top: 100px;
+    top: 90px;
     right: 50px;
     text-align: center;
     max-width: 760px;
     margin-top: 0;
     padding: 0;
+    max-width: 710px;
+    margin-top: 80px 0 0 0;
   }
 }
 
 .reward-title {
   font-weight: bold;
-  font-size: 20px;
+  font-size: 18px;
   color: #FFFFFF;
-  margin-bottom: 20px;
   font-family: "Montserrat";
-  margin-top: 100px;
-  margin-top: 20px;
+  margin-bottom: 5px;
 
   @media(min-width: 960px) {
+    margin-top: 0;
+    margin-bottom: 20px;
     font-size: 48px;
   }
 }
 
 .reward-text {
   font-weight: 500;
-  font-size: 16px;
-  margin-bottom: 54px;
+  font-size: 12px;
+  margin-bottom: 10px;
   color: #FFFFFF;
   font-family: "Montserrat";
 
   @media(min-width: 960px) {
+    margin-bottom: 54px;
     font-size: 24px;
+    line-height: 29px;
   }
 
   span {
@@ -154,7 +218,7 @@ export default {
     border-radius: 30px;
     color: #282C37;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 13px;
     cursor: pointer;
     font-family: "Montserrat";
     margin-bottom: 20px;

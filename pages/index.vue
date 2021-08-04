@@ -27,6 +27,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
   data () {
     return {
@@ -34,11 +35,17 @@ export default {
       isRewardMini: false
     }
   },
+
+  created () {
+    this.getBanners()
+  },
+
   mounted () {
     this.setup()
   },
 
   methods: {
+    ...mapActions('reward', ['getBanners']),
     setup () {
       if (window.innerWidth < 1200) { return }
 
