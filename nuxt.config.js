@@ -70,7 +70,9 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
     '@nuxtjs/recaptcha',
-    '@nuxtjs/device'
+    '@nuxtjs/device',
+    // https://www.npmjs.com/package/@nuxtjs/dotenv
+    '@nuxtjs/dotenv'
   ],
 
   'google-gtag': {

@@ -13,6 +13,7 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.12.5",
     "@nuxtjs/device": "^2.1.0",
+    "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/google-gtag": "^1.0.4",
     "@nuxtjs/recaptcha": "^1.0.4",
     "@nuxtjs/style-resources": "^1.0.0",

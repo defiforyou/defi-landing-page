@@ -27,17 +27,21 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+// import moment from 'moment'
+// import get from 'lodash/get'
+import { mapActions, mapState, mapMutations } from 'vuex'
 export default {
   data () {
     return {
-      isReward: true,
       isRewardMini: false
     }
   },
+  computed: {
+    ...mapState('reward', ['banners', 'isReward'])
+  },
 
-  created () {
-    this.getBanners()
+  async created () {
+    await this.getBanners()
   },
 
   mounted () {
@@ -46,6 +50,7 @@ export default {
 
   methods: {
     ...mapActions('reward', ['getBanners']),
+    ...mapMutations('reward', ['SET_IS_REWARD']),
     setup () {
       if (window.innerWidth < 1200) { return }
 
@@ -94,12 +99,14 @@ export default {
     },
 
     closeRewardModal () {
-      this.isReward = false
+      this.SET_IS_REWARD(false)
+      // this.isReward = false
       this.isRewardMini = true
     },
 
     handleRewardMini () {
-      this.isReward = true
+      this.SET_IS_REWARD(true)
+      // this.isReward = true
       this.isRewardMini = false
     }
   }

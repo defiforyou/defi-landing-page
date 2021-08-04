@@ -4,7 +4,7 @@
       <div
         v-if="$device.isMobile"
         class="reward"
-        :style="{ backgroundImage: 'url(' + get(banners[0], 'imageMobileUrl', '') + ')' }"
+        :style="{ backgroundImage: 'url(' + get(banners, '[0].imageMobileUrl', '') + ')' }"
       >
         <span class="close" @click="$emit('close')">
           <img src="~assets/img/x-circle.png" alt="">
@@ -16,16 +16,16 @@
           </h3>
 
           <div class="reward-text">
-            Register new DeFi For You account from  <span>{{ $convertTime(get(banners[0], 'startAt', '')) }}</span> to
-            <span>{{ $convertTime(get(banners[0], 'stopAt', '')) }}</span> to have 100% chance of receiving DFY tokens
+            Register new DeFi For You account from  <span>{{ $convertTime(get(banners, '[0].startAt', '')) }}</span> to
+            <span>{{ $convertTime(get(banners, '[0].stopAt', '')) }}</span> to have 100% chance of receiving DFY tokens
           </div>
 
           <div class="reward-btn">
-            <button>
+            <button v-if="isHandleSignUp" @click="redirect()">
               Sign up to get reward
             </button>
 
-            <button class="btn-disable">
+            <button v-else class="btn-disable">
               Sign up to get reward
             </button>
           </div>
@@ -35,7 +35,7 @@
       <div
         v-if="$device.isDesktopOrTablet"
         class="reward"
-        :style="{ backgroundImage: 'url(' + get(banners[0], 'imageUrl', '') + ')' }"
+        :style="{ backgroundImage: 'url(' + get(banners, '[0].imageUrl', '') + ')' }"
       >
         <span class="close" @click="$emit('close')">
           <img src="~assets/img/x-circle.png" alt="">
@@ -47,16 +47,16 @@
           </h3>
 
           <div class="reward-text">
-            Register new DeFi For You account from  <span>{{ $convertTime(get(banners[0], 'startAt', '')) }}</span> to
-            <span>{{ $convertTime(get(banners[0], 'stopAt', '')) }}</span> to have 100% chance of receiving DFY tokens
+            Register new DeFi For You account from  <span>{{ $convertTime(get(banners, '[0].startAt', '')) }}</span> to
+            <span>{{ $convertTime(get(banners, '[0].stopAt', '')) }}</span> to have 100% chance of receiving DFY tokens
           </div>
 
           <div class="reward-btn">
-            <button>
+            <button v-if="isHandleSignUp" @click="redirect()">
               Sign up to get reward
             </button>
 
-            <button class="btn-disable">
+            <button v-else class="btn-disable">
               Sign up to get reward
             </button>
           </div>
@@ -67,15 +67,25 @@
 </template>
 
 <script>
+import moment from 'moment'
 import { mapState } from 'vuex'
 import get from 'lodash/get'
 export default {
   computed: {
-    ...mapState('reward', ['banners'])
+    ...mapState('reward', ['banners']),
+    isHandleSignUp () {
+      const startAt = moment(get(this.banners, '[0].startAt', ''))
+      const stopAt = moment(get(this.banners, '[0].stopAt', ''))
+      const popup = ((startAt.isBefore(moment()) && moment().isBefore(stopAt)))
+      return popup
+    }
   },
 
   methods: {
-    get
+    get,
+    redirect () {
+      window.location = `${process.env.APP_URL}/login?tab=1`
+    }
   }
 }
 </script>
@@ -234,7 +244,6 @@ export default {
     background: #A2A3A7;
     color: #D1D1D3;
     cursor: not-allowed;
-    display: none;
   }
 }
 </style>
