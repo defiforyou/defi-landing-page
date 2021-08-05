@@ -19,7 +19,8 @@ const actions = {
     try {
       const { data } = await this.$axios.get(`${process.env.API_URL}/defi-pawn-crypto-service/public-api/v1.0.0/ads/banners`)
 
-      if (data.code === 0) {
+      // eslint-disable-next-line eqeqeq
+      if (data.code == 0) {
         commit('SET_BANNER', data.data.data)
       }
       return data || {}
@@ -31,7 +32,8 @@ const actions = {
     try {
       const { data } = await this.$axios.get(`${process.env.API_URL}/defi-pawn-crypto-service/public-api/v1.0.0/ads/reward-status`)
 
-      if (data.code === 0) {
+      // eslint-disable-next-line eqeqeq
+      if (data.code == 0) {
         commit('SET_IS_REWARD', true)
       }
       return data || {}
