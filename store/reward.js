@@ -21,7 +21,7 @@ const actions = {
 
       // eslint-disable-next-line eqeqeq
       if (data.code == 0) {
-        commit('SET_BANNER', data.data.data)
+        commit('SET_BANNER', data.data)
       }
       return data || {}
     } catch (err) {
