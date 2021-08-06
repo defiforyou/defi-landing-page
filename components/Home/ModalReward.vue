@@ -1,6 +1,6 @@
 <template>
-  <div class="modal-root">
-    <div class="modal-wrapper" @click.self="$emit('close')">
+  <div class="modal-root" @click="$emit('close')">
+    <div class="modal-wrapper">
       <div
         v-if="$device.isMobile"
         class="reward"
