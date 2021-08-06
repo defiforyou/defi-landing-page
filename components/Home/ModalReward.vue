@@ -206,15 +206,16 @@ export default {
   margin-bottom: 10px;
   color: #FFFFFF;
   font-family: "Montserrat";
+  text-align: left;
 
   @media(min-width: 960px) {
     margin-bottom: 54px;
-    font-size: 24px;
+    font-size: 22px;
     line-height: 29px;
   }
 
   span {
-    color: #DBA83D;
+    color: #F8EF17;
   }
 }
 
