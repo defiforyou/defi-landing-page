@@ -12,7 +12,7 @@
       .chip-nfts
         img(src="/img/token.nfts.png" alt="NFTs")
   .sections
-    home-modal-reward(@close="closeRewardModal", v-if="isReward")
+    home-modal-reward(@close="closeRewardModal")
     .reward-mini(v-if="isRewardMini", @click="handleRewardMini")
       img.reward-icon(src="~assets/img/reward-click.png")
     home-hero-section#hero.sticky

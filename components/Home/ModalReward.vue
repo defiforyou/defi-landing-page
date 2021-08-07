@@ -131,6 +131,7 @@ export default {
   overflow-y: auto;
   max-width: 344px;
   margin: auto;
+  min-height: 400px;
 
   @media (min-width: 576px) {
     max-width: 536px;
@@ -151,7 +152,7 @@ export default {
 .close {
   position: absolute;
   top: 10px;
-  right: 22px;
+  right: 10px;
   cursor: pointer;
 
   @media (min-width: 960px) {
@@ -171,7 +172,7 @@ export default {
 }
 
 .reward__content {
-  margin: 20px 20px 0 20px;
+  margin: 60px 20px 0 20px;
 
   @media(min-width: 960px) {
     position: absolute;
@@ -188,10 +189,11 @@ export default {
 
 .reward-title {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 20px;
   color: #FFFFFF;
   font-family: "Montserrat";
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  text-align: center;
 
   @media(min-width: 960px) {
     margin-top: 0;
@@ -202,8 +204,8 @@ export default {
 
 .reward-text {
   font-weight: 500;
-  font-size: 12px;
-  margin-bottom: 10px;
+  font-size: 14px;
+  margin-bottom: 18px;
   color: #FFFFFF;
   font-family: "Montserrat";
   text-align: left;
@@ -222,14 +224,14 @@ export default {
 .reward-btn {
   text-align: center;
   button {
-    width: 240px;
+    width: 196px;
     height: 40px;
     border: none;
     background: linear-gradient(221.15deg, #EFA727 0%, #FFD87C 49.02%, #FFC43D 62.02%, #EAA326 101.47%);
     border-radius: 30px;
     color: #282C37;
     font-weight: 600;
-    font-size: 13px;
+    font-size: 14px;
     cursor: pointer;
     font-family: "Montserrat";
     margin-bottom: 20px;
