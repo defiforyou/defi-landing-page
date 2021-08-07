@@ -12,6 +12,9 @@
       .chip-nfts
         img(src="/img/token.nfts.png" alt="NFTs")
   .sections
+    home-modal-reward(@close="closeRewardModal", v-if="isReward")
+    .reward-mini(v-if="isRewardMini", @click="handleRewardMini")
+      img.reward-icon(src="~assets/img/reward-click.png")
     home-hero-section#hero.sticky
     home-price-tickers-section#price-tickers
     home-defi-for-you-section#defi-for-you
@@ -24,12 +27,31 @@
 </template>
 
 <script>
+// import moment from 'moment'
+// import get from 'lodash/get'
+import { mapActions, mapState, mapMutations } from 'vuex'
 export default {
+  data () {
+    return {
+      isRewardMini: false
+    }
+  },
+  computed: {
+    ...mapState('reward', ['banners', 'isReward'])
+  },
+
+  async created () {
+    await this.getStatus()
+    await this.getBanners()
+  },
+
   mounted () {
     this.setup()
   },
 
   methods: {
+    ...mapActions('reward', ['getBanners', 'getStatus']),
+    ...mapMutations('reward', ['SET_IS_REWARD']),
     setup () {
       if (window.innerWidth < 1200) { return }
 
@@ -75,6 +97,18 @@ export default {
         .setPin(chip, { pushFollowers: false })
         .setTween(chip, 1, tween)
         .addTo(this.$scrollmagic.controller_)
+    },
+
+    closeRewardModal () {
+      this.SET_IS_REWARD(false)
+      // this.isReward = false
+      this.isRewardMini = true
+    },
+
+    handleRewardMini () {
+      this.SET_IS_REWARD(true)
+      // this.isReward = true
+      this.isRewardMini = false
     }
   }
 }
@@ -141,6 +175,28 @@ export default {
           font-style: normal;
         }
       }
+    }
+  }
+
+  .reward-mini {
+    cursor: pointer;
+    position: fixed;
+    z-index: 1001;
+    bottom: 100px;
+    right: 20px;
+    width: 80px;
+    animation: ring 2s infinite;
+
+    @media (min-width: 960px) {
+      width: unset
+    }
+
+    @keyframes ring {
+      0%    {right: 20px; bottom: 100px}
+      25%   {right: 20px; bottom: 75px}
+      50%   {right: 45px; bottom: 75px}
+      75%   {right: 45px; bottom: 100px}
+      100%  {right: 20px; bottom: 100px}
     }
   }
 }

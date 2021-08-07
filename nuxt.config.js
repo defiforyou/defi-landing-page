@@ -50,7 +50,8 @@ export default {
     { src: '~/plugins/directives' },
     { src: '~/plugins/filters' },
     { src: '~/plugins/utilities' },
-    { src: '~/plugins/scrollmagic', mode: 'client' }
+    { src: '~/plugins/scrollmagic', mode: 'client' },
+    { src: '~/plugins/convertTime.js' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -68,7 +69,10 @@ export default {
     '@nuxtjs/google-gtag',
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
-    '@nuxtjs/recaptcha'
+    '@nuxtjs/recaptcha',
+    '@nuxtjs/device',
+    // https://www.npmjs.com/package/@nuxtjs/dotenv
+    '@nuxtjs/dotenv'
   ],
 
   'google-gtag': {
