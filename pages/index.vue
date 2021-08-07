@@ -184,7 +184,12 @@ export default {
     z-index: 1001;
     bottom: 100px;
     right: 20px;
-     animation: ring 2s infinite;
+    width: 80px;
+    animation: ring 2s infinite;
+
+    @media (min-width: 960px) {
+      width: unset
+    }
 
     @keyframes ring {
       0%    {right: 20px; bottom: 100px}
