@@ -32,7 +32,7 @@ export default {
   text-align: left;
   min-width: 160px;
   box-sizing: border-box;
-  /deep/ {
+  ::v-deep {
     ul {
       margin: 0;
       padding: 0;

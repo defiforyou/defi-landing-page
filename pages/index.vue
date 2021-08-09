@@ -12,6 +12,10 @@
       .chip-nfts
         img(src="/img/token.nfts.png" alt="NFTs")
   .sections
+    v-app
+      v-main
+        v-btn(@click="show = true") Choose Wallet
+        choose-wallet(:show.sync="show")
     home-modal-reward(@close="closeRewardModal", v-if="isReward")
     .reward-mini(v-if="isRewardMini", @click="handleRewardMini")
       img.reward-icon(src="~assets/img/reward-click.png")
@@ -33,7 +37,8 @@ import { mapActions, mapState, mapMutations } from 'vuex'
 export default {
   data () {
     return {
-      isRewardMini: false
+      isRewardMini: false,
+      show: false
     }
   },
   computed: {
@@ -50,6 +55,18 @@ export default {
   },
 
   methods: {
+    async connectWallet (walletName) {
+      try {
+        localStorage.setItem('extensionName', walletName)
+        await this.$connectWallet(walletName, false)
+        this.isSigning = false
+        this.$emit('close')
+      } catch (e) {
+        // eslint-disable-next-line no-console
+        console.log(e, 11)
+        localStorage.removeItem('extensionName')
+      }
+    },
     ...mapActions('reward', ['getBanners', 'getStatus']),
     ...mapMutations('reward', ['SET_IS_REWARD']),
     setup () {
@@ -155,7 +172,7 @@ export default {
       }
     }
   }
-  /deep/ {
+  ::v-deep {
     section {
       font-size: 14px;
       line-height: 1.5em;

@@ -51,7 +51,9 @@ export default {
     { src: '~/plugins/filters' },
     { src: '~/plugins/utilities' },
     { src: '~/plugins/scrollmagic', mode: 'client' },
-    { src: '~/plugins/convertTime.js' }
+    { src: '~/plugins/convertTime.js' },
+    { src: '~/plugins/connectWallet', mode: 'client' },
+    { src: '~/plugins/shortAddress' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -61,7 +63,8 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
-    '@nuxtjs/svg'
+    '@nuxtjs/svg',
+    '@nuxtjs/vuetify'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -72,7 +75,8 @@ export default {
     '@nuxtjs/recaptcha',
     '@nuxtjs/device',
     // https://www.npmjs.com/package/@nuxtjs/dotenv
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    'nuxt-client-init-module'
   ],
 
   'google-gtag': {
@@ -81,6 +85,13 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
+
+  // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
+  vuetify: {
+    treeShake: true,
+    customVariables: ['~/assets/vuetify/variables.scss'],
+    optionsPath: './vuetify.options.js'
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

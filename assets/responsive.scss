@@ -1,0 +1,5 @@
+html {
+  @media #{map-get($display-breakpoints, 'sm-and-down')} {
+    font-size: 14px !important;
+  }
+}

@@ -1,0 +1,18 @@
+.gradient-btn {
+  background: $gradient;
+  color: $dark !important;
+}
+.select-img {
+  @media #{map-get($display-breakpoints, 'xs-only')} {
+    width: 16px;
+    height: 16px;
+    margin-right: 2px;
+  }
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+// function covert px to rem
+@function pxToRem($px) {
+  @return $px / 16px * 1rem;
+}

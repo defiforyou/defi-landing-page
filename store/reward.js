@@ -1,7 +1,7 @@
 /**
  * initial state
  */
-const state = () => ({
+export const state = () => ({
   banners: {},
   isReward: false
 })
@@ -9,12 +9,12 @@ const state = () => ({
 /**
  * initial getters
  */
-const getters = {}
+export const getters = {}
 
 /**
  * initial actions
  */
-const actions = {
+export const actions = {
   async getBanners ({ state, commit }) {
     try {
       const { data } = await this.$axios.get(`${process.env.API_URL}/defi-pawn-crypto-service/public-api/v1.0.0/ads/banners`)
@@ -47,7 +47,7 @@ const actions = {
 /**
  * initial mutations
  */
-const mutations = {
+export const mutations = {
   SET_BANNER (currState, data) {
     currState.banners = data
   },
@@ -55,12 +55,4 @@ const mutations = {
     state.isReward = data
   }
 
-}
-
-export default {
-  namespaced: true,
-  state,
-  getters,
-  actions,
-  mutations
 }
