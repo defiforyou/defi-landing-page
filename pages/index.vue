@@ -12,15 +12,14 @@
       .chip-nfts
         img(src="/img/token.nfts.png" alt="NFTs")
   .sections
-    v-app
-      v-main
-        v-btn(@click="show = true") Choose Wallet
-        choose-wallet(:show.sync="show")
     home-modal-reward(@close="closeRewardModal", v-if="isReward")
     .reward-mini(v-if="isRewardMini", @click="handleRewardMini")
       img.reward-icon(src="~assets/img/reward-click.png")
     home-hero-section#hero.sticky
     home-price-tickers-section#price-tickers
+    v-app(style="background-color: #171A23")
+      home-buy-dfy
+      home-how-work
     home-defi-for-you-section#defi-for-you
     home-solution-section#solution
     home-services-section#services
@@ -37,8 +36,7 @@ import { mapActions, mapState, mapMutations } from 'vuex'
 export default {
   data () {
     return {
-      isRewardMini: false,
-      show: false
+      isRewardMini: false
     }
   },
   computed: {

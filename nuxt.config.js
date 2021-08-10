@@ -53,7 +53,8 @@ export default {
     { src: '~/plugins/scrollmagic', mode: 'client' },
     { src: '~/plugins/convertTime.js' },
     { src: '~/plugins/connectWallet', mode: 'client' },
-    { src: '~/plugins/shortAddress' }
+    { src: '~/plugins/shortAddress' },
+    { src: '~plugins/mapImageCurrency' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

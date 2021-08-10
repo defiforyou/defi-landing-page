@@ -1,0 +1,54 @@
+.steps-wrapper {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.steps {
+  padding: 16px 0;
+
+  @media (min-width: 960px) {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 62px;
+  }
+}
+
+.steps__item {
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 23px;
+
+  @media (min-width: 960px) {
+    margin-bottom: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  img {
+    vertical-align: middle;
+  }
+
+  span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: #F8B017;
+    border-radius: 100%;
+    margin-right: 8px;
+  }
+}
+
+.tips {
+  padding: 16px 0 24px 0;
+  p {
+    font-weight: 500;
+    font-size: 14px;
+    color: #9FA6B2;
+    margin-bottom: 12px;
+  }
+}

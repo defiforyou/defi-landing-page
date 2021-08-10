@@ -16,3 +16,8 @@
 @function pxToRem($px) {
   @return $px / 16px * 1rem;
 }
+
+.dialog-title {
+  font-weight: 600;
+  font-size: pxToRem(24px);
+}

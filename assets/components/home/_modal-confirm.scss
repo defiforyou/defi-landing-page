@@ -1,0 +1,44 @@
+.modal-confirm {
+  padding: pxToRem(30px) 0;
+  font-weight: 500;
+  font-size: 20px;
+  color: #FFFFFF;
+}
+.modal-confirm__label {
+  width: pxToRem(180px);
+  margin-right: pxToRem(34px);
+}
+
+.modal-confirm__data {
+  a {
+    color: #2596FF;
+    text-decoration: underline;
+  }
+}
+
+.disclaimer {
+  padding: pxToRem(24px) 0;
+  color: #FFFFFF;
+}
+
+.disclaimer__title {
+  font-weight: 600;
+  font-size: pxToRem(20px);
+  margin-bottom: pxToRem(16px);
+}
+
+.disclaimer__content {
+  font-weight: normal;
+  font-size: pxToRem(16px);
+
+  span {
+    color: #F8B017;
+  }
+
+  .see {
+    display: inline;
+    cursor: pointer;
+    font-style: italic;
+    text-decoration: underline;
+  }
+}
