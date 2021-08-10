@@ -8,7 +8,13 @@
       <v-card-title class="d-flex align-center justify-space-between">
         <span class="dialog-title">Change password</span>
 
-        <v-btn small color="#D1D1D3" fab @click="$emit('update:show', false)">
+        <v-btn
+          small
+          color="#D1D1D3"
+          fab
+          :ripple="false"
+          @click="$emit('update:show', false)"
+        >
           <v-icon color="#282C37">
             mdi-close
           </v-icon>
@@ -69,14 +75,16 @@
 
           <div class="disclaimer__content">
             <p>You will now be leaving <span>defiforyou.uk</span> and be transferred to Indacoin.com. Credit Card services to acquire cryptocurrencies will be provided by Indacoin.com, which is a separate payment processing platform, owned by a third party. </p>
-            <p v-if="isMore">
-              After purchase, your cryptocurrency will be automatically transferred to your walled. Please read their Terms of Services before executing the order.
-              For any questions or clarifications relating to credit card payments, please contact Indacoin support at: support@indacoin.com
-            </p>
+            <transition name="slide-fade">
+              <p v-if="isMore">
+                After purchase, your cryptocurrency will be automatically transferred to your walled. Please read their Terms of Services before executing the order.
+                For any questions or clarifications relating to credit card payments, please contact Indacoin support at: support@indacoin.com
+              </p>
 
-            <p v-if="isMore">
-              DeFi For You does not assume or hold any responsibility for loss or damages caused by any third party, including payment processing companies.
-            </p>
+              <p v-if="isMore">
+                DeFi For You does not assume or hold any responsibility for loss or damages caused by any third party, including payment processing companies.
+              </p>
+            </transition>
             <div class="see" @click="isMore = !isMore">
               {{ isMore ? 'See less' : 'See more' }}
             </div>
