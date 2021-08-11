@@ -21,7 +21,7 @@ section.hero
             strong $DFY
             | &nbsp;smart contract token.
       .actions
-        a.dfy-button.dfy-button--primary Buy DFY Now
+        a.dfy-button.dfy-button--primary(v-scroll-to="'#buy-dfy'") Buy DFY Now
 
         //- a.dfy-button.dfy-button--ghost(:href="urls.whitepaper" target="_blank" rel="noopener") Whitepaper
         //- a.dfy-button.dfy-button--special(:href="urls.trade" target="_blank" rel="noopener") Trade NFTs

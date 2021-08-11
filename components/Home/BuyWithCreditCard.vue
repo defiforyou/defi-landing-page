@@ -128,7 +128,36 @@
       <div class="input-card__label mb-4">
         Wallet address
       </div>
+
+      <v-text-field
+        v-if="currentAddress"
+        :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
+        :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
+        color="#F8B017"
+        outlined
+        rounded
+        dark
+        hide-details
+        readonly
+        dense
+        :value="currentAddress"
+      >
+        <template #append>
+          <v-btn
+            depressed
+            dense
+            color="#F8B017"
+            rounded
+            style="margin-top: -4px; margin-right: -20px; color: #FFFFFF;"
+            @click="isWallet = true"
+          >
+            Change wallet
+          </v-btn>
+        </template>
+      </v-text-field>
+
       <v-btn
+        v-else
         depressed
         dense
         outlined
@@ -176,6 +205,7 @@
 
 <script>
 import get from 'lodash/get'
+import { mapState } from 'vuex'
 import ChooseWallet from '../ChooseWallet'
 import ModalConfirm from '../Home/ModalConfirm'
 export default {
@@ -192,6 +222,10 @@ export default {
       isConfirm: false,
       isDisable: false
     }
+  },
+
+  computed: {
+    ...mapState('walletStore', ['currentAddress'])
   },
 
   methods: {

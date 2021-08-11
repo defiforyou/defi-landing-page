@@ -172,6 +172,7 @@ export default {
       isSigning: false
     }
   },
+
   computed: {
     showLocalDialog: {
       get () {
@@ -190,7 +191,7 @@ export default {
         localStorage.setItem('extensionName', walletName)
         await this.$connectWallet(walletName, false)
         this.isSigning = false
-        this.$emit('close')
+        this.$emit('update:show', false)
       } catch (e) {
         localStorage.removeItem('extensionName')
       }

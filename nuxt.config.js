@@ -77,7 +77,8 @@ export default {
     '@nuxtjs/device',
     // https://www.npmjs.com/package/@nuxtjs/dotenv
     '@nuxtjs/dotenv',
-    'nuxt-client-init-module'
+    'nuxt-client-init-module',
+    ['vue-scrollto/nuxt', { offset: -100 }]
   ],
 
   'google-gtag': {

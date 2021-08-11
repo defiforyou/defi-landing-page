@@ -3,6 +3,7 @@
   font-weight: 500;
   font-size: 20px;
   color: #FFFFFF;
+  font-family: 'Inter';
 }
 .modal-confirm__label {
   width: pxToRem(180px);
@@ -19,12 +20,14 @@
 .disclaimer {
   padding: pxToRem(24px) 0;
   color: #FFFFFF;
+  font-family: 'Inter';
 }
 
 .disclaimer__title {
   font-weight: 600;
   font-size: pxToRem(20px);
   margin-bottom: pxToRem(16px);
+  font-family: 'Inter';
 }
 
 .disclaimer__content {

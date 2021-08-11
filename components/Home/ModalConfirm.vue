@@ -43,7 +43,7 @@
                 :src="$mapImageCurrency(get(data, 'symbol', 'DFY'))"
                 alt
               >
-              <span>{{ get(data, 'symbol', 'DFY') }}</span>
+              <span>DFY</span>
             </div>
           </div>
 
@@ -115,6 +115,11 @@ export default {
     show: {
       type: Boolean,
       default: false
+    },
+
+    data: {
+      type: Object,
+      default: () => {}
     }
   },
 
