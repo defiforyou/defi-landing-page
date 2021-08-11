@@ -134,6 +134,17 @@
   font-size: 16px;
 }
 
+.change-wallet {
+  color: #FFFFFF;
+  margin-top: -7px;
+  margin-right: -20px;
+
+  @media(min-width: 960px) {
+    margin-top: -5px; 
+    margin-right: -20px; 
+  }
+}
+
 // BUY DFY ON EXCHANGES
 .on-exchanges {
   overflow-y: auto;

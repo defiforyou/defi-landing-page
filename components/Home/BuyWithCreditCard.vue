@@ -140,7 +140,7 @@
         hide-details
         readonly
         dense
-        :value="currentAddress"
+        :value="$vuetify.breakpoint.smAndUp ? currentAddress : $shortAddress(currentAddress, 5)"
       >
         <template #append>
           <v-btn
@@ -148,7 +148,7 @@
             dense
             color="#F8B017"
             rounded
-            style="margin-top: -4px; margin-right: -20px; color: #FFFFFF;"
+            class="change-wallet"
             @click="isWallet = true"
           >
             Change wallet
