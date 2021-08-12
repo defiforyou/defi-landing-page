@@ -50,7 +50,7 @@
 
         <div class="input-card__field">
           <v-text-field
-            v-model="payload.get"
+            v-model="getValue"
             type="number"
             placeholder="Enter get"
             color="#F8B017"
@@ -59,13 +59,14 @@
             rounded
             dense
             dark
+            disabled
             :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
             :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
             hide-details="auto"
           />
 
           <v-select
-            v-model="payload.getCurrency"
+            v-model="getCurrency"
             :items="currencies.currenciesGet"
             dense
             outlined
@@ -110,6 +111,7 @@
         </div>
         <v-text-field
           v-model="payload.email"
+          :rules="emailRules"
           type="email"
           placeholder="Enter email"
           color="#F8B017"
@@ -132,6 +134,7 @@
 
       <v-text-field
         v-if="currentAddress"
+        :rules="walletRules"
         :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
         :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
         color="#F8B017"
@@ -193,14 +196,14 @@
         width="114px"
         style="color: #FFFFFF"
         :disabled="isDisable"
-        @click="isConfirm = true"
+        @click="buyDFY()"
       >
         Buy DFY
       </v-btn>
     </div>
 
     <ChooseWallet :show.sync="isWallet" />
-    <ModalConfirm :show.sync="isConfirm" />
+    <ModalConfirm :show.sync="isConfirm" :payload="payload" :getValue="getValue" :getCurrency="getCurrency"/>
   </div>
 </template>
 
@@ -220,29 +223,65 @@ export default {
       payload: {
         pay: '',
         payCurrency: 'USD',
-        get: '',
-        getCurrency: 'DFY'
+        email: ''
       },
+      getValue: '',
+      getCurrency: 'DFY',
       isWallet: false,
       isCheckBox: true,
       isConfirm: false,
-      isDisable: false,
-      payRules: [
-        v => !!v || 'Invalid amount',
-        v => parseFloat(v) > 0 || 'Invalid amount',
-        v => /^\d+(\.\d{0,5})?$/.test(v) || 'must below 5 digit after decimal',
-        v => (v && v.length >= 0 && v.length <= 255) || 'Invalid amount'
-      ]
+      isDisable: false
     }
   },
 
   computed: {
     ...mapState('walletStore', ['currentAddress']),
-    ...mapState('indaCoin', ['currencies'])
+    ...mapState('indaCoin', ['currencies']),
+    payRules () {
+      return [
+        v => !!v || 'Invalid amount',
+        v => parseFloat(v) > 0 || 'Invalid amount',
+        v => /^\d+(\.\d{0,5})?$/.test(v) || 'must below 5 digit after decimal',
+        v => (v && v.length >= 0 && v.length <= 255) || 'Invalid amount',
+        this.payload.payCurrency === 'USD' ? v => parseFloat(v) >= 40 || 'Amount must be greater than 40 USD' : true,
+        this.payload.payCurrency === 'VND' ? v => parseFloat(v) >= 940000 || 'Amount must be greater than 940,000 VND' : true
+      ]
+    },
+    emailRules () {
+      return [
+        // eslint-disable-next-line no-useless-escape
+        v => /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/.test(v) || 'Invalid email'
+      ]
+    },
+    walletRules () {
+      return [
+        this.currentAddress ? true : v => 'Invalid Address'
+      ]
+    }
+  },
+
+  watch: {
+    payload: {
+      deep: true,
+
+      // We have to move our method to a handler field
+      handler () {
+        this.getRate()
+      }
+    }
   },
 
   methods: {
-    get
+    get,
+    async getRate () {
+      const { data } = await this.$axios.get(`https://indacoin.com/api/GetCoinConvertAmount/${this.payload.payCurrency}/${this.getCurrency}/${this.payload.pay}`)
+      this.getValue = data
+    },
+    buyDFY () {
+      if (this.$refs.formCard.validate()) {
+        this.isConfirm = true
+      }
+    }
   }
 }
 </script>

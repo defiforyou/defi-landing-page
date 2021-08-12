@@ -6,7 +6,7 @@
   >
     <v-card>
       <v-card-title class="d-flex align-center justify-space-between">
-        <span class="dialog-title">Change password</span>
+        <span class="dialog-title">Confirmation</span>
 
         <v-btn
           small
@@ -28,7 +28,7 @@
               You pay:
             </div>
             <div class="modal-confirm__data">
-              100,000,000 VND
+              {{ $numberFormatDecimal(payload.pay) }} {{ payload.payCurrency }}
             </div>
           </div>
 
@@ -36,11 +36,11 @@
             <div class="modal-confirm__label">
               You get:
             </div>
-            <div class="modal-confirm__data">
-              50,000
+            <div class="d-flex modal-confirm__data">
+              {{ getValue }}
               <img
-                class="select-img"
-                :src="$mapImageCurrency(get(data, 'symbol', 'DFY'))"
+                class="ml-5 select-img"
+                :src="$mapImageCurrency(getCurrency)"
                 alt
               >
               <span>DFY</span>
@@ -52,7 +52,7 @@
               Email:
             </div>
             <div class="modal-confirm__data">
-              abcxyzotp@gmail.com
+              {{ payload.email }}
             </div>
           </div>
 
@@ -61,7 +61,10 @@
               Wallet address:
             </div>
             <div class="modal-confirm__data">
-              <a href="http://" target="_blank">0xaaa042c...e751a410e</a>
+              <a
+                :href="$getBscLink(currentAddress)"
+                target="_blank"
+              >{{ $shortAddress(currentAddress, 8) }}</a>
             </div>
           </div>
         </div>
@@ -100,6 +103,7 @@
           height="40px"
           width="160px"
           rounded
+          @click="goToPayment()"
         >
           Go to payment
         </v-btn>
@@ -110,6 +114,7 @@
 
 <script>
 import get from 'lodash/get'
+import { mapState } from 'vuex'
 export default {
   props: {
     show: {
@@ -117,9 +122,19 @@ export default {
       default: false
     },
 
-    data: {
+    payload: {
       type: Object,
       default: () => {}
+    },
+
+    getCurrency: {
+      type: String,
+      default: 'DFY'
+    },
+
+    getValue: {
+      type: String,
+      default: '0'
     }
   },
 
@@ -130,6 +145,7 @@ export default {
   },
 
   computed: {
+    ...mapState('walletStore', ['currentAddress']),
     isShow: {
       get () {
         return this.show
@@ -141,7 +157,23 @@ export default {
   },
 
   methods: {
-    get
+    get,
+    async goToPayment () {
+      try {
+        const { data } = await this.$axios.post(`${process.env.API_URL}/defi-pawn-crypto-service/public-api/v1.0.0/indacoin/transactions`, {
+          amountGet: this.getValue,
+          amountPay: this.payload.pay,
+          currencyGet: this.getCurrency,
+          currencyPay: this.payload.payCurrency,
+          email: this.payload.email,
+          walletAddress: this.currentAddress
+        })
+
+        window.location = get(data, 'data.transactionUrl')
+      } catch (err) {
+        console.log(err)
+      }
+    }
   }
 }
 </script>

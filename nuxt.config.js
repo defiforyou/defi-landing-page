@@ -54,7 +54,9 @@ export default {
     { src: '~/plugins/convertTime.js' },
     { src: '~/plugins/connectWallet', mode: 'client' },
     { src: '~/plugins/shortAddress' },
-    { src: '~plugins/mapImageCurrency' }
+    { src: '~/plugins/mapImageCurrency' },
+    { src: '~/plugins/numberFormatDecimal' },
+    { src: '~/plugins/getBscLink' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
