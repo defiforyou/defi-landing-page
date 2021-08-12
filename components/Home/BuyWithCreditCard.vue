@@ -125,66 +125,66 @@
           :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
         />
       </div>
-    </v-form>
 
-    <div class="input-card__item mb-0">
-      <div class="input-card__label mb-4">
-        Wallet address
-      </div>
+      <div class="input-card__item mb-0">
+        <div class="input-card__label mb-4">
+          Wallet address
+        </div>
 
-      <v-text-field
-        v-if="currentAddress"
-        :rules="walletRules"
-        :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
-        :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
-        color="#F8B017"
-        outlined
-        rounded
-        dark
-        hide-details
-        readonly
-        dense
-        :value="$vuetify.breakpoint.smAndUp ? currentAddress : $shortAddress(currentAddress, 5)"
-      >
-        <template #append>
-          <v-btn
-            depressed
-            dense
-            color="#F8B017"
-            rounded
-            class="change-wallet"
-            @click="isWallet = true"
-          >
-            Change wallet
-          </v-btn>
-        </template>
-      </v-text-field>
-
-      <v-btn
-        v-else
-        depressed
-        dense
-        outlined
-        color="#F8B017"
-        rounded
-        @click="isWallet = true"
-      >
-        Connect wallet
-      </v-btn>
-
-      <div class="d-flex align-center checkbox">
-        <v-checkbox
-          v-model="isCheckBox"
+        <v-text-field
+          v-if="currentAddress"
+          :rules="walletRules"
+          :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
+          :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
           color="#F8B017"
+          outlined
+          rounded
           dark
-          @change="value => isDisable = !value"
-        />
+          hide-details
+          readonly
+          dense
+          :value="$vuetify.breakpoint.smAndUp ? currentAddress : $shortAddress(currentAddress, 5)"
+        >
+          <template #append>
+            <v-btn
+              depressed
+              dense
+              color="#F8B017"
+              rounded
+              class="change-wallet"
+              @click="isWallet = true"
+            >
+              Change wallet
+            </v-btn>
+          </template>
+        </v-text-field>
 
-        <span class="checkbox-text">
-          I agree with the <a href="https://defi-for-you.gitbook.io/faq/p2p-lending/term-business" target="_blank">Terms & Conditions and Policies</a> of DeFi For You.
-        </span>
+        <v-btn
+          v-else
+          depressed
+          dense
+          outlined
+          color="#F8B017"
+          rounded
+          @click="isWallet = true"
+        >
+          Connect wallet
+        </v-btn>
+
+        <div class="d-flex align-center checkbox">
+          <v-checkbox
+            v-model="isCheckBox"
+            color="#F8B017"
+            dark
+            @change="value => isDisable = !value"
+          />
+
+          <span class="checkbox-text">
+            I agree with the <a href="https://defi-for-you.gitbook.io/faq/p2p-lending/term-business" target="_blank">Terms & Conditions and Policies</a> of DeFi For You.
+          </span>
+        </div>
       </div>
-    </div>
+    </v-form>
 
     <div class="input-card__btn text-center">
       <v-btn
@@ -203,7 +203,7 @@
     </div>
 
     <ChooseWallet :show.sync="isWallet" />
-    <ModalConfirm :show.sync="isConfirm" :payload="payload" :getValue="getValue" :getCurrency="getCurrency"/>
+    <ModalConfirm :show.sync="isConfirm" :payload="payload" :get-value="getValue" :get-currency="getCurrency" />
   </div>
 </template>
 
@@ -242,24 +242,24 @@ export default {
         v => !!v || 'Invalid amount',
         v => parseFloat(v) > 0 || 'Invalid amount',
         v => /^\d+(\.\d{0,5})?$/.test(v) || 'must below 5 digit after decimal',
-        v => (v && v.length >= 0 && v.length <= 255) || 'Invalid amount',
-        this.payload.payCurrency === 'USD' ? v => parseFloat(v) >= 40 || 'Amount must be greater than 40 USD' : true,
-        this.payload.payCurrency === 'VND' ? v => parseFloat(v) >= 912200 || 'Amount must be greater than 912,200 VND' : true,
-        this.payload.payCurrency === 'AUD' ? v => parseFloat(v) >= 54.35 || 'Amount must be greater than 54.35 AUD' : true,
-        this.payload.payCurrency === 'BRL' ? v => parseFloat(v) >= 208.78 || 'Amount must be greater than 208.78 BRL' : true,
-        this.payload.payCurrency === 'CAD' ? v => parseFloat(v) >= 50.07 || 'Amount must be greater than 50.07 CAD' : true,
-        this.payload.payCurrency === 'CHF' ? v => parseFloat(v) >= 36.88 || 'Amount must be greater than 36.88 CHF' : true,
-        this.payload.payCurrency === 'CNY' ? v => parseFloat(v) >= 259.13 || 'Amount must be greater than 259.13 CHF' : true,
-        this.payload.payCurrency === 'CZK' ? v => parseFloat(v) >= 865.78 || 'Amount must be greater than 865.78 CZK' : true,
-        this.payload.payCurrency === 'DKK' ? v => parseFloat(v) >= 253.51 || 'Amount must be greater than 253.51 DKK' : true,
-        this.payload.payCurrency === 'EUR' ? v => parseFloat(v) >= 34.08 || 'Amount must be greater than 34.08 EUR' : true,
-        this.payload.payCurrency === 'GBP' ? v => parseFloat(v) >= 28.85 || 'Amount must be greater than 28.85 GBP' : true,
-        this.payload.payCurrency === 'INR' ? v => parseFloat(v) >= 2973.30 || 'Amount must be greater than 2,973.30 INR' : true,
-        this.payload.payCurrency === 'NOK' ? v => parseFloat(v) >= 354.36 || 'Amount must be greater than 354.36 NOK' : true,
-        this.payload.payCurrency === 'NZD' ? v => parseFloat(v) >= 56.92 || 'Amount must be greater than 56.92 NZD' : true,
-        this.payload.payCurrency === 'PLN' ? v => parseFloat(v) >= 156.32 || 'Amount must be greater than 156.32 PLN' : true,
-        this.payload.payCurrency === 'RUB' ? v => parseFloat(v) >= 2944.58 || 'Amount must be greater than 2,944.58 RUB' : true,
-        this.payload.payCurrency === 'SEK' ? v => parseFloat(v) >= 347.39 || 'Amount must be greater than 347.39 SEK' : true
+        v => (v && v.length >= 0 && v.length <= 255) || 'Invalid amount'
+        // this.payload.payCurrency === 'USD' ? v => parseFloat(v) >= 40 || 'Amount must be greater than 40 USD' : true,
+        // this.payload.payCurrency === 'VND' ? v => parseFloat(v) >= 912200 || 'Amount must be greater than 912,200 VND' : true,
+        // this.payload.payCurrency === 'AUD' ? v => parseFloat(v) >= 54.35 || 'Amount must be greater than 54.35 AUD' : true,
+        // this.payload.payCurrency === 'BRL' ? v => parseFloat(v) >= 208.78 || 'Amount must be greater than 208.78 BRL' : true,
+        // this.payload.payCurrency === 'CAD' ? v => parseFloat(v) >= 50.07 || 'Amount must be greater than 50.07 CAD' : true,
+        // this.payload.payCurrency === 'CHF' ? v => parseFloat(v) >= 36.88 || 'Amount must be greater than 36.88 CHF' : true,
+        // this.payload.payCurrency === 'CNY' ? v => parseFloat(v) >= 259.13 || 'Amount must be greater than 259.13 CHF' : true,
+        // this.payload.payCurrency === 'CZK' ? v => parseFloat(v) >= 865.78 || 'Amount must be greater than 865.78 CZK' : true,
+        // this.payload.payCurrency === 'DKK' ? v => parseFloat(v) >= 253.51 || 'Amount must be greater than 253.51 DKK' : true,
+        // this.payload.payCurrency === 'EUR' ? v => parseFloat(v) >= 34.08 || 'Amount must be greater than 34.08 EUR' : true,
+        // this.payload.payCurrency === 'GBP' ? v => parseFloat(v) >= 28.85 || 'Amount must be greater than 28.85 GBP' : true,
+        // this.payload.payCurrency === 'INR' ? v => parseFloat(v) >= 2973.30 || 'Amount must be greater than 2,973.30 INR' : true,
+        // this.payload.payCurrency === 'NOK' ? v => parseFloat(v) >= 354.36 || 'Amount must be greater than 354.36 NOK' : true,
+        // this.payload.payCurrency === 'NZD' ? v => parseFloat(v) >= 56.92 || 'Amount must be greater than 56.92 NZD' : true,
+        // this.payload.payCurrency === 'PLN' ? v => parseFloat(v) >= 156.32 || 'Amount must be greater than 156.32 PLN' : true,
+        // this.payload.payCurrency === 'RUB' ? v => parseFloat(v) >= 2944.58 || 'Amount must be greater than 2,944.58 RUB' : true,
+        // this.payload.payCurrency === 'SEK' ? v => parseFloat(v) >= 347.39 || 'Amount must be greater than 347.39 SEK' : true
       ]
     },
     emailRules () {

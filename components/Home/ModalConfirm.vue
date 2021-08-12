@@ -168,10 +168,9 @@ export default {
           email: this.payload.email,
           walletAddress: this.currentAddress
         })
-
         window.location = get(data, 'data.transactionUrl')
       } catch (err) {
-        console.log(err)
+        this.$notify.error({ text: err.message })
       }
     }
   }

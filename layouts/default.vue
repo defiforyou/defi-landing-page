@@ -3,6 +3,8 @@
   common-header
   nuxt
   common-footer
+  v-app
+    alert
 </template>
 
 <script>
