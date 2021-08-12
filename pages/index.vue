@@ -46,6 +46,7 @@ export default {
   async created () {
     await this.getStatus()
     await this.getBanners()
+    await this.getCurrencies()
   },
 
   mounted () {
@@ -66,6 +67,7 @@ export default {
       }
     },
     ...mapActions('reward', ['getBanners', 'getStatus']),
+    ...mapActions('indaCoin', ['getCurrencies']),
     ...mapMutations('reward', ['SET_IS_REWARD']),
     setup () {
       if (window.innerWidth < 1200) { return }

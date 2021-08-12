@@ -8,6 +8,7 @@
         <div class="input-card__field">
           <v-text-field
             v-model="payload.pay"
+            :rules="payRules"
             type="number"
             placeholder="Enter amount"
             color="#F8B017"
@@ -22,7 +23,9 @@
             :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
           />
 
-          <v-autocomplete
+          <v-select
+            v-model="payload.payCurrency"
+            :items="currencies.currenciesPay"
             item-value="value"
             item-text="text"
             dense
@@ -34,7 +37,6 @@
             dark
             rounded
             hide-details="auto"
-            clearable
             append-icon="mdi-chevron-down"
             class="select-currency"
           />
@@ -62,9 +64,9 @@
             hide-details="auto"
           />
 
-          <v-autocomplete
-            item-value="value"
-            item-text="text"
+          <v-select
+            v-model="payload.getCurrency"
+            :items="currencies.currenciesGet"
             dense
             outlined
             color="#F8B017"
@@ -74,32 +76,31 @@
             dark
             rounded
             hide-details="auto"
-            clearable
-            append-icon="mdi-chevron-down"
+            append-icon=""
             class="select-currency"
           >
             <template slot="selection" slot-scope="data">
               <img
                 class="select-img"
-                :src="$mapImageCurrency(get(data.item, 'symbol', ''))"
+                :src="$mapImageCurrency(data.item)"
                 alt
               >
-              <span style="font-weight: 500;font-size: 16px;">{{ get(data.item, 'symbol', '') }}</span>
+              <span style="font-weight: 500;font-size: 16px;">{{ data.item }}</span>
             </template>
             <template slot="item" slot-scope="data">
               <v-list-item-content>
                 <v-list-item-title style="display: flex; align-items: center">
                   <img
                     class="select-img"
-                    :src="require(`~/assets/img/coin/${get(data.item, 'symbol', '')}.png`)"
+                    :src="require(`~/assets/img/coin/${data.item}.png`)"
                     alt
                     style="width: 24px; height: 24px"
                   >
-                  {{ get(data.item, 'symbol', '') }}
+                  {{ data.item }}
                 </v-list-item-title>
               </v-list-item-content>
             </template>
-          </v-autocomplete>
+          </v-select>
         </div>
       </div>
 
@@ -216,16 +217,28 @@ export default {
 
   data () {
     return {
-      payload: {},
+      payload: {
+        pay: '',
+        payCurrency: 'USD',
+        get: '',
+        getCurrency: 'DFY'
+      },
       isWallet: false,
       isCheckBox: true,
       isConfirm: false,
-      isDisable: false
+      isDisable: false,
+      payRules: [
+        v => !!v || 'Invalid amount',
+        v => parseFloat(v) > 0 || 'Invalid amount',
+        v => /^\d+(\.\d{0,5})?$/.test(v) || 'must below 5 digit after decimal',
+        v => (v && v.length >= 0 && v.length <= 255) || 'Invalid amount'
+      ]
     }
   },
 
   computed: {
-    ...mapState('walletStore', ['currentAddress'])
+    ...mapState('walletStore', ['currentAddress']),
+    ...mapState('indaCoin', ['currencies'])
   },
 
   methods: {
