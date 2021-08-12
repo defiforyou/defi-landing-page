@@ -244,7 +244,22 @@ export default {
         v => /^\d+(\.\d{0,5})?$/.test(v) || 'must below 5 digit after decimal',
         v => (v && v.length >= 0 && v.length <= 255) || 'Invalid amount',
         this.payload.payCurrency === 'USD' ? v => parseFloat(v) >= 40 || 'Amount must be greater than 40 USD' : true,
-        this.payload.payCurrency === 'VND' ? v => parseFloat(v) >= 940000 || 'Amount must be greater than 940,000 VND' : true
+        this.payload.payCurrency === 'VND' ? v => parseFloat(v) >= 912200 || 'Amount must be greater than 912,200 VND' : true,
+        this.payload.payCurrency === 'AUD' ? v => parseFloat(v) >= 54.35 || 'Amount must be greater than 54.35 AUD' : true,
+        this.payload.payCurrency === 'BRL' ? v => parseFloat(v) >= 208.78 || 'Amount must be greater than 208.78 BRL' : true,
+        this.payload.payCurrency === 'CAD' ? v => parseFloat(v) >= 50.07 || 'Amount must be greater than 50.07 CAD' : true,
+        this.payload.payCurrency === 'CHF' ? v => parseFloat(v) >= 36.88 || 'Amount must be greater than 36.88 CHF' : true,
+        this.payload.payCurrency === 'CNY' ? v => parseFloat(v) >= 259.13 || 'Amount must be greater than 259.13 CHF' : true,
+        this.payload.payCurrency === 'CZK' ? v => parseFloat(v) >= 865.78 || 'Amount must be greater than 865.78 CZK' : true,
+        this.payload.payCurrency === 'DKK' ? v => parseFloat(v) >= 253.51 || 'Amount must be greater than 253.51 DKK' : true,
+        this.payload.payCurrency === 'EUR' ? v => parseFloat(v) >= 34.08 || 'Amount must be greater than 34.08 EUR' : true,
+        this.payload.payCurrency === 'GBP' ? v => parseFloat(v) >= 28.85 || 'Amount must be greater than 28.85 GBP' : true,
+        this.payload.payCurrency === 'INR' ? v => parseFloat(v) >= 2973.30 || 'Amount must be greater than 2,973.30 INR' : true,
+        this.payload.payCurrency === 'NOK' ? v => parseFloat(v) >= 354.36 || 'Amount must be greater than 354.36 NOK' : true,
+        this.payload.payCurrency === 'NZD' ? v => parseFloat(v) >= 56.92 || 'Amount must be greater than 56.92 NZD' : true,
+        this.payload.payCurrency === 'PLN' ? v => parseFloat(v) >= 156.32 || 'Amount must be greater than 156.32 PLN' : true,
+        this.payload.payCurrency === 'RUB' ? v => parseFloat(v) >= 2944.58 || 'Amount must be greater than 2,944.58 RUB' : true,
+        this.payload.payCurrency === 'SEK' ? v => parseFloat(v) >= 347.39 || 'Amount must be greater than 347.39 SEK' : true
       ]
     },
     emailRules () {
