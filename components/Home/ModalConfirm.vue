@@ -103,6 +103,7 @@
           height="40px"
           width="160px"
           rounded
+          class="go-payment"
           @click="goToPayment()"
         >
           Go to payment

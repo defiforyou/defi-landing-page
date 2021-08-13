@@ -5,21 +5,43 @@
   color: #FFFFFF;
   font-family: 'Inter';
 }
+
 .modal-confirm__label {
-  width: pxToRem(180px);
+  min-width: 100px;
   margin-right: pxToRem(34px);
+  font-size: 14px;
+
+  @media (min-width: 960px) {
+    font-size: 20px;
+    min-width: 180px;
+  }
 }
 
 .modal-confirm__data {
+  font-size: 14px;
+
+  @media (min-width: 960px) {
+    font-size: 20px;
+  }
   a {
     color: #2596FF;
     text-decoration: underline;
+
+    font-size: 14px;
+
+    @media (min-width: 960px) {
+      font-size: 20px;
+    }
   }
 }
 
 .disclaimer {
   padding: pxToRem(24px) 0;
   color: #FFFFFF;
+  font-family: 'Inter';
+}
+
+.go-payment {
   font-family: 'Inter';
 }
 
