@@ -207,7 +207,7 @@ export default {
           localStorage.removeItem('extensionName')
         }
       } else {
-        this.$showErrorDialog({ text: `You need to have the ${walletName} extension first. Please set up or login to your ${walletName} account and connect it to continue.` })
+        this.$notify.error({ text: `You need to have the ${walletName} extension first. Please set up or login to your ${walletName} account and connect it to continue.` })
       }
     }
   }
