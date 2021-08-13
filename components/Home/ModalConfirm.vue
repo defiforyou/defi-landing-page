@@ -62,7 +62,7 @@
             </div>
             <div class="modal-confirm__data">
               <a
-                :href="$getBscLink(currentAddress)"
+                :href="$getBscLink(currentAddress, 'address')"
                 target="_blank"
               >{{ $shortAddress(currentAddress, 8) }}</a>
             </div>
