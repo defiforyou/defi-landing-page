@@ -18,7 +18,6 @@
             dense
             dark
             :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
-            hide-details="auto"
             class="field-amount"
             :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
           />
@@ -36,7 +35,6 @@
             placeholder="All"
             dark
             rounded
-            hide-details="auto"
             append-icon="mdi-chevron-down"
             class="select-currency"
           />
@@ -62,7 +60,6 @@
             disabled
             :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
             :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
-            hide-details="auto"
           />
 
           <v-select
@@ -76,7 +73,6 @@
             placeholder="All"
             dark
             rounded
-            hide-details="auto"
             append-icon=""
             class="select-currency"
           >
@@ -117,7 +113,6 @@
           color="#F8B017"
           outlined
           required
-          hide-details="auto"
           rounded
           dense
           dark
@@ -140,7 +135,6 @@
           outlined
           rounded
           dark
-          hide-details
           readonly
           dense
           :value="$vuetify.breakpoint.smAndUp ? currentAddress : $shortAddress(currentAddress, 5)"
