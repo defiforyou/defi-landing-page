@@ -58,6 +58,7 @@
             dense
             dark
             disabled
+            :loading="loadingRate"
             :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
             :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
           />
@@ -224,7 +225,8 @@ export default {
       isWallet: false,
       isCheckBox: true,
       isConfirm: false,
-      isDisable: false
+      isDisable: false,
+      loadingRate: false
     }
   },
 
@@ -284,8 +286,16 @@ export default {
   methods: {
     get,
     async getRate () {
-      const { data } = await this.$axios.get(`https://indacoin.com/api/GetCoinConvertAmount/${this.payload.payCurrency}/${this.getCurrency}/${this.payload.pay}`)
-      this.getValue = data
+      try {
+        this.loadingRate = true
+        const { data } = await this.$axios.get(`https://indacoin.com/api/GetCoinConvertAmount/${this.payload.payCurrency}/${this.getCurrency}/${this.payload.pay}`)
+        this.loadingRate = false
+        this.getValue = data
+      } catch (e) {
+        console.log(e)
+      } finally {
+        this.loadingRate = false
+      }
     },
     buyDFY () {
       if (this.$refs.formCard.validate()) {
