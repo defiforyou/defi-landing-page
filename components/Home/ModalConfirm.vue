@@ -23,7 +23,7 @@
 
       <v-card-text>
         <div class="modal-confirm">
-          <div class="d-flex align-center mb-4">
+          <div class="d-md-flex align-center mb-4">
             <div class="modal-confirm__label">
               You pay:
             </div>
@@ -32,7 +32,7 @@
             </div>
           </div>
 
-          <div class="d-flex align-center mb-4">
+          <div class="d-md-flex align-center mb-4">
             <div class="modal-confirm__label">
               You get:
             </div>
@@ -47,7 +47,7 @@
             </div>
           </div>
 
-          <div class="d-flex align-center mb-4">
+          <div class="d-md-flex align-center mb-4">
             <div class="modal-confirm__label">
               Email:
             </div>
@@ -56,7 +56,7 @@
             </div>
           </div>
 
-          <div class="d-flex align-center">
+          <div class="d-md-flex align-center">
             <div class="modal-confirm__label">
               Wallet address:
             </div>

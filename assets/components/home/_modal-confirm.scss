@@ -7,18 +7,18 @@
 }
 
 .modal-confirm__label {
-  min-width: 100px;
-  margin-right: pxToRem(34px);
+  margin-bottom: 10px;
   font-size: 14px;
 
   @media (min-width: 960px) {
     font-size: 20px;
     min-width: 180px;
+    margin-bottom: 0;
   }
 }
 
 .modal-confirm__data {
-  font-size: 14px;
+  font-size: 16px;
 
   @media (min-width: 960px) {
     font-size: 20px;
