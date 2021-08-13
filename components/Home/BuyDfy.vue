@@ -35,7 +35,15 @@
             </h2>
 
             <div class="buy-dfy__subtext">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, id.
+              <p class="text-left text-md-right mb-0">
+                The easiest way to buy DFY tokens with Visa and MasterCard.
+              </p>
+              <p class="text-left text-md-right mb-0">
+                Transactions are process by our partners at Indacoin.com
+              </p>
+              <p class="text-left text-md-right">
+                who procure the DFY tokens through PancakeSwap Exchange.
+              </p>
             </div>
 
             <div class="buy-dfy__img">

@@ -4,7 +4,7 @@
       <div class="container py-0">
         <div class="steps">
           <div class="steps__item">
-            How it works
+            How It Works
             <img src="~assets/img/buy-dfy/line.png" alt="">
           </div>
 
@@ -13,11 +13,11 @@
           </div>
 
           <div class="steps__item">
-            <span>2</span> Send order
+            <span>2</span> Send Order
           </div>
 
           <div class="steps__item">
-            <span>3</span> Credit card payment
+            <span>3</span> Credit Card Payment
           </div>
 
           <div class="steps__item">
