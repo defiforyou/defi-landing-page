@@ -17,16 +17,16 @@
 
           <div class="reward-text">
             Register new DeFi For You account from  <span>{{ $convertTime(get(banners, '[0].startAt', '')) }}</span> to
-            <span>{{ $convertTime(get(banners, '[0].stopAt', '')) }}</span> to have 100% chance of receiving DFY tokens
+            <span>{{ $convertTime(get(banners, '[0].stopAt', '')) }}</span> to receive FREE DFY tokens!
           </div>
 
           <div class="reward-btn">
             <button v-if="isHandleSignUp" @click="redirect()">
-              Sign up to get reward
+              Sign up to claim your reward!
             </button>
 
             <button v-else class="btn-disable">
-              Sign up to get reward
+              Sign up to claim your reward!
             </button>
           </div>
         </div>
@@ -48,16 +48,16 @@
 
           <div class="reward-text">
             Register new DeFi For You account from  <span>{{ $convertTime(get(banners, '[0].startAt', '')) }}</span> to
-            <span>{{ $convertTime(get(banners, '[0].stopAt', '')) }}</span> to have 100% chance of receiving DFY tokens
+            <span>{{ $convertTime(get(banners, '[0].stopAt', '')) }}</span> to receive FREE DFY tokens!
           </div>
 
           <div class="reward-btn">
             <button v-if="isHandleSignUp" @click="redirect()">
-              Sign up to get reward
+              Sign up to claim your reward!
             </button>
 
             <button v-else class="btn-disable">
-              Sign up to get reward
+              Sign up to claim your reward!
             </button>
           </div>
         </div>
