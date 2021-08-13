@@ -127,9 +127,9 @@
           color="grey grey-1"
           large
           label
-          @click="getWalletConnect('walletConnect')"
+          @click="connectWallet('WalletConnect')"
         >
-          <div v-if="isSigning !== 'walletConnect'">
+          <div v-if="isSigning !== 'WalletConnect'">
             <img
               src="~/assets/img/wallet/wallet-connect.png"
               alt
@@ -169,7 +169,8 @@ export default {
   },
   data () {
     return {
-      isSigning: false
+      isSigning: false,
+      availableWallet: null
     }
   },
 
@@ -184,16 +185,29 @@ export default {
     }
   },
 
+  mounted () {
+    const available = []
+    if (window.ethereum && window.ethereum.isMetaMask) { available.push('Metamask') }
+    if (window.BinanceChain) { available.push('BinanceChain') }
+    if (window.ethereum && window.ethereum.isTrust) { available.push('TrustWallet') }
+    if (window.ethereum && window.ethereum.isSafePal) { available.push('SafePal') }
+    this.availableWallet = available
+  },
+
   methods: {
     async connectWallet (walletName) {
-      try {
-        this.isSigning = walletName
-        localStorage.setItem('extensionName', walletName)
-        await this.$connectWallet(walletName, false)
-        this.isSigning = false
-        this.$emit('update:show', false)
-      } catch (e) {
-        localStorage.removeItem('extensionName')
+      if (this.availableWallet && this.availableWallet.includes(walletName)) {
+        try {
+          this.isSigning = walletName
+          localStorage.setItem('extensionName', walletName)
+          await this.$connectWallet(walletName, false)
+          this.isSigning = false
+          this.$emit('update:show', false)
+        } catch (e) {
+          localStorage.removeItem('extensionName')
+        }
+      } else {
+        this.$showErrorDialog({ text: `You need to have the ${walletName} extension first. Please set up or login to your ${walletName} account and connect it to continue.` })
       }
     }
   }
