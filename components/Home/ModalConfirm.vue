@@ -52,7 +52,7 @@
               Email:
             </div>
             <div class="modal-confirm__data">
-              {{ payload.email }}
+              {{ email }}
             </div>
           </div>
 
@@ -136,6 +136,11 @@ export default {
     getValue: {
       type: String,
       default: '0'
+    },
+
+    email: {
+      type: String,
+      default: ''
     }
   },
 
@@ -166,7 +171,7 @@ export default {
           amountPay: this.payload.pay,
           currencyGet: this.getCurrency,
           currencyPay: this.payload.payCurrency,
-          email: this.payload.email,
+          email: this.email,
           walletAddress: this.currentAddress
         })
         window.location = get(data, 'data.transactionUrl')

@@ -107,7 +107,7 @@
           Email
         </div>
         <v-text-field
-          v-model="payload.email"
+          v-model="email"
           :rules="emailRules"
           type="email"
           placeholder="Enter email"
@@ -198,7 +198,7 @@
     </div>
 
     <ChooseWallet :show.sync="isWallet" />
-    <ModalConfirm :show.sync="isConfirm" :payload="payload" :get-value="getValue" :get-currency="getCurrency" />
+    <ModalConfirm :show.sync="isConfirm" :payload="payload" :get-value="getValue" :get-currency="getCurrency" :email="email" />
   </div>
 </template>
 
@@ -217,9 +217,9 @@ export default {
     return {
       payload: {
         pay: '',
-        payCurrency: 'USD',
-        email: ''
+        payCurrency: 'USD'
       },
+      email: '',
       getValue: '',
       getCurrency: 'DFY',
       isWallet: false,
