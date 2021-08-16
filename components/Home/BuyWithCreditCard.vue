@@ -299,7 +299,11 @@ export default {
     },
     buyDFY () {
       if (this.$refs.formCard.validate()) {
-        this.isConfirm = true
+        if (this.currentAddress) {
+          this.isConfirm = true
+        } else {
+          this.$notify.error({ text: 'Please connect your wallet first' })
+        }
       }
     }
   }

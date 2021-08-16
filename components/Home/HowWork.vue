@@ -32,7 +32,7 @@
         <div class="tips">
           <p>Tips for buying DFY</p>
           <p class="ml-4">
-            1. The first transaction should between 40$ to 500$
+            1. Amount must be greater than 40$
           </p>
           <p class="ml-4">
             2. You must pass verification on your first purchase, including Selfie, picture of document and proof of address

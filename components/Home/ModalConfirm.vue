@@ -4,7 +4,7 @@
     width="670px"
     dark
   >
-    <v-card>
+    <v-card height="450px" class="scroll">
       <v-card-title class="d-flex align-center justify-space-between">
         <span class="dialog-title">Confirmation</span>
 
@@ -135,8 +135,8 @@ export default {
     },
 
     getValue: {
-      type: String,
-      default: '0'
+      type: Number,
+      default: 0
     },
 
     email: {
