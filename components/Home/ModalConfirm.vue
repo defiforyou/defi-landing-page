@@ -104,6 +104,7 @@
           width="160px"
           rounded
           class="go-payment"
+          :loading="loading"
           @click="goToPayment()"
         >
           Go to payment
@@ -146,7 +147,8 @@ export default {
 
   data () {
     return {
-      isMore: false
+      isMore: false,
+      loading: false
     }
   },
 
@@ -166,6 +168,7 @@ export default {
     get,
     async goToPayment () {
       try {
+        this.loading = true
         const { data } = await this.$axios.post(`${process.env.API_URL}/defi-pawn-crypto-service/public-api/v1.0.0/indacoin/transactions`, {
           amountGet: this.getValue,
           amountPay: this.payload.pay,
@@ -174,9 +177,12 @@ export default {
           email: this.email,
           walletAddress: this.currentAddress
         })
+        this.loading = false
         window.location = get(data, 'data.transactionUrl')
       } catch (err) {
         this.$notify.error({ text: err.message })
+      } finally {
+        this.loading = false
       }
     }
   }
