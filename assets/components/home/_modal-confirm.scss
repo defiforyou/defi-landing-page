@@ -1,0 +1,89 @@
+.scroll {
+  overflow-y: scroll
+}
+
+.dialog-title {
+  font-family: 'Inter';
+}
+
+.modal-confirm {
+  padding: pxToRem(30px) 0;
+  font-weight: 500;
+  font-size: 20px;
+  color: #FFFFFF;
+  font-family: 'Inter';
+}
+
+.modal-confirm__label {
+  margin-bottom: 10px;
+  font-size: 14px;
+
+  @media (min-width: 960px) {
+    font-size: 20px;
+    min-width: 180px;
+    margin-bottom: 0;
+  }
+}
+
+.modal-confirm__data {
+  font-size: 16px;
+
+  @media (min-width: 960px) {
+    font-size: 20px;
+  }
+  a {
+    color: #2596FF;
+    text-decoration: underline;
+
+    font-size: 14px;
+
+    @media (min-width: 960px) {
+      font-size: 20px;
+    }
+  }
+}
+
+.disclaimer {
+  padding: pxToRem(24px) 0;
+  color: #FFFFFF;
+  font-family: 'Inter';
+}
+
+.go-payment {
+  font-family: 'Inter';
+}
+
+.disclaimer__title {
+  font-weight: 600;
+  font-size: pxToRem(20px);
+  margin-bottom: pxToRem(16px);
+  font-family: 'Inter';
+}
+
+.disclaimer__content {
+  font-weight: normal;
+  font-size: pxToRem(16px);
+
+  span {
+    color: #F8B017;
+  }
+
+  .see {
+    display: inline;
+    cursor: pointer;
+    font-style: italic;
+    text-decoration: underline;
+  }
+}
+
+slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
+}

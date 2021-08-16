@@ -124,9 +124,9 @@ section.header {
     justify-content: space-between;
     box-sizing: border-box;
     height: 4rem;
-    @include media(md) {
-      height: 7.5rem;
-    }
+    // @include media(md) {
+    //   height: 7.5rem;
+    // }
     > * {
       min-width: 0;
     }

@@ -150,7 +150,7 @@ a {
   }
   &--primary {
     background: $--color-primary;
-    color: white;
+    color: white !important;
     overflow: hidden;
     &:before {
       content: '';

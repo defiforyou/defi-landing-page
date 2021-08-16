@@ -17,6 +17,9 @@
       img.reward-icon(src="~assets/img/reward-click.png")
     home-hero-section#hero.sticky
     home-price-tickers-section#price-tickers
+    v-app(style="background-color: #171A23")
+      home-buy-dfy#buy-dfy
+      home-how-work
     home-defi-for-you-section#defi-for-you
     home-solution-section#solution
     home-services-section#services
@@ -43,6 +46,7 @@ export default {
   async created () {
     await this.getStatus()
     await this.getBanners()
+    await this.getCurrencies()
   },
 
   mounted () {
@@ -50,40 +54,54 @@ export default {
   },
 
   methods: {
+    async connectWallet (walletName) {
+      try {
+        localStorage.setItem('extensionName', walletName)
+        await this.$connectWallet(walletName, false)
+        this.isSigning = false
+        this.$emit('close')
+      } catch (e) {
+        // eslint-disable-next-line no-console
+        console.log(e, 11)
+        localStorage.removeItem('extensionName')
+      }
+    },
     ...mapActions('reward', ['getBanners', 'getStatus']),
+    ...mapActions('indaCoin', ['getCurrencies']),
     ...mapMutations('reward', ['SET_IS_REWARD']),
     setup () {
       if (window.innerWidth < 1200) { return }
 
-      const step = 50
+      const step = 40
+      const addSection = 200
 
       let reduce = step * 4
-      this.pin(980, 400, '.chip-nfts', { x: 250 })
-      this.pin(1380, 300, '.chip-nfts', { x: 270 })
-      this.pin(1680, 1400, '.chip-nfts', { x: 240, y: reduce })
-      this.pin(3080, 320 - reduce, '.chip-nfts', { x: 160 })
-      this.pin(3400 - reduce, 180, '.chip-nfts', { x: 480, width: 190 })
+      this.pin(980 + addSection, 400 + addSection, '.chip-nfts', { x: 290 })
+      this.pin(1380 + addSection, 300 + addSection, '.chip-nfts', { x: 270 })
+      this.pin(1680 + addSection, 1400 + addSection, '.chip-nfts', { x: 240, y: reduce })
+      this.pin(3080 + addSection, 320 + addSection - reduce, '.chip-nfts', { x: 160 })
+      this.pin(3400 + addSection - reduce, 180 + addSection, '.chip-nfts', { x: 480, width: 190 })
 
       reduce = step * 3
-      this.pin(1000, 400, '.chip-btc', { x: 80 })
-      this.pin(1400, 300, '.chip-btc', { x: 100 })
-      this.pin(1700, 1300, '.chip-btc', { x: 100, y: reduce })
-      this.pin(3000, 320 - reduce, '.chip-btc', { x: 400 })
-      this.pin(3320 - reduce, 160, '.chip-btc', { x: 300, width: 180 })
+      this.pin(1000 + addSection, 400 + addSection, '.chip-btc', { x: 80 })
+      this.pin(1400 + addSection, 300 + addSection, '.chip-btc', { x: 100 })
+      this.pin(1700 + addSection, 1300 + addSection, '.chip-btc', { x: 100, y: reduce })
+      this.pin(3000 + addSection, 320 - reduce + addSection, '.chip-btc', { x: 400 })
+      this.pin(3320 + addSection - reduce, 160 + addSection, '.chip-btc', { x: 300, width: 180 })
 
       reduce = step * 2
-      this.pin(960, 400, '.chip-bnb', { x: 320 })
-      this.pin(1360, 300, '.chip-bnb', { x: 350 })
-      this.pin(1660, 1400, '.chip-bnb', { x: 380, y: reduce })
-      this.pin(3060, 320 - reduce, '.chip-bnb', { x: 200 })
-      this.pin(3380 - reduce, 260, '.chip-bnb', { x: 320, width: 180 })
+      this.pin(960 + addSection, 400 + addSection, '.chip-bnb', { x: 320 })
+      this.pin(1360 + addSection, 300 + addSection, '.chip-bnb', { x: 350 })
+      this.pin(1660 + addSection, 1400 + addSection, '.chip-bnb', { x: 380, y: reduce })
+      this.pin(3060 + addSection, 320 - reduce + addSection, '.chip-bnb', { x: 200 })
+      this.pin(3380 + addSection - reduce, 260 + addSection, '.chip-bnb', { x: 320, width: 180 })
 
       reduce = step * 1
-      this.pin(900, 400, '.chip-dfy', { x: 100 })
-      this.pin(1300, 300, '.chip-dfy', { x: 120 })
-      this.pin(1600, 1600, '.chip-dfy', { x: 130, y: reduce })
-      this.pin(3200, 320 - reduce, '.chip-dfy', { x: 500 })
-      this.pin(3520 - reduce, 100, '.chip-dfy', { x: 200 })
+      this.pin(900 + addSection, 400 + addSection, '.chip-dfy', { x: 100 })
+      this.pin(1300 + addSection, 300 + addSection, '.chip-dfy', { x: 120 })
+      this.pin(1600 + addSection, 1600 + addSection, '.chip-dfy', { x: 130, y: reduce })
+      this.pin(3200 + addSection, 320 - reduce + addSection, '.chip-dfy', { x: 500 })
+      this.pin(3520 + addSection - reduce, 100 + addSection, '.chip-dfy', { x: 200 })
     },
 
     pin (offset, duration, chip, tween) {
@@ -136,7 +154,7 @@ export default {
       }
       &.chip-btc {
         top: 1350px;
-        left: 360px;
+        left: 460px;
         // animation: floating 7s infinite ease-in-out reverse;
         // z-index: 3;
       }
@@ -148,14 +166,14 @@ export default {
       }
       &.chip-nfts {
         top: 1370px;
-        left: 70px;
+        left: 100px;
         animation: shine-up .6s infinite ease-in-out;
         // animation: floating 9s infinite ease-in-out;
         // z-index: 5;
       }
     }
   }
-  /deep/ {
+  ::v-deep {
     section {
       font-size: 14px;
       line-height: 1.5em;

@@ -90,7 +90,7 @@ export default {
   }
 }
 .tickers {
-  /deep/ .swiper-slide {
+  ::v-deep .swiper-slide {
     width: auto;
   }
 }

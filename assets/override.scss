@@ -1,0 +1,79 @@
+// v-app
+.v-application--wrap {
+  min-height: unset !important;
+}
+
+// btn
+.theme--dark.v-btn.v-btn--disabled.v-btn--has-bg {
+  background-color: $carbon-4 !important;
+}
+.v-btn.v-btn--active.v-btn--rounded.theme--dark.primary {
+  background: $gradient !important;
+  .v-btn__content {
+    color: $dark !important;
+  }
+}
+//switch
+.v-input--switch__thumb.theme--dark.primary--text {
+  background: $gradient !important;
+}
+// date picker
+.v-date-picker-header.theme--dark {
+  background: $grey-10 !important;
+}
+.v-date-picker-table.v-date-picker-table--date.theme--dark {
+  background: $grey-10 !important;
+}
+// tabs
+.v-tab {
+  text-transform: capitalize !important;
+}
+.v-slide-group__content.v-tabs-bar__content {
+  background: $dark !important;
+}
+// paginate
+.v-pagination__item {
+  border: 1px solid $carbon-4 !important;
+}
+.v-pagination__navigation {
+  border: 1px solid $carbon-4 !important;
+}
+
+
+.v-ripple__container {
+  background: $yellow-10 !important;
+  opacity: 0.5;
+}
+
+label.theme--dark + input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+input:-webkit-autofill {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: $white !important; /* inherit only works in Safari */
+  -webkit-text-size-adjust: inherit !important;
+}
+
+// label.theme--light + input:-webkit-autofill,
+// input:-webkit-autofill:hover,
+// input:-webkit-autofill:focus,
+// input:-webkit-autofill:active {
+//   transition: background-color 5000s ease-in-out 0s;
+//   -webkit-text-fill-color: $white !important; /* inherit only works in Safari */
+//   -webkit-text-size-adjust: inherit !important;
+// }
+
+// /* When dark theme, then make keychain icon white */
+// label.theme--dark + input::-webkit-credentials-auto-fill-button{
+//   background-color: $dark !important;
+//   color: $white !important;
+// }
+
+/* Hide credentials-auto-fill-button in password inputs, only visible on other inputs */
+input[type=password]::-webkit-credentials-auto-fill-button{
+  visibility: hidden;
+  display: none !important;
+  pointer-events: none;
+}
+

@@ -6,8 +6,6 @@
     url('/fonts/dwm.tff') format('truetype');
 }
 
-
-
 @font-face {
   font-family: "Montserrat";
   font-weight: 300;
@@ -48,4 +46,35 @@
   font-family: "Montserrat";
   font-weight: 900;
   src: url('~static/fonts/montserrat/Montserrat-Black.ttf');
+}
+
+
+@font-face {
+  font-family: "Inter";
+  font-weight: 400;
+  src: url('~static/fonts/inter/Inter-Regular.ttf');
+}
+
+@font-face {
+  font-family: "Inter";
+  font-weight: 500;
+  src: url('~static/fonts/inter/Inter-Medium.ttf');
+}
+
+@font-face {
+  font-family: "Inter";
+  font-weight: 600;
+  src: url('~static/fonts/inter/Inter-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: "Inter";
+  font-weight: 700;
+  src: url('~static/fonts/inter/Inter-Bold.ttf');
+}
+
+@font-face {
+  font-family: "Inter";
+  font-weight: 800;
+  src: url('~static/fonts/inter/Inter-ExtraBold.ttf');
 }
