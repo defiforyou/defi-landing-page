@@ -4,7 +4,7 @@
     width="670px"
     dark
   >
-    <v-card height="450px" class="scroll">
+    <v-card :height="$vuetify.breakpoint.xsOnly ? '450px' : ''" class="scroll">
       <v-card-title class="d-flex align-center justify-space-between">
         <span class="dialog-title">Confirmation</span>
 
