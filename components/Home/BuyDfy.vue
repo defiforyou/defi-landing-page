@@ -1,59 +1,61 @@
 <template>
-  <div class="buy-dfy">
-    <div class="container">
-      <v-row>
-        <v-col cols="12" md="6" class="order-2 order-md-1">
-          <div class="buy-dfy-with">
-            <div class="buy-dfy__tabs">
-              <span
-                :class="{'active': tab == 1}"
-                @click="tab = 1"
-              >Buy DFY with credit card</span>
+  <client-only>
+    <div class="buy-dfy">
+      <div class="container">
+        <v-row>
+          <v-col cols="12" md="6" class="order-2 order-md-1">
+            <div class="buy-dfy-with">
+              <div class="buy-dfy__tabs">
+                <span
+                  :class="{'active': tab == 1}"
+                  @click="tab = 1"
+                >Buy DFY with credit card</span>
 
-              <span
-                :class="{'active': tab == 2}"
-                @click="tab = 2"
-              >Buy DFY on exchanges</span>
+                <span
+                  :class="{'active': tab == 2}"
+                  @click="tab = 2"
+                >Buy DFY on exchanges</span>
+              </div>
+
+              <div class="buy-dfy__input">
+                <BuyWithCreditCard v-if="tab == 1" />
+                <BuyOnExchanges v-if="tab == 2" />
+              </div>
             </div>
+          </v-col>
 
-            <div class="buy-dfy__input">
-              <BuyWithCreditCard v-if="tab == 1" />
-              <BuyOnExchanges v-if="tab == 2" />
+          <v-col cols="12" md="6" class="order-1 order-md-2">
+            <div class="buy-dfy-img">
+              <h2 class="buy-dfy__title">
+                <p>
+                  Buy DFY
+                </p>
+                <p>
+                  with Credit card
+                </p>
+              </h2>
+
+              <div class="buy-dfy__subtext">
+                <p class="text-left text-md-right mb-0">
+                  The easiest way to buy DFY tokens with Visa and MasterCard.
+                </p>
+                <p class="text-left text-md-right mb-0">
+                  Transactions are process by our partners at Indacoin.com
+                </p>
+                <p class="text-left text-md-right">
+                  who procure the DFY tokens through PancakeSwap Exchange.
+                </p>
+              </div>
+
+              <div class="buy-dfy__img">
+                <img src="~assets/img/buy-dfy/buy-dfy.png" alt="">
+              </div>
             </div>
-          </div>
-        </v-col>
-
-        <v-col cols="12" md="6" class="order-1 order-md-2">
-          <div class="buy-dfy-img">
-            <h2 class="buy-dfy__title">
-              <p>
-                Buy DFY
-              </p>
-              <p>
-                with Credit card
-              </p>
-            </h2>
-
-            <div class="buy-dfy__subtext">
-              <p class="text-left text-md-right mb-0">
-                The easiest way to buy DFY tokens with Visa and MasterCard.
-              </p>
-              <p class="text-left text-md-right mb-0">
-                Transactions are process by our partners at Indacoin.com
-              </p>
-              <p class="text-left text-md-right">
-                who procure the DFY tokens through PancakeSwap Exchange.
-              </p>
-            </div>
-
-            <div class="buy-dfy__img">
-              <img src="~assets/img/buy-dfy/buy-dfy.png" alt="">
-            </div>
-          </div>
-        </v-col>
-      </v-row>
+          </v-col>
+        </v-row>
+      </div>
     </div>
-  </div>
+  </client-only>
 </template>
 
 <script>
