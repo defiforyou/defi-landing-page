@@ -220,7 +220,7 @@ export default {
         payCurrency: 'USD'
       },
       email: '',
-      getValue: '',
+      getValue: 0,
       getCurrency: 'DFY',
       isWallet: false,
       isCheckBox: true,
