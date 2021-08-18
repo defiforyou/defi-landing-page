@@ -81,7 +81,7 @@
               <p>You will now be leaving <span>defiforyou.uk</span> and be transferred to Indacoin.com. Credit Card services to acquire cryptocurrencies will be provided by Indacoin.com, which is a separate payment processing platform, owned by a third party. </p>
               <transition name="slide-fade">
                 <p v-if="isMore">
-                  After purchase, your cryptocurrency will be automatically transferred to your walled. Please read their Terms of Services before executing the order.
+                  After purchase, your cryptocurrency will be automatically transferred to your walled. Please read their <a href="https://indacoin.com/terms" target="_blank">Terms of Services</a> before executing the order.
                   For any questions or clarifications relating to credit card payments, please contact Indacoin support at: support@indacoin.com
                 </p>
 
