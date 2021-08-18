@@ -7,7 +7,7 @@ export const getWeb3walletConnect = async () => {
     chainId: process.env.BLOCKCHAIN_NETWORK === 'MAINNET' ? 56 : 97,
     rpc,
     bridge: 'https://walletconnect-monorepo.defiforyou.uk',
-    infuraId: '5b7980e38cf9418cb5d2ccf34bcb5c46',
+    // infuraId: '5b7980e38cf9418cb5d2ccf34bcb5c46',
     qrcodeModalOptions: {
       mobileLinks: [
         'rainbow',
