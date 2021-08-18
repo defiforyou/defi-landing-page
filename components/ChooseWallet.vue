@@ -186,7 +186,7 @@ export default {
   },
 
   mounted () {
-    const available = []
+    const available = ['WalletConnect']
     if (window.ethereum && window.ethereum.isMetaMask) { available.push('Metamask') }
     if (window.BinanceChain) { available.push('BinanceChain') }
     if (window.ethereum && window.ethereum.isTrust) { available.push('TrustWallet') }
