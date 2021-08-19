@@ -4,7 +4,7 @@ export const state = () => ({
 export const actions = {
   async nuxtServerInit ({ commit, dispatch, state }) {
     // update list coin from database crypto asset
-    await dispatch('supportSymbol/getListSupportSymbol')
+    // await dispatch('supportSymbol/getListSupportSymbol')
 
     // const extensionName = localStorage.getItem('extensionName')
     // try {
@@ -16,7 +16,8 @@ export const actions = {
     //   console.log(error)
     // }
   },
-  async nuxtClientInit () {
+  async nuxtClientInit ({ dispatch }) {
+    await dispatch('supportSymbol/getListSupportSymbol')
     const extensionName = localStorage.getItem('extensionName')
     try {
       if (extensionName) {

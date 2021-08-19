@@ -19,7 +19,6 @@ const logicAccountChanged = async (context, walletName, accounts) => {
 
       if (accounts.length) {
         supportUpdateStore(context, accounts[0])
-        eventAccount(context, walletName)
       } else {
         // eslint-disable-next-line no-console
         console.log(`no connect ${walletName}`)
