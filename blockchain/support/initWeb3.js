@@ -6,6 +6,9 @@ import { detectNetworkMetamask } from './plugins/detectNetworkMetamask'
 import { getWeb3walletConnect } from './plugins/walletConnect'
 
 export const initWeb3 = async (extensionName = localStorage.getItem('extensionName'), isReadyEnableBlockchain = true) => {
+  if (typeof initWeb3.instance === 'object' && initWeb3.extensionName === extensionName) {
+    return initWeb3.instance
+  }
   const provider = await detectEthereumProvider()
   let web3 = null
 
@@ -36,6 +39,8 @@ export const initWeb3 = async (extensionName = localStorage.getItem('extensionNa
       }
       break
   }
+  initWeb3.extensionName = extensionName
+  initWeb3.instance = web3
 
-  return web3
+  return initWeb3.instance
 }

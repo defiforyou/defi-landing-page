@@ -1,5 +1,5 @@
 import Web3 from 'web3'
-import BigNumber from "bignumber.js"
+import BigNumber from 'bignumber.js'
 import erc20Abi from '~/blockchain/contracts/erc20.abi.json'
 
 const rpcURL = process.env.RPC_NETWORK
