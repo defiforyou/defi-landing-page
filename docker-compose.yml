@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    container_name: landing_page
+    restart: always
+    volumes:
+      - .:/src
+    env_file: .env
+    ports:
+      - 3001:3001
