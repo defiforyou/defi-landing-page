@@ -30,6 +30,10 @@ export const OFFICES = [{
   companiesHouse: 'https://find-and-update.company-information.service.gov.uk/company/13126050?fbclid=IwAR3Fm3QHdllfP_z1QIZ9e9UX-warFarV1XuwBqsxXyPl0M3k-BLSvkNdXuE'
 }]
 
+export const ABOUT = {
+  introduce: " is a trading style of Miles Mann Limited registered office at 5 Southgate Street, Gloucester, Gloucestershire, GL1 1TG1 Licensed authorised and regulated by the Financial Conduct Authority to exercise lender's rights and duties under a regulated credit agreement (excluding high-cost short-term credit, bill of sale agreement, and home collected credit agreement), and has the right to exercise lender's rights and duties under a regulated credit agreement (excluding high-cost short-term credit, bill of sale agreement, and home collected credit agreement)"
+}
+
 export const URLS = {
   github: 'https://github.com/defi-vn/',
   telegram: 'https://t.me/DeFiForYou_English',
@@ -83,6 +87,26 @@ export const PARTNERS = [{
   name: 'Hotbit',
   url: 'https://www.hotbit.io/exchange?symbol=DFY_USDT',
   image: '/img/partner.hotbit.png',
+  favicon: '/img/partner.hotbit@xs.png',
+  exchange: true
+},
+{
+  name: 'BitGlobal',
+  url: '',
+  image: '/img/partner.bitglobal.png',
+  favicon: '/img/partner.hotbit@xs.png',
+  exchange: true
+}, {
+  name: 'IndaCoin',
+  url: '',
+  image: '/img/partner.indacoin.png',
+  favicon: '/img/partner.hotbit@xs.png',
+  exchange: true
+},
+{
+  name: 'srnArt',
+  url: '',
+  image: '/img/partner.srnArt.png',
   favicon: '/img/partner.hotbit@xs.png',
   exchange: true
 }]

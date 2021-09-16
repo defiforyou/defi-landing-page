@@ -2,11 +2,26 @@
 section.network
   .dfy-decorator NETWORK
   .container
-    h2.title DFY
-      em .
-    p.description DFY is a BEP20 token built on Binance Smart Chain.
+    h2.title DFY Tokens
+      //- em .
+    p.description
       br
-      | This ensures transactions are practically instant with extremely low fees.
+      | DFY is the native token of the DeFi For You platform and lives on the Binance Smart Chain.
+      br
+      br
+      | DFY is used for fees on the DeFi For You P2P lending platform. It can also be used as loan currency or collateral.
+      br
+      | Borrowers will always have the option to repay their outstanding loans in DFY.
+      br
+      br
+      | Users who wish to open a crypto pawnshop and accept physical assets as collateral on DeFi For You must agree to lock up:
+      br
+      br
+      | •Equivalent of US$10,000 value in DFY tokens for a self-financed pawnshop.
+      br
+      br
+      | •Equivalent of US$40,000 value in DFY tokens for a pawnshop with financial support from DeFi For You.
+      br
   .canvas
     .map
     .tokens
@@ -42,6 +57,14 @@ section.network {
   @include media(sm) {
     padding: 2em 0;
     margin-top: 0;
+  }
+  .dfy-decorator {
+    line-height: 8rem;
+    margin-bottom: -100px;
+  }
+  .container {
+    .description {
+    }
   }
   .canvas {
     max-width: 1000px;
