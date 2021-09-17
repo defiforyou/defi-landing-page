@@ -7,14 +7,23 @@
             <div class="buy-dfy-with">
               <div class="buy-dfy__tabs">
                 <span
+                  class="buy-dfy__tabs--card tab-1"
                   :class="{'active': tab == 1}"
                   @click="tab = 1"
-                >Buy DFY with credit card</span>
+                >
+                  <span class="tab-name">Buy DFY</span>
+                  <span class="cards">
+                    <img src="~assets/img/buy-dfy/visa.png" alt="">
+                    <img class="img-rectangle" src="~assets/img/buy-dfy/rectangle.png" alt="">
+                    <img src="~assets/img/buy-dfy/mastecard.png" alt="">
+                  </span>
+                </span>
 
                 <span
+                  class="buy-dfy__tabs--card"
                   :class="{'active': tab == 2}"
                   @click="tab = 2"
-                >Buy DFY on exchanges</span>
+                >Buy DFY on Exchanges</span>
               </div>
 
               <div class="buy-dfy__input">
@@ -28,22 +37,27 @@
             <div class="buy-dfy-img">
               <h2 class="buy-dfy__title">
                 <p>
-                  Buy DFY
+                  Buy DFY Tokens
                 </p>
-                <p>
+                <!-- <p>
                   with Credit card
-                </p>
+                </p> -->
               </h2>
-
+              <div class="buy-dfy__card">
+                <div>
+                  <img class="pr-2" src="~assets/img/buy-dfy/visa-2.png" alt="">
+                  <img src="~assets/img/buy-dfy/mastecard-2.png" alt="">
+                </div>
+              </div>
               <div class="buy-dfy__subtext">
                 <p class="text-left text-md-right mb-0">
-                  The easiest way to buy DFY tokens with Visa and MasterCard.
+                  Card transactions are processed by intermediaries at
                 </p>
                 <p class="text-left text-md-right mb-0">
-                  Transactions are process by our partners at Indacoin.com
+                  Indacoin.com who are providers of the DFY tokens
                 </p>
                 <p class="text-left text-md-right">
-                  who procure the DFY tokens through PancakeSwap Exchange.
+                  through PancakeSwap Exchange.
                 </p>
               </div>
 

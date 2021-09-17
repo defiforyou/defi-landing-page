@@ -2,7 +2,7 @@
 section.hero
   .container
     .greeting
-      h1.headline First-ever platform where you can loan against NFTs
+      h1.headline P2P Crypto Loans Against NFTs and Physical Assets
       //- h1.headline Ever&nbsp;
         br.xso
         | thought of
@@ -15,13 +15,18 @@ section.hero
           .thumbnail(@click="playing = true")
             img.badge(src="/img/badge.youtube.svg" alt="Youtube")
         .description
-          p DeFi For You.™ — A new decentralized P2P loan economy and the first-ever&nbsp;
-            strong.special P2P NFT trading platform
-            | &nbsp;built on the Binance Smart Chain, powered by the&nbsp;
-            strong $DFY
-            | &nbsp;smart contract token.
+          //- p DeFi For You.™ is a peer-to-peer crypto lending platform&nbsp;
+          //-  | &nbsp;where borrowers can use cryptocurrency and NFTs, as well as physical assets as collateral.&nbsp;
+          //-   strong DFY
+          //-  | &nbsp;is the native token on the platform.
+
+          p DeFi For You.™ is a peer-to-peer crypto lending platform&nbsp;
+            //- strong.special P2P NFT trading platform
+            | &nbsp;where borrowers can use cryptocurrency and NFTs, as well as physical assets as collateral.&nbsp;
+            strong DFY
+            | &nbsp;is the native token on the platform.
       .actions
-        a.dfy-button.dfy-button--primary(v-scroll-to="'#buy-dfy'") Buy DFY Now
+        a.dfy-button.dfy-button--primary(v-scroll-to="'#buy-dfy'") Buy DFY
           v-icon(color="#FFFFFF") mdi-chevron-right
 
         //- a.dfy-button.dfy-button--ghost(:href="urls.whitepaper" target="_blank" rel="noopener") Whitepaper
@@ -193,14 +198,14 @@ section.hero {
     padding: 2em 0;
     @include media(sm) {
       padding: 5rem 0 14rem 0;
-      width: 660px;
+      width: 690px;
     }
     @include media(md) {
       padding: 5rem 0 14rem 0;
     }
     @include media(lg) {
       padding: 9.5rem 0;
-      width: 660px;
+      width: 690px;
     }
     .headline {
       margin: 0;
@@ -253,12 +258,12 @@ section.hero {
           margin: 0;
           strong {
             color: $--color-primary;
-            &.special {
-              background: linear-gradient(30deg, #FA6565, #E88F8F);
-              background-clip: text;
-              -webkit-background-clip: text;
-              -webkit-text-fill-color: transparent;
-            }
+            // &.special {
+            //   background: linear-gradient(30deg, #FA6565, #E88F8F);
+            //   background-clip: text;
+            //   -webkit-background-clip: text;
+            //   -webkit-text-fill-color: transparent;
+            // }
           }
         }
       }
