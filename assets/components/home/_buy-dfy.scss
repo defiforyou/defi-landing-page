@@ -1,7 +1,7 @@
 // BUY DFY
 .buy-dfy {
   margin-top: 30px;
-  font-family: 'Inter';
+  font-family: "Inter";
 
   @media (min-width: 960px) {
     margin-top: 65px;
@@ -44,7 +44,7 @@
 }
 
 .buy-dfy__subtext {
-  color: #9FA6B2;
+  color: #9fa6b2;
   font-size: 16px;
   font-weight: 500;
   margin-bottom: 30px;
@@ -58,7 +58,7 @@
 }
 
 .buy-dfy__input {
-  background: #23252E;
+  background: #23252e;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   padding: 30px 12px;
@@ -87,13 +87,13 @@
   }
 
   .active {
-    color: #F8B017;
+    color: #f8b017;
     font-weight: 600;
-    background: #23252E;
+    background: #23252e;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     span {
-      color: #F8B017;
+      color: #f8b017;
     }
   }
   .buy-dfy__tabs--card {
@@ -109,23 +109,30 @@
         padding: 4px 0;
       }
     }
-    .cards{
+    .cards {
       display: flex;
       align-items: center;
       justify-content: center;
       padding-left: 0;
       padding-right: 0;
+      @media (min-width: 600px) {
+        justify-content: flex-start;
+      }
       img {
-        padding: 0 8px;
-        @media (max-width: 600px) {
+        @media (max-width: 960px) {
           width: 30px;
           height: 21px;
           padding: 0;
         }
       }
-      .img-rectangle{
-        @media (max-width: 600px) {
-        padding: 0 4px;
+      .img-rectangle {
+        padding: 0 8px;
+        @media (max-width: 1264px) {
+          padding: 0 4px;
+        }
+        @media (max-width: 960px) {
+          width: auto;
+          padding: 0 8px;
         }
       }
     }
@@ -137,8 +144,9 @@
       padding-right: 0;
     }
     .tab-name {
-      @media (max-width: 600px) {
-        text-align: center;
+      text-align: center;
+      @media (min-width: 600px) {
+        text-align: right;
       }
     }
   }
@@ -173,11 +181,11 @@
 }
 
 .checkbox-text {
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 14px;
 
   a {
-    color: #2596FF;
+    color: #2596ff;
     text-decoration: underline;
   }
 }
@@ -188,13 +196,13 @@
 }
 
 .change-wallet {
-  color: #FFFFFF;
+  color: #ffffff;
   margin-top: -7px;
   margin-right: -20px;
 
-  @media(min-width: 960px) {
-    margin-top: -5px; 
-    margin-right: -20px; 
+  @media (min-width: 960px) {
+    margin-top: -5px;
+    margin-right: -20px;
   }
 }
 
@@ -229,7 +237,7 @@
   }
 
   &:hover {
-    color: #F8B017;
+    color: #f8b017;
     height: 62px;
     width: 300px;
 
@@ -248,7 +256,6 @@
 
   @media (min-width: 600px) {
     width: 407px;
-
   }
 
   @media (min-width: 960px) {
