@@ -11,14 +11,13 @@ section.defi-for-you
           .screen.trustwallet
             img(src="/img/wallet.trustwallet.jpg" alt="Trustwallet")
       .text
-        h2.title We've built a decentralized P2P loan economy on the blockchain.
+        h2.title Provide and receive crypto loans against NFTs, crypto assets, and hard goods.
         .description
-          p Traditional loans are inflexible and inaccessible to most people in 2021. DeFi has proven there is a working use-case in decentralizing such financial services.
-          p However, blockchain comes with anonymity and removes trusted third-parties, which limits the types of loans that can be issued. Why? Because some people are more likely to pay back a loan than others.
-          p Trust and reputation still matters when issuing loans.
-          p DeFi For You solves this by building an irrefutable, verifiable reputation system onto the blockchain and tying it together with decentralized finance services.
-          p The result is a peer-to-peer loan economy, whereby lenders can trivially repossess collateral via smart contracts.
-          p Now, for the first time, P2P loans can be issued to anyone, regardless of their reputation.
+          p Set up your very own crypto loan business on the DeFi For You platform. Earn crypto tokens from interest payments and gradually scale the value of your crypto assets.
+          p Want to build your crypto lending business even further?
+          p  We are partnering with licensed pawnbrokers in the UK to facilitate the storage of physical assets like gold, watches, cars, and more. These assets are then represented by NFTs.
+          p You can set up your own Crypto Pawn Brokerage on DeFi For You to offer loans against this ‘Hard NFT’ collateral. Loans are secured by smart contracts, meaning collateral can be trivially repossessed in the event of a borrower defaulting on their loan repayments.
+          p It’s easy, secure, and draws on a business model that’s been around for thousands of years.
 </template>
 
 <style lang="scss" scoped>
@@ -110,6 +109,11 @@ section.defi-for-you {
     @include media(sm-down) {
       max-width: 560px;
       margin: 0 auto;
+    }
+    .description {
+      p {
+        padding-top: 12px;
+      }
     }
   }
 }
