@@ -32,10 +32,10 @@
         <div class="tips">
           <p>Tips for buying DFY</p>
           <p class="ml-4">
-            1. Amount must be greater than 40$
+            1. Amount must be greater than US$40.00
           </p>
           <p class="ml-4">
-            2. You must pass verification on your first purchase, including Selfie, picture of document and proof of address
+            2. To comply with Anti Money laundering regulations, you will need identity verification, such as a passport or driving license, proof of address, or a utility bill.
           </p>
         </div>
       </div>

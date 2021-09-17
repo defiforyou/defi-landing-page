@@ -5,28 +5,28 @@ section.services
       .introduce.half
         h2.title Our Services
         .description
-          p We're the world's first peer-to-peer lending platform that allows you to finance your assets without any intermediaries.
+          p DeFi For You provides a platform for users to engage in peer-to-peer lending and borrowing.
       .features.half
         .feature
-          img.icon(src="/img/service.pawnbrocker-service.svg" alt="Pawnbrocker Service" width="64" height="64")
+          img.icon(src="/img/service.pawnbrocker-service.svg" alt="Collateralized DeFi Loans" width="64" height="64")
           div
-            .name Collateralized loans
-            p Offer or receive loans using cryptocurrency, NFTs, and other assets as collateral. Terms and interest are negotiated directly between lenders and borrows and stored in irrefutable smart contracts.
+            .name Collateralized DeFi Loans
+            p Borrowers can use NFTs, crypto assets, and physical assets represented by NFTs as collateral on the platform.
         .feature
-          img.icon(src="/img/service.buy-and-sell.svg" alt="Buy & Sell" width="64" height="64")
+          img.icon(src="/img/service.physical-asset-collateral.svg" alt="Physical Asset Collateral" width="64" height="64")
           div
-            .name Finance NFTs
-            p You can use your NFTs as collateral, allowing you to finance them without having to sell them. This means you can earn from your NFTs, instead of having them just sit there gathering digital dust.
+            .name Physical Asset Collateral
+            p We are building a network of licensed and insured evaluators in the UK to facilitate the storage, valuation, and tokenization of physical assets for collateral.
         .feature
-          img.icon(src="/img/service.save.svg" alt="Save" width="64" height="64")
+          img.icon(src="/img/service.save.svg" alt="NFT Collateral" width="64" height="64")
           div
-            .name Trade NFTs
-            p You can buy and sell NFTs on our platform as well, including any that you obtain through liquidated collateral. This opens a uniquely competitive market where you can potentially buy NFTs below their usual market value.
+            .name NFT Collateral
+            p Borrowers can stake digital NFTs as collateral for DeFi loans, allowing them to finance their non-fungible tokens without selling them.
         .feature
-          img.icon(src="/img/service.buy-and-sell.svg" alt="Buy and sell" width="64" height="64")
+          img.icon(src="/img/service.crypto-pawnbroking.svg" alt="Crypto Pawnbroking" width="64" height="64")
           div
-            .name Buy and sell
-            p Users will be able to buy, sell, rent and pawn goods and services on the platform using fiat cash or cryptocurrency as payment, in accordance with local laws and regulations.
+            .name Crypto Pawnbroking
+            p Users can set up their own crypto pawn shops on DeFi For You, meaning they can accept physical assets as collateral for cryptocurrency loans.
 </template>
 
 <style lang="scss" scoped>

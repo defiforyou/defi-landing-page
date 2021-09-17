@@ -123,9 +123,9 @@
       </div>
 
       <div class="input-card__item mb-0">
-        <div class="input-card__label mb-4">
+        <!-- <div class="input-card__label mb-4">
           Wallet address
-        </div>
+        </div> -->
 
         <v-text-field
           v-if="currentAddress"
@@ -175,7 +175,11 @@
           />
 
           <span class="checkbox-text">
-            I agree with the <a href="https://defi-for-you.gitbook.io/faq/p2p-lending/term-business" target="_blank">Terms & Conditions and Policies</a> of DeFi For You.
+            I agree with the
+            <a href="https://defi-for-you.gitbook.io/faq/p2p-lending/term-business" target="_blank">Terms of Business</a>
+            and
+            <a href="https://defi-for-you.gitbook.io/faq/p2p-lending/privacy-policy" target="_blank">Privacy Policy</a>
+            of DeFi For You.
           </span>
         </div>
       </div>

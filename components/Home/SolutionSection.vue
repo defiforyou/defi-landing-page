@@ -12,33 +12,35 @@ section.solution
         cog-image.sm
         cog-image.lg
       .text
-        h2.title Decentralized
+        h2.title Standard and Ethics
+        p.description DeFi For You facilitates peer-to-peer crypto lending
           br
-          | Finance
-        p.description A new decentralized P2P loan economy built on
+          | secured by irrefutable smart contracts on the industry-
           br
-          | the Binance Smart Chain,
-          br
-          | powered by the DFY smart contract BEP20 token.
+          | leading Binance blockchain.
+
       .stamps
+        .stamp.treatment
+          img.icon(src="/img/solution.treatment.svg" alt="Fair Treatment" width="36" height="36")
+          .caption Fair Treatment
         .stamp.decentralized
-          img.icon(src="/img/solution.decentralized.svg" alt="Decentralized" width="36" height="36")
-          .caption Decentralized
+          img.icon(src="/img/solution.decentralized.svg" alt="Audited by CertiK" width="36" height="36")
+          .caption Audited by CertiK
         .stamp.permissionless
-          img.icon(src="/img/solution.permissionless.svg" alt="Permissionless" width="36" height="36")
-          .caption Permissionless
+          img.icon(src="/img/solution.permissionless.svg" alt="Rigorous Security" width="36" height="36")
+          .caption Rigorous Security
         .stamp.censorship-resistant
-          img.icon(src="/img/solution.censorship-resistant.svg" alt="Censorship Resistant" width="36" height="36")
-          .caption Censorship Resistant
+          img.icon(src="/img/solution.censorship-resistant.svg" alt="Competitive Environment" width="36" height="36")
+          .caption Competitive Environment
         .stamp.transparent
           img.icon(src="/img/solution.transparent.svg" alt="Transparent" width="36" height="36")
           .caption Transparent
         .stamp.programable
-          img.icon(src="/img/solution.programable.svg" alt="Programable" width="36" height="36")
-          .caption Programable
+          img.icon(src="/img/solution.programable.svg" alt="AML Compliant" width="36" height="36")
+          .caption AML Compliant
         .stamp.trustless
-          img.icon(src="/img/solution.trustless.svg" alt="Trustless" width="36" height="36")
-          .caption Trustless
+          img.icon(src="/img/solution.trustless.svg" alt="Prudential Standards" width="36" height="36")
+          .caption Prudential Standards
 </template>
 
 <script>
@@ -189,39 +191,47 @@ section.solution {
         padding: 1em 1.5em;
         &.permissionless {
           top: 15%;
-          right: 20%;
+          right: 15%;
         }
         &.transparent {
           top: 45%;
-          right: -14%;
+          right: -16%;
         }
         &.trustless {
-          bottom: 5%;
-          right: -12%;
+          bottom: 15%;
+          right: -15%;
         }
         &.censorship-resistant {
           right: 28%;
           bottom: -2%;
         }
         &.programable {
-          bottom: 20%;
-          left: -18%;
+          bottom: 15%;
+          left: -10%;
         }
         &.decentralized {
-          top: 30%;
-          left: -10%;
+          top: 45%;
+          left: -23%;
+        }
+         &.treatment {
+          top: 15%;
+          left: -8%;
         }
       }
       @include media(md) {
         font-size: 18px;
         padding: 1.15em 1.75em;
+          &.trustless {
+          bottom: 10%;
+          right: -15%;
+        }
         &.censorship-resistant {
           bottom: -7%;
           right: 26%;
         }
         &.programable {
-          bottom: 20%;
-          left: -14%;
+          bottom: 10%;
+          left: -5%;
         }
       }
       .icon {

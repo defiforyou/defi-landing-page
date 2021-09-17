@@ -98,7 +98,11 @@ section.footer
             li
               popover-exchanges(placement="top-start")
                 a(:href="urls.buy") Buy DFY on Exchanges ->
-
+        .about
+         .title About DeFi For You.
+         .introduce
+         strong DeFi For You
+         span {{about.introduce}}
   .copyright
     .container
       .layout.dfy-flex
@@ -120,7 +124,7 @@ import {
 } from 'vue-feather-icons'
 import TelegramIcon from '~/assets/icon.telegram.svg?inline'
 
-import { COPYRIGHT, URLS, OFFICES, CONTACT } from '~/settings'
+import { COPYRIGHT, URLS, OFFICES, CONTACT, ABOUT } from '~/settings'
 
 export default {
   components: {
@@ -138,7 +142,8 @@ export default {
     copyright: () => COPYRIGHT,
     urls: () => URLS,
     offices: () => OFFICES,
-    contact: () => CONTACT
+    contact: () => CONTACT,
+    about: () => ABOUT
   }
 }
 </script>
@@ -170,6 +175,7 @@ export default {
         'office-1'
         'office-2'
         'office-3'
+        'about'
         'social'
         'quick-links';
       @include media(sm) {
@@ -179,7 +185,8 @@ export default {
         grid-template-areas:
           'company office-1'
           'social office-2'
-          'quick-links office-3';
+          'quick-links office-3'
+          'about about';
       }
       @include media(md) {
         grid-template-columns: 3fr 4fr 3fr;
@@ -187,7 +194,8 @@ export default {
         grid-template-areas:
           'company office-1 social'
           'company office-2 quick-links'
-          'company office-3 quick-links';
+          'company office-3 quick-links'
+          'company about about';
       }
       @include media(lg) {
         grid-template-columns: 4fr 4fr 3fr;
@@ -270,6 +278,15 @@ export default {
             margin-bottom: .6em;
           }
         }
+      }
+    }
+    .about {
+      grid-area: about;
+      strong {
+        color: #DBA83D;
+      }
+      span {
+        color: #9FA6B2;
       }
     }
   }
