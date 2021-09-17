@@ -94,20 +94,20 @@ export const PARTNERS = [{
   name: 'BitGlobal',
   url: '',
   image: '/img/partner.bitglobal.png',
-  favicon: '/img/partner.hotbit@xs.png',
+  favicon: '/img/partner.bitglobal.png',
   exchange: true
 }, {
   name: 'IndaCoin',
   url: '',
   image: '/img/partner.indacoin.png',
-  favicon: '/img/partner.hotbit@xs.png',
+  favicon: '/img/partner.indacoin.png',
   exchange: true
 },
 {
   name: 'srnArt',
   url: '',
   image: '/img/partner.srnArt.png',
-  favicon: '/img/partner.hotbit@xs.png',
+  favicon: '/img/partner.srnArt.png',
   exchange: true
 }]
 
