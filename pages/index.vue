@@ -73,7 +73,7 @@ export default {
       if (window.innerWidth < 1200) { return }
 
       const step = 40
-      const addSection = 200
+      const addSection = 250
 
       let reduce = step * 4
       this.pin(980 + addSection, 400 + addSection, '.chip-nfts', { x: 290 })
