@@ -108,8 +108,8 @@ section.footer
       .layout.dfy-flex
         .trademark(v-text="copyright")
         .links
-          nuxt-link(:to="{name: 'terms-of-service'}") Terms of Service
-          nuxt-link(:to="{name: 'privacy-policy'}") Privacy Policy
+          nuxt-link(href="https://defi-for-you.gitbook.io/faq/p2p-lending/terms-of-service" target="_blank") Terms of Service
+          nuxt-link(href="https://defi-for-you.gitbook.io/faq/p2p-lending/privacy-policy" target="_blank") Privacy Policy
 </template>
 
 <script>
