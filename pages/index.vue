@@ -20,7 +20,6 @@
     v-app(style="background-color: #171A23")
       home-buy-dfy#buy-dfy
       home-how-work
-      home-dig-coin
     home-defi-for-you-section#defi-for-you
     home-solution-section#solution
     home-services-section#services
@@ -74,7 +73,7 @@ export default {
       if (window.innerWidth < 1200) { return }
 
       const step = 40
-      const addSection = 300
+      const addSection = 200
 
       let reduce = step * 4
       this.pin(980 + addSection, 400 + addSection, '.chip-nfts', { x: 290 })
