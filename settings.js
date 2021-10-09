@@ -43,7 +43,7 @@ export const URLS = {
   twitter: 'https://twitter.com/Defiforyou',
   pawn: 'https://app.defiforyou.uk/pawn',
   lending: 'https://app.defiforyou.uk/pawn',
-  stacking: 'https://defiforyou.uk/staking',
+  stacking: 'https://app.defiforyou.uk/staking',
   farming: '#',
   trade: 'https://app.defiforyou.uk/pawn',
   whitepaper: '/defi-for-you-whitepaper.v2.pdf',
