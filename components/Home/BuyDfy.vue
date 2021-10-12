@@ -68,7 +68,8 @@
               </div>
 
               <div class="buy-dfy__img">
-                <img src="~assets/img/buy-dfy/buy-dfy.png" alt="">
+                <!-- <img src="~assets/img/buy-dfy/buy-dfy.png" alt=""> -->
+                <img src="~assets/img/buy-dfy/buy-dfy-2.png" alt="">
               </div>
             </div>
           </v-col>
