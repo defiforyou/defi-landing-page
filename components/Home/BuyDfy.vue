@@ -5,7 +5,7 @@
         <v-row>
           <v-col cols="12" md="6" class="order-2 order-md-1">
             <div class="buy-dfy-with">
-              <div class="buy-dfy__tabs">
+              <!-- <div class="buy-dfy__tabs">
                 <span
                   class="buy-dfy__tabs--card tab-1"
                   :class="{'active': tab == 1}"
@@ -24,11 +24,14 @@
                   :class="{'active': tab == 2}"
                   @click="tab = 2"
                 >Buy DFY on Exchanges</span>
-              </div>
+              </div> -->
 
               <div class="buy-dfy__input">
-                <BuyWithCreditCard v-if="tab == 1" />
-                <BuyOnExchanges v-if="tab == 2" />
+                <!-- <BuyWithCreditCard v-if="tab == 1" /> -->
+                <div class="header-title">
+                  BUY DFY ON EXCHANGES
+                </div>
+                <BuyOnExchanges />
               </div>
             </div>
           </v-col>
@@ -43,14 +46,17 @@
                   with Credit card
                 </p> -->
               </h2>
-              <div class="buy-dfy__card">
+              <!-- <div class="buy-dfy__card">
                 <div>
                   <img class="pr-2" src="~assets/img/buy-dfy/visa-2.png" alt="">
                   <img src="~assets/img/buy-dfy/mastecard-2.png" alt="">
                 </div>
-              </div>
+              </div> -->
               <div class="buy-dfy__subtext">
                 <p class="text-left text-md-right mb-0">
+                  Buy DFY tokens by through multiple channels.
+                </p>
+                <!-- <p class="text-left text-md-right mb-0">
                   Card transactions are processed by intermediaries at
                 </p>
                 <p class="text-left text-md-right mb-0">
@@ -58,7 +64,7 @@
                 </p>
                 <p class="text-left text-md-right">
                   through PancakeSwap Exchange.
-                </p>
+                </p> -->
               </div>
 
               <div class="buy-dfy__img">
@@ -74,10 +80,10 @@
 
 <script>
 import BuyOnExchanges from './BuyOnExchanges'
-import BuyWithCreditCard from './BuyWithCreditCard'
+// import BuyWithCreditCard from './BuyWithCreditCard'
 export default {
   components: {
-    BuyWithCreditCard,
+    // BuyWithCreditCard,
     BuyOnExchanges
   },
   data () {
