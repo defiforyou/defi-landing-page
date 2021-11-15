@@ -76,7 +76,7 @@ export default {
       }
 
       const step = 40
-      const addSection = 260
+      const addSection = 220
 
       let reduce = step * 4
       this.pin(980 + addSection, 400 + addSection, '.chip-nfts', { x: 480 })
