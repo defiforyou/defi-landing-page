@@ -166,22 +166,22 @@
           Connect wallet
         </v-btn>
 
-        <div class="d-flex align-center checkbox">
-          <v-checkbox
-            v-model="isCheckBox"
-            color="#F8B017"
-            dark
-            @change="value => isDisable = !value"
-          />
+        <!--        <div class="d-flex align-center checkbox">-->
+        <!--          <v-checkbox-->
+        <!--            v-model="isCheckBox"-->
+        <!--            color="#F8B017"-->
+        <!--            dark-->
+        <!--            @change="value => isDisable = !value"-->
+        <!--          />-->
 
-          <span class="checkbox-text">
-            I agree with the
-            <a href="https://defi-for-you.gitbook.io/faq/p2p-lending/term-business" target="_blank">Terms of Business</a>
-            and
-            <a href="https://defi-for-you.gitbook.io/faq/p2p-lending/privacy-policy" target="_blank">Privacy Policy</a>
-            of DeFi For You.
-          </span>
-        </div>
+        <!--          <span class="checkbox-text">-->
+        <!--            I agree with the-->
+        <!--            <a href="https://defi-for-you.gitbook.io/faq/p2p-lending/term-business" target="_blank">Terms of Business</a>-->
+        <!--            and-->
+        <!--            <a href="https://defi-for-you.gitbook.io/faq/p2p-lending/privacy-policy" target="_blank">Privacy Policy</a>-->
+        <!--            of DeFi For You.-->
+        <!--          </span>-->
+        <!--        </div>-->
       </div>
     </v-form>
 

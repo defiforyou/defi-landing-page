@@ -19,7 +19,7 @@
       home-price-tickers-section#price-tickers
       v-app(style="background-color: #171A23")
         home-buy-dfy#buy-dfy
-        home-how-work
+        //home-how-work
       home-defi-for-you-section#defi-for-you
       home-solution-section#solution
       home-services-section#services

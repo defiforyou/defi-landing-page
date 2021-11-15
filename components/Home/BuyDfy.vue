@@ -12,11 +12,11 @@
                   @click="tab = 1"
                 >
                   <span class="tab-name">Buy DFY</span>
-                  <span class="cards">
-                    <img src="~assets/img/buy-dfy/visa.png" alt="">
-                    <img class="img-rectangle" src="~assets/img/buy-dfy/rectangle.png" alt="">
-                    <img src="~assets/img/buy-dfy/mastecard.png" alt="">
-                  </span>
+                  <!--                  <span class="cards">-->
+                  <!--                    <img src="~assets/img/buy-dfy/visa.png" alt="">-->
+                  <!--                    <img class="img-rectangle" src="~assets/img/buy-dfy/rectangle.png" alt="">-->
+                  <!--                    <img src="~assets/img/buy-dfy/mastecard.png" alt="">-->
+                  <!--                  </span>-->
                 </span>
 
                 <span
@@ -36,33 +36,23 @@
           <v-col cols="12" md="6" class="order-1 order-md-2">
             <div class="buy-dfy-img">
               <h2 class="buy-dfy__title">
-                <p>
-                  Buy DFY Tokens
-                </p>
-                <!-- <p>
-                  with Credit card
-                </p> -->
+                Buy DFY Tokens
               </h2>
-              <div class="buy-dfy__card">
-                <div>
-                  <img class="pr-2" src="~assets/img/buy-dfy/visa-2.png" alt="">
-                  <img src="~assets/img/buy-dfy/mastecard-2.png" alt="">
-                </div>
-              </div>
+              <!--              <div class="buy-dfy__card">-->
+              <!--                <div>-->
+              <!--                  <img class="pr-2" src="~assets/img/buy-dfy/visa-2.png" alt="">-->
+              <!--                  <img src="~assets/img/buy-dfy/mastecard-2.png" alt="">-->
+              <!--                </div>-->
+              <!--              </div>-->
               <div class="buy-dfy__subtext">
                 <p class="text-left text-md-right mb-0">
-                  Card transactions are processed by intermediaries at
-                </p>
-                <p class="text-left text-md-right mb-0">
-                  Indacoin.com who are providers of the DFY tokens
-                </p>
-                <p class="text-left text-md-right">
-                  through PancakeSwap Exchange.
+                  Buy DFY tokens by through multiple channels.
                 </p>
               </div>
 
               <div class="buy-dfy__img">
-                <img src="~assets/img/buy-dfy/buy-dfy.png" alt="">
+                <!--                <img src="~assets/img/buy-dfy/buy-dfy.png" alt="">-->
+                <img src="~assets/img/buy-dfy/buy-dfy.svg" alt="">
               </div>
             </div>
           </v-col>

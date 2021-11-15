@@ -239,8 +239,8 @@ export default {
           vertical-align: middle;
         }
         .number {
-          width: 140px;
           display: inline-block;
+          margin-right: 10px;
         }
         .flag {
           margin-right: .65em;
