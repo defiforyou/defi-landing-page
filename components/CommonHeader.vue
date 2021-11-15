@@ -1,108 +1,187 @@
-<template lang="pug">
-section.header(:class="{sticky: sticky && !expanded}")
-  .container
-    .dfy-flex.layout
-      .branding
-        nuxt-link(:to="{name: 'index'}")
-          img.logo(src="/img/logo.svg" alt="DeFi For You")
-      .menu
-        component(
-          v-for="i, k in menus"
-          :key="k"
-          :is="i.to ? 'nuxt-link' : 'a'"
-          :to="i.to"
-          :href="i.href"
-          :target="i.target || '_self'"
-          :class="i.classes || {}"
-          v-text="i.text")
-      .toggler(@click="expanded = true")
-        menu-icon(size="36" stroke-width="1")
+<template>
+  <section class="header" :class="{sticky: sticky && !expanded}">
+    <div class="container">
+      <div class="dfy-flex layout">
+        <div class="branding">
+          <nuxt-link :to="{name: 'index'}">
+            <img class="logo" src="/img/logo.svg" alt="DeFi For You">
+          </nuxt-link>
+        </div>
+        <div class="menu">
+          <template v-for="(item, index) in menus">
+            <div
+              v-if="item.child"
+              :key="index"
+              class="menu__parent"
+            >
+              <component
+                :is="'a'"
+              >
+                <div class="d-flex align-center">
+                  {{ item.text }}
+                  <ChevronDownIcon size="16" stroke-width="1" />
+                </div>
+                <div class="dropdown_menu">
+                  <component
+                    :is="i.to ? 'nuxt-link' : 'a'"
+                    v-for="(i, k) in item.child"
+                    :key="k"
+                    :to="i.to"
+                    :href="i.href"
+                    :target="i.target || '_self'"
+                    :class="i.classes || {}"
+                    v-text="i.text"
+                  />
+                </div>
+              </component>
+            </div>
 
-  transition(name="fade-in")
-    .mobile-menu(v-if="expanded")
-      .container
-        .dfy-clearfix
-          .toggler(@click="expanded = false")
-            x-icon(size="36" stroke-width="1")
-        .menu(@click="expanded = false")
-          component(
-            v-for="i, k in menus"
-            :key="k"
-            :is="i.to ? 'nuxt-link' : 'a'"
-            :to="i.to"
-            :href="i.href"
-            :target="i.target || '_self'"
-            :class="i.classes || {}"
-            v-text="i.text")
+            <component
+              :is="item.to ? 'nuxt-link' : 'a'"
+              v-else
+              :key="index"
+              :to="item.to"
+              :href="item.href"
+              :target="item.target || '_self'"
+              :class="item.classes || {}"
+              v-text="item.text"
+            />
+          </template>
+        </div>
+        <div class="toggler" @click="expanded = true">
+          <menu-icon size="36" stroke-width="1" />
+        </div>
+      </div>
+    </div>
+    <transition name="fade-in">
+      <div v-if="expanded" class="mobile-menu">
+        <div class="container">
+          <div class="dfy-clearfix">
+            <div class="toggler" @click="expanded = false">
+              <x-icon size="36" stroke-width="1" />
+            </div>
+          </div>
+          <div class="menu" @click="expanded = false">
+            <template v-for="(item, key) in menus">
+              <template v-if="item.child">
+                <component
+                  :is="i.to ? 'nuxt-link' : 'a'"
+                  v-for="(i, k) in item.child"
+                  :key="`${key}-${k}`"
+                  :to="i.to"
+                  :href="i.href"
+                  :target="i.target || '_self'"
+                  :class="i.classes || {}"
+                  v-text="i.text"
+                />
+              </template>
+
+              <component
+                :is="item.to ? 'nuxt-link' : 'a'"
+                v-else
+                :key="key"
+                :to="item.to"
+                :href="item.href"
+                :target="item.target || '_self'"
+                :class="item.classes || {}"
+                v-text="item.text"
+              />
+            </template>
+          </div>
+        </div>
+      </div>
+    </transition>
+  </section>
 </template>
 
 <script>
-import { MenuIcon, XIcon } from 'vue-feather-icons'
+import { MenuIcon, XIcon, ChevronDownIcon } from 'vue-feather-icons'
 import { URLS } from '~/settings'
 
 export default {
   components: {
     MenuIcon,
-    XIcon
+    XIcon,
+    ChevronDownIcon
   },
 
   data () {
     return {
       expanded: false,
-      sticky: true
+      sticky: true,
+      items: [
+        { title: 'Click Me' },
+        { title: 'Click Me' },
+        { title: 'Click Me' },
+        { title: 'Click Me 2' }
+      ]
     }
   },
 
   computed: {
     urls: () => URLS,
-    menus: () => [{
-      text: 'Solution',
-      to: { name: 'index', hash: '#defi-for-you' }
-    }, {
-      text: 'Team',
-      to: { name: 'index', hash: '#team' }
-    }, {
-      text: 'Contact',
-      to: { name: 'index', hash: '#contact' }
-    }, {
-      text: 'Whitepaper',
-      href: URLS.whitepaper,
-      target: '_blank'
-    }, {
-      text: 'P2P Lending',
-      href: URLS.lending,
-      target: '_blank',
-      classes: {
-        'dfy-button': true,
-        'dfy-button--overlay': true,
-        'dfy-button--beta': false
-      }
-    }, {
-      text: 'Staking',
-      href: URLS.stacking,
-      target: '_blank',
-      classes: {
-        'dfy-button': true,
-        'dfy-button--overlay': true
-      }
-    }, {
-      text: 'Farming',
-      href: URLS.farming,
-      target: '_blank',
-      classes: {
-        'dfy-button': true,
-        'dfy-button--overlay': true,
-        'dfy-button--coming-soon': true
-      }
-    }, {
-      text: 'Trade NFTs',
-      href: URLS.trade,
-      target: '_blank',
-      classes: {
-        'dfy-button': true,
-        'dfy-button--special': true
-      }
-    }]
+    menus: () => [
+      {
+        text: 'About',
+        child: [{
+          text: 'Solution',
+          to: {
+            name: 'index',
+            hash: '#defi-for-you'
+          }
+        }, {
+          text: 'Team',
+          to: {
+            name: 'index',
+            hash: '#team'
+          }
+        }, {
+          text: 'Contact',
+          to: {
+            name: 'index',
+            hash: '#contact'
+          }
+        }, {
+          text: 'Whitepaper',
+          href: URLS.whitepaper,
+          target: '_blank'
+        }]
+      },
+      {
+        text: 'P2P Lending',
+        href: URLS.lending,
+        target: '_blank',
+        classes: {
+          'dfy-button': true,
+          'dfy-button--overlay': true,
+          'dfy-button--beta': false
+        }
+      }, {
+        text: 'Staking',
+        href: URLS.stacking,
+        target: '_blank',
+        classes: {
+          'dfy-button': true,
+          'dfy-button--overlay': true
+        }
+      }, {
+        text: 'Farming',
+        href: URLS.farming,
+        target: '_blank',
+        classes: {
+          'dfy-button': true,
+          'dfy-button--overlay': true,
+          'dfy-button--coming-soon': true
+        }
+      }, {
+        text: 'Trade NFTs',
+        href: URLS.trade,
+        target: '_blank',
+        classes: {
+          'dfy-button': true,
+          'dfy-button--special': true
+        }
+      }]
   }
 }
 </script>
@@ -110,6 +189,7 @@ export default {
 <style lang="scss" scoped>
 section.header {
   border-bottom: 1px solid rgba(#5E4D5E, .2);
+
   &.sticky {
     position: sticky;
     top: 0;
@@ -119,6 +199,7 @@ section.header {
     backdrop-filter: blur(16px);
     background: rgba($--color-background-page, .25);
   }
+
   .layout {
     align-items: center;
     justify-content: space-between;
@@ -130,6 +211,7 @@ section.header {
     > * {
       min-width: 0;
     }
+
     .branding {
       .logo {
         width: 9rem;
@@ -141,6 +223,7 @@ section.header {
         }
       }
     }
+
     .menu {
       display: flex;
       font-size: 14px;
@@ -148,6 +231,7 @@ section.header {
       @include media(sm-down) {
         display: none;
       }
+
       > * {
         &:not(:first-child) {
           margin-left: 1.6em;
@@ -156,17 +240,21 @@ section.header {
           }
         }
       }
+
       a {
         cursor: pointer;
       }
+
       a.dfy-button {
         padding: .9rem 1.2rem;
         white-space: nowrap;
+
         + a.dfy-button {
           margin-left: .65rem;
         }
       }
     }
+
     .toggler {
       cursor: pointer;
       flex: 0 0 3rem;
@@ -178,6 +266,7 @@ section.header {
       }
     }
   }
+
   .mobile-menu {
     z-index: 1001;
     position: fixed;
@@ -188,6 +277,7 @@ section.header {
     transform: translate3d(0, 0, 0);
     backdrop-filter: blur(20px);
     background: rgba($--color-background-page, .75);
+
     .toggler {
       width: 4rem;
       height: 4rem;
@@ -196,6 +286,7 @@ section.header {
       float: right;
       align-items: center;
       justify-content: center;
+
       &:before,
       &:after {
         content: '';
@@ -203,6 +294,7 @@ section.header {
         clear: both;
       }
     }
+
     .menu {
       display: flex;
       flex-direction: column;
@@ -210,6 +302,7 @@ section.header {
       justify-content: center;
       flex: 1;
       height: 100%;
+
       > a {
         font-family: $--font-family-heading;
         font-size: 16px;
@@ -217,14 +310,17 @@ section.header {
         text-align: center;
         padding: .75em 0;
         cursor: pointer;
+
         &.dfy-button {
           padding: .75em 1.5em;
           height: auto;
           margin-top: .35em;
           width: 296px;
+
           > * {
             justify-content: space-between;
           }
+
           &--beta,
           &--coming-soon {
             &:after {
@@ -236,10 +332,12 @@ section.header {
               padding: 4px 8px;
               opacity: 1;
             }
+
             &:hover {
               color: white;
             }
           }
+
           &--coming-soon {
             &:after {
               content: 'Coming Soon';
@@ -247,6 +345,47 @@ section.header {
           }
         }
       }
+    }
+  }
+}
+
+.menu {
+  &__parent {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0.9rem 0 1.2rem;
+    &:hover {
+      .dropdown_menu {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+.dropdown_menu {
+  display: none;
+  background: #3D414B;
+  border-radius: 16px;
+  a {
+    padding: 0.875rem 1.2rem;
+    min-width: 170px;
+    color: #fff;
+    &:hover {
+      color: #F8B017;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    &:first-child{
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+    }
+    &:last-child{
+      border-bottom-left-radius: 16px;
+      border-bottom-right-radius: 16px;
     }
   }
 }

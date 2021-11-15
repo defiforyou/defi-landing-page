@@ -4,6 +4,8 @@ export const COPYRIGHT = '© 2021 DeFi For You. All rights reserved.'
 export const RECAPTCHA_SITE_KEY = '6LdOtzgaAAAAAAs5iSvp_xM_p9dP9DMEMmSjS1NG'
 export const RECAPTCHA_ENABLED = false
 
+export const VIDEO_BACKGROUND = 'https://s3.ap-southeast-1.amazonaws.com/defiforyou.uk/Defi_Conference_Pawn_08.mp4'
+
 export const CONTACT = {
   email: 'ask@defiforyou.uk',
   support: 'support@defiforyou.uk',
@@ -12,18 +14,18 @@ export const CONTACT = {
 
 export const OFFICES = [{
   name: 'DeFi For You — Hanoi Office',
-  vie: '+84 9643 66605',
-  eng: '+84 9644 41735',
+  vie: 'ken@defiforyou.uk',
+  eng: 'ceo@defiforyou.uk',
   address: 'BT NQ 25-15 Vinhomes Riverside, Long Bien, Hanoi, Vietnam'
 }, {
   name: 'DeFi For You — HCMC Office',
-  vie: '+84 9643 66605',
-  eng: '+84 9644 41735',
+  vie: 'ken@defiforyou.uk',
+  eng: 'ceo@defiforyou.uk',
   address: '370 Nguyen Van Quy, Phu Thuan, Dist. 7, HCMC, Vietnam'
 }, {
   name: 'DeFi For You — London Office',
   vie: null,
-  eng: '+44 7479 739139',
+  eng: 'miles@milesmann.co.uk',
   engSupporter: 'Sean Mason - Business Coach',
   address: 'Office 32 19-21 Crawford Street, London, United Kingdom, W1H 1PJ',
   registrationNumber: '13126050',

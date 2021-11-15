@@ -5,11 +5,11 @@ section.defi-for-you
       .wallets
         .screens
           .screen.metamask
-            img(src="/img/wallet.metamask.jpg" alt="Metamask")
+            img(src="/img/ViewToken.png" alt="Metamask")
           .screen.binance
-            img(src="/img/wallet.binance.jpg" alt="Binance")
+            img(src="/img/Home.png" alt="Binance")
           .screen.trustwallet
-            img(src="/img/wallet.trustwallet.jpg" alt="Trustwallet")
+            img(src="/img/Marketplace.png" alt="Trustwallet")
       .text
         h2.title Provide and receive crypto loans against NFTs, crypto assets, and hard goods.
         .description

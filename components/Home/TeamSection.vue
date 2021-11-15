@@ -2,11 +2,11 @@
 section.team
   .container
     h2.title Executive Team
-    p.description Our partner, Blockchain Developer Asia, has more than 200 developers
+    p.description We have tech team up 100 blockchain and AI developers working on the platform.
       br
-      | working around the clock to bring our platform, and others like it, to life.
+      |The company is registered in the UK and Vietnam.
     .members
-      .member(v-for="i, k in members" :key="k")
+      .member(v-for="(i, k) in members" :key="k")
         .preview
           .position(v-text="i.position")
           .avatar(v-image="i.image")

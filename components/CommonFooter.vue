@@ -19,14 +19,14 @@ section.footer
               mail-icon.icon(size="24" stroke-width="1")
               a(:href="`mailto:${contact.support}`" target="_blank" rel="noopener" v-text="contact.support")
 
-        .office(v-for="i, k in offices" :style="{gridArea: `office-${k + 1}`}")
+        .office(v-for="(i, k) in offices" :style="{gridArea: `office-${k + 1}`}")
           .title(v-text="i.name")
           .phone
-            a(v-if="i.vie" :href="`tel:${i.vie}`")
+            a(v-if="i.vie" :href="`mailto:${i.vie}`")
               span.number {{ i.vie }}
               img.flag(src="/img/flag.vn.png" alt="Vietnamese" width="24" height="24")
           .phone
-            a(v-if="i.eng" :href="`tel:${i.eng}`")
+            a(v-if="i.eng" :href="`mailto:${i.eng}`")
               span.number {{ i.eng }}
               img.flag(src="/img/flag.gb.png" alt="English" width="24" height="24")
               span.supporter(v-if="i.engSupporter") {{ i.engSupporter }}
@@ -239,8 +239,8 @@ export default {
           vertical-align: middle;
         }
         .number {
-          width: 128px;
           display: inline-block;
+          margin-right: 10px;
         }
         .flag {
           margin-right: .65em;

@@ -46,6 +46,7 @@ a {
   color: $--color-text-body;
   text-decoration: none;
   transition: .3s ease-in-out;
+
   &:hover {
     color: $--color-primary;
   }
@@ -72,10 +73,12 @@ a {
   &__gap {
     height: 2rem;
   }
+
   &--article {
     padding: 2rem 0 0 0;
     max-width: 860px;
     margin: auto;
+
     article {
       margin-top: 2em;
       @include media(sm-down) {
@@ -116,6 +119,7 @@ a {
 
 .dfy-flex {
   display: flex;
+
   > * {
     min-width: 0;
   }
@@ -139,19 +143,23 @@ a {
     height: 3rem;
     padding: 0.9rem 1.5rem;
   }
+
   &--overlay {
     background: rgba(#f9fafb, 0.05);
     color: white;
     transition: background .3s ease-in-out;
+
     &:hover {
       background: rgba(#f9fafb, 0.1);
       color: white;
     }
   }
+
   &--primary {
     background: $--color-primary;
     color: white !important;
     overflow: hidden;
+
     &:before {
       content: '';
       display: block;
@@ -165,18 +173,22 @@ a {
       transform: translateX(-100px) skewX(-30deg);
       transition: .3s;
     }
+
     &:hover {
       color: white;
+
       &:before {
         transform: translateX(300px) skewX(-30deg);
       }
     }
   }
+
   &--special {
     background: linear-gradient(30deg, #fa6565, #e88f8f);
     overflow: hidden;
     color: white;
     transition: none;
+
     &:before {
       content: '';
       display: block;
@@ -190,25 +202,31 @@ a {
       transform: translateX(-100px) skewX(-30deg);
       transition: transform .3s;
     }
+
     &:hover {
       color: white;
+
       &:before {
         transform: translateX(300px) skewX(-30deg);
       }
     }
   }
+
   &--ghost {
     background: transparent;
     border: 1px solid #374151;
     color: $--color-text-body;
+
     &:hover {
       color: lighten($--color-text-body, 10);
       border-color: lighten(#374151, 10);
     }
   }
+
   &--beta,
   &--coming-soon {
     position: relative;
+
     &:after {
       content: 'Beta';
       background: $--color-info;
@@ -225,14 +243,18 @@ a {
       font-weight: bold;
     }
   }
+
   &--coming-soon {
     cursor: default;
+
     &:hover {
       color: transparent;
+
       &:after {
         opacity: 1;
       }
     }
+
     &:after {
       top: 50%;
       left: 0;
@@ -248,4 +270,23 @@ a {
       letter-spacing: .5px;
     }
   }
+
+  &--outline {
+    background: transparent;
+    border: 1px solid $--color-primary;
+    color: $--color-primary;
+
+    &:hover {
+      color: lighten($--color-primary, 10);
+      border-color: lighten($--color-primary, 10);
+    }
+  }
+}
+
+.d-flex {
+  display: flex;
+}
+
+.align-center {
+  align-items: center;
 }
