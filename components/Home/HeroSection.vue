@@ -1,66 +1,73 @@
-<template lang="pug">
-section.hero
-  .container
-    .greeting
-      h1.headline P2P Crypto Loans Against NFTs and Physical Assets
-      //- h1.headline Ever&nbsp;
-        br.xso
-        | thought of
-        br
-        | becoming
-        br
-        | your own bank?
-      .preview
-        .video
-          .thumbnail(@click="playing = true")
-            img.badge(src="/img/badge.youtube.svg" alt="Youtube")
-        .description
-          //- p DeFi For You.™ is a peer-to-peer crypto lending platform&nbsp;
-          //-  | &nbsp;where borrowers can use cryptocurrency and NFTs, as well as physical assets as collateral.&nbsp;
-          //-   strong DFY
-          //-  | &nbsp;is the native token on the platform.
-
-          p DeFi For You.™ is a peer-to-peer crypto lending platform&nbsp;
-            //- strong.special P2P NFT trading platform
-            | &nbsp;where borrowers can use cryptocurrency and NFTs, as well as physical assets as collateral.&nbsp;
-            strong DFY
-            | &nbsp;is the native token on the platform.
-      .actions
-        a.dfy-button.dfy-button--primary(v-scroll-to="'#buy-dfy'") Buy DFY
-          v-icon(color="#FFFFFF") mdi-chevron-right
-
-        //- a.dfy-button.dfy-button--ghost(:href="urls.whitepaper" target="_blank" rel="noopener") Whitepaper
-        //- a.dfy-button.dfy-button--special(:href="urls.trade" target="_blank" rel="noopener") Trade NFTs
-        //- nuxt-link.dfy-button.dfy-button--special(
-          :to="{ name: 'trade-nfts' }"
-          rel="noopener") Trade NFTs
-
-    .canvas
-      img.phone(src="/img/hero.phone.png" alt="Phone")
-      img.token.bnb(src="/img/token.bnb.png" alt="BNB")
-      img.token.dfy(src="/img/token.dfy.png" alt="DFY")
-      img.token.nfts(src="/img/token.nfts.png" alt="NFTs")
-      img.token.btc(src="/img/token.btc.png" alt="BTC")
-
-    .player(v-if="playing" @click="playing = false")
-      .close(@click="playing = false")
-        x-icon(size="48" stroke-width="1")
-      .dfy-flex.layout
-        .ratio
-          iframe#player(
-            type="text/html"
-            width="100%"
-            :src="urls.video"
-            frameborder="0")
+<template>
+  <section class="hero">
+    <!--    <div class="container">-->
+    <video playsinline autoplay muted loop class="video-desktop">
+      <source :src="videoBackgroundURL" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <video class="video-mobile" controls>
+      <source :src="videoBackgroundURL" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="container">
+      <div class="greeting">
+        <h1 class="headline">
+          Worlds First Licensed P2P loan platform for NFTs in the real world or the meta world 🌎
+        </h1>
+        <!--        <div class="preview">-->
+        <!--          <div class="video">-->
+        <!--            <div class="thumbnail" @click="playing = true">-->
+        <!--              <img class="badge" src="/img/badge.youtube.svg" alt="Youtube">-->
+        <!--            </div>-->
+        <!--          </div>-->
+        <!--          <div class="description">-->
+        <!--            <p>-->
+        <!--              DeFi For You.™ is a peer-to-peer crypto lending platform&nbsp;&nbsp;where borrowers can use-->
+        <!--              cryptocurrency and NFTs, as well as physical assets as collateral.&nbsp;<strong>DFY</strong>&nbsp;is the-->
+        <!--              native token on the platform.-->
+        <!--            </p>-->
+        <!--          </div>-->
+        <!--        </div>-->
+        <div class="actions">
+          <a v-scroll-to="'#buy-dfy'" class="dfy-button dfy-button--primary">Buy DFY
+          </a>
+          <a :href="urls.pawn" target="_blank" class="dfy-button dfy-button--outline">Explore PAWN Market
+          </a>
+        </div>
+      </div>
+    </div>
+    <!--      <div class="canvas">-->
+    <!--        <img class="phone" src="/img/hero.phone.png" alt="Phone"><img-->
+    <!--          class="token bnb"-->
+    <!--          src="/img/token.bnb.png"-->
+    <!--          alt="BNB"-->
+    <!--        ><img class="token dfy" src="/img/token.dfy.png" alt="DFY"><img-->
+    <!--          class="token nfts"-->
+    <!--          src="/img/token.nfts.png"-->
+    <!--          alt="NFTs"-->
+    <!--        ><img class="token btc" src="/img/token.btc.png" alt="BTC">-->
+    <!--      </div>-->
+    <!--      <div v-if="playing" class="player" @click="playing = false">-->
+    <!--        <div class="close" @click="playing = false">-->
+    <!--          <x-icon size="48" stroke-width="1" />-->
+    <!--        </div>-->
+    <!--        <div class="dfy-flex layout">-->
+    <!--          <div class="ratio">-->
+    <!--            <iframe id="player" type="text/html" width="100%" :src="urls.video" frameborder="0" />-->
+    <!--          </div>-->
+    <!--        </div>-->
+    <!--      </div>-->
+    <!--    </div>-->
+  </section>
 </template>
 
 <script>
-import { XIcon } from 'vue-feather-icons'
-import { URLS, PARTNERS } from '~/settings'
+// import { XIcon } from 'vue-feather-icons'
+import { PARTNERS, URLS, VIDEO_BACKGROUND } from '~/settings'
 
 export default {
   components: {
-    XIcon
+    // XIcon
   },
 
   data () {
@@ -71,7 +78,8 @@ export default {
 
   computed: {
     urls: () => URLS,
-    partners: () => PARTNERS
+    partners: () => PARTNERS,
+    videoBackgroundURL: () => VIDEO_BACKGROUND
   }
 }
 </script>
@@ -87,6 +95,7 @@ export default {
   background: rgba(darken($--color-background-page, 10), .75);
   transform: translate3d(0, 0, 0);
   backdrop-filter: blur(20px);
+
   .close {
     position: absolute;
     top: 0;
@@ -94,6 +103,7 @@ export default {
     cursor: pointer;
     padding: 2rem;
   }
+
   .layout {
     margin: auto;
     display: flex;
@@ -104,11 +114,13 @@ export default {
     @include media(sm-down) {
       width: 100%;
     }
+
     .ratio {
       width: 100%;
       height: 0;
       padding-top: (100% / 16 * 9);
       position: relative;
+
       iframe {
         position: absolute;
         top: 0;
@@ -123,10 +135,28 @@ export default {
 }
 
 section.hero {
+  height: 100vh;
+  width: 100vw;
   overflow: hidden;
+  margin-top: -88px;
+
+  @include media(sm-down) {
+    height: auto;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
   .container {
     position: relative;
+    height: calc(100% - 88px);
+    top: 88px;
+    @include media(sm-down) {
+      top: 0;
+    }
   }
+
   .canvas {
     z-index: 1;
     position: absolute;
@@ -152,14 +182,17 @@ section.hero {
       height: 660px;
       bottom: 0;
     }
+
     .phone {
       position: absolute;
       width: 100%;
       bottom: -60px;
       animation: floating 16s infinite ease-in-out;
     }
+
     > .token {
       position: absolute;
+
       &.bnb {
         width: 18%;
         max-width: 160px;
@@ -167,6 +200,7 @@ section.hero {
         top: 10%;
         animation: floating 8s infinite ease-in-out reverse;
       }
+
       &.dfy {
         width: 18%;
         max-width: 160px;
@@ -174,6 +208,7 @@ section.hero {
         top: 2%;
         animation: floating 9s infinite ease-in-out;
       }
+
       &.btc {
         width: 20%;
         max-width: 160px;
@@ -181,45 +216,52 @@ section.hero {
         top: 10%;
         animation: floating 7s infinite ease-in-out reverse;
       }
+
       &.nfts {
         width: 20%;
         max-width: 160px;
         right: 35%;
         top: 17%;
-        animation:
-          floating 10s infinite ease-in-out,
-          shine-up .6s infinite ease-in-out;
+        animation: floating 10s infinite ease-in-out,
+        shine-up .6s infinite ease-in-out;
       }
     }
   }
+
   .greeting {
-    position: relative;
+    position: absolute;
     z-index: 2;
-    padding: 2em 0;
-    @include media(sm) {
-      padding: 5rem 0 14rem 0;
-      width: 690px;
+    padding: 2rem 10px 2rem 0;
+    margin-left: auto;
+    text-align: right;
+    width: 78%;
+    bottom: 0;
+    right: 0;
+
+    @include media(sm-down) {
+      right: 50%;
+      transform: translateX(50%);
+      text-align: center;
+      width: 90%;
+      position: relative;
     }
-    @include media(md) {
-      padding: 5rem 0 14rem 0;
-    }
-    @include media(lg) {
-      padding: 9.5rem 0;
-      width: 690px;
-    }
+
     .headline {
       margin: 0;
-      font-size: 2.5rem;
+      font-size: 2rem;
+
       br.xso {
         display: none;
         @include media(xs-only) {
           display: block;
         }
       }
+
       @include media(sm) {
-        font-size: 3.35rem;
+        font-size: 2.5rem;
       }
     }
+
     .preview {
       align-items: center;
       margin-top: 1rem;
@@ -227,9 +269,11 @@ section.hero {
         margin-top: 2.5rem;
         display: flex;
       }
+
       .video {
         cursor: pointer;
         flex: 0 0 168px;
+
         .thumbnail {
           border-radius: 8px;
           width: 100%;
@@ -241,6 +285,7 @@ section.hero {
           background-position: center;
           border: 1px solid rgba(white, .05);
           position: relative;
+
           .badge {
             position: absolute;
             top: 0;
@@ -248,38 +293,65 @@ section.hero {
           }
         }
       }
+
       .description {
         flex: 1;
         margin: 1rem 0 0 0;
         @include media(sm) {
           margin: 0 0 0 1.75em;
         }
+
         p {
           margin: 0;
+
           strong {
             color: $--color-primary;
-            // &.special {
-            //   background: linear-gradient(30deg, #FA6565, #E88F8F);
-            //   background-clip: text;
-            //   -webkit-background-clip: text;
-            //   -webkit-text-fill-color: transparent;
-            // }
           }
         }
       }
     }
+
     .actions {
       margin: 1rem 0 0 0;
       @include media(sm) {
         margin: 2.5rem 0 0 0;
       }
+
       > * {
         margin-bottom: .5em;
+
         &:not(:last-child) {
           margin-right: 1em;
         }
       }
     }
+  }
+}
+
+.video-desktop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  object-fit: cover;
+  overflow: hidden;
+  bottom: 0;
+  right: 0;
+  padding-top: 88px;
+
+  @include media(sm-down) {
+    display: none;
+  }
+}
+
+.video-mobile {
+  display: none;
+  position: relative;
+  width: 100%;
+
+  @include media(sm-down) {
+    display: block;
   }
 }
 </style>
