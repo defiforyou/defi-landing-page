@@ -1,16 +1,16 @@
 <template lang="pug">
   .page.home
     .bulb
-    .flying-chips
-      .container
-        .chip-bnb
-          img(src="/img/token.bnb.png" alt="BNB")
-        .chip-btc
-          img(src="/img/token.btc.png" alt="BTC")
-        .chip-dfy
-          img(src="/img/token.dfy.png" alt="DFY")
-        .chip-nfts
-          img(src="/img/token.nfts.png" alt="NFTs")
+    //.flying-chips
+    //  .container
+    //    .chip-bnb
+    //      img(src="/img/token.bnb.png" alt="BNB")
+    //    .chip-btc
+    //      img(src="/img/token.btc.png" alt="BTC")
+    //    .chip-dfy
+    //      img(src="/img/token.dfy.png" alt="DFY")
+    //    .chip-nfts
+    //      img(src="/img/token.nfts.png" alt="NFTs")
     .sections
       home-modal-reward(@close="closeRewardModal", v-if="isReward")
       .reward-mini(v-if="isRewardMini", @click="handleRewardMini")
