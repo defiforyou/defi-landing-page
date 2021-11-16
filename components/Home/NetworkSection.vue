@@ -1,42 +1,52 @@
 <template lang="pug">
-section.network
-  .dfy-decorator NETWORK
-  .container
-    h2.title DFY Tokens
-      //- em .
-    p.description
-      br
-      | DFY is the native token of the DeFi For You platform and lives on the Binance Smart Chain.
-      br
-      br
-      | DFY is used for fees on the DeFi For You P2P lending platform. It can also be used as loan currency or collateral.
-      br
-      | Borrowers will always have the option to repay their outstanding loans in DFY.
-      br
-      br
-      | Users who wish to open a crypto pawnshop and accept physical assets as collateral on DeFi For You must agree to lock up:
-      br
-      br
-      | •Equivalent of US$10,000 value in DFY tokens for a self-financed pawnshop.
-      br
-      br
-      | •Equivalent of US$40,000 value in DFY tokens for a pawnshop with financial support from DeFi For You.
-      br
-  .canvas
-    .map
-    .tokens
-      img.token.bnb(src="/img/token.bnb.png" alt="BNB")
-      img.token.dfy(src="/img/token.dfy.png" alt="DFY")
-      img.token.nfts(src="/img/token.nfts.png" alt="NFTs")
-      img.token.btc(src="/img/token.btc.png" alt="BTC")
-  .container
-    .actions
-      popover-exchanges
-        a.dfy-button.dfy-button--primary Buy DFY on Exchanges
-      a.dfy-button.dfy-button--ghost(
-        :href="urls.whitepaper"
-        target="_blank"
-        rel="noopener") Whitepaper
+  section.network
+    .dfy-decorator NETWORK
+    .container
+
+      h2.title DFY Tokens
+        //- em .
+      p.description
+        br
+        | DFY is the native token of the DeFi For You platform and lives on the Binance Smart Chain.
+        br
+        br
+        | DFY is used for fees on the DeFi For You P2P lending platform. It can also be used as loan currency or collateral.
+        br
+        | Borrowers will always have the option to repay their outstanding loans in DFY.
+        br
+        br
+        | Users who wish to open a crypto pawnshop and accept physical assets as collateral on DeFi For You must agree to lock up:
+        br
+        br
+        | •Equivalent of US$10,000 value in DFY tokens for a self-financed pawnshop.
+        br
+        br
+        | •Equivalent of US$40,000 value in DFY tokens for a pawnshop with financial support from DeFi For You.
+        br
+    .canvas
+      .middle-chips
+        .chip-bnb-middle
+          img(src="/img/token.bnb.png" alt="BNB")
+        .chip-btc-middle
+          img(src="/img/token.btc.png" alt="BTC")
+        .chip-dfy-middle
+          img(src="/img/token.dfy.png" alt="DFY")
+        .chip-nfts-middle
+          img(src="/img/token.nfts.png" alt="NFTs")
+      .map
+      .tokens
+        //img.token.bnb(src="/img/token.bnb.png" alt="BNB")
+        //img.token.dfy(src="/img/token.dfy.png" alt="DFY")
+        //img.token.nfts(src="/img/token.nfts.png" alt="NFTs")
+        //img.token.btc(src="/img/token.btc.png" alt="BTC")
+    .container
+      .actions
+        popover-exchanges
+          a.dfy-button.dfy-button--primary Buy DFY on Exchanges
+        a.dfy-button.dfy-button--ghost(
+          :href="urls.whitepaper"
+          target="_blank"
+          rel="noopener") Whitepaper
 </template>
 
 <script>
@@ -58,14 +68,17 @@ section.network {
     padding: 2em 0;
     margin-top: 0;
   }
+
   .dfy-decorator {
     line-height: 8rem;
     margin-bottom: -100px;
   }
+
   .container {
     .description {
     }
   }
+
   .canvas {
     max-width: 1000px;
     margin: 0 auto;
@@ -83,11 +96,13 @@ section.network {
     @include media(lg) {
       position: inherit;
     }
+
     .tokens {
       @include media(lg) {
         display: none;
       }
     }
+
     .token {
       position: absolute;
       width: 27%;
@@ -98,6 +113,7 @@ section.network {
       @include media(md) {
         width: 18%;
       }
+
       &.bnb {
         top: 30%;
         left: 7%;
@@ -107,13 +123,13 @@ section.network {
           left: 24%;
         }
       }
+
       &.nfts {
         top: 47%;
         left: 40%;
         width: 30%;
-        animation:
-          floating 9s infinite ease-in-out,
-          shine-up .8s infinite ease-in-out;
+        animation: floating 9s infinite ease-in-out,
+        shine-up .8s infinite ease-in-out;
         @include media(sm) {
           width: 20%;
         }
@@ -122,6 +138,7 @@ section.network {
           left: 44%;
         }
       }
+
       &.btc {
         top: 20%;
         right: 14%;
@@ -131,6 +148,7 @@ section.network {
           right: 25%;
         }
       }
+
       &.dfy {
         top: 8%;
         left: 30%;
@@ -142,6 +160,7 @@ section.network {
       }
     }
   }
+
   .actions {
     @include media(sm-down) {
       text-align: center;
@@ -149,12 +168,52 @@ section.network {
         margin: .5em;
       }
     }
+
     > * {
       @include media(md) {
         &:not(:last-child) {
           margin: 0 1em 0 0;
         }
       }
+    }
+  }
+}
+
+.middle-chips {
+  position: relative;
+  width: 0;
+  margin: 0 auto;
+  top: 75%;
+
+  *[class^='chip-'] {
+    position: absolute;
+    width: 150px;
+
+    @include media(sm-down) {
+      width: 100px;
+    }
+
+    &.chip-bnb-middle {
+      bottom: 3rem;
+      right: 6rem;
+      animation: floating 7s linear infinite;
+    }
+
+    &.chip-btc-middle {
+      bottom: 1.5rem;
+      animation: floating 5s linear infinite;
+    }
+
+    &.chip-dfy-middle {
+      bottom: 9rem;
+      right: 0;
+      animation: floating 6s linear infinite;
+    }
+
+    &.chip-nfts-middle {
+      bottom: -2rem;
+      right: -2.5rem;
+      animation: floating 4s linear infinite;
     }
   }
 }
