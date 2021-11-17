@@ -80,6 +80,10 @@ export default {
     urls: () => URLS,
     partners: () => PARTNERS,
     videoBackgroundURL: () => VIDEO_BACKGROUND
+  },
+
+  mounted () {
+    console.log('textHead ::: ', this.$refs.textHead)
   }
 }
 </script>
@@ -249,6 +253,14 @@ section.hero {
     .headline {
       margin: 0;
       font-size: 2rem;
+
+      @include media(md) {
+        background: #F8B017;
+        display: inline;
+        padding: 4px 4px;
+        color: black;
+        user-select: none;
+      }
 
       br.xso {
         display: none;
