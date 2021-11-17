@@ -24,21 +24,21 @@
         | •Equivalent of US$40,000 value in DFY tokens for a pawnshop with financial support from DeFi For You.
         br
     .canvas
-      .middle-chips
-        .chip-bnb-middle
-          img(src="/img/token.bnb.png" alt="BNB")
-        .chip-btc-middle
-          img(src="/img/token.btc.png" alt="BTC")
-        .chip-dfy-middle
-          img(src="/img/token.dfy.png" alt="DFY")
-        .chip-nfts-middle
-          img(src="/img/token.nfts.png" alt="NFTs")
+      //.middle-chips
+      //  .chip-bnb-middle
+      //    img(src="/img/token.bnb.png" alt="BNB")
+      //  .chip-btc-middle
+      //    img(src="/img/token.btc.png" alt="BTC")
+      //  .chip-dfy-middle
+      //    img(src="/img/token.dfy.png" alt="DFY")
+      //  .chip-nfts-middle
+      //    img(src="/img/token.nfts.png" alt="NFTs")
       .map
       .tokens
-        //img.token.bnb(src="/img/token.bnb.png" alt="BNB")
-        //img.token.dfy(src="/img/token.dfy.png" alt="DFY")
-        //img.token.nfts(src="/img/token.nfts.png" alt="NFTs")
-        //img.token.btc(src="/img/token.btc.png" alt="BTC")
+        img.token.bnb(src="/img/token.bnb.png" alt="BNB")
+        img.token.dfy(src="/img/token.dfy.png" alt="DFY")
+        img.token.nfts(src="/img/token.nfts.png" alt="NFTs")
+        img.token.btc(src="/img/token.btc.png" alt="BTC")
     .container
       .actions
         popover-exchanges
@@ -179,42 +179,42 @@ section.network {
   }
 }
 
-.middle-chips {
-  position: relative;
-  width: 0;
-  margin: 0 auto;
-  top: 75%;
-
-  *[class^='chip-'] {
-    position: absolute;
-    width: 150px;
-
-    @include media(sm-down) {
-      width: 100px;
-    }
-
-    &.chip-bnb-middle {
-      bottom: 3rem;
-      right: 6rem;
-      animation: floating 7s linear infinite;
-    }
-
-    &.chip-btc-middle {
-      bottom: 1.5rem;
-      animation: floating 5s linear infinite;
-    }
-
-    &.chip-dfy-middle {
-      bottom: 9rem;
-      right: 0;
-      animation: floating 6s linear infinite;
-    }
-
-    &.chip-nfts-middle {
-      bottom: -2rem;
-      right: -2.5rem;
-      animation: floating 4s linear infinite;
-    }
-  }
-}
+//.middle-chips {
+//  position: relative;
+//  width: 0;
+//  margin: 0 auto;
+//  top: 75%;
+//
+//  *[class^='chip-'] {
+//    position: absolute;
+//    width: 150px;
+//
+//    @include media(sm-down) {
+//      width: 100px;
+//    }
+//
+//    &.chip-bnb-middle {
+//      bottom: 3rem;
+//      right: 6rem;
+//      animation: floating 7s linear infinite;
+//    }
+//
+//    &.chip-btc-middle {
+//      bottom: 1.5rem;
+//      animation: floating 5s linear infinite;
+//    }
+//
+//    &.chip-dfy-middle {
+//      bottom: 9rem;
+//      right: 0;
+//      animation: floating 6s linear infinite;
+//    }
+//
+//    &.chip-nfts-middle {
+//      bottom: -2rem;
+//      right: -2.5rem;
+//      animation: floating 4s linear infinite;
+//    }
+//  }
+//}
 </style>

@@ -1,15 +1,15 @@
 <template lang="pug">
 section.solution
   .container
-    .middle-chips
-      .chip-bnb-middle
-        img(src="/img/token.bnb.png" alt="BNB")
-      .chip-btc-middle
-        img(src="/img/token.btc.png" alt="BTC")
-      .chip-dfy-middle
-        img(src="/img/token.dfy.png" alt="DFY")
-      .chip-nfts-middle
-        img(src="/img/token.nfts.png" alt="NFTs")
+    //.middle-chips
+    //  .chip-bnb-middle
+    //    img(src="/img/token.bnb.png" alt="BNB")
+    //  .chip-btc-middle
+    //    img(src="/img/token.btc.png" alt="BTC")
+    //  .chip-dfy-middle
+    //    img(src="/img/token.dfy.png" alt="DFY")
+    //  .chip-nfts-middle
+    //    img(src="/img/token.nfts.png" alt="NFTs")
     .diagram
       svg(width="0" height="0" viewBox="0 0 1 1" fill="none" xmlns="http://www.w3.org/2000/svg")
         defs
@@ -251,37 +251,37 @@ section.solution {
       }
     }
   }
-  .middle-chips {
-    position: relative;
-    width: 0;
-    margin: 0 auto;
-    @include media(sm-down) {
-      display: none;
-    }
-    *[class^='chip-'] {
-      position: absolute;
-      width: 150px;
-      &.chip-bnb-middle {
-        bottom: 3rem;
-        right: 6rem;
-        animation: floating 7s linear infinite;
-      }
-      &.chip-btc-middle {
-        bottom: 1.5rem;
-        animation: floating 5s linear infinite;
-      }
-      &.chip-dfy-middle {
-        bottom: 9rem;
-        right: 0rem;
-        animation: floating 6s linear infinite;
-      }
-      &.chip-nfts-middle {
-        bottom: -2rem;
-        right: -2.5rem;
-        animation: floating 4s linear infinite;
-      }
-    }
-  }
+  //.middle-chips {
+  //  position: relative;
+  //  width: 0;
+  //  margin: 0 auto;
+  //  @include media(sm-down) {
+  //    display: none;
+  //  }
+  //  *[class^='chip-'] {
+  //    position: absolute;
+  //    width: 150px;
+  //    &.chip-bnb-middle {
+  //      bottom: 3rem;
+  //      right: 6rem;
+  //      animation: floating 7s linear infinite;
+  //    }
+  //    &.chip-btc-middle {
+  //      bottom: 1.5rem;
+  //      animation: floating 5s linear infinite;
+  //    }
+  //    &.chip-dfy-middle {
+  //      bottom: 9rem;
+  //      right: 0rem;
+  //      animation: floating 6s linear infinite;
+  //    }
+  //    &.chip-nfts-middle {
+  //      bottom: -2rem;
+  //      right: -2.5rem;
+  //      animation: floating 4s linear infinite;
+  //    }
+  //  }
+  //}
 }
 
 @keyframes floating {
