@@ -250,6 +250,14 @@ section.hero {
       margin: 0;
       font-size: 2rem;
 
+      @include media(md) {
+        background: #F8B017;
+        display: inline;
+        padding: 4px 4px;
+        color: black;
+        user-select: none;
+      }
+
       br.xso {
         display: none;
         @include media(xs-only) {
