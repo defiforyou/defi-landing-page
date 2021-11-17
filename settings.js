@@ -14,13 +14,13 @@ export const CONTACT = {
 
 export const OFFICES = [{
   name: 'DeFi For You — Hanoi Office',
-  vie: 'ken@defiforyou.uk',
-  eng: 'ceo@defiforyou.uk',
+  vie: 'ask@defiforyou.uk',
+  eng: 'marketing@defiforyou.uk',
   address: 'BT NQ 25-15 Vinhomes Riverside, Long Bien, Hanoi, Vietnam'
 }, {
   name: 'DeFi For You — HCMC Office',
-  vie: 'ken@defiforyou.uk',
-  eng: 'ceo@defiforyou.uk',
+  vie: 'ask@defiforyou.uk',
+  eng: 'marketing@defiforyou.uk',
   address: '370 Nguyen Van Quy, Phu Thuan, Dist. 7, HCMC, Vietnam'
 }, {
   name: 'DeFi For You — London Office',
