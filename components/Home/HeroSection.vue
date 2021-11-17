@@ -235,7 +235,7 @@ section.hero {
     margin-left: auto;
     text-align: right;
     //width: 78%;
-    width: 43%;
+    width: 48%;
     bottom: 0;
     right: 0;
 
