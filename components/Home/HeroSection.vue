@@ -12,7 +12,7 @@
     <div class="container">
       <div class="greeting">
         <h1 class="headline">
-          Worlds First Licensed P2P loan platform for NFTs in the real world or the meta world 🌎
+          The Future Of Finance in the NFT World 🌎
         </h1>
         <!--        <div class="preview">-->
         <!--          <div class="video">-->
@@ -234,7 +234,8 @@ section.hero {
     padding: 2rem 10px 2rem 0;
     margin-left: auto;
     text-align: right;
-    width: 78%;
+    //width: 78%;
+    width: 48%;
     bottom: 0;
     right: 0;
 
