@@ -80,10 +80,6 @@ export default {
     urls: () => URLS,
     partners: () => PARTNERS,
     videoBackgroundURL: () => VIDEO_BACKGROUND
-  },
-
-  mounted () {
-    console.log('textHead ::: ', this.$refs.textHead)
   }
 }
 </script>
