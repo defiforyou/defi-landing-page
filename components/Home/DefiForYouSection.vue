@@ -4,11 +4,11 @@ section.defi-for-you
     .dfy-flex.layout
       .wallets
         .screens
-          .screen.metamask
+          .screen.metamask.brightness-img
             img(src="/img/ViewToken.png" alt="Metamask")
           .screen.binance
             img(src="/img/Home.png" alt="Binance")
-          .screen.trustwallet
+          .screen.trustwallet.brightness-img
             img(src="/img/Marketplace.png" alt="Trustwallet")
       .text
         h2.title Provide and receive crypto loans against NFTs, crypto assets, and hard goods.
@@ -116,5 +116,8 @@ section.defi-for-you {
       }
     }
   }
+}
+.brightness-img {
+  filter: brightness(0.5);
 }
 </style>
