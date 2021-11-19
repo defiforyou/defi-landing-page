@@ -22,11 +22,11 @@ section.footer
         .office(v-for="(i, k) in offices" :style="{gridArea: `office-${k + 1}`}")
           .title(v-text="i.name")
           .phone
-            a(v-if="i.vie" :href="`mailto:${i.vie}`")
+            a(v-if="i.vie" :href="generateLinkContact(i.typeContact,i.vie)")
               span.number {{ i.vie }}
               img.flag(src="/img/flag.vn.png" alt="Vietnamese" width="24" height="24")
           .phone
-            a(v-if="i.eng" :href="`mailto:${i.eng}`")
+            a(v-if="i.eng" :href="generateLinkContact(i.typeContact,i.eng)")
               span.number {{ i.eng }}
               img.flag(src="/img/flag.gb.png" alt="English" width="24" height="24")
               span.supporter(v-if="i.engSupporter") {{ i.engSupporter }}
@@ -124,7 +124,7 @@ import {
 } from 'vue-feather-icons'
 import TelegramIcon from '~/assets/icon.telegram.svg?inline'
 
-import { COPYRIGHT, URLS, OFFICES, CONTACT, ABOUT } from '~/settings'
+import { COPYRIGHT, URLS, OFFICES, CONTACT, ABOUT, OFFICE_CONTRACT_TYPE } from '~/settings'
 
 export default {
   components: {
@@ -144,6 +144,19 @@ export default {
     offices: () => OFFICES,
     contact: () => CONTACT,
     about: () => ABOUT
+  },
+
+  methods: {
+    generateLinkContact (contractType, link) {
+      switch (contractType) {
+        case OFFICE_CONTRACT_TYPE.PHONE:
+          return `tel:${link}`
+        case OFFICE_CONTRACT_TYPE.EMAIL:
+          return `mailto:${link}`
+        default:
+          return link
+      }
+    }
   }
 }
 </script>

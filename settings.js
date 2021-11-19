@@ -12,24 +12,33 @@ export const CONTACT = {
   form: 'https://formspree.io/f/xeqvjeva'
 }
 
+export const OFFICE_CONTRACT_TYPE = {
+  PHONE: 'phone',
+  EMAIL: 'email'
+}
+
 export const OFFICES = [{
   name: 'DeFi For You — Hanoi Office',
   vie: 'ask@defiforyou.uk',
   eng: 'marketing@defiforyou.uk',
-  address: 'BT NQ 25-15 Vinhomes Riverside, Long Bien, Hanoi, Vietnam'
-}, {
-  name: 'DeFi For You — HCMC Office',
-  vie: 'ask@defiforyou.uk',
-  eng: 'marketing@defiforyou.uk',
-  address: '370 Nguyen Van Quy, Phu Thuan, Dist. 7, HCMC, Vietnam'
-}, {
+  address: 'BT NQ 25-15 Vinhomes Riverside, Long Bien, Hanoi, Vietnam',
+  typeContact: OFFICE_CONTRACT_TYPE.EMAIL
+},
+//   {
+//   name: 'DeFi For You — HCMC Office',
+//   vie: 'ask@defiforyou.uk',
+//   eng: 'marketing@defiforyou.uk',
+//   address: '370 Nguyen Van Quy, Phu Thuan, Dist. 7, HCMC, Vietnam'
+// },
+{
   name: 'DeFi For You — London Office',
   vie: null,
-  eng: 'miles@milesmann.co.uk',
+  eng: 'sean@defiforyou.uk',
   engSupporter: 'Sean Mason - Business Coach',
   address: 'Office 32 19-21 Crawford Street, London, United Kingdom, W1H 1PJ',
   registrationNumber: '13126050',
-  companiesHouse: 'https://find-and-update.company-information.service.gov.uk/company/13126050?fbclid=IwAR3Fm3QHdllfP_z1QIZ9e9UX-warFarV1XuwBqsxXyPl0M3k-BLSvkNdXuE'
+  companiesHouse: 'https://find-and-update.company-information.service.gov.uk/company/13126050?fbclid=IwAR3Fm3QHdllfP_z1QIZ9e9UX-warFarV1XuwBqsxXyPl0M3k-BLSvkNdXuE',
+  typeContact: OFFICE_CONTRACT_TYPE.EMAIL
 }]
 
 export const ABOUT = {
