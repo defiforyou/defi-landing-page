@@ -5,7 +5,14 @@
       <source :src="videoBackgroundURL" type="video/mp4">
       Your browser does not support the video tag.
     </video>
-    <video class="video-mobile" controls>
+    <video
+      class="video-mobile"
+      controls
+      playsinline
+      autoplay
+      muted
+      loop
+    >
       <source :src="videoBackgroundURL" type="video/mp4">
       Your browser does not support the video tag.
     </video>
