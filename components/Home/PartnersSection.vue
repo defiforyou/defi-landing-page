@@ -38,13 +38,21 @@ section.partners {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    @include media(md) {
+      justify-content: start;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
   }
   .partner {
     padding: 1em 0;
     text-align: center;
     width: 280px;
+    max-width: 100%;
     @include media(md) {
       width: 320px;
+      max-width: 25%;
+      text-align: left;
     }
     > a {
       display: block;
@@ -57,6 +65,8 @@ section.partners {
     .logo {
       max-height: 36px;
       transition: .3s ease-in-out;
+      //width: 100%;
+      object-fit: contain;
       @include media(md) {
         filter: grayscale(.75) opacity(.6);
         max-height: 42px;

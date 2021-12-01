@@ -120,6 +120,20 @@ export const PARTNERS = [{
   image: '/img/partner.srnArt.png',
   favicon: '/img/partner.srnArt.png',
   exchange: true
+},
+{
+  name: 'chainLink',
+  url: '',
+  image: '/img/partner.chainlink.png',
+  favicon: '/img/partner.chainlinkt.png',
+  exchange: true
+},
+{
+  name: 'mexc',
+  url: '',
+  image: '/img/partner.mexc.png',
+  favicon: '/img/partner.mexc.png',
+  exchange: true
 }]
 
 export const TEAM_MEMBERS = [
