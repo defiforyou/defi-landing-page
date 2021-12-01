@@ -123,14 +123,14 @@ export const PARTNERS = [{
 },
 {
   name: 'chainLink',
-  url: '',
+  url: 'https://www.bitglobal.com/en-us/spot/trade?q=DFY-USDT',
   image: '/img/partner.chainlink.png',
   favicon: '/img/partner.chainlinkt.png',
   exchange: true
 },
 {
   name: 'mexc',
-  url: '',
+  url: 'https://www.mexc.com/exchange/DFY_USDT',
   image: '/img/partner.mexc.png',
   favicon: '/img/partner.mexc.png',
   exchange: true

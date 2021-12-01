@@ -229,6 +229,10 @@
   font-size: 20px;
   transition: 0.3s;
 
+  img{
+    max-height: 45px;
+  }
+
   &:last-child {
     margin-bottom: 0;
   }
