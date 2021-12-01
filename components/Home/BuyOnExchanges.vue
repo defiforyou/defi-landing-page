@@ -44,6 +44,24 @@
       <img src="~assets/img/buy-dfy/hotbit.png" alt="" class="mr-5">
       Hotbit
     </a>
+
+    <a
+      target="_blank"
+      href="https://www.mexc.com/exchange/DFY_USDT"
+      class="on-exchanges_link"
+    >
+      <img src="~assets/img/buy-dfy/mexc.svg" alt="" class="mr-5">
+      Mexc
+    </a>
+
+    <a
+      target="_blank"
+      href="https://www.bitglobal.com/en-us/spot/trade?q=DFY-USDT"
+      class="on-exchanges_link"
+    >
+      <img src="~assets/img/buy-dfy/bitglobal.png" alt="" class="mr-5">
+      BitGlobal
+    </a>
   </div>
 </template>
 
