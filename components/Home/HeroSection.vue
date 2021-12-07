@@ -259,10 +259,10 @@ section.hero {
       font-size: 2rem;
 
       @include media(md) {
-        background: #F8B017;
+        //background: #F8B017;
         display: inline;
         padding: 4px 4px;
-        color: black;
+        color: #F8B017;
         user-select: none;
       }
 
