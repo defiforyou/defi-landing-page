@@ -11,7 +11,7 @@ section.defi-for-you
           .screen.trustwallet
             img(src="/img/Marketplace.png" alt="Trustwallet")
       .text
-        h2.title Provide and receive crypto loans against NFTs, crypto assets, and hard goods.
+        h2.title If I could show you away of Financing your NFTs .. so you could expand your portfolio value daily .. would that interest you?
         .description
           p Set up your very own crypto loan business on the DeFi For You platform. Earn crypto tokens from interest payments and gradually scale the value of your crypto assets.
           p Want to build your crypto lending business even further?

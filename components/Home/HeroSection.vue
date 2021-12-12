@@ -19,7 +19,7 @@
     <div class="container">
       <div class="greeting">
         <h1 class="headline">
-          The Future Of Finance in the NFT World 🌎
+          Free money 💰 The future of Finance press here now
         </h1>
         <!--        <div class="preview">-->
         <!--          <div class="video">-->
