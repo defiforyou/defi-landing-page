@@ -19,7 +19,7 @@
     <div class="container">
       <div class="greeting">
         <h1 class="headline">
-          Free money 💰 The future of Finance press here now
+          Free money 💰. The future of Finance. Press here now
         </h1>
         <!--        <div class="preview">-->
         <!--          <div class="video">-->
@@ -36,6 +36,8 @@
         <!--          </div>-->
         <!--        </div>-->
         <div class="actions">
+          <a :href="urls.joinAndReferral" class="dfy-button btn-referral" target="_blank">Join & Referral
+          </a>
           <a v-scroll-to="'#buy-dfy'" class="dfy-button dfy-button--primary">Buy DFY
           </a>
           <a :href="urls.pawn" target="_blank" class="dfy-button dfy-button--outline">Explore PAWN Market
@@ -242,7 +244,8 @@ section.hero {
     margin-left: auto;
     text-align: right;
     //width: 78%;
-    width: 48%;
+    //width: 48%;
+    max-width: 800px;
     bottom: 0;
     right: 0;
 
@@ -273,8 +276,8 @@ section.hero {
         }
       }
 
-      @include media(sm) {
-        font-size: 2.5rem;
+      @include media(xs-only) {
+        font-size: 1.5rem;
       }
     }
 
@@ -334,7 +337,11 @@ section.hero {
       }
 
       > * {
-        margin-bottom: .5em;
+        margin-bottom: 1rem;
+
+        &:first-child {
+          margin-left: 1em;
+        }
 
         &:not(:last-child) {
           margin-right: 1em;
@@ -369,5 +376,10 @@ section.hero {
   @include media(sm-down) {
     display: block;
   }
+}
+
+.btn-referral {
+  color: #FFFFFF;
+  background: linear-gradient(180deg, #A664FA 0%, #E792DE 100%);
 }
 </style>
