@@ -62,7 +62,8 @@ export const URLS = {
   android: '#',
   ios: '#',
   buy: '#',
-  video: 'https://www.youtube.com/embed/rfazs3OpxlI?autoplay=1'
+  video: 'https://www.youtube.com/embed/rfazs3OpxlI?autoplay=1',
+  joinAndReferral: 'https://app.defiforyou.uk/login?tab=1'
 }
 
 export const PARTNERS = [{

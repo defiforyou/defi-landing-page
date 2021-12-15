@@ -26,6 +26,7 @@
       home-network-section#network
       home-partners-section#partners
       home-team-section#team
+      home-get-us-section#team
       home-contact-section#contact
 </template>
 
