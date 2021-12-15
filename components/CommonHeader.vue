@@ -158,7 +158,7 @@ export default {
         }
       }, {
         text: 'Staking',
-        href: URLS.stacking,
+        href: URLS.staking,
         target: '_blank',
         classes: {
           'dfy-button': true,
@@ -170,8 +170,8 @@ export default {
         target: '_blank',
         classes: {
           'dfy-button': true,
-          'dfy-button--overlay': true,
-          'dfy-button--coming-soon': true
+          'dfy-button--overlay': true
+          // 'dfy-button--coming-soon': true
         }
       }, {
         text: 'Trade NFTs',
