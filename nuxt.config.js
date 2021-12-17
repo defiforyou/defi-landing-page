@@ -85,7 +85,7 @@ export default {
   ],
 
   'google-gtag': {
-    id: 'G-S83LVZJV2Q'
+    id: process.env.GGA
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
