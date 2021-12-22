@@ -19,7 +19,7 @@
     <div class="container">
       <div class="greeting">
         <h1 class="headline">
-          Free money 💰. The future of Finance. Press here now
+          Free money 💰. The Future of Finance. Press here now
         </h1>
         <!--        <div class="preview">-->
         <!--          <div class="video">-->
