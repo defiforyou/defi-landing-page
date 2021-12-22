@@ -82,7 +82,7 @@
                 :key="key"
                 :to="item.to"
                 :href="item.href"
-                :target="item.target || '_self'"
+                :target="'_self'"
                 :class="item.classes || {}"
                 v-text="item.text"
               />
