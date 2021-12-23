@@ -1,5 +1,6 @@
 <template lang="pug">
 #app.app
+  term-conditions
   common-header
   nuxt
   common-footer
