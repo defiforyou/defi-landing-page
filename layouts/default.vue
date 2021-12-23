@@ -1,11 +1,11 @@
 <template lang="pug">
 #app.app
-  term-conditions
   common-header
   nuxt
   common-footer
   v-app
     alert
+    term-conditions
 </template>
 
 <script>
