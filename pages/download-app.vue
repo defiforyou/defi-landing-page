@@ -41,7 +41,7 @@
           .content
             span This is a Beta version and not official, the features are not completed and there may be errors during in use. In case of problems contact&nbsp;
             span.page__title--gold tech@defiforyou.uk.
-            span &nbsp;The goal of the Beta is to collect feedbacks from users and improve the system, in preparation for the official release.
+            span The goal of the Beta is to collect feedbacks from users and improve the system, in preparation for the official release.
 </template>
 
 <script>
@@ -253,6 +253,9 @@ export default {
 .content {
   margin-bottom: 60px;
   margin-top: 167px;
+  & span:last-child{
+    display: block;
+  }
   @media screen and (max-width: 767px) {
     font-size: 14px;
     line-height: 17px;
