@@ -23,7 +23,7 @@
           <div class="download d-flex align-center">
             <nuxt-link :to="{name: 'download-app'}">
               <img src="/img/icon-app-store.svg" alt="">
-              <img src="/img/QR_android.jpeg" class="qr_code">
+              <img src="/img/QR_ios.jpeg" class="qr_code">
             </nuxt-link>
             <nuxt-link :to="{name: 'download-app'}">
               <img src="/img/icon-google-play.svg" alt="">

@@ -13,12 +13,12 @@
             span.label Download:
             .buttons
               .button
-                a.button__ios.dfy-button.dfy-button--special(href="https://install.appcenter.ms/users/edsolabs-defi/apps/defi-for-you-1/distribution_groups/defi" target="_blank")
+                a.button__ios.dfy-button.dfy-button--special(href="https://install.appcenter.ms/users/defi-for-you/apps/defi-for-you-1/distribution_groups/defi" target="_blank")
                   img(src="/img/download_ios.svg" alt="")
                   span IOS
-                img.qr_code(src="/img/QR_android.jpeg" alt="")
+                img.qr_code(src="/img/QR_ios.jpeg" alt="")
               .button
-                a.button__android.dfy-button.dfy-button--special(href="https://install.appcenter.ms/users/edsolabs-defi/apps/defi-for-you/distribution_groups/defi" target="_blank")
+                a.button__android.dfy-button.dfy-button--special(href="https://install.appcenter.ms/users/defi-for-you/apps/defi-for-you/distribution_groups/defi" target="_blank")
                   img(src="/img/download_android.svg" alt="")
                   span Android
                 img.qr_code(src="/img/QR_android.jpeg" alt="")
@@ -48,7 +48,7 @@
 export default {
   head () {
     return {
-      title: 'DOWNLOAD APP'
+      title: 'Download App'
     }
   }
 }
@@ -187,8 +187,8 @@ export default {
   }
   @media screen and (max-width: 767px) {
     & .qr_code {
-      bottom: -132px;
-      width: 72%;
+      bottom: -133px;
+      width: 100%;
     }
     & a {
       width: 120px;
@@ -203,6 +203,9 @@ export default {
         margin-left: 4px;
       }
     }
+    a:first-child {
+    margin-right: 0;
+  }
   }
 }
 .screens {
@@ -231,6 +234,15 @@ export default {
       }
       &__right {
         right: 58px;
+      }
+    }
+    @media screen and (max-width: 500px) {
+      &__center {
+        right: 15px;
+        top: 45px;
+      }
+      &__right {
+        right: 40px;
       }
     }
   }
