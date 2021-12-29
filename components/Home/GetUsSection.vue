@@ -21,8 +21,14 @@
             Coming soon on:
           </p>
           <div class="download d-flex align-center">
-            <img src="/img/icon-app-store.svg" alt="">
-            <img src="/img/icon-google-play.svg" alt="">
+            <nuxt-link :to="{name: 'download-app'}">
+              <img src="/img/icon-app-store.svg" alt="">
+              <img src="/img/QR_android.jpeg" class="qr_code">
+            </nuxt-link>
+            <nuxt-link :to="{name: 'download-app'}">
+              <img src="/img/icon-google-play.svg" alt="">
+              <img src="/img/QR_android.jpeg" class="qr_code">
+            </nuxt-link>
           </div>
         </div>
       </div>
@@ -124,20 +130,52 @@ p.coming-soon {
   align-items: center;
   flex-wrap: wrap;
 
-  img {
+  a {
     margin-bottom: 1rem;
+    position: relative;
+    &:hover .qr_code{
+      display: block;
+      animation: fade-in .25s;
+    }
   }
-
-  img:first-child {
+  & .qr_code{
+    position: absolute;
+    z-index: 2;
+    bottom: -180px;
+    right: 0;
+    left: 0;
+    display: none;
+  }
+  a:first-child {
     margin-right: 45px;
   }
+  @keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 
   @include media(sm-down) {
     justify-content: center;
-    img {
+    a{
+      margin-bottom: 2rem;
+    }
+    /* img {
       margin-bottom: 2rem;
       margin-right: 0 !important;
+    } */
+  }
+  @media screen and (max-width: 438px){
+    a{
+      margin-bottom: 2rem;
+    }
+    a:first-child {
+    margin-right: 0;
     }
   }
+
 }
 </style>
