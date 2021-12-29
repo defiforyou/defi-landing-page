@@ -173,7 +173,11 @@ export default {
   & img {
     transform: translateY(-10%);
   }
+  &__android img{
+    transform: translateY(0%);
+  }
   & span {
+    font-family: Montserrat;
     color: #282c37;
     font-weight: 500;
     font-size: 20px;
