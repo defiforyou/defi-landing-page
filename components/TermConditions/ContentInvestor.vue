@@ -44,7 +44,7 @@ export default {
         },
         {
           type: 2,
-          title: 'Sophisticated investor',
+          title: 'Professional investor',
           img: require('~/assets/img/term-conditions/card-3.svg'),
           desc: 'I possess the experience, knowledge and expertise to make my own investment decisions and properly assess and accept the risks it incurs.'
         }
