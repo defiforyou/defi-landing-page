@@ -13,19 +13,19 @@
             span.label Download:
             .buttons
               .button
-                a.button__ios.dfy-button.dfy-button--special(href="https://install.appcenter.ms/users/defi-for-you/apps/defi-for-you-1/distribution_groups/defi" target="_blank")
+                a.button__ios.dfy-button.dfy-button--special(:href="urls.downloadIos" target="_blank" rel="noopener")
                   img(src="/img/download_ios.svg" alt="")
-                  span IOS
+                  span iOS
                 img.qr_code(src="/img/QR_ios.jpeg" alt="")
               .button
-                a.button__android.dfy-button.dfy-button--special(href="https://install.appcenter.ms/users/defi-for-you/apps/defi-for-you/distribution_groups/defi" target="_blank")
+                a.button__android.dfy-button.dfy-button--special(:href="urls.downloadAndroid" target="_blank" rel="noopener")
                   img(src="/img/download_android.svg" alt="")
                   span Android
                 img.qr_code(src="/img/QR_android.jpeg" alt="")
           .instruction
             span.label Instruction:
             .button
-              a.button__instruction.dfy-button.dfy-button--special(href="https://docs.google.com/document/d/1VQOSASCCI8aJsWfHAXjZAdkpTQHv9fyiXUryYp1sr_g/edit#" target="_blank")
+              a.button__instruction.dfy-button.dfy-button--special(:href="urls.instruction" target="_blank" rel="noopener")
                 img(src="/img/download_instruction.svg" alt="")
                 span Instruction
         v-col(cols="12" md="6")
@@ -45,11 +45,15 @@
 </template>
 
 <script>
+import { URLS } from '~/settings'
 export default {
   head () {
     return {
       title: 'Download App'
     }
+  },
+  computed: {
+    urls: () => URLS
   }
 }
 </script>
@@ -210,33 +214,28 @@ export default {
 }
 .screens {
   display: flex;
+  margin-top: 30px;
   .screen {
     position: relative;
-    width: 245px;
-    /* height: 486px; */
+    /* width: 245px; */
     & img {
-      width: 118%;
+      width: 125%;
       max-width: unset;
     }
     &__center {
       top: 60px;
-      right: 32px;
+      right: 20px;
       z-index: 2;
     }
     &__right {
       top: -40px;
-      right: 86px;
+      right: 60px;
     }
     @media screen and (max-width: 767px) {
-      &__center {
-        right: 23px;
-        top: 45px;
-      }
-      &__right {
-        right: 58px;
-      }
-    }
-    @media screen and (max-width: 500px) {
+     & img{
+        width: 134%;
+     }
+
       &__center {
         right: 15px;
         top: 45px;
