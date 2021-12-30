@@ -13,19 +13,19 @@
             span.label Download:
             .buttons
               .button
-                a.button__ios.dfy-button.dfy-button--special(href="https://install.appcenter.ms/users/defi-for-you/apps/defi-for-you-1/distribution_groups/defi" target="_blank")
+                a.button__ios.dfy-button.dfy-button--special(:href="urls.downloadIos" target="_blank" rel="noopener")
                   img(src="/img/download_ios.svg" alt="")
-                  span IOS
+                  span iOS
                 img.qr_code(src="/img/QR_ios.jpeg" alt="")
               .button
-                a.button__android.dfy-button.dfy-button--special(href="https://install.appcenter.ms/users/defi-for-you/apps/defi-for-you/distribution_groups/defi" target="_blank")
+                a.button__android.dfy-button.dfy-button--special(:href="urls.downloadAndroid" target="_blank" rel="noopener")
                   img(src="/img/download_android.svg" alt="")
                   span Android
                 img.qr_code(src="/img/QR_android.jpeg" alt="")
           .instruction
             span.label Instruction:
             .button
-              a.button__instruction.dfy-button.dfy-button--special(href="https://docs.google.com/document/d/1VQOSASCCI8aJsWfHAXjZAdkpTQHv9fyiXUryYp1sr_g/edit#" target="_blank")
+              a.button__instruction.dfy-button.dfy-button--special(:href="urls.instruction" target="_blank" rel="noopener")
                 img(src="/img/download_instruction.svg" alt="")
                 span Instruction
         v-col(cols="12" md="6")
@@ -40,16 +40,21 @@
         v-col(cols="12")
           .content
             span This is a Beta version and not official, the features are not completed and there may be errors during in use. In case of problems contact&nbsp;
-            span.page__title--gold tech@defiforyou.uk.
-            span &nbsp;The goal of the Beta is to collect feedbacks from users and improve the system, in preparation for the official release.
+            a(:href="contact.tech" target="_blank" rel="noopener") tech@defiforyou.uk.
+            span The goal of the Beta is to collect feedbacks from users and improve the system, in preparation for the official release.
 </template>
 
 <script>
+import { URLS, CONTACT } from '~/settings'
 export default {
   head () {
     return {
       title: 'Download App'
     }
+  },
+  computed: {
+    urls: () => URLS,
+    contact: () => CONTACT
   }
 }
 </script>
@@ -121,6 +126,12 @@ export default {
       margin-right: 48px;
     }
   }
+  @media screen and (max-width: 374px){
+    width: 100%;
+    & .button:first-child {
+      margin-right: 0px;
+    }
+  }
 }
 .instruction {
   & .label {
@@ -130,6 +141,9 @@ export default {
     @media screen and (max-width: 767px) {
       width: 80%;
       margin: 0 auto;
+    }
+    @media screen and (max-width: 374px) {
+      width: 100%;
     }
   }
 }
@@ -169,7 +183,11 @@ export default {
   & img {
     transform: translateY(-10%);
   }
+  &__android img{
+    transform: translateY(0%);
+  }
   & span {
+    font-family: Montserrat;
     color: #282c37;
     font-weight: 500;
     font-size: 20px;
@@ -210,33 +228,28 @@ export default {
 }
 .screens {
   display: flex;
+  margin-top: 30px;
   .screen {
     position: relative;
-    width: 245px;
-    /* height: 486px; */
+    /* width: 245px; */
     & img {
-      width: 118%;
+      width: 125%;
       max-width: unset;
     }
     &__center {
       top: 60px;
-      right: 32px;
+      right: 20px;
       z-index: 2;
     }
     &__right {
       top: -40px;
-      right: 86px;
+      right: 60px;
     }
     @media screen and (max-width: 767px) {
-      &__center {
-        right: 23px;
-        top: 45px;
-      }
-      &__right {
-        right: 58px;
-      }
-    }
-    @media screen and (max-width: 500px) {
+     & img{
+        width: 134%;
+     }
+
       &__center {
         right: 15px;
         top: 45px;
@@ -249,7 +262,13 @@ export default {
 }
 .content {
   margin-bottom: 60px;
-  margin-top: 167px;
+  margin-top: 120px;
+  & a{
+    color: #dca33b;
+  }
+  & span:last-child{
+    display: block;
+  }
   @media screen and (max-width: 767px) {
     font-size: 14px;
     line-height: 17px;

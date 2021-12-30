@@ -72,7 +72,7 @@ section.team {
       height: 100%;
       font-size: 14px;
       text-align: center;
-      background: lighten(#191C25, 1);
+      background: lighten(#191c25, 1);
       .preview {
         padding: 1.5rem;
         flex: 1;
@@ -96,7 +96,7 @@ section.team {
           font-family: $--font-family-heading;
         }
         .bio {
-          margin-top: .5em;
+          margin-top: 0.5em;
         }
       }
       .links {
@@ -111,8 +111,8 @@ section.team {
           img {
             // max-height: 2em;
             max-width: 100%;
-            opacity: .8;
-            transition: .3s ease-in-out;
+            opacity: 0.8;
+            transition: 0.3s ease-in-out;
           }
           &:hover {
             img {
@@ -123,7 +123,7 @@ section.team {
         > a {
           color: white;
           flex: 0 64px;
-          background: #13171F;
+          background: #13171f;
           margin-left: 1px;
           height: 64px;
           color: white;
