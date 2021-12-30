@@ -40,12 +40,12 @@
         v-col(cols="12")
           .content
             span This is a Beta version and not official, the features are not completed and there may be errors during in use. In case of problems contact&nbsp;
-            span.page__title--gold tech@defiforyou.uk.
+            a(:href="contact.tech" target="_blank" rel="noopener") tech@defiforyou.uk.
             span The goal of the Beta is to collect feedbacks from users and improve the system, in preparation for the official release.
 </template>
 
 <script>
-import { URLS } from '~/settings'
+import { URLS, CONTACT } from '~/settings'
 export default {
   head () {
     return {
@@ -53,7 +53,8 @@ export default {
     }
   },
   computed: {
-    urls: () => URLS
+    urls: () => URLS,
+    contact: () => CONTACT
   }
 }
 </script>
@@ -125,6 +126,12 @@ export default {
       margin-right: 48px;
     }
   }
+  @media screen and (max-width: 374px){
+    width: 100%;
+    & .button:first-child {
+      margin-right: 0px;
+    }
+  }
 }
 .instruction {
   & .label {
@@ -134,6 +141,9 @@ export default {
     @media screen and (max-width: 767px) {
       width: 80%;
       margin: 0 auto;
+    }
+    @media screen and (max-width: 374px) {
+      width: 100%;
     }
   }
 }
@@ -252,7 +262,10 @@ export default {
 }
 .content {
   margin-bottom: 60px;
-  margin-top: 167px;
+  margin-top: 120px;
+  & a{
+    color: #dca33b;
+  }
   & span:last-child{
     display: block;
   }

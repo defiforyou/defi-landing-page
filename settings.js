@@ -9,7 +9,8 @@ export const VIDEO_BACKGROUND = 'https://s3.ap-southeast-1.amazonaws.com/defifor
 export const CONTACT = {
   email: 'ask@defiforyou.uk',
   support: 'support@defiforyou.uk',
-  form: 'https://formspree.io/f/xeqvjeva'
+  form: 'https://formspree.io/f/xeqvjeva',
+  tech: 'https://mail.google.com/mail/?view=cm&fs=1&to=tech@defiforyou.uk'
 }
 
 export const OFFICE_CONTRACT_TYPE = {
