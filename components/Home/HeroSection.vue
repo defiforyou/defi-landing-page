@@ -72,7 +72,7 @@
 
 <script>
 // import { XIcon } from 'vue-feather-icons'
-import { PARTNERS, URLS, VIDEO_BACKGROUND } from '~/settings'
+import { URLS, VIDEO_BACKGROUND } from '~/settings'
 
 export default {
   components: {
@@ -87,7 +87,6 @@ export default {
 
   computed: {
     urls: () => URLS,
-    partners: () => PARTNERS,
     videoBackgroundURL: () => VIDEO_BACKGROUND
   }
 }

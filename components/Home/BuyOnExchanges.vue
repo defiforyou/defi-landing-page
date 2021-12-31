@@ -20,20 +20,20 @@
 
     <a
       target="_blank"
+      href="https://www.gateio.ch/trade/DFY_USDT"
+      class="on-exchanges_link"
+    >
+      <img src="~assets/img/buy-dfy/gate.png" alt="" class="mr-5 py-2">
+      Gate
+    </a>
+
+    <a
+      target="_blank"
       href="https://www.cointiger.com/en-us/#/trade_center?coin=dfy_usdt"
       class="on-exchanges_link"
     >
       <img src="~assets/img/buy-dfy/cointiger.png" alt="" class="mr-5">
       Cointiger
-    </a>
-
-    <a
-      target="_blank"
-      href="https://julswap.com/#/swap?outputCurrency=0xd98560689c6e748dc37bc410b4d3096b1aa3d8c2"
-      class="on-exchanges_link"
-    >
-      <img src="~assets/img/buy-dfy/julswap.png" alt="" class="mr-5">
-      Julswap
     </a>
 
     <a
@@ -61,6 +61,15 @@
     >
       <img src="~assets/img/buy-dfy/bitglobal.png" alt="" class="mr-5">
       BitGlobal
+    </a>
+
+    <a
+      target="_blank"
+      href="https://julswap.com/#/swap?outputCurrency=0xd98560689c6e748dc37bc410b4d3096b1aa3d8c2"
+      class="on-exchanges_link"
+    >
+      <img src="~assets/img/buy-dfy/julswap.png" alt="" class="mr-5">
+      Julswap
     </a>
   </div>
 </template>

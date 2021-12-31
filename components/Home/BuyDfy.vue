@@ -7,8 +7,16 @@
             <div class="buy-dfy-with">
               <div class="buy-dfy__tabs">
                 <span
+                  class="buy-dfy__tabs--card"
+                  :class="{'active': tab === 2}"
+                  @click="tab = 2"
+                >
+                  Buy DFY on Exchanges
+                </span>
+
+                <span
                   class="buy-dfy__tabs--card tab-1"
-                  :class="{'active': tab == 1}"
+                  :class="{'active': tab === 1}"
                   @click="tab = 1"
                 >
                   <span class="tab-name">Buy DFY</span>
@@ -18,17 +26,11 @@
                   <!--                    <img src="~assets/img/buy-dfy/mastecard.png" alt="">-->
                   <!--                  </span>-->
                 </span>
-
-                <span
-                  class="buy-dfy__tabs--card"
-                  :class="{'active': tab == 2}"
-                  @click="tab = 2"
-                >Buy DFY on Exchanges</span>
               </div>
 
               <div class="buy-dfy__input">
-                <BuyWithCreditCard v-if="tab == 1" />
-                <BuyOnExchanges v-if="tab == 2" />
+                <BuyWithCreditCard v-if="tab === 1" />
+                <BuyOnExchanges v-if="tab === 2" />
               </div>
             </div>
           </v-col>
@@ -72,7 +74,7 @@ export default {
   },
   data () {
     return {
-      tab: 1
+      tab: 2
     }
   }
 }
