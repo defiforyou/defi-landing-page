@@ -130,7 +130,7 @@ export const PARTNERS = [{
   name: 'chainLink',
   url: 'https://www.bitglobal.com/en-us/spot/trade?q=DFY-USDT',
   image: '/img/partner.chainlink.png',
-  favicon: '/img/partner.chainlinkt.png',
+  favicon: '/img/partner.chainlink.png',
   exchange: true
 },
 {
@@ -138,6 +138,12 @@ export const PARTNERS = [{
   url: 'https://www.mexc.com/exchange/DFY_USDT',
   image: '/img/partner.mexc.png',
   favicon: '/img/partner.mexc.png',
+  exchange: true
+}, {
+  name: 'Gate',
+  url: 'https://www.gateio.ch/trade/DFY_USDT',
+  image: '/img/partner.gate.svg',
+  favicon: '/img/partner.gate.favicon.svg',
   exchange: true
 }]
 
