@@ -142,7 +142,7 @@ export const PARTNERS = [{
 }, {
   name: 'Gate',
   url: 'https://www.gateio.ch/trade/DFY_USDT',
-  image: '/img/partner.gate.png',
+  image: '/img/partner.gate.svg',
   favicon: '/img/partner.gate.favicon.svg',
   exchange: true
 }]
