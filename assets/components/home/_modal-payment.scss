@@ -1,0 +1,135 @@
+.scroll {
+  overflow-y: scroll;
+}
+.dfy-personal-info {
+  background: #23252e;
+}
+.button-close {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px 30px;
+  @media screen and (max-width: 960px) {
+    padding: 20px 12px;
+    button {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+.button-back {
+  button {
+    width: 20px;
+    height: 20px;
+  }
+  svg {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+.label-back {
+  margin-left: 4px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+}
+.dialog-title {
+  font-family: "Inter";
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 39px;
+  margin: 0 auto;
+  @media screen and (max-width: 960px) {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
+.input-card__cols {
+  display: flex;
+  justify-content: space-between;
+  @media screen and (max-width: 960px) {
+    display: block;
+  }
+}
+.input-card__col {
+  width: 44%;
+  @media screen and (max-width: 960px) {
+    width: 100%;
+  }
+}
+
+.select-phone {
+  // margin-left: 0;
+  flex: 1;
+  margin-right: 16px !important;
+}
+.field-phone {
+  flex: 2;
+}
+
+.buy-dfy__input {
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 30px 12px;
+
+  @media (min-width: 960px) {
+    padding: 32px 40px 40px 40px;
+  }
+}
+
+.input-card__item--wallet {
+  margin-top: 56px;
+  @media screen and (max-width: 960px) {
+    margin-top: 0;
+  }
+}
+.input-card__label {
+  font-weight: 500;
+  color: $white;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.input-card__field {
+  display: flex;
+  align-items: center;
+}
+
+.go-payment {
+  font-size: 16px;
+}
+
+.input-card__field-icon {
+  position: relative;
+}
+
+.filed-cvv {
+}
+
+.icon-input {
+  position: absolute;
+  top: 15%;
+  right: 12px;
+  z-index: 1;
+  &:hover ~ .img-cvv {
+    display: block;
+    animation: fade-in 0.4s;
+  }
+}
+
+.img-cvv {
+  position: absolute;
+  top: -120px;
+  right: 18px;
+  z-index: 2;
+  display: none;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

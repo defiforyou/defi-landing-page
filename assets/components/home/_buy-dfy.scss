@@ -9,8 +9,15 @@
 }
 
 .buy-dfy-img {
+  img {
+    float: right;
+  }
   @media (min-width: 960px) {
     margin-left: 60px;
+  }
+  @media screen and (max-width: 960px) {
+    display: flex;
+    flex-direction: column;
   }
   .buy-dfy__card {
     display: flex;
@@ -18,6 +25,31 @@
     padding-bottom: 20px;
     @media (max-width: 960px) {
       justify-content: flex-start;
+    }
+  }
+}
+
+.buy-dfy__imgs--small {
+  width: 144px;
+  display: flex;
+  justify-content: space-between;
+  float: right;
+  margin-bottom: 60px;
+  @media screen and (max-width: 960px) {
+    float: left;
+    width: 90px;
+    img {
+      width: 40px;
+    }
+  }
+}
+
+.buy-dfy__img {
+  @media screen and (max-width: 960px) {
+    display: flex;
+    justify-content: center;
+    & img {
+      float: unset;
     }
   }
 }
@@ -48,7 +80,6 @@
 
   @media (min-width: 960px) {
     text-align: right;
-    font-size: 20px;
     margin-bottom: 32px;
   }
 }
@@ -74,7 +105,7 @@
     display: inline-block;
     padding: 16px 26px;
     cursor: pointer;
-    width: 50%;
+    width: 100%;
     text-align: center;
 
     @media (min-width: 960px) {
@@ -133,23 +164,29 @@
       }
     }
   }
-  .tab-1 {
-    //padding-left: 0;
-    //padding-right: 12px;
-    padding: 0;
-    @media (max-width: 960px) {
-      padding-right: 0;
-    }
-    .tab-name {
-      text-align: center;
-      @media (min-width: 600px) {
-        text-align: right;
-      }
-    }
-  }
+  // .tab-1 {
+  //   //padding-left: 0;
+  //   //padding-right: 12px;
+  //   padding: 0;
+  //   @media (max-width: 960px) {
+  //     padding-right: 0;
+  //   }
+  //   .tab-name {
+  //     text-align: center;
+  //     @media (min-width: 600px) {
+  //       // text-align: right;
+  //     }
+  //   }
+  // }
 }
 
 // BUY DFY WITH CREDIT CARD
+.input-card__item--wallet {
+  margin-top: 56px;
+  @media screen and (max-width: 960px) {
+    margin-top: 0;
+  }
+}
 .input-card__label {
   font-weight: 500;
   color: $white;
@@ -203,6 +240,9 @@
   }
 }
 
+.connect-wallet {
+  margin-bottom: 24px;
+}
 // BUY DFY ON EXCHANGES
 .on-exchanges {
   overflow-y: auto;
@@ -229,7 +269,7 @@
   font-size: 20px;
   transition: 0.3s;
 
-  img{
+  img {
     max-height: 45px;
   }
 

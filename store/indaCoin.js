@@ -3,7 +3,7 @@
  */
 export const state = () => ({
   currencies: {
-    currenciesPay: ['USD'],
+    currenciesPay: ['USD', 'EUR', 'GBP'],
     currenciesGet: ['DFY']
   }
 })

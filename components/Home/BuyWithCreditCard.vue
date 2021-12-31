@@ -1,9 +1,54 @@
 <template>
   <div class="input-card">
     <v-form ref="formCard">
+      <div class="input-card__item input-card__item--wallet">
+        <div class="input-card__label mb-4">
+          Wallet address
+        </div>
+
+        <v-text-field
+          v-if="currentAddress"
+          :rules="walletRules"
+          :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
+          :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
+          color="#F8B017"
+          outlined
+          rounded
+          dark
+          readonly
+          dense
+          :value="$vuetify.breakpoint.smAndUp ? currentAddress : $shortAddress(currentAddress, 5)"
+        >
+          <template #append>
+            <v-btn
+              depressed
+              dense
+              color="#F8B017"
+              rounded
+              class="change-wallet"
+              @click="isWallet = true"
+            >
+              Change wallet
+            </v-btn>
+          </template>
+        </v-text-field>
+
+        <v-btn
+          v-else
+          depressed
+          dense
+          outlined
+          color="#F8B017"
+          rounded
+          class="connect-wallet"
+          @click="isWallet = true"
+        >
+          Connect wallet
+        </v-btn>
+      </div>
       <div class="input-card__item">
         <div class="input-card__label">
-          You pay
+          Amount
         </div>
         <div class="input-card__field">
           <v-text-field
@@ -43,7 +88,18 @@
 
       <div class="input-card__item">
         <div class="input-card__label">
-          You get
+          Receive
+          <v-tooltip
+            v-model="show"
+            right
+          >
+            <template #activator="{ on, attrs }">
+              <v-icon small color="#C9CACD" v-bind="attrs" v-on="on">
+                mdi-information
+              </v-icon>
+            </template>
+            <span>Estimated amount</span>
+          </v-tooltip>
         </div>
 
         <div class="input-card__field">
@@ -102,7 +158,7 @@
         </div>
       </div>
 
-      <div class="input-card__item">
+      <!-- <div class="input-card__item">
         <div class="input-card__label">
           Email
         </div>
@@ -120,68 +176,24 @@
           :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
           :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
         />
-      </div>
+      </div> -->
 
       <div class="input-card__item mb-0">
-        <!-- <div class="input-card__label mb-4">
-          Wallet address
-        </div> -->
-
-        <v-text-field
-          v-if="currentAddress"
-          :rules="walletRules"
-          :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
-          :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
-          color="#F8B017"
-          outlined
-          rounded
-          dark
-          readonly
-          dense
-          :value="$vuetify.breakpoint.smAndUp ? currentAddress : $shortAddress(currentAddress, 5)"
-        >
-          <template #append>
-            <v-btn
-              depressed
-              dense
-              color="#F8B017"
-              rounded
-              class="change-wallet"
-              @click="isWallet = true"
-            >
-              Change wallet
-            </v-btn>
-          </template>
-        </v-text-field>
-
-        <v-btn
-          v-else
-          depressed
-          dense
-          outlined
-          color="#F8B017"
-          rounded
-          @click="isWallet = true"
-        >
-          Connect wallet
-        </v-btn>
-
-        <!--        <div class="d-flex align-center checkbox">-->
-        <!--          <v-checkbox-->
-        <!--            v-model="isCheckBox"-->
-        <!--            color="#F8B017"-->
-        <!--            dark-->
-        <!--            @change="value => isDisable = !value"-->
-        <!--          />-->
-
-        <!--          <span class="checkbox-text">-->
-        <!--            I agree with the-->
-        <!--            <a href="https://defi-for-you.gitbook.io/faq/p2p-lending/term-business" target="_blank">Terms of Business</a>-->
-        <!--            and-->
-        <!--            <a href="https://defi-for-you.gitbook.io/faq/p2p-lending/privacy-policy" target="_blank">Privacy Policy</a>-->
-        <!--            of DeFi For You.-->
-        <!--          </span>-->
-        <!--        </div>-->
+        <div class="d-flex align-center checkbox">
+          <v-checkbox
+            v-model="isCheckBox"
+            color="#F8B017"
+            dark
+            @change="value => isDisable = !value"
+          />
+          <span class="checkbox-text">
+            I agree with the
+            <a href="https://defi-for-you.gitbook.io/faq/p2p-lending/term-business" target="_blank">Terms & Conditions and Policies</a>
+            <!-- and
+            <a href="https://defi-for-you.gitbook.io/faq/p2p-lending/privacy-policy" target="_blank">Privacy Policy</a> -->
+            of DeFi For You.
+          </span>
+        </div>
       </div>
     </v-form>
 
@@ -197,12 +209,13 @@
         :disabled="isDisable"
         @click="buyDFY()"
       >
-        Buy DFY
+        Continue
       </v-btn>
     </div>
 
     <ChooseWallet :show.sync="isWallet" />
-    <ModalConfirm :show.sync="isConfirm" :payload="payload" :get-value="getValue" :get-currency="getCurrency" :email="email" />
+    <ModalPersonalInfo :show.sync="isConfirm" :payload="payload" :get-value="getValue" :get-currency="getCurrency" :email="email" />
+    <!-- <ModalConfirm :show.sync="isConfirm" :payload="payload" :get-value="getValue" :get-currency="getCurrency" :email="email" /> -->
   </div>
 </template>
 
@@ -210,11 +223,13 @@
 import get from 'lodash/get'
 import { mapState } from 'vuex'
 import ChooseWallet from '../ChooseWallet'
-import ModalConfirm from '../Home/ModalConfirm'
+// import ModalConfirm from '../Home/ModalConfirm'
+import ModalPersonalInfo from '../Home/ModalPersonalInfo'
 export default {
   components: {
     ChooseWallet,
-    ModalConfirm
+    ModalPersonalInfo
+    // ModalConfirm
   },
 
   data () {
@@ -242,7 +257,7 @@ export default {
         v => !!v || 'Invalid amount',
         v => parseFloat(v) > 0 || 'Invalid amount',
         v => /^\d+(\.\d{0,5})?$/.test(v) || 'must below 5 digit after decimal',
-        v => (v && v.length >= 0 && v.length <= 255) || 'Invalid amount'
+        v => (v && v.length >= 0 && v.length <= 50) || 'Invalid amount'
         // this.payload.payCurrency === 'USD' ? v => parseFloat(v) >= 40 || 'Amount must be greater than 40 USD' : true,
         // this.payload.payCurrency === 'VND' ? v => parseFloat(v) >= 912200 || 'Amount must be greater than 912,200 VND' : true,
         // this.payload.payCurrency === 'AUD' ? v => parseFloat(v) >= 54.35 || 'Amount must be greater than 54.35 AUD' : true,
