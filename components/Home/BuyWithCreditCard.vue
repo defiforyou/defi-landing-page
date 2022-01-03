@@ -207,14 +207,14 @@
         width="114px"
         style="color: #FFFFFF"
         :disabled="isDisable"
-        @click="buyDFY()"
+        @click="goToPersonalInfo"
       >
         Continue
       </v-btn>
     </div>
 
     <ChooseWallet :show.sync="isWallet" />
-    <ModalPersonalInfo :show.sync="isConfirm" :payload="payload" :get-value="getValue" :get-currency="getCurrency" :email="email" />
+    <ModalPersonalInfo :show.sync="isConfirm" :payload="payload" :getValue="getValue" :getCurrency="getCurrency" />
     <!-- <ModalConfirm :show.sync="isConfirm" :payload="payload" :get-value="getValue" :get-currency="getCurrency" :email="email" /> -->
   </div>
 </template>
@@ -235,11 +235,11 @@ export default {
   data () {
     return {
       payload: {
-        pay: '',
+        pay: '1000000',
         payCurrency: 'USD'
       },
-      email: '',
-      getValue: 0,
+      // email: '',
+      getValue: 60000000,
       getCurrency: 'DFY',
       isWallet: false,
       isCheckBox: true,
@@ -256,7 +256,7 @@ export default {
       return [
         v => !!v || 'Invalid amount',
         v => parseFloat(v) > 0 || 'Invalid amount',
-        v => /^\d+(\.\d{0,5})?$/.test(v) || 'must below 5 digit after decimal',
+        v => /^\d+(\.\d{0,5})?$/.test(v) || 'Must below 5 digit after decimal',
         v => (v && v.length >= 0 && v.length <= 50) || 'Invalid amount'
         // this.payload.payCurrency === 'USD' ? v => parseFloat(v) >= 40 || 'Amount must be greater than 40 USD' : true,
         // this.payload.payCurrency === 'VND' ? v => parseFloat(v) >= 912200 || 'Amount must be greater than 912,200 VND' : true,
@@ -277,13 +277,13 @@ export default {
         // this.payload.payCurrency === 'SEK' ? v => parseFloat(v) >= 347.39 || 'Amount must be greater than 347.39 SEK' : true
       ]
     },
-    emailRules () {
-      return [
-        // eslint-disable-next-line no-useless-escape
-        v => /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/.test(v) || 'Invalid email',
-        v => v.length <= 50 || 'Email with maximum 50 character'
-      ]
-    },
+    // emailRules () {
+    //   return [
+    //     // eslint-disable-next-line no-useless-escape
+    //     v => /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/.test(v) || 'Invalid email',
+    //     v => v.length <= 50 || 'Email with maximum 50 character'
+    //   ]
+    // },
     walletRules () {
       return [
         this.currentAddress ? true : v => 'Invalid Address'
@@ -316,7 +316,7 @@ export default {
         this.loadingRate = false
       }
     },
-    buyDFY () {
+    goToPersonalInfo () {
       if (this.$refs.formCard.validate()) {
         if (this.currentAddress) {
           this.isConfirm = true

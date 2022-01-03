@@ -28,7 +28,7 @@
                 color="#45484F"
                 fab
                 :ripple="false"
-                @click="$emit('update:show', false)"
+                @click="handleBack"
               >
                 <ArrowLeftIcon />
               </v-btn>
@@ -45,6 +45,7 @@
                   </div>
                   <div class="input-card__field">
                     <v-text-field
+                      :rules="cardRules"
                       placeholder="Enter card number"
                       type="text"
                       color="#F8B017"
@@ -65,6 +66,7 @@
                   </div>
                   <div class="input-card__field input-card__field-icon">
                     <v-text-field
+                      :rules="cvvRules"
                       placeholder="Enter cvv"
                       type="text"
                       color="#F8B017"
@@ -97,6 +99,7 @@
                   <div class="input-card__field">
                     <v-select
                       v-model="name"
+                      :rules="nameRules"
                       :items="['Mr', 'Mrs', 'Miss', 'Other']"
                       item-value="value"
                       item-text="text"
@@ -132,7 +135,8 @@
                   <div class="input-card__field input-card__field-icon">
                     <v-text-field
                       placeholder="mm/yyyy"
-                      type="text"
+                      type="month"
+                      min="2018-03"
                       color="#F8B017"
                       outlined
                       required
@@ -140,7 +144,7 @@
                       dense
                       dark
                       :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
-                      class="field-amount"
+                      class="field-expiry"
                       :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
                     />
                     <img src="/img/payment_calendar.svg" alt="" class="icon-input">
@@ -189,7 +193,14 @@
         </v-card>
       </client-only>
     </v-dialog>
-    <ModalPaymentConfirm :show.sync="isConfirm" :payload="payload" :get-value="getValue" :get-currency="getCurrency" :email="email" />
+    <ModalPaymentConfirm
+      :show.sync="isConfirm"
+      :payload="payload"
+      :get-value="getValue"
+      :get-currency="getCurrency"
+      :email="email"
+      @isBack="showModalBefore"
+    />
   </div>
 </template>
 
@@ -229,6 +240,7 @@ export default {
       default: ''
     }
   },
+  emits: ['isBack'],
 
   data () {
     return {
@@ -248,30 +260,44 @@ export default {
       set (value) {
         this.$emit('update:show', value)
       }
+    },
+    cardRules () {
+      return [
+        v => !!v || 'Card number is required',
+        v => /^[0-9]+$/.test(v) || 'Invalid Card number',
+        v => (v && v.length >= 0 && v.length <= 50) || 'Card number with maximum 50 digits'
+      ]
+    },
+    cvvRules () {
+      return [
+        v => !!v || 'CVV is required',
+        v => /^[0-9]{3}$/.test(v) || 'Invalid CVV',
+        v => (v && v.length >= 0 && v.length <= 3) || 'CVV with maximum 3 digits'
+      ]
+    },
+    nameRules () {
+      return [
+        v => !!v || 'Name is required',
+        v => (v && v.length >= 0 && v.length <= 100) || 'Name with maximum 100 characters'
+      ]
     }
   },
 
   methods: {
     get,
+    showModalBefore () {
+      this.$emit('update:show', true)
+    },
+    handleBack () {
+      this.$emit('update:show', false)
+      this.$emit('isBack')
+    },
     handleSubmit () {
-      this.isConfirm = true
-      // try {
-      //   this.loading = true
-      //   const { data } = await this.$axios.post(`${process.env.API_URL}/defi-pawn-crypto-service/public-api/v1.0.0/indacoin/transactions`, {
-      //     amountGet: this.getValue,
-      //     amountPay: this.payload.pay,
-      //     currencyGet: this.getCurrency,
-      //     currencyPay: this.payload.payCurrency,
-      //     email: this.email,
-      //     walletAddress: this.currentAddress
-      //   })
-      //   this.loading = false
-      //   window.location = get(data, 'data.transactionUrl')
-      // } catch (err) {
-      //   this.$notify.error({ text: err.message })
-      // } finally {
-      //   this.loading = false
-      // }
+      if (this.$refs.formCard.validate()) {
+        this.$emit('update:show', false)
+        this.isConfirm = true
+      } else
+        this.isConfirm = false
     }
   }
 }

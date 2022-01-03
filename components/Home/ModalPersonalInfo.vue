@@ -32,6 +32,7 @@
                 </div>
                 <div class="input-card__field">
                   <v-text-field
+                    :rules="addressRules"
                     placeholder="Enter address"
                     type="text"
                     color="#F8B017"
@@ -41,7 +42,7 @@
                     dense
                     dark
                     :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
-                    class="field-amount"
+                    class="field-address"
                     :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
                   />
                 </div>
@@ -53,6 +54,8 @@
                   </div>
                   <div class="input-card__field">
                     <v-text-field
+                      v-model="email"
+                      :rules="emailRules"
                       placeholder="Enter email"
                       type="text"
                       color="#F8B017"
@@ -62,7 +65,7 @@
                       dense
                       dark
                       :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
-                      class="field-amount"
+                      class="field-email"
                       :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
                     />
                   </div>
@@ -87,6 +90,8 @@
                       class="select-phone"
                     />
                     <v-text-field
+                      v-model="phone"
+                      :rules="phoneRules"
                       placeholder="Enter phone"
                       type="text"
                       color="#F8B017"
@@ -139,7 +144,7 @@
                       :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
                       :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
                       dark
-                      placeholder="Select city"
+                      placeholder="Select state"
                       rounded
                       append-icon="mdi-chevron-down"
                     />
@@ -152,18 +157,19 @@
                     State
                   </div>
                   <div class="input-card__field">
-                    <v-text-field
-                      placeholder="Enter state"
-                      type="text"
-                      color="#F8B017"
-                      outlined
-                      required
-                      rounded
+                    <v-select
+                      :items="['32', '12']"
+                      item-value="value"
+                      item-text="text"
                       dense
-                      dark
+                      outlined
+                      color="#F8B017"
                       :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
-                      class="field-amount"
                       :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
+                      dark
+                      placeholder="Select city"
+                      rounded
+                      append-icon="mdi-chevron-down"
                     />
                   </div>
                 </div>
@@ -200,14 +206,21 @@
               rounded
               class="go-payment"
               :loading="loading"
-              @click="goToPayment()"
+              @click="goToPaymentInfo"
             >
               Continue
             </v-btn>
           </v-card-actions>
         </v-card>
       </client-only>
-      <ModalPaymentInfo :show.sync="isConfirm" :payload="payload" :get-value="getValue" :get-currency="getCurrency" :email="email" />
+      <ModalPaymentInfo
+        :show.sync="isConfirm"
+        :payload="payload"
+        :get-value="getValue"
+        :get-currency="getCurrency"
+        :email="email"
+        @isBack="showModalBefore"
+      />
     </v-dialog>
   </div>
 </template>
@@ -238,16 +251,13 @@ export default {
     getValue: {
       type: Number,
       default: 0
-    },
-
-    email: {
-      type: String,
-      default: ''
     }
   },
 
   data () {
     return {
+      email: '',
+      phone: '',
       isMore: false,
       loading: false,
       isConfirm: false
@@ -264,13 +274,39 @@ export default {
       set (value) {
         this.$emit('update:show', value)
       }
+    },
+    addressRules () {
+      return [
+        v => !!v || (v && v.length >= 0 && v.length <= 100) || 'Invalid Address Detail'
+      ]
+    },
+    emailRules () {
+      return [
+        // eslint-disable-next-line no-useless-escape
+        v => /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/.test(v) || 'Invalid email',
+        v => v.length <= 50 || 'Email with maximum 50 character'
+      ]
+    },
+    phoneRules () {
+      return [
+        v => !!v || Number(v) > 0 || 'Invalid Phone number',
+        v => /^[0-9]+$/.test(v) || 'Invalid Phone number',
+        v => (v && v.length >= 0 && v.length <= 20) || 'Phone number with maximum 20 digits'
+      ]
     }
   },
 
   methods: {
     get,
-    goToPayment () {
-      this.isConfirm = true
+    showModalBefore () {
+      this.$emit('update:show', true)
+    },
+    goToPaymentInfo () {
+      if (this.$refs.formCard.validate()) {
+        this.$emit('update:show', false)
+        this.isConfirm = true
+      } else
+        this.isConfirm = false
       // try {
       //   this.loading = true
       //   const { data } = await this.$axios.post(`${process.env.API_URL}/defi-pawn-crypto-service/public-api/v1.0.0/indacoin/transactions`, {
