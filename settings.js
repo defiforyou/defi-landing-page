@@ -4,7 +4,7 @@ export const COPYRIGHT = '© 2021 DeFi For You. All rights reserved.'
 export const RECAPTCHA_SITE_KEY = '6LdOtzgaAAAAAAs5iSvp_xM_p9dP9DMEMmSjS1NG'
 export const RECAPTCHA_ENABLED = false
 
-export const VIDEO_BACKGROUND = 'https://s3.ap-southeast-1.amazonaws.com/defiforyou.uk/Defi_Conference_Pawn_08.mp4'
+export const VIDEO_BACKGROUND = 'https://static.defiforyou.uk/Defi_Conference_Pawn_08.mp4'
 
 export const CONTACT = {
   email: 'ask@defiforyou.uk',
