@@ -131,10 +131,8 @@ export default {
           }
         }, {
           text: 'Team',
-          to: {
-            name: 'index',
-            hash: '#team'
-          }
+          href: URLS.team,
+          target: '_blank'
         }, {
           text: 'Contact',
           to: {

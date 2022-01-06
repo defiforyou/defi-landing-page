@@ -67,7 +67,8 @@ export const URLS = {
   joinAndReferral: 'https://app.defiforyou.uk/login?tab=1',
   downloadAndroid: 'https://install.appcenter.ms/users/defi-for-you/apps/defi-for-you/distribution_groups/defi',
   downloadIos: 'https://install.appcenter.ms/users/defi-for-you/apps/defi-for-you-1/distribution_groups/defi',
-  instruction: 'https://docs.google.com/document/d/1VQOSASCCI8aJsWfHAXjZAdkpTQHv9fyiXUryYp1sr_g/edit#'
+  instruction: 'https://docs.google.com/document/d/1VQOSASCCI8aJsWfHAXjZAdkpTQHv9fyiXUryYp1sr_g/edit#',
+  team: '/executive-team'
 }
 
 export const PARTNERS = [{
