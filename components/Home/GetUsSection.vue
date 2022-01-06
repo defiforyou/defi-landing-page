@@ -13,10 +13,10 @@
 
         <div class="text">
           <h2 class="text--title">
-            Get us on mobile
+            Download the mobile app now
           </h2>
-          <p>Access DeFi For You from home and anywhere else on the world.</p>
-          <p>It’s easy, convenient and secure at your fingertips with the DeFi For You Mobile App.</p>
+          <p>Access a seamless crypto wallet and explore all the features of DeFi For You on your smartphone.</p>
+          <p>Download the DeFi For You app on iOS and Android now following the links below.</p>
           <p class="coming-soon">
             Coming soon on:
           </p>
@@ -42,10 +42,10 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  padding-bottom: 4rem;
+  padding: 4rem 0;
 
   @include media(sm-down) {
-    padding-bottom: 1rem;
+    padding: 1rem 0;
   }
 }
 

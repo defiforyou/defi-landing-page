@@ -38,7 +38,7 @@
           <v-col cols="12" md="6" class="order-1 order-md-2">
             <div class="buy-dfy-img">
               <h2 class="buy-dfy__title">
-                Buy DFY Tokens
+                Buy DFY tokens now to join the next chapter in the people’s finance
               </h2>
               <!--              <div class="buy-dfy__card">-->
               <!--                <div>-->
@@ -48,7 +48,7 @@
               <!--              </div>-->
               <div class="buy-dfy__subtext">
                 <p class="text-left text-md-right mb-0">
-                  Buy DFY tokens by through multiple channels.
+                  Get DFY tokens early to maximise your potential in the platform later on down the line.
                 </p>
               </div>
 
