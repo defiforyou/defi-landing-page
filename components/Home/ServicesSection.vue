@@ -3,30 +3,30 @@ section.services
   .container
     .dfy-flex.layout
       .introduce.half
-        h2.title Our Services
+        h2.title What is DeFi For You?
         .description
-          p DeFi For You provides a platform for users to engage in peer-to-peer lending and borrowing.
+          p DeFi For You is a crypto pawnbroking and NFT trading platform.
       .features.half
         .feature
           img.icon(src="/img/service.pawnbrocker-service.svg" alt="Collateralized DeFi Loans" width="64" height="64")
           div
             .name Collateralized DeFi Loans
-            p Borrowers can use NFTs, crypto assets, and physical assets represented by NFTs as collateral on the platform.
+            p Unlock liquidity in your crypto assets and NFTs by using them as collateral for a P2P secured stable coin loan.
         .feature
           img.icon(src="/img/service.physical-asset-collateral.svg" alt="Physical Asset Collateral" width="64" height="64")
           div
-            .name Physical Asset Collateral
-            p We are building a network of licensed and insured evaluators in the UK to facilitate the storage, valuation, and tokenization of physical assets for collateral.
+            .name Physical Asset NFTs
+            p Securely store physical assets with our pawnbroker partners and have them turned into Hard NFTs which can be used as collateral in our DeFi lending platform.
         .feature
           img.icon(src="/img/service.save.svg" alt="NFT Collateral" width="64" height="64")
           div
-            .name NFT Collateral
-            p Borrowers can stake digital NFTs as collateral for DeFi loans, allowing them to finance their non-fungible tokens without selling them.
+            .name Crypto Pawnbroking
+            p Become a crypto pawnbroker and earn passive income by issuing secured stablecoin loans to users on the DeFi For You platform.
         .feature
           img.icon(src="/img/service.crypto-pawnbroking.svg" alt="Crypto Pawnbroking" width="64" height="64")
           div
-            .name Crypto Pawnbroking
-            p Users can set up their own crypto pawn shops on DeFi For You, meaning they can accept physical assets as collateral for cryptocurrency loans.
+            .name Trade NFTs
+            p Put your NFTs on the market, or use them as collateral for a stablecoin loan. Get more liquidity from your NFTs without selling them.
 </template>
 
 <style lang="scss" scoped>
