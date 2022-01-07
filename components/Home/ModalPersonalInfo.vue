@@ -26,173 +26,66 @@
           </v-card-title>
           <div class="buy-dfy__input">
             <v-form ref="formCard">
-              <div class="input-card__item">
-                <div class="input-card__label">
-                  Address
-                </div>
-                <div class="input-card__field">
-                  <v-text-field
-                    :rules="addressRules"
-                    placeholder="Enter address"
-                    type="text"
-                    color="#F8B017"
-                    outlined
-                    required
-                    rounded
-                    dense
-                    dark
-                    :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
-                    class="field-address"
-                    :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
-                  />
-                </div>
+              <InputTextField
+                label="Address"
+                :text.sync="address"
+                :rules="addressRules"
+                placeholder="Enter address"
+                style="width: 100%"
+                has-text
+              />
+              <div class="input-card__cols">
+                <InputTextField
+                  :text.sync="email"
+                  label="Email"
+                  placeholder="Enter email"
+                  :rules="emailRules"
+                  has-text
+                />
+                <InputTextField
+                  label="Phone"
+                  :select.sync="selectPhone"
+                  :text.sync="phone"
+                  has-select
+                  :items="[1,2,3]"
+                  class-select="select-phone"
+                  class-input="field-phone"
+                  placeholder="Enter phone"
+                  :rules="phoneRules"
+                  has-text
+                />
               </div>
               <div class="input-card__cols">
-                <div class="input-card__col">
-                  <div class="input-card__label">
-                    Email
-                  </div>
-                  <div class="input-card__field">
-                    <v-text-field
-                      v-model="email"
-                      :rules="emailRules"
-                      placeholder="Enter email"
-                      type="text"
-                      color="#F8B017"
-                      outlined
-                      required
-                      rounded
-                      dense
-                      dark
-                      :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
-                      class="field-email"
-                      :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
-                    />
-                  </div>
-                </div>
-                <div class="input-card__col">
-                  <div class="input-card__label">
-                    Phone
-                  </div>
-                  <div class="input-card__field">
-                    <v-select
-                      :items="['32', '12']"
-                      item-value="value"
-                      item-text="text"
-                      dense
-                      outlined
-                      color="#F8B017"
-                      :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
-                      :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
-                      dark
-                      rounded
-                      append-icon="mdi-chevron-down"
-                      class="select-phone"
-                    />
-                    <v-text-field
-                      v-model="phone"
-                      :rules="phoneRules"
-                      placeholder="Enter phone"
-                      type="text"
-                      color="#F8B017"
-                      outlined
-                      required
-                      rounded
-                      dense
-                      dark
-                      :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
-                      class="field-phone"
-                      :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
-                    />
-                  </div>
-                </div>
+                <InputTextField
+                  label="Country"
+                  :items="[1,2,3,4]"
+                  placeholder-select="Select country"
+                  :select.sync="country"
+                  has-select
+                />
+                <InputTextField
+                  label="City"
+                  :items="[2,3,4]"
+                  placeholder-select="Select city"
+                  has-select
+                  :select.sync="city"
+                />
               </div>
               <div class="input-card__cols">
-                <div class="input-card__col">
-                  <div class="input-card__label">
-                    Country
-                  </div>
-                  <div class="input-card__field">
-                    <v-select
-                      :items="['32', '12']"
-                      item-value="value"
-                      item-text="text"
-                      dense
-                      outlined
-                      color="#F8B017"
-                      :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
-                      :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
-                      dark
-                      placeholder="Select country"
-                      rounded
-                      append-icon="mdi-chevron-down"
-                    />
-                  </div>
-                </div>
-                <div class="input-card__col">
-                  <div class="input-card__label">
-                    City
-                  </div>
-                  <div class="input-card__field">
-                    <v-select
-                      :items="['32', '12']"
-                      item-value="value"
-                      item-text="text"
-                      dense
-                      outlined
-                      color="#F8B017"
-                      :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
-                      :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
-                      dark
-                      placeholder="Select state"
-                      rounded
-                      append-icon="mdi-chevron-down"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div class="input-card__cols">
-                <div class="input-card__col">
-                  <div class="input-card__label">
-                    State
-                  </div>
-                  <div class="input-card__field">
-                    <v-select
-                      :items="['32', '12']"
-                      item-value="value"
-                      item-text="text"
-                      dense
-                      outlined
-                      color="#F8B017"
-                      :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
-                      :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
-                      dark
-                      placeholder="Select city"
-                      rounded
-                      append-icon="mdi-chevron-down"
-                    />
-                  </div>
-                </div>
-                <div class="input-card__col">
-                  <div class="input-card__label">
-                    Postal
-                  </div>
-                  <div class="input-card__field">
-                    <v-text-field
-                      placeholder="Enter postal"
-                      type="text"
-                      color="#F8B017"
-                      outlined
-                      required
-                      rounded
-                      dense
-                      dark
-                      :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
-                      class="field-phone"
-                      :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
-                    />
-                  </div>
-                </div>
+                <InputTextField
+                  label="State"
+                  :select.sync="state"
+                  :items="['a', 'b', 'c']"
+                  placeholder-select="Select state"
+                  has-select
+                />
+                <InputTextField
+                  label="Postal"
+                  :text.sync="postal"
+                  :rules="postalRules"
+                  placeholder="Enter postal"
+                  has-text
+                />
               </div>
             </v-form>
           </div>
@@ -229,9 +122,9 @@
 import get from 'lodash/get'
 import { mapState } from 'vuex'
 import ModalPaymentInfo from '../Home/ModalPaymentInfo'
-
+import InputTextField from '../Input'
 export default {
-  components: { ModalPaymentInfo },
+  components: { ModalPaymentInfo, InputTextField },
   props: {
     show: {
       type: Boolean,
@@ -256,8 +149,10 @@ export default {
 
   data () {
     return {
-      email: '',
-      phone: '',
+      address: 'abc',
+      email: 'a@gmail.com',
+      selectPhone: '+84',
+      phone: '1212',
       isMore: false,
       loading: false,
       isConfirm: false
@@ -284,7 +179,8 @@ export default {
       return [
         // eslint-disable-next-line no-useless-escape
         v => /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/.test(v) || 'Invalid email',
-        v => v.length <= 50 || 'Email with maximum 50 character'
+        // eslint-disable-next-line no-mixed-operators
+        v => v && v.length <= 50 || 'Email with maximum 50 character'
       ]
     },
     phoneRules () {
@@ -302,6 +198,8 @@ export default {
       this.$emit('update:show', true)
     },
     goToPaymentInfo () {
+      // eslint-disable-next-line no-console
+      console.log('phone', this.selectPhone, this.phone, this.email)
       if (this.$refs.formCard.validate()) {
         this.$emit('update:show', false)
         this.isConfirm = true

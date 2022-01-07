@@ -8,7 +8,8 @@
   display: flex;
   justify-content: flex-end;
   padding: 20px 30px;
-  @media screen and (max-width: 960px) {
+
+  @include media(sm-down) {
     padding: 20px 12px;
     button {
       width: 30px;
@@ -22,7 +23,7 @@
   font-size: 32px;
   line-height: 39px;
   margin: 0 auto;
-  @media screen and (max-width: 960px) {
+  @include media(sm-down) {
     font-size: 20px;
     line-height: 24px;
   }
@@ -30,49 +31,37 @@
 .input-card__cols {
   display: flex;
   justify-content: space-between;
-  @media screen and (max-width: 960px) {
+  @include media(sm-down) {
     display: block;
   }
 }
 .input-card__col {
   width: 44%;
-  @media screen and (max-width: 960px) {
+  @include media(sm-down) {
     width: 100%;
   }
 }
 
 .select-phone {
-  // margin-left: 0;
   flex: 1;
   margin-right: 16px !important;
 }
 .field-phone {
   flex: 2;
-  & input::-webkit-outer-spin-button,
-  & input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-
-  /* Firefox */
-  & input[type="number"] {
-    -moz-appearance: textfield;
-  }
 }
 
 .buy-dfy__input {
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   padding: 30px 12px;
-
-  @media (min-width: 960px) {
+  @include media(sm) {
     padding: 32px 40px 40px 40px;
   }
 }
 
 .input-card__item--wallet {
   margin-top: 56px;
-  @media screen and (max-width: 960px) {
+  @include media(sm-down) {
     margin-top: 0;
   }
 }
@@ -86,18 +75,7 @@
 .input-card__field {
   display: flex;
   align-items: center;
-
-  // .select-phone {
-  //   max-width: 110px;
-  //   margin-left: 8px;
-
-  //   @media (min-width: 960px) {
-  //     max-width: 120px;
-  //     margin-left: 16px;
-  //   }
-  // }
 }
-
 .go-payment {
   font-size: 16px;
 }

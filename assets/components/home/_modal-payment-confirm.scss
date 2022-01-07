@@ -44,13 +44,23 @@
   font-size: 32px;
   line-height: 39px;
   margin: 0 auto;
-  @media screen and (max-width: 960px) {
+  @include media(sm-down) {
     font-size: 20px;
     line-height: 24px;
   }
+  @include media(xs) {
+    display: none;
+  }
+  &-mobile{
+    display: none;
+    @include media(sm-down) {
+    display: none;
+  }
+  @include media(xs) {
+    display: block;
+  }
+  }
 }
-
-
 
 .scroll {
   overflow-y: scroll
@@ -69,10 +79,12 @@
 }
 
 .modal-confirm__label {
-  margin-bottom: 10px;
+  // margin-bottom: 10px;
   font-size: 14px;
-
-  @media (min-width: 960px) {
+  @include media(sm-down){
+    min-width: 90px;
+  }
+  @include media(sm) {
     font-size: 20px;
     min-width: 120px;
     margin-bottom: 0;
@@ -81,19 +93,16 @@
 
 .modal-confirm__data {
   font-size: 16px;
-
-  @media (min-width: 960px) {
+  @include media(sm) {
     font-size: 20px;
   }
   a {
     color: #2596FF;
     text-decoration: underline;
-
     font-size: 14px;
-
-    @media (min-width: 960px) {
-      font-size: 20px;
-    }
+    @include media(sm) {
+    font-size: 20px;
+  }
   }
 }
 

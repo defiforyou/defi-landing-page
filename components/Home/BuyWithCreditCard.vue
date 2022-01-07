@@ -214,7 +214,7 @@
     </div>
 
     <ChooseWallet :show.sync="isWallet" />
-    <ModalPersonalInfo :show.sync="isConfirm" :payload="payload" :getValue="getValue" :getCurrency="getCurrency" />
+    <ModalPersonalInfo :show.sync="isConfirm" :payload="payload" :get-value="getValue" :get-currency="getCurrency" :email="email" />
     <!-- <ModalConfirm :show.sync="isConfirm" :payload="payload" :get-value="getValue" :get-currency="getCurrency" :email="email" /> -->
   </div>
 </template>

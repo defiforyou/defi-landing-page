@@ -7,22 +7,8 @@
       class="dfy-personal-info"
     >
       <client-only>
-        <v-card :height="$vuetify.breakpoint.xsOnly ? '450px' : undefined" class="scroll">
-          <div class="button-close">
-            <v-btn
-              small
-              color="#45484F"
-              fab
-              :ripple="false"
-              @click="$emit('update:show', false)"
-            >
-              <v-icon color="#ffffff">
-                mdi-close
-              </v-icon>
-            </v-btn>
-          </div>
-
-          <v-card-title class="d-flex align-center justify-space-between">
+        <v-card :height="$vuetify.breakpoint.xsOnly ? '607px' : undefined" class="scroll">
+          <div class="header">
             <div class="button-back">
               <v-btn
                 color="#45484F"
@@ -34,32 +20,36 @@
               </v-btn>
               <span class="label-back">Back</span>
             </div>
-            <span class="dialog-title">Payment information</span>
+            <v-card-title class="d-flex align-center justify-space-between">
+              <span class="dialog-title">Confirm information</span>
+            </v-card-title>
+            <div class="button-close">
+              <v-btn
+                small
+                color="#45484F"
+                fab
+                :ripple="false"
+                @click="$emit('update:show', false)"
+              >
+                <v-icon color="#ffffff">
+                  mdi-close
+                </v-icon>
+              </v-btn>
+            </div>
+          </div>
+          <v-card-title class="d-flex align-center justify-center mb-4">
+            <span class="dialog-title-mobile">Payment information</span>
           </v-card-title>
           <div class="buy-dfy__input">
             <v-form ref="formCard">
               <div class="input-card__cols">
-                <div class="input-card__col">
-                  <div class="input-card__label">
-                    Card Number
-                  </div>
-                  <div class="input-card__field">
-                    <v-text-field
-                      :rules="cardRules"
-                      placeholder="Enter card number"
-                      type="text"
-                      color="#F8B017"
-                      outlined
-                      required
-                      rounded
-                      dense
-                      dark
-                      :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
-                      class="field-amount"
-                      :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
-                    />
-                  </div>
-                </div>
+                <InputTextField
+                  label="Card Number"
+                  :rules="cardRules"
+                  :text.sync="cardNumber"
+                  placeholder="Enter card number"
+                  has-text
+                />
                 <div class="input-card__col">
                   <div class="input-card__label">
                     Cvv
@@ -79,7 +69,7 @@
                       class="field-cvv"
                       :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
                     />
-                    <v-icon class="icon-input" color="#C9CACD">
+                    <v-icon class="icon-input icon-info" color="#C9CACD">
                       mdi-information
                     </v-icon>
                     <v-img
@@ -92,86 +82,81 @@
                 </div>
               </div>
               <div class="input-card__cols">
-                <div class="input-card__col">
-                  <div class="input-card__label">
-                    Name
-                  </div>
-                  <div class="input-card__field">
-                    <v-select
-                      v-model="name"
-                      :rules="nameRules"
-                      :items="['Mr', 'Mrs', 'Miss', 'Other']"
-                      item-value="value"
-                      item-text="text"
-                      dense
-                      outlined
-                      color="#F8B017"
-                      :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
-                      :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
-                      dark
-                      rounded
-                      append-icon="mdi-chevron-down"
-                      class="select-phone"
-                    />
-                    <v-text-field
-                      placeholder="Enter name"
-                      type="text"
-                      color="#F8B017"
-                      outlined
-                      required
-                      rounded
-                      dense
-                      dark
-                      :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
-                      class="field-phone"
-                      :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
-                    />
-                  </div>
-                </div>
+                <InputTextField
+                  label="Name"
+                  :select.sync="gender"
+                  :text.sync="name"
+                  has-select
+                  :items="['Mr', 'Mrs', 'Miss', 'Other']"
+                  class-select="select-phone"
+                  class-input="field-phone"
+                  placeholder="Enter name"
+                  :rules="nameRules"
+                  :value-gender="gender"
+                  has-text
+                />
                 <div class="input-card__col">
                   <div class="input-card__label">
                     Expiry date
                   </div>
                   <div class="input-card__field input-card__field-icon">
-                    <v-text-field
-                      placeholder="mm/yyyy"
-                      type="month"
-                      min="2018-03"
-                      color="#F8B017"
-                      outlined
-                      required
-                      rounded
-                      dense
-                      dark
-                      :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
-                      class="field-expiry"
-                      :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
-                    />
-                    <img src="/img/payment_calendar.svg" alt="" class="icon-input">
+                    <v-app id="inspire">
+                      <v-menu
+                        ref="menu"
+                        v-model="menu"
+                        :close-on-content-click="false"
+                        :return-value.sync="date"
+                        transition="scale-transition"
+                        offset-y
+                        max-width="290px"
+                        min-width="auto"
+                      >
+                        <template #activator="{ on, attrs }">
+                          <v-text-field
+                            v-model="formatDate"
+                            color="#F8B017"
+                            placeholder="mm/yyyy"
+                            outlined
+                            required
+                            rounded
+                            dense
+                            dark
+                            :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
+                            class="field-expiry"
+                            :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
+                            readonly
+                            v-bind="attrs"
+                            v-on="on"
+                          />
+                          <img src="/img/payment_calendar.svg" alt="" class="icon-input">
+                        </template>
+                        <v-date-picker
+                          v-model="date"
+                          type="month"
+                          :min="new Date().toISOString().slice(0, 7)"
+                          no-title
+                          scrollable
+                        >
+                          <v-spacer />
+                          <v-btn
+                            text
+                            color="primary"
+                            @click="$refs.menu.save(date)"
+                          >
+                            OK
+                          </v-btn>
+                        </v-date-picker>
+                      </v-menu>
+                    </v-app>
                   </div>
                 </div>
               </div>
               <div class="input-card__cols">
-                <div class="input-card__col">
-                  <div class="input-card__label">
-                    Amount
-                  </div>
-                  <div class="input-card__field">
-                    <v-text-field
-                      type="text"
-                      color="#F8B017"
-                      outlined
-                      required
-                      rounded
-                      dense
-                      dark
-                      suffix="USD"
-                      :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
-                      class="field-amount"
-                      :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
-                    />
-                  </div>
-                </div>
+                <InputTextField
+                  label="Amount"
+                  suffix="USD"
+                  has-text
+                />
               </div>
             </v-form>
           </div>
@@ -206,13 +191,16 @@
 
 <script>
 import get from 'lodash/get'
+import moment from 'moment'
 import { mapState } from 'vuex'
 import { ArrowLeftIcon } from 'vue-feather-icons'
 import ModalPaymentConfirm from '../Home/ModalPaymentConfirm'
+import InputTextField from '../Input'
 export default {
   components: {
     ArrowLeftIcon,
-    ModalPaymentConfirm
+    ModalPaymentConfirm,
+    InputTextField
   },
   props: {
     show: {
@@ -244,15 +232,20 @@ export default {
 
   data () {
     return {
+      date: '',
       isMore: false,
       loading: false,
-      name: 'Mr',
+      gender: 'Mr',
+      name: 'Tran Tam',
       isConfirm: false
     }
   },
 
   computed: {
     ...mapState('walletStore', ['currentAddress']),
+    formatDate () {
+      return this.date === '' ? '' : moment(this.date).format('MM/YYYY')
+    },
     isShow: {
       get () {
         return this.show
@@ -282,7 +275,6 @@ export default {
       ]
     }
   },
-
   methods: {
     get,
     showModalBefore () {
@@ -294,6 +286,7 @@ export default {
     },
     handleSubmit () {
       if (this.$refs.formCard.validate()) {
+        console.log('submit', this.gender, this.name)
         this.$emit('update:show', false)
         this.isConfirm = true
       } else
@@ -304,5 +297,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "~assets/components/home/_modal-payment.scss";
+@import "~assets/components/home/_modal-payment-info.scss";
 </style>

@@ -5,7 +5,7 @@
     dark
   >
     <client-only>
-      <v-card :height="$vuetify.breakpoint.xsOnly ? '450px' : undefined" class="scroll">
+      <v-card :height="$vuetify.breakpoint.xsOnly ? '342px' : undefined" class="scroll">
         <div class="header">
           <div class="button-back">
             <v-btn
@@ -35,10 +35,12 @@
             </v-btn>
           </div>
         </div>
-
+        <v-card-title class="d-flex align-center justify-center mb-4">
+          <span class="dialog-title-mobile">Confirm information</span>
+        </v-card-title>
         <v-card-text>
           <div class="modal-confirm">
-            <div class="d-md-flex align-center mb-4">
+            <div class="d-flex align-center mb-4">
               <div class="modal-confirm__label">
                 Amount:
               </div>
@@ -47,7 +49,7 @@
               </div>
             </div>
 
-            <div class="d-md-flex align-center mb-4">
+            <div class="d-flex align-center mb-4">
               <div class="modal-confirm__label">
                 Receive
                 <v-tooltip

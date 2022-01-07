@@ -5,11 +5,11 @@
     dark
   >
     <client-only>
-      <v-card :height="$vuetify.breakpoint.xsOnly ? '450px' : undefined" class="scroll">
+      <v-card :height="$vuetify.breakpoint.xsOnly ? '380px' : undefined" class="scroll card">
         <v-img
           max-height="175"
           max-width="200"
-          class="mt-10 mb-4 mr-auto ml-auto"
+          class="mb-4 mr-auto ml-auto"
           src="/img/payment_success.png"
         />
         <p class="title">
@@ -26,9 +26,8 @@
             height="40px"
             width="160px"
             rounded
-            class="go-payment"
             :loading="loading"
-            @click="handleSubmit"
+            @click="handleSubmit()"
           >
             OK
           </v-btn>
@@ -58,6 +57,7 @@ export default {
   },
   methods: {
     handleSubmit () {
+      console.log('submit')
       this.$emit('update:show', false)
     }
   }
@@ -65,11 +65,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.card{
+  padding-top: 40px;
+  @include media(xs){
+    padding-top: 28px;
+  }
+}
+
 .title{
   font-weight: 500;
   font-size: 20px;
   line-height: 24px;
   text-align: center;
   color: #fff;
+  @include media(xs){
+    font-size: 16px;
+    line-height: 19px;
+  }
 }
 </style>

@@ -8,7 +8,7 @@
   display: flex;
   justify-content: flex-end;
   padding: 20px 30px;
-  @media screen and (max-width: 960px) {
+  @include media(sm-down) {
     padding: 20px 12px;
     button {
       width: 30px;
@@ -17,7 +17,15 @@
   }
 }
 
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+}
+
 .button-back {
+  display: flex;
   button {
     width: 20px;
     height: 20px;
@@ -40,27 +48,39 @@
   font-size: 32px;
   line-height: 39px;
   margin: 0 auto;
-  @media screen and (max-width: 960px) {
+  @include media(sm-down) {
     font-size: 20px;
     line-height: 24px;
+  }
+  @include media(xs) {
+    display: none;
+  }
+  &-mobile {
+    display: none;
+    @include media(sm-down) {
+      display: none;
+    }
+    @include media(xs) {
+      display: block;
+    }
   }
 }
 .input-card__cols {
   display: flex;
   justify-content: space-between;
-  @media screen and (max-width: 960px) {
+  @include media(sm-down) {
     display: block;
   }
 }
 .input-card__col {
   width: 44%;
-  @media screen and (max-width: 960px) {
+  @include media(sm-down) {
+    display: block;
     width: 100%;
   }
 }
 
 .select-phone {
-  // margin-left: 0;
   flex: 1;
   margin-right: 16px !important;
 }
@@ -73,14 +93,14 @@
   border-bottom-right-radius: 20px;
   padding: 30px 12px;
 
-  @media (min-width: 960px) {
+  @include media(sm) {
     padding: 32px 40px 40px 40px;
   }
 }
 
 .input-card__item--wallet {
   margin-top: 56px;
-  @media screen and (max-width: 960px) {
+  @include media(sm) {
     margin-top: 0;
   }
 }
@@ -94,6 +114,18 @@
 .input-card__field {
   display: flex;
   align-items: center;
+  & .v-application {
+    width: 100%;
+    background: unset;
+  }
+}
+
+::v-deep .field-expiry > .v-input__control > .v-input__slot {
+  padding-right: 0 !important;
+}
+
+.v-input__slot {
+  padding-right: 0;
 }
 
 .go-payment {
@@ -102,17 +134,21 @@
 
 .input-card__field-icon {
   position: relative;
+  z-index: 2;
 }
 
 .icon-input {
   position: absolute;
   top: 15%;
   right: 12px;
-  z-index: 1;
+  z-index: -1;
   &:hover ~ .img-cvv {
     display: block;
     animation: fade-in 0.4s;
   }
+}
+.icon-info{
+  z-index: 1 !important;
 }
 
 .img-cvv {
