@@ -158,16 +158,17 @@ export default {
       //     'dfy-button--overlay': true
       //   }
       // },
+      // {
+      //   text: 'Farming',
+      //   href: URLS.farming,
+      //   target: '_blank',
+      //   classes: {
+      //     'dfy-button': true,
+      //     'dfy-button--overlay': true
+      //     // 'dfy-button--coming-soon': true
+      //   }
+      // },
       {
-        text: 'Farming',
-        href: URLS.farming,
-        target: '_blank',
-        classes: {
-          'dfy-button': true,
-          'dfy-button--overlay': true
-          // 'dfy-button--coming-soon': true
-        }
-      }, {
         text: 'Trade NFTs',
         href: URLS.trade,
         target: '_blank',
