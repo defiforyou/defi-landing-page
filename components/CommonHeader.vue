@@ -108,13 +108,7 @@ export default {
   data () {
     return {
       expanded: false,
-      sticky: true,
-      items: [
-        { title: 'Click Me' },
-        { title: 'Click Me' },
-        { title: 'Click Me' },
-        { title: 'Click Me 2' }
-      ]
+      sticky: true
     }
   },
 
@@ -154,24 +148,27 @@ export default {
           'dfy-button--overlay': true,
           'dfy-button--beta': false
         }
-      }, {
-        text: 'Staking',
-        href: URLS.staking,
-        target: '_blank',
-        classes: {
-          'dfy-button': true,
-          'dfy-button--overlay': true
-        }
-      }, {
-        text: 'Farming',
-        href: URLS.farming,
-        target: '_blank',
-        classes: {
-          'dfy-button': true,
-          'dfy-button--overlay': true
-          // 'dfy-button--coming-soon': true
-        }
-      }, {
+      },
+      // {
+      //   text: 'Staking',
+      //   href: URLS.staking,
+      //   target: '_blank',
+      //   classes: {
+      //     'dfy-button': true,
+      //     'dfy-button--overlay': true
+      //   }
+      // },
+      // {
+      //   text: 'Farming',
+      //   href: URLS.farming,
+      //   target: '_blank',
+      //   classes: {
+      //     'dfy-button': true,
+      //     'dfy-button--overlay': true
+      //     // 'dfy-button--coming-soon': true
+      //   }
+      // },
+      {
         text: 'Trade NFTs',
         href: URLS.trade,
         target: '_blank',
