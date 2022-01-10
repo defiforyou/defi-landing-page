@@ -57,8 +57,8 @@ export default {
   },
   methods: {
     handleSubmit () {
-      console.log('submit')
-      this.$emit('update:show', false)
+      // eslint-disable-next-line vue/no-mutating-props
+      this.show = false
     }
   }
 }

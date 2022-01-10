@@ -44,7 +44,7 @@
                 />
                 <InputTextField
                   label="Phone"
-                  :select.sync="selectPhone"
+                  :select.sync="idPhone"
                   :text.sync="phone"
                   has-select
                   :items="[1,2,3]"
@@ -108,10 +108,6 @@
       </client-only>
       <ModalPaymentInfo
         :show.sync="isConfirm"
-        :payload="payload"
-        :get-value="getValue"
-        :get-currency="getCurrency"
-        :email="email"
         @isBack="showModalBefore"
       />
     </v-dialog>
@@ -129,21 +125,6 @@ export default {
     show: {
       type: Boolean,
       default: false
-    },
-
-    payload: {
-      type: Object,
-      default: () => {}
-    },
-
-    getCurrency: {
-      type: String,
-      default: 'DFY'
-    },
-
-    getValue: {
-      type: Number,
-      default: 0
     }
   },
 
@@ -151,8 +132,12 @@ export default {
     return {
       address: 'abc',
       email: 'a@gmail.com',
-      selectPhone: '+84',
+      idPhone: '+84',
       phone: '1212',
+      country: '',
+      city: '',
+      state: '',
+      postal: '',
       isMore: false,
       loading: false,
       isConfirm: false
@@ -189,6 +174,9 @@ export default {
         v => /^[0-9]+$/.test(v) || 'Invalid Phone number',
         v => (v && v.length >= 0 && v.length <= 20) || 'Phone number with maximum 20 digits'
       ]
+    },
+    postalRules () {
+      return true
     }
   },
 
@@ -199,7 +187,7 @@ export default {
     },
     goToPaymentInfo () {
       // eslint-disable-next-line no-console
-      console.log('phone', this.selectPhone, this.phone, this.email)
+      console.log('phone', this.idPhone, this.phone, this.email)
       if (this.$refs.formCard.validate()) {
         this.$emit('update:show', false)
         this.isConfirm = true

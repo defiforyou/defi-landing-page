@@ -45,7 +45,7 @@
                 Amount:
               </div>
               <div class="modal-confirm__data">
-                {{ $numberFormatDecimal(payload.pay) }} {{ payload.payCurrency }}
+                {{ $numberFormatDecimal(valueUser.pay) }} {{ valueUser.payCurrency }}
               </div>
             </div>
 
@@ -66,10 +66,10 @@
               <div class="d-flex modal-confirm__data">
                 <img
                   class="select-img"
-                  :src="$mapImageCurrency(getCurrency)"
+                  :src="$mapImageCurrency(valueUser.getCurrency)"
                   alt
                 >
-                {{ $numberFormatDecimal(getValue) }}&nbsp;
+                {{ $numberFormatDecimal(valueUser.getValue) }}&nbsp;
                 <span> DFY</span>
               </div>
             </div>
@@ -111,26 +111,6 @@ export default {
     show: {
       type: Boolean,
       default: false
-    },
-
-    payload: {
-      type: Object,
-      default: () => {}
-    },
-
-    getCurrency: {
-      type: String,
-      default: 'DFY'
-    },
-
-    getValue: {
-      type: Number,
-      default: 0
-    },
-
-    email: {
-      type: String,
-      default: ''
     }
   },
   emits: ['isBack'],
@@ -143,6 +123,7 @@ export default {
 
   computed: {
     ...mapState('walletStore', ['currentAddress']),
+    ...mapState('payment', ['valueUser']),
     isShow: {
       get () {
         return this.show

@@ -31,6 +31,7 @@
         outlined
         required
         rounded
+        :readonly="readonly"
         dense
         dark
         :suffix="suffix?suffix:''"
@@ -52,6 +53,10 @@ export default {
     items: {
       type: Array,
       default: () => []
+    },
+    readonly: {
+      type: Boolean,
+      default: false
     },
     classSelect: {
       type: String,

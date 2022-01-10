@@ -153,9 +153,11 @@
               </div>
               <div class="input-card__cols">
                 <InputTextField
+                  :text.sync="valueUser.pay"
                   label="Amount"
                   suffix="USD"
                   has-text
+                  readonly
                 />
               </div>
             </v-form>
@@ -180,10 +182,6 @@
     </v-dialog>
     <ModalPaymentConfirm
       :show.sync="isConfirm"
-      :payload="payload"
-      :get-value="getValue"
-      :get-currency="getCurrency"
-      :email="email"
       @isBack="showModalBefore"
     />
   </div>
@@ -206,43 +204,26 @@ export default {
     show: {
       type: Boolean,
       default: false
-    },
-
-    payload: {
-      type: Object,
-      default: () => {}
-    },
-
-    getCurrency: {
-      type: String,
-      default: 'DFY'
-    },
-
-    getValue: {
-      type: Number,
-      default: 0
-    },
-
-    email: {
-      type: String,
-      default: ''
     }
   },
   emits: ['isBack'],
 
   data () {
     return {
+      cardNumber: '',
+      cvv: '',
+      gender: 'Mr',
+      name: 'Tran Tam',
       date: '',
       isMore: false,
       loading: false,
-      gender: 'Mr',
-      name: 'Tran Tam',
       isConfirm: false
     }
   },
 
   computed: {
     ...mapState('walletStore', ['currentAddress']),
+    ...mapState('payment', ['valueUser']),
     formatDate () {
       return this.date === '' ? '' : moment(this.date).format('MM/YYYY')
     },

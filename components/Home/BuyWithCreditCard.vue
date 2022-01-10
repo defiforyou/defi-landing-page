@@ -104,7 +104,7 @@
 
         <div class="input-card__field">
           <v-text-field
-            v-model="getValue"
+            v-model="payload.getValue"
             type="number"
             placeholder="Enter get"
             color="#F8B017"
@@ -120,7 +120,7 @@
           />
 
           <v-select
-            v-model="getCurrency"
+            v-model="payload.getCurrency"
             :items="currencies.currenciesGet"
             dense
             outlined
@@ -214,14 +214,14 @@
     </div>
 
     <ChooseWallet :show.sync="isWallet" />
-    <ModalPersonalInfo :show.sync="isConfirm" :payload="payload" :get-value="getValue" :get-currency="getCurrency" :email="email" />
+    <ModalPersonalInfo :show.sync="isConfirm" />
     <!-- <ModalConfirm :show.sync="isConfirm" :payload="payload" :get-value="getValue" :get-currency="getCurrency" :email="email" /> -->
   </div>
 </template>
 
 <script>
 import get from 'lodash/get'
-import { mapState } from 'vuex'
+import { mapState, mapMutations } from 'vuex'
 import ChooseWallet from '../ChooseWallet'
 // import ModalConfirm from '../Home/ModalConfirm'
 import ModalPersonalInfo from '../Home/ModalPersonalInfo'
@@ -236,11 +236,11 @@ export default {
     return {
       payload: {
         pay: '1000000',
-        payCurrency: 'USD'
+        payCurrency: 'USD',
+        getValue: 60000000,
+        getCurrency: 'DFY'
       },
       // email: '',
-      getValue: 60000000,
-      getCurrency: 'DFY',
       isWallet: false,
       isCheckBox: true,
       isConfirm: false,
@@ -307,9 +307,9 @@ export default {
     async getRate () {
       try {
         this.loadingRate = true
-        const { data } = await this.$axios.get(`https://indacoin.com/api/GetCoinConvertAmount/${this.payload.payCurrency}/${this.getCurrency}/${this.payload.pay}`)
+        const { data } = await this.$axios.get(`https://indacoin.com/api/GetCoinConvertAmount/${this.payload.payCurrency}/${this.payload.getCurrency}/${this.payload.pay}`)
         this.loadingRate = false
-        this.getValue = data
+        this.payload.getValue = data
       } catch (e) {
         console.log(e)
       } finally {
@@ -320,6 +320,7 @@ export default {
       if (this.$refs.formCard.validate()) {
         if (this.currentAddress) {
           this.isConfirm = true
+          this.$store.commit('payment/GET_VALUE_USER', this.payload)
         } else {
           this.$notify.error({ text: 'Please connect your wallet first' })
         }
