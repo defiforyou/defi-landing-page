@@ -221,9 +221,9 @@
 <script>
 import get from 'lodash/get'
 import { mapState } from 'vuex'
-import ChooseWallet from '../ChooseWallet'
+import ChooseWallet from '../ChooseWallet.vue'
 // import ModalConfirm from '../Home/ModalConfirm'
-import ModalPersonalInfo from '../Home/ModalPersonalInfo'
+import ModalPersonalInfo from './ModalPersonalInfo'
 export default {
   components: {
     ChooseWallet,

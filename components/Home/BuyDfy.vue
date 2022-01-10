@@ -66,8 +66,8 @@
 </template>
 
 <script>
+import BuyWithCreditCard from '../Payment/BuyWithCreditCard.vue'
 import BuyOnExchanges from './BuyOnExchanges'
-import BuyWithCreditCard from './BuyWithCreditCard'
 export default {
   components: {
     BuyWithCreditCard,

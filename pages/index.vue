@@ -20,6 +20,7 @@
       v-app(style="background-color: #171A23")
         home-buy-dfy#buy-dfy
         //home-how-work
+        payment-alert
       home-defi-for-you-section#defi-for-you
       home-solution-section#solution
       home-services-section#services
@@ -34,7 +35,7 @@
 // import moment from 'moment'
 // import get from 'lodash/get'
 import { mapActions, mapState, mapMutations } from 'vuex'
-
+import Alert from '../components/Payment/Alert.vue'
 export default {
   data () {
     return {

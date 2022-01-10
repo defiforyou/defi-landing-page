@@ -58,14 +58,14 @@
               <div class="input-card__cols">
                 <InputTextField
                   label="Country"
-                  :items="[1,2,3,4]"
+                  :items="countries"
                   placeholder-select="Select country"
                   :select.sync="country"
                   has-select
                 />
                 <InputTextField
                   label="City"
-                  :items="[2,3,4]"
+                  :items="cities"
                   placeholder-select="Select city"
                   has-select
                   :select.sync="city"
@@ -115,9 +115,9 @@
 
 <script>
 import get from 'lodash/get'
-import { mapState } from 'vuex'
-import ModalPaymentInfo from '../Home/ModalPaymentInfo'
-import InputTextField from '../Input'
+import { mapState, mapActions } from 'vuex'
+import ModalPaymentInfo from './ModalPaymentInfo'
+import InputTextField from './Input'
 export default {
   components: { ModalPaymentInfo, InputTextField },
   props: {
@@ -142,9 +142,9 @@ export default {
       isConfirm: false
     }
   },
-
   computed: {
     ...mapState('walletStore', ['currentAddress']),
+    ...mapState('payment', ['countries', 'cities']),
     isShow: {
       get () {
         return this.show
@@ -178,15 +178,24 @@ export default {
     //   return []
     // }
   },
-
+  watch: {
+    country () {
+      console.log('watch', this.country)
+      this.getCities(this.country)
+    }
+  },
+  created () {
+    this.getCountries()
+  },
   methods: {
+    ...mapActions('payment', ['getCountries', 'getCities']),
     get,
     showModalBefore () {
       this.$emit('update:show', true)
     },
     goToPaymentInfo () {
       // eslint-disable-next-line no-console
-      console.log('phone', this.idPhone, this.phone, this.email)
+      console.log('phone', this.idPhone, this.phone, this.email, this.country, this.city)
       if (this.$refs.formCard.validate()) {
         this.$emit('update:show', false)
         this.isConfirm = true

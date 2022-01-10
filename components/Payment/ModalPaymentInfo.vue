@@ -191,8 +191,8 @@ import get from 'lodash/get'
 import moment from 'moment'
 import { mapState } from 'vuex'
 import { ArrowLeftIcon } from 'vue-feather-icons'
-import ModalPaymentConfirm from '../Home/ModalPaymentConfirm'
-import InputTextField from '../Input'
+import ModalPaymentConfirm from './ModalPaymentConfirm'
+import InputTextField from './Input'
 export default {
   components: {
     ArrowLeftIcon,

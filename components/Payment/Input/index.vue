@@ -7,8 +7,8 @@
       <v-select
         v-if="hasSelect"
         :items="items"
-        item-value="value"
-        item-text="text"
+        item-value="id"
+        item-text="name"
         dense
         outlined
         color="#F8B017"

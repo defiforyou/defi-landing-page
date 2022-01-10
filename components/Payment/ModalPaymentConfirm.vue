@@ -93,20 +93,18 @@
         </v-card-text>
       </v-card>
     </client-only>
-    <ModalPaymentSuccess
-      :show.sync="isConfirm"
-    />
+    <Alert />
   </v-dialog>
 </template>
 
 <script>
 import get from 'lodash/get'
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 import { ArrowLeftIcon } from 'vue-feather-icons'
-import ModalPaymentSuccess from '../Home/ModalPaymentSuccess'
+import Alert from './Alert'
 
 export default {
-  components: { ArrowLeftIcon, ModalPaymentSuccess },
+  components: { ArrowLeftIcon, Alert },
   props: {
     show: {
       type: Boolean,
@@ -124,7 +122,7 @@ export default {
 
   computed: {
     ...mapState('walletStore', ['currentAddress']),
-    ...mapState('payment', ['valueUser']),
+    ...mapState('payment', ['valueUser', 'isShowing']),
     isShow: {
       get () {
         return this.show
@@ -141,26 +139,29 @@ export default {
       this.$emit('update:show', false)
       this.$emit('isBack')
     },
+    ...mapActions('payment', ['showSuccessMessage', 'showErrorMessage']),
+
     handlePay () {
-      this.$emit('update:show', false)
-      this.isConfirm = true
-    //   try {
-    //     this.loading = true
-    //     const { data } = await this.$axios.post(`${process.env.API_URL}/defi-pawn-crypto-service/public-api/v1.0.0/indacoin/transactions`, {
-    //       amountGet: this.getValue,
-    //       amountPay: this.payload.pay,
-    //       currencyGet: this.getCurrency,
-    //       currencyPay: this.payload.payCurrency,
-    //       email: this.email,
-    //       walletAddress: this.currentAddress
-    //     })
-    //     this.loading = false
-    //     window.location = get(data, 'data.transactionUrl')
-    //   } catch (err) {
-    //     this.$notify.error({ text: err.message })
-    //   } finally {
-    //     this.loading = false
-    //   }
+      // this.$emit('update:show', false)
+      // this.isConfirm = true
+      try {
+        // this.loading = true
+        // const { data } = await this.$axios.post(`${process.env.API_URL}/defi-pawn-crypto-service/public-api/v1.0.0/indacoin/transactions`, {
+        //   amountGet: this.getValue,
+        //   amountPay: this.payload.pay,
+        //   currencyGet: this.getCurrency,
+        //   currencyPay: this.payload.payCurrency,
+        //   email: this.email,
+        //   walletAddress: this.currentAddress
+        // })
+        this.loading = false
+        // window.location = get(data, 'data.transactionUrl')
+        this.showSuccessMessage()
+      } catch (err) {
+        // this.showErrorMessage()
+      } finally {
+        this.loading = false
+      }
     }
   }
 }
