@@ -45,6 +45,11 @@ export default {
       default: false
     }
   },
+  data () {
+    return {
+      loading: false
+    }
+  },
   computed: {
     isShow: {
       get () {

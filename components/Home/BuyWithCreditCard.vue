@@ -90,7 +90,6 @@
         <div class="input-card__label">
           Receive
           <v-tooltip
-            v-model="show"
             right
           >
             <template #activator="{ on, attrs }">
@@ -221,7 +220,7 @@
 
 <script>
 import get from 'lodash/get'
-import { mapState, mapMutations } from 'vuex'
+import { mapState } from 'vuex'
 import ChooseWallet from '../ChooseWallet'
 // import ModalConfirm from '../Home/ModalConfirm'
 import ModalPersonalInfo from '../Home/ModalPersonalInfo'

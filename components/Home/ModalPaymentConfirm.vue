@@ -117,7 +117,8 @@ export default {
   data () {
     return {
       isMore: false,
-      loading: false
+      loading: false,
+      isConfirm: false
     }
   },
 

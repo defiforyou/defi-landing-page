@@ -83,8 +83,8 @@ export default {
       default: ''
     },
     rules: {
-      type: Function,
-      default: () => {}
+      type: Array,
+      default: () => []
     },
     label: {
       type: String,
@@ -101,6 +101,11 @@ export default {
     classInput: {
       type: String,
       default: ''
+    }
+  },
+  data () {
+    return {
+      select: ''
     }
   },
   methods: {

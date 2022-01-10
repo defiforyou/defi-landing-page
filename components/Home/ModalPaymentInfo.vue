@@ -103,7 +103,6 @@
                     <v-app id="inspire">
                       <v-menu
                         ref="menu"
-                        v-model="menu"
                         :close-on-content-click="false"
                         :return-value.sync="date"
                         transition="scale-transition"
@@ -267,7 +266,6 @@ export default {
     },
     handleSubmit () {
       if (this.$refs.formCard.validate()) {
-        console.log('submit', this.gender, this.name)
         this.$emit('update:show', false)
         this.isConfirm = true
       } else

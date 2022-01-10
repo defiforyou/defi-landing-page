@@ -82,7 +82,6 @@
                 <InputTextField
                   label="Postal"
                   :text.sync="postal"
-                  :rules="postalRules"
                   placeholder="Enter postal"
                   has-text
                 />
@@ -174,10 +173,10 @@ export default {
         v => /^[0-9]+$/.test(v) || 'Invalid Phone number',
         v => (v && v.length >= 0 && v.length <= 20) || 'Phone number with maximum 20 digits'
       ]
-    },
-    postalRules () {
-      return true
     }
+    // postalRules () {
+    //   return []
+    // }
   },
 
   methods: {
