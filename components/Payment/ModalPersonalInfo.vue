@@ -44,13 +44,16 @@
                 />
                 <InputTextField
                   label="Phone"
-                  :select.sync="idPhone"
+                  :select.sync="phoneSelect"
+                  value-select="phone_code"
+                  text-select="phone_code"
                   :text.sync="phone"
                   has-select
-                  :items="[1,2,3]"
+                  :items="phones"
                   class-select="select-phone"
                   class-input="field-phone"
                   placeholder="Enter phone"
+                  :value-default="getPhoneDefault"
                   :rules="phoneRules"
                   has-text
                 />
@@ -59,28 +62,30 @@
                 <InputTextField
                   label="Country"
                   :items="countries"
+                  value-select="id"
+                  text-select="name"
                   placeholder-select="Select country"
                   :select.sync="country"
                   has-select
                 />
                 <InputTextField
                   label="City"
-                  :items="cities"
-                  placeholder-select="Select city"
-                  has-select
-                  :select.sync="city"
+                  placeholder-select="Enter city"
+                  has-text
+                  :text.sync="city"
                 />
               </div>
               <div class="input-card__cols">
                 <InputTextField
                   label="State"
-                  :select.sync="state"
+                  :text.sync="state"
                   :items="['a', 'b', 'c']"
                   placeholder-select="Select state"
                   has-select
                 />
                 <InputTextField
-                  label="Postal"
+                  :label="labelPostal"
+                  :rules="postalRules"
                   :text.sync="postal"
                   placeholder="Enter postal"
                   has-text
@@ -97,7 +102,6 @@
               width="160px"
               rounded
               class="go-payment"
-              :loading="loading"
               @click="goToPaymentInfo"
             >
               Continue
@@ -107,6 +111,7 @@
       </client-only>
       <ModalPaymentInfo
         :show.sync="isConfirm"
+        :data-entered="dataEntered"
         @isBack="showModalBefore"
       />
     </v-dialog>
@@ -115,7 +120,7 @@
 
 <script>
 import get from 'lodash/get'
-import { mapState, mapActions } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import ModalPaymentInfo from './ModalPaymentInfo'
 import InputTextField from './Input'
 export default {
@@ -131,20 +136,25 @@ export default {
     return {
       address: 'abc',
       email: 'a@gmail.com',
-      idPhone: '+84',
+      phoneSelect: '',
       phone: '1212',
       country: '',
       city: '',
       state: '',
       postal: '',
-      isMore: false,
-      loading: false,
-      isConfirm: false
+      isConfirm: false,
+      dataEntered: {}
     }
   },
   computed: {
-    ...mapState('walletStore', ['currentAddress']),
-    ...mapState('payment', ['countries', 'cities']),
+    ...mapGetters('payment', ['countries', 'cities', 'phones']),
+    getPhoneDefault () {
+      return this.phones.filter(phone => phone.name === this.country.name).map(item => item.phone_code).join('')
+    },
+    labelPostal () {
+      const postalArray = ['United Kingdom', 'Russia', 'Austria', 'Belgium', 'Bulgaria', 'Croatia', 'Republic of Cyprus', 'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Ireland', 'Italy', 'Latvia', 'Lithuania', 'Luxembourg', 'Malta', 'Netherlands', 'Poland', 'Portugal', 'Romania', 'Slovakia', 'Slovenia', 'Spain', 'Sweden']
+      return postalArray.includes(this.country.name) ? 'Postal' : 'Zip'
+    },
     isShow: {
       get () {
         return this.show
@@ -173,51 +183,56 @@ export default {
         v => /^[0-9]+$/.test(v) || 'Invalid Phone number',
         v => (v && v.length >= 0 && v.length <= 20) || 'Phone number with maximum 20 digits'
       ]
+    },
+    postalRules () {
+      return [
+        v => !!v || (this.labelPostal === 'Postal' ? 'Postal code is required' : 'Zip code is required '),
+        // eslint-disable-next-line no-mixed-operators
+        v => v && v.length <= 50 || (this.labelPostal === 'Postal' ? 'Invalid Postal code' : 'Invalid Zip code')
+      ]
+    },
+    stateRules () {
+      return [
+        v => !!v || 'State is required',
+        // eslint-disable-next-line no-mixed-operators
+        v => v && v.length <= 50 || 'Invalid state'
+      ]
     }
-    // postalRules () {
-    //   return []
-    // }
   },
   watch: {
     country () {
-      console.log('watch', this.country)
-      this.getCities(this.country)
+      this.getCities(this.country.id)
+      // eslint-disable-next-line no-unused-expressions
+      this.labelPostal
     }
   },
   created () {
     this.getCountries()
+    this.getPhones()
   },
   methods: {
-    ...mapActions('payment', ['getCountries', 'getCities']),
+    ...mapActions('payment', ['getCountries', 'getCities', 'getPhones']),
     get,
     showModalBefore () {
       this.$emit('update:show', true)
     },
     goToPaymentInfo () {
       // eslint-disable-next-line no-console
-      console.log('phone', this.idPhone, this.phone, this.email, this.country, this.city)
       if (this.$refs.formCard.validate()) {
+        this.dataEntered = {
+          address: this.address,
+          email: this.email,
+          phone: this.getPhoneDefault + this.phone,
+          country: this.city.country_id,
+          city: this.city.state_code,
+          state: this.state,
+          postal: this.postal
+        }
+        console.log('data', this.dataEntered)
         this.$emit('update:show', false)
         this.isConfirm = true
       } else
         this.isConfirm = false
-      // try {
-      //   this.loading = true
-      //   const { data } = await this.$axios.post(`${process.env.API_URL}/defi-pawn-crypto-service/public-api/v1.0.0/indacoin/transactions`, {
-      //     amountGet: this.getValue,
-      //     amountPay: this.payload.pay,
-      //     currencyGet: this.getCurrency,
-      //     currencyPay: this.payload.payCurrency,
-      //     email: this.email,
-      //     walletAddress: this.currentAddress
-      //   })
-      //   this.loading = false
-      //   window.location = get(data, 'data.transactionUrl')
-      // } catch (err) {
-      //   this.$notify.error({ text: err.message })
-      // } finally {
-      //   this.loading = false
-      // }
     }
   }
 }

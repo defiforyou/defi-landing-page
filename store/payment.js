@@ -9,7 +9,8 @@ export const state = () => ({
     getCurrency: ''
   },
   countries: null,
-  cities: null,
+  cities: [],
+  phones: [],
   isShowing: false,
   text: '',
   type: null
@@ -19,6 +20,9 @@ export const state = () => ({
  * initial getters
  */
 export const getters = {
+  valueUser (state) {
+    return state.valueUser
+  },
   isShowing (state) {
     return state.isShowing
   },
@@ -30,6 +34,12 @@ export const getters = {
   },
   countries (state) {
     return state.countries
+  },
+  cities (state) {
+    return state.cities
+  },
+  phones (state) {
+    return state.phones
   }
 }
 
@@ -54,21 +64,44 @@ export const actions = {
       type: 'error'
     })
   },
-  async getCountries ({ commit }, payload) {
-    const { data } = await this.$axios.get(
-      'https://dev2.gwapi.defiforyou.uk/defi-user-service/public-api/v1.0.0/countries'
-    )
-    commit('GET_COUNTRIES', {
+  getValueUser ({ commit }, payload = {}) {
+    commit('GET_VALUE_USER', {
       ...payload,
-      data
+      valueUser: payload
     })
   },
-  async getCities ({ commit }, payload) {
-    console.log('id', payload)
-    const { data } = await this.$axios.get(
-      `https://dev2.gwapi.defiforyou.uk/defi-user-service/public-api/v1.0.0/countries/${payload}`
-    )
-    commit('GET_CITIES', data)
+  async getCountries ({ commit }, payload) {
+    try {
+      const { data } = await this.$axios.get(
+        'https://dev2.gwapi.defiforyou.uk/defi-user-service/public-api/v1.0.0/countries'
+      )
+      commit('GET_COUNTRIES', {
+        ...payload,
+        data
+      })
+    } catch (err) {
+      console.log(err)
+    }
+  },
+  async getCities ({ commit }, id) {
+    try {
+      const { data } = await this.$axios.get(
+        `https://dev2.gwapi.defiforyou.uk/defi-user-service/public-api/v1.0.0/countries/${id}`
+      )
+      commit('GET_CITIES', data)
+    } catch (err) {
+      console.log('err', err)
+    }
+  },
+  async getPhones ({ commit }) {
+    try {
+      const { data } = await this.$axios.get(
+        'https://dev2.gwapi.defiforyou.uk/defi-user-service/public-api/v1.0.0/phonecodes'
+      )
+      commit('GET_PHONES', data)
+    } catch (err) {
+      console.log('err', err)
+    }
   }
 }
 
@@ -80,13 +113,13 @@ export const mutations = {
     state.valueUser = payload
   },
   GET_COUNTRIES (state, payload) {
-    const countries = payload.data.map(item => item.name)
     state.countries = payload.data
-    console.log('payload', countries)
   },
   GET_CITIES (state, payload) {
-    console.log('pay', payload)
     state.cities = payload
+  },
+  GET_PHONES (state, payload) {
+    state.phones = payload
   },
   CLOSE_DIALOG (state) {
     state.isShowing = false

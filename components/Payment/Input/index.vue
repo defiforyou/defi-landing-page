@@ -7,8 +7,8 @@
       <v-select
         v-if="hasSelect"
         :items="items"
-        item-value="id"
-        item-text="name"
+        :item-value="valueSelect"
+        :item-text="textSelect"
         dense
         outlined
         color="#F8B017"
@@ -16,10 +16,11 @@
         :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
         dark
         rounded
+        return-object
         append-icon="mdi-chevron-down"
         :class="classSelect"
         :placeholder="placeholderSelect"
-        :value="valueGender? valueGender: select"
+        :value="valueDefault? valueDefault: select"
         @input="onSelect($event)"
       />
       <v-text-field
@@ -54,6 +55,14 @@ export default {
       type: Array,
       default: () => []
     },
+    valueSelect: {
+      type: String,
+      default: ''
+    },
+    textSelect: {
+      type: String,
+      default: ''
+    },
     readonly: {
       type: Boolean,
       default: false
@@ -78,7 +87,7 @@ export default {
       type: String,
       default: ''
     },
-    valueGender: {
+    valueDefault: {
       type: String,
       default: ''
     },

@@ -220,7 +220,7 @@
 
 <script>
 import get from 'lodash/get'
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 import ChooseWallet from '../ChooseWallet.vue'
 // import ModalConfirm from '../Home/ModalConfirm'
 import ModalPersonalInfo from './ModalPersonalInfo'
@@ -303,6 +303,7 @@ export default {
 
   methods: {
     get,
+    ...mapActions('payment', ['getValueUser']),
     async getRate () {
       try {
         this.loadingRate = true
@@ -319,7 +320,7 @@ export default {
       if (this.$refs.formCard.validate()) {
         if (this.currentAddress) {
           this.isConfirm = true
-          this.$store.commit('payment/GET_VALUE_USER', this.payload)
+          this.getValueUser(this.payload)
         } else {
           this.$notify.error({ text: 'Please connect your wallet first' })
         }

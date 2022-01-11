@@ -71,8 +71,6 @@ export default {
       }
     }
   },
-  watch: {
-  },
   methods: {
     ...mapActions('payment', ['closeMessageDialog'])
   }

@@ -57,6 +57,7 @@
                   <div class="input-card__field input-card__field-icon">
                     <v-text-field
                       :rules="cvvRules"
+                      :text.sync="cvv"
                       placeholder="Enter cvv"
                       type="text"
                       color="#F8B017"
@@ -92,7 +93,7 @@
                   class-input="field-phone"
                   placeholder="Enter name"
                   :rules="nameRules"
-                  :value-gender="gender"
+                  :value-default="gender"
                   has-text
                 />
                 <div class="input-card__col">
@@ -170,7 +171,6 @@
               width="160px"
               rounded
               class="go-payment"
-              :loading="loading"
               @click="handleSubmit()"
             >
               Submit
@@ -189,7 +189,7 @@
 <script>
 import get from 'lodash/get'
 import moment from 'moment'
-import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
 import { ArrowLeftIcon } from 'vue-feather-icons'
 import ModalPaymentConfirm from './ModalPaymentConfirm'
 import InputTextField from './Input'
@@ -203,6 +203,10 @@ export default {
     show: {
       type: Boolean,
       default: false
+    },
+    dataEntered: {
+      type: Object,
+      default: null
     }
   },
   emits: ['isBack'],
@@ -214,15 +218,14 @@ export default {
       gender: 'Mr',
       name: 'Tran Tam',
       date: '',
-      isMore: false,
-      loading: false,
-      isConfirm: false
+      isConfirm: false,
+      dataEnteredNew: this.dataEntered
     }
   },
 
   computed: {
-    ...mapState('walletStore', ['currentAddress']),
-    ...mapState('payment', ['valueUser']),
+    ...mapGetters('walletStore', ['currentAddress']),
+    ...mapGetters('payment', ['valueUser']),
     formatDate () {
       return this.date === '' ? '' : moment(this.date).format('MM/YYYY')
     },
@@ -266,6 +269,16 @@ export default {
     },
     handleSubmit () {
       if (this.$refs.formCard.validate()) {
+        // eslint-disable-next-line vue/no-mutating-props
+        this.dataEnteredNew = {
+          ...this.dataEntered,
+          cardNumber: this.cardNumber,
+          gender: this.gender,
+          name: this.name,
+          cvv: this.cvv,
+          date: this.date
+        }
+        console.log('datanew', this.dataEnteredNew)
         this.$emit('update:show', false)
         this.isConfirm = true
       } else
