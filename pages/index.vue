@@ -35,7 +35,6 @@
 // import moment from 'moment'
 // import get from 'lodash/get'
 import { mapActions, mapState, mapMutations } from 'vuex'
-import Alert from '../components/Payment/Alert.vue'
 export default {
   data () {
     return {

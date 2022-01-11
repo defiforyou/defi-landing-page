@@ -99,7 +99,7 @@
 
 <script>
 import get from 'lodash/get'
-import { mapState, mapActions } from 'vuex'
+import { mapGetters, mapState, mapActions } from 'vuex'
 import { ArrowLeftIcon } from 'vue-feather-icons'
 import Alert from './Alert'
 
@@ -122,7 +122,7 @@ export default {
 
   computed: {
     ...mapState('walletStore', ['currentAddress']),
-    ...mapState('payment', ['valueUser', 'isShowing']),
+    ...mapGetters('payment', ['valueUser', 'isShowing']),
     isShow: {
       get () {
         return this.show

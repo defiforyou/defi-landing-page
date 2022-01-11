@@ -272,10 +272,10 @@ export default {
         // eslint-disable-next-line vue/no-mutating-props
         this.dataEnteredNew = {
           ...this.dataEntered,
-          cardNumber: this.cardNumber,
+          cardNumber: btoa(this.cardNumber),
           gender: this.gender,
           name: this.name,
-          cvv: this.cvv,
+          cvv: btoa(this.cvv),
           date: this.date
         }
         console.log('datanew', this.dataEnteredNew)

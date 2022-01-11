@@ -65,10 +65,8 @@ export const actions = {
     })
   },
   getValueUser ({ commit }, payload = {}) {
-    commit('GET_VALUE_USER', {
-      ...payload,
-      valueUser: payload
-    })
+    console.log('payload', payload)
+    commit('GET_VALUE_USER', payload)
   },
   async getCountries ({ commit }, payload) {
     try {
@@ -80,7 +78,7 @@ export const actions = {
         data
       })
     } catch (err) {
-      console.log(err)
+      return err
     }
   },
   async getCities ({ commit }, id) {
@@ -90,7 +88,7 @@ export const actions = {
       )
       commit('GET_CITIES', data)
     } catch (err) {
-      console.log('err', err)
+      return err
     }
   },
   async getPhones ({ commit }) {
