@@ -45,7 +45,7 @@
                 Amount:
               </div>
               <div class="modal-confirm__data">
-                {{ $numberFormatDecimal(valueUser.pay) }} {{ valueUser.payCurrency }}
+                {{ $numberFormatDecimal(valueUser.amountPay) }} {{ valueUser.payCurrency }}
               </div>
             </div>
 
@@ -66,10 +66,10 @@
               <div class="d-flex modal-confirm__data">
                 <img
                   class="select-img"
-                  :src="$mapImageCurrency(valueUser.getCurrency)"
+                  :src="$mapImageCurrency(valueUser.currencyGet)"
                   alt
                 >
-                {{ $numberFormatDecimal(valueUser.getValue) }}&nbsp;
+                {{ $numberFormatDecimal(valueUser.amountGet) }}&nbsp;
                 <span> DFY</span>
               </div>
             </div>

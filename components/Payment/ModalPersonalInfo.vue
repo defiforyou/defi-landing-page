@@ -42,11 +42,11 @@
                   :rules="emailRules"
                   has-text
                 />
-                <InputTextField
+                <!-- <InputTextField
                   label="Phone"
                   :select.sync="phoneSelect"
                   value-select="phone_code"
-                  text-select="phone_code"
+                  :text-select="showPhoneSelect"
                   :text.sync="phone"
                   has-select
                   :items="phones"
@@ -56,7 +56,60 @@
                   :value-default="getPhoneDefault"
                   :rules="phoneRules"
                   has-text
-                />
+                /> -->
+                <div class="input-card__col">
+                  <div class="input-card__label">
+                    Phone
+                  </div>
+                  <div class="input-card__field">
+                    <v-select
+                      v-model="phones[getIndexCountry]"
+                      :items="phones"
+                      dense
+                      outlined
+                      color="#F8B017"
+                      :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
+                      :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
+                      dark
+                      class="select-phone"
+                      rounded
+                      return-object
+                      append-icon="mdi-chevron-down"
+                    >
+                      <template #selection="{ item }">
+                        <img
+                          :src="`https://flagcdn.com/h20/${item.country_code.toLowerCase()}.png`"
+                        ><span>
+                          {{ item.phone_code.includes('+')?item.phone_code: `+${item.phone_code}` }}
+                        </span>
+                      </template>
+                      <template #item="{ item }">
+                        <img
+                          :src="`https://flagcdn.com/h20/${item.country_code.toLowerCase()}.png`"
+                          style="width: 20px; height: 20px; border-radius: 50%;
+                        margin-right: 10px; object-fit: cover;"
+                        >{{ item.phone_code }}
+                      </template>
+                    </v-select>
+                    <v-text-field
+                      v-model="phone"
+                      placeholder="Enter phone"
+                      :rules="phoneRules"
+                      type="text"
+                      color="#F8B017"
+                      outlined
+                      required
+                      rounded
+                      dense
+                      dark
+                      class="field-phone"
+                      :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
+                      :style="
+                        $vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'
+                      "
+                    />
+                  </div>
+                </div>
               </div>
               <div class="input-card__cols">
                 <InputTextField
@@ -73,13 +126,16 @@
                   placeholder-select="Enter city"
                   has-text
                   :text.sync="city"
+                  :rules="cityRules"
                 />
               </div>
               <div class="input-card__cols">
                 <InputTextField
                   label="State"
-                  :text.sync="state"
-                  :items="['a', 'b', 'c']"
+                  :select.sync="state"
+                  :items="states"
+                  value-select="id"
+                  text-select="name"
                   placeholder-select="Select state"
                   has-select
                 />
@@ -111,7 +167,6 @@
       </client-only>
       <ModalPaymentInfo
         :show.sync="isConfirm"
-        :data-entered="dataEntered"
         @isBack="showModalBefore"
       />
     </v-dialog>
@@ -136,20 +191,22 @@ export default {
     return {
       address: 'abc',
       email: 'a@gmail.com',
-      phoneSelect: '',
-      phone: '1212',
+      phone: '',
       country: '',
       city: '',
       state: '',
       postal: '',
-      isConfirm: false,
-      dataEntered: {}
+      isConfirm: false
     }
   },
   computed: {
-    ...mapGetters('payment', ['countries', 'cities', 'phones']),
-    getPhoneDefault () {
-      return this.phones.filter(phone => phone.name === this.country.name).map(item => item.phone_code).join('')
+    ...mapGetters('payment', ['countries', 'states', 'phones', 'valueUser']),
+    getIndexCountry () {
+      return this.phones.findIndex((item) => item.name === this.country.name)
+    },
+    convertPhone () {
+      const phoneCode = this.phones[this.getIndexCountry].phone_code
+      return phoneCode.charAt(0) === '+' ? phoneCode.slice(1) + this.phone : phoneCode + this.phone
     },
     labelPostal () {
       const postalArray = ['United Kingdom', 'Russia', 'Austria', 'Belgium', 'Bulgaria', 'Croatia', 'Republic of Cyprus', 'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Ireland', 'Italy', 'Latvia', 'Lithuania', 'Luxembourg', 'Malta', 'Netherlands', 'Poland', 'Portugal', 'Romania', 'Slovakia', 'Slovenia', 'Spain', 'Sweden']
@@ -197,11 +254,20 @@ export default {
         // eslint-disable-next-line no-mixed-operators
         v => v && v.length <= 50 || 'Invalid state'
       ]
+    },
+    cityRules () {
+      return [
+        v => !!v || 'City is required',
+        // eslint-disable-next-line no-mixed-operators
+        v => v && v.length <= 50 || 'Invalid city',
+        // eslint-disable-next-line no-mixed-operators
+        v => v && /^[a-zA-Z0-9 _]*[a-zA-Z0-9][a-zA-Z0-9 _]*$/.test(v) || 'Invalid city'
+      ]
     }
   },
   watch: {
     country () {
-      this.getCities(this.country.id)
+      this.getStates(this.country.id)
       // eslint-disable-next-line no-unused-expressions
       this.labelPostal
     }
@@ -211,24 +277,24 @@ export default {
     this.getPhones()
   },
   methods: {
-    ...mapActions('payment', ['getCountries', 'getCities', 'getPhones']),
+    ...mapActions('payment', ['getCountries', 'getStates', 'getPhones', 'getValueUser']),
     get,
     showModalBefore () {
       this.$emit('update:show', true)
     },
     goToPaymentInfo () {
-      // eslint-disable-next-line no-console
       if (this.$refs.formCard.validate()) {
-        this.dataEntered = {
+        const dataEntered = {
           address: this.address,
           email: this.email,
-          phone: this.getPhoneDefault + this.phone,
-          country: this.city.country_id,
-          city: this.city.state_code,
-          state: this.state,
+          phone: this.convertPhone,
+          country: this.country.id,
+          city: this.city,
+          state: this.state.state_code,
           postal: this.postal
         }
-        console.log('data', this.dataEntered)
+        console.log('data', dataEntered)
+        this.getValueUser(dataEntered)
         this.$emit('update:show', false)
         this.isConfirm = true
       } else

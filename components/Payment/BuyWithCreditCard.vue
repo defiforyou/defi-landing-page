@@ -135,7 +135,7 @@
             <template slot="selection" slot-scope="data">
               <img
                 class="select-img"
-                :src="$mapImageCurrency(data.item)"
+                :src="$mapImageCurrency(currencies.currenciesGet.join(''))"
                 alt
               >
               <span style="font-weight: 500;font-size: 16px;">{{ data.item }}</span>

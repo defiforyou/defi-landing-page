@@ -45,6 +45,29 @@
 .select-phone {
   flex: 1;
   margin-right: 16px !important;
+  & img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 5px;
+    object-fit: cover;
+  }
+}
+::v-deep.select-phone.v-text-field--rounded
+  > .v-input__control
+  > .v-input__slot {
+  padding: 0 10px;
+}
+::v-deep.select-phone .v-select__selections {
+  flex-wrap: nowrap !important;
+  & span{
+    display:-webkit-box;
+    -webkit-line-clamp:1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+  }
 }
 .field-phone {
   flex: 2;

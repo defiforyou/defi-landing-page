@@ -3,13 +3,13 @@
  */
 export const state = () => ({
   valueUser: {
-    pay: 0,
-    payCurrency: '',
-    getValue: 0,
-    getCurrency: ''
+    amountPay: 0,
+    currencyPay: '',
+    amountGet: 0,
+    currencyGet: ''
   },
   countries: null,
-  cities: [],
+  states: [],
   phones: [],
   isShowing: false,
   text: '',
@@ -35,8 +35,8 @@ export const getters = {
   countries (state) {
     return state.countries
   },
-  cities (state) {
-    return state.cities
+  states (state) {
+    return state.states
   },
   phones (state) {
     return state.phones
@@ -65,13 +65,12 @@ export const actions = {
     })
   },
   getValueUser ({ commit }, payload = {}) {
-    console.log('payload', payload)
-    commit('GET_VALUE_USER', payload)
+    commit('GET_VALUE_USER', { ...payload })
   },
   async getCountries ({ commit }, payload) {
     try {
       const { data } = await this.$axios.get(
-        'https://dev2.gwapi.defiforyou.uk/defi-user-service/public-api/v1.0.0/countries'
+        `${process.env.API_URL}/defi-user-service/public-api/v1.0.0/countries`
       )
       commit('GET_COUNTRIES', {
         ...payload,
@@ -81,12 +80,12 @@ export const actions = {
       return err
     }
   },
-  async getCities ({ commit }, id) {
+  async getStates ({ commit }, id) {
     try {
       const { data } = await this.$axios.get(
-        `https://dev2.gwapi.defiforyou.uk/defi-user-service/public-api/v1.0.0/countries/${id}`
+        `${process.env.API_URL}/defi-user-service/public-api/v1.0.0/countries/${id}`
       )
-      commit('GET_CITIES', data)
+      commit('GET_STATES', data)
     } catch (err) {
       return err
     }
@@ -94,11 +93,11 @@ export const actions = {
   async getPhones ({ commit }) {
     try {
       const { data } = await this.$axios.get(
-        'https://dev2.gwapi.defiforyou.uk/defi-user-service/public-api/v1.0.0/phonecodes'
+        `${process.env.API_URL}/defi-user-service/public-api/v1.0.0/phonecodes`
       )
       commit('GET_PHONES', data)
     } catch (err) {
-      console.log('err', err)
+      return err
     }
   }
 }
@@ -108,13 +107,13 @@ export const actions = {
  */
 export const mutations = {
   GET_VALUE_USER (state, payload) {
-    state.valueUser = payload
+    state.valueUser = { ...state.valueUser, ...payload }
   },
   GET_COUNTRIES (state, payload) {
     state.countries = payload.data
   },
-  GET_CITIES (state, payload) {
-    state.cities = payload
+  GET_STATES (state, payload) {
+    state.states = payload
   },
   GET_PHONES (state, payload) {
     state.phones = payload

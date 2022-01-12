@@ -56,8 +56,8 @@
                   </div>
                   <div class="input-card__field input-card__field-icon">
                     <v-text-field
+                      v-model="cvv"
                       :rules="cvvRules"
-                      :text.sync="cvv"
                       placeholder="Enter cvv"
                       type="text"
                       color="#F8B017"
@@ -189,7 +189,7 @@
 <script>
 import get from 'lodash/get'
 import moment from 'moment'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import { ArrowLeftIcon } from 'vue-feather-icons'
 import ModalPaymentConfirm from './ModalPaymentConfirm'
 import InputTextField from './Input'
@@ -203,10 +203,6 @@ export default {
     show: {
       type: Boolean,
       default: false
-    },
-    dataEntered: {
-      type: Object,
-      default: null
     }
   },
   emits: ['isBack'],
@@ -216,7 +212,7 @@ export default {
       cardNumber: '',
       cvv: '',
       gender: 'Mr',
-      name: 'Tran Tam',
+      name: '',
       date: '',
       isConfirm: false,
       dataEnteredNew: this.dataEntered
@@ -260,6 +256,7 @@ export default {
   },
   methods: {
     get,
+    ...mapActions('payment', ['getValueUser']),
     showModalBefore () {
       this.$emit('update:show', true)
     },
@@ -269,16 +266,17 @@ export default {
     },
     handleSubmit () {
       if (this.$refs.formCard.validate()) {
-        // eslint-disable-next-line vue/no-mutating-props
-        this.dataEnteredNew = {
-          ...this.dataEntered,
+        this.dataEntered = {
           cardNumber: btoa(this.cardNumber),
           gender: this.gender,
           name: this.name,
-          cvv: btoa(this.cvv),
-          date: this.date
+          csv: btoa(this.cvvText),
+          expiryMonth: new Date(this.date).getMonth() + 1,
+          expiryYear: new Date(this.date).getFullYear(),
+          wallet_address: this.currentAddress
         }
-        console.log('datanew', this.dataEnteredNew)
+        this.getValueUser(this.dataEntered)
+        console.log('datanew', this.valueUser)
         this.$emit('update:show', false)
         this.isConfirm = true
       } else
