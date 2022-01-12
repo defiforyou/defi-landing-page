@@ -14,18 +14,18 @@
                   Buy DFY on Exchanges
                 </span>
 
-                <span
-                  class="buy-dfy__tabs--card tab-1"
-                  :class="{'active': tab === 1}"
-                  @click="tab = 1"
-                >
-                  <span class="tab-name">Buy DFY</span>
+<!--                <span-->
+<!--                  class="buy-dfy__tabs&#45;&#45;card tab-1"-->
+<!--                  :class="{'active': tab === 1}"-->
+<!--                  @click="tab = 1"-->
+<!--                >-->
+<!--                  <span class="tab-name">Buy DFY</span>-->
                   <!--                  <span class="cards">-->
                   <!--                    <img src="~assets/img/buy-dfy/visa.png" alt="">-->
                   <!--                    <img class="img-rectangle" src="~assets/img/buy-dfy/rectangle.png" alt="">-->
                   <!--                    <img src="~assets/img/buy-dfy/mastecard.png" alt="">-->
                   <!--                  </span>-->
-                </span>
+<!--                </span>-->
               </div>
 
               <div class="buy-dfy__input">
