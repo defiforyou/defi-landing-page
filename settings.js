@@ -113,13 +113,14 @@ export const PARTNERS = [{
   image: '/img/partner.bitglobal.png',
   favicon: '/img/partner.bitglobal.png',
   exchange: true
-}, {
-  name: 'IndaCoin',
-  url: '',
-  image: '/img/partner.indacoin.png',
-  favicon: '/img/partner.indacoin.png',
-  exchange: true
 },
+// {
+//   name: 'IndaCoin',
+//   url: '',
+//   image: '/img/partner.indacoin.png',
+//   favicon: '/img/partner.indacoin.png',
+//   exchange: true
+// },
 {
   name: 'srnArt',
   url: '',
