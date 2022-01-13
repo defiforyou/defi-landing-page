@@ -20,7 +20,7 @@ section.services
         .feature
           img.icon(src="/img/service.save.svg" alt="NFT Collateral" width="64" height="64")
           div
-            .name Crypto Pawnbroking
+            .name Crypto Asset-backed Finance
             p Become a crypto pawnbroker and earn passive income by issuing secured stablecoin loans to users on the DeFi For You platform.
         .feature
           img.icon(src="/img/service.crypto-pawnbroking.svg" alt="Crypto Pawnbroking" width="64" height="64")
