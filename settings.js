@@ -4,7 +4,7 @@ export const COPYRIGHT = '© 2021 DeFi For You. All rights reserved.'
 export const RECAPTCHA_SITE_KEY = '6LdOtzgaAAAAAAs5iSvp_xM_p9dP9DMEMmSjS1NG'
 export const RECAPTCHA_ENABLED = false
 
-export const VIDEO_BACKGROUND = 'https://s3.ap-southeast-1.amazonaws.com/defiforyou.uk/Defi_Conference_Pawn_08.mp4'
+export const VIDEO_BACKGROUND = 'https://defiforyou.mypinata.cloud/ipfs/QmU87ts7CmfVXPv3XBn2F1Thgkv2ChZCMYnZApvMGs5Ah3'
 
 export const CONTACT = {
   email: 'ask@defiforyou.uk',
@@ -67,7 +67,8 @@ export const URLS = {
   joinAndReferral: 'https://app.defiforyou.uk/login?tab=1',
   downloadAndroid: 'https://install.appcenter.ms/users/defi-for-you/apps/defi-for-you/distribution_groups/defi',
   downloadIos: 'https://install.appcenter.ms/users/defi-for-you/apps/defi-for-you-1/distribution_groups/defi',
-  instruction: 'https://docs.google.com/document/d/1VQOSASCCI8aJsWfHAXjZAdkpTQHv9fyiXUryYp1sr_g/edit#'
+  instruction: 'https://docs.google.com/document/d/1VQOSASCCI8aJsWfHAXjZAdkpTQHv9fyiXUryYp1sr_g/edit#',
+  team: '/executive-team'
 }
 
 export const PARTNERS = [{
@@ -112,13 +113,14 @@ export const PARTNERS = [{
   image: '/img/partner.bitglobal.png',
   favicon: '/img/partner.bitglobal.png',
   exchange: true
-}, {
-  name: 'IndaCoin',
-  url: '',
-  image: '/img/partner.indacoin.png',
-  favicon: '/img/partner.indacoin.png',
-  exchange: true
 },
+// {
+//   name: 'IndaCoin',
+//   url: '',
+//   image: '/img/partner.indacoin.png',
+//   favicon: '/img/partner.indacoin.png',
+//   exchange: true
+// },
 {
   name: 'srnArt',
   url: '',
@@ -130,7 +132,7 @@ export const PARTNERS = [{
   name: 'chainLink',
   url: 'https://www.bitglobal.com/en-us/spot/trade?q=DFY-USDT',
   image: '/img/partner.chainlink.png',
-  favicon: '/img/partner.chainlinkt.png',
+  favicon: '/img/partner.chainlink.png',
   exchange: true
 },
 {
@@ -138,6 +140,12 @@ export const PARTNERS = [{
   url: 'https://www.mexc.com/exchange/DFY_USDT',
   image: '/img/partner.mexc.png',
   favicon: '/img/partner.mexc.png',
+  exchange: true
+}, {
+  name: 'Gate',
+  url: 'https://www.gateio.ch/trade/DFY_USDT',
+  image: '/img/partner.gate.svg',
+  favicon: '/img/partner.gate.favicon.svg',
   exchange: true
 }]
 

@@ -1,51 +1,74 @@
 <template>
-  <section class="header" :class="{sticky: sticky && !expanded}">
+  <section class="header" :class="{ sticky: sticky && !expanded }">
     <div class="container">
       <div class="dfy-flex layout">
         <div class="branding">
-          <nuxt-link :to="{name: 'index'}">
+          <nuxt-link :to="{ name: 'index' }">
             <img class="logo" src="/img/logo.svg" alt="DeFi For You">
           </nuxt-link>
         </div>
         <div class="menu">
-          <template v-for="(item, index) in menus">
-            <div
-              v-if="item.child"
-              :key="index"
-              class="menu__parent"
-            >
+          <template v-if="menuType === 1">
+            <template v-for="(item, index) in menus">
+              <div v-if="item.child" :key="index" class="menu__parent">
+                <component :is="'a'">
+                  <div class="d-flex align-center">
+                    {{ item.text }}
+                    <ChevronDownIcon size="16" stroke-width="1" />
+                  </div>
+                  <div class="dropdown_menu">
+                    <component
+                      :is="i.to ? 'nuxt-link' : 'a'"
+                      v-for="(i, k) in item.child"
+                      :key="k"
+                      :to="i.to"
+                      :href="i.href"
+                      :target="i.target || '_self'"
+                      :class="i.classes || {}"
+                      v-text="i.text"
+                    />
+                  </div>
+                </component>
+              </div>
+
               <component
-                :is="'a'"
-              >
-                <div class="d-flex align-center">
-                  {{ item.text }}
-                  <ChevronDownIcon size="16" stroke-width="1" />
+                :is="item.to ? 'nuxt-link' : 'a'"
+                v-else
+                :key="index"
+                :to="item.to"
+                :href="item.href"
+                :target="item.target || '_self'"
+                :class="item.classes || {}"
+                v-text="item.text"
+              />
+            </template>
+          </template>
+          <template
+            v-for="(item, index) in menusNew"
+            v-else-if="menuType === 2"
+          >
+            <div v-if="item.child" :key="index" class="menu__parent">
+              <component :is="'a'">
+                <div class="menu-item">
+                  {{ item.name }}
                 </div>
                 <div class="dropdown_menu">
                   <component
                     :is="i.to ? 'nuxt-link' : 'a'"
                     v-for="(i, k) in item.child"
                     :key="k"
-                    :to="i.to"
+                    :to="i.link"
                     :href="i.href"
                     :target="i.target || '_self'"
                     :class="i.classes || {}"
-                    v-text="i.text"
+                    v-text="i.name"
                   />
                 </div>
               </component>
             </div>
-
-            <component
-              :is="item.to ? 'nuxt-link' : 'a'"
-              v-else
-              :key="index"
-              :to="item.to"
-              :href="item.href"
-              :target="item.target || '_self'"
-              :class="item.classes || {}"
-              v-text="item.text"
-            />
+            <div v-else :key="index" class="menu-item" :class="item.class">
+              <a :href="item.link" :target="item.target">{{ item.name }}</a>
+            </div>
           </template>
         </div>
         <div class="toggler" @click="expanded = true">
@@ -62,29 +85,29 @@
             </div>
           </div>
           <div class="menu" @click="expanded = false">
-            <template v-for="(item, key) in menus">
+            <template v-for="(item, key) in menusNew">
               <template v-if="item.child">
                 <component
-                  :is="i.to ? 'nuxt-link' : 'a'"
+                  :is="i.link ? 'nuxt-link' : 'a'"
                   v-for="(i, k) in item.child"
                   :key="`${key}-${k}`"
-                  :to="i.to"
-                  :href="i.href"
+                  :to="i.link"
+                  :href="i.link"
                   :target="i.target || '_self'"
-                  :class="i.classes || {}"
-                  v-text="i.text"
+                  :class="i.class || {}"
+                  v-text="i.name"
                 />
               </template>
 
               <component
-                :is="item.to ? 'nuxt-link' : 'a'"
+                :is="item.link ? 'nuxt-link' : 'a'"
                 v-else
                 :key="key"
-                :to="item.to"
-                :href="item.href"
+                :to="item.link"
+                :href="item.link"
                 :target="'_self'"
-                :class="item.classes || {}"
-                v-text="item.text"
+                :class="item.class || {}"
+                v-text="item.name"
               />
             </template>
           </div>
@@ -109,12 +132,7 @@ export default {
     return {
       expanded: false,
       sticky: true,
-      items: [
-        { title: 'Click Me' },
-        { title: 'Click Me' },
-        { title: 'Click Me' },
-        { title: 'Click Me 2' }
-      ]
+      menuType: 2
     }
   },
 
@@ -123,29 +141,32 @@ export default {
     menus: () => [
       {
         text: 'About',
-        child: [{
-          text: 'Solution',
-          to: {
-            name: 'index',
-            hash: '#defi-for-you'
+        child: [
+          {
+            text: 'Solution',
+            to: {
+              name: 'index',
+              hash: '#defi-for-you'
+            }
+          },
+          {
+            text: 'Team',
+            href: URLS.team,
+            target: '_blank'
+          },
+          {
+            text: 'Contact',
+            to: {
+              name: 'index',
+              hash: '#contact'
+            }
+          },
+          {
+            text: 'Whitepaper',
+            href: URLS.whitepaper,
+            target: '_blank'
           }
-        }, {
-          text: 'Team',
-          to: {
-            name: 'index',
-            hash: '#team'
-          }
-        }, {
-          text: 'Contact',
-          to: {
-            name: 'index',
-            hash: '#contact'
-          }
-        }, {
-          text: 'Whitepaper',
-          href: URLS.whitepaper,
-          target: '_blank'
-        }]
+        ]
       },
       {
         text: 'P2P Lending',
@@ -156,24 +177,27 @@ export default {
           'dfy-button--overlay': true,
           'dfy-button--beta': false
         }
-      }, {
-        text: 'Staking',
-        href: URLS.staking,
-        target: '_blank',
-        classes: {
-          'dfy-button': true,
-          'dfy-button--overlay': true
-        }
-      }, {
-        text: 'Farming',
-        href: URLS.farming,
-        target: '_blank',
-        classes: {
-          'dfy-button': true,
-          'dfy-button--overlay': true
-          // 'dfy-button--coming-soon': true
-        }
-      }, {
+      },
+      // {
+      //   text: 'Staking',
+      //   href: URLS.staking,
+      //   target: '_blank',
+      //   classes: {
+      //     'dfy-button': true,
+      //     'dfy-button--overlay': true
+      //   }
+      // },
+      // {
+      //   text: 'Farming',
+      //   href: URLS.farming,
+      //   target: '_blank',
+      //   classes: {
+      //     'dfy-button': true,
+      //     'dfy-button--overlay': true
+      //     // 'dfy-button--coming-soon': true
+      //   }
+      // },
+      {
         text: 'Trade NFTs',
         href: URLS.trade,
         target: '_blank',
@@ -181,14 +205,58 @@ export default {
           'dfy-button': true,
           'dfy-button--special': true
         }
-      }]
+      }
+    ],
+    menusNew: () => [
+      {
+        name: 'Crypto Pawn',
+        child: [
+          {
+            name: 'Lender',
+            link: '',
+            highlight: false,
+            target: '_blank'
+          },
+          {
+            name: 'Borrowers',
+            link: '',
+            highlight: false,
+            target: '_blank'
+          }
+        ]
+      },
+      {
+        name: 'Hard NFTs',
+        highlight: false,
+        target: '_blank',
+        class: 'dfy-button--coming-soon'
+      },
+      {
+        name: 'Create NFT',
+        link: 'https://marketplace.defiforyou.uk/nft/create',
+        highlight: true,
+        target: '_blank'
+      },
+      {
+        name: 'NFT Marketplace',
+        link: 'https://marketplace.defiforyou.uk/',
+        highlight: false,
+        target: '_blank'
+      },
+      {
+        name: 'Mobile App',
+        link: 'https://defiforyou.uk/download-app',
+        highlight: false,
+        target: '_blank'
+      }
+    ]
   }
 }
 </script>
 
 <style lang="scss" scoped>
 section.header {
-  border-bottom: 1px solid rgba(#5E4D5E, .2);
+  border-bottom: 1px solid rgba(#5e4d5e, 0.2);
 
   &.sticky {
     position: sticky;
@@ -197,7 +265,7 @@ section.header {
     right: 0;
     z-index: 1000;
     backdrop-filter: blur(16px);
-    background: rgba($--color-background-page, .25);
+    background: rgba($--color-background-page, 0.25);
   }
 
   .layout {
@@ -228,6 +296,23 @@ section.header {
       display: flex;
       font-size: 14px;
       align-items: center;
+
+      .menu-item {
+        line-height: 1.3;
+        padding-right: 1rem;
+        border-right: 1px solid #fff;
+        font-size: 1rem;
+        a {
+          transition: 0s;
+        }
+        &:last-child {
+          border: 0;
+        }
+        &.dfy-button--coming-soon:hover a {
+          visibility: hidden;
+        }
+      }
+
       @include media(sm-down) {
         display: none;
       }
@@ -236,7 +321,7 @@ section.header {
         &:not(:first-child) {
           margin-left: 1.6em;
           @include media(lg) {
-            margin-left: 2em;
+            margin-left: 1em;
           }
         }
       }
@@ -246,11 +331,11 @@ section.header {
       }
 
       a.dfy-button {
-        padding: .9rem 1.2rem;
+        padding: 0.9rem 1.2rem;
         white-space: nowrap;
 
         + a.dfy-button {
-          margin-left: .65rem;
+          margin-left: 0.65rem;
         }
       }
     }
@@ -276,7 +361,7 @@ section.header {
     right: 0;
     transform: translate3d(0, 0, 0);
     backdrop-filter: blur(20px);
-    background: rgba($--color-background-page, .75);
+    background: rgba($--color-background-page, 0.75);
 
     .toggler {
       width: 4rem;
@@ -289,7 +374,7 @@ section.header {
 
       &:before,
       &:after {
-        content: '';
+        content: "";
         display: table;
         clear: both;
       }
@@ -308,13 +393,13 @@ section.header {
         font-size: 16px;
         text-transform: uppercase;
         text-align: center;
-        padding: .75em 0;
+        padding: 0.75em 0;
         cursor: pointer;
 
         &.dfy-button {
-          padding: .75em 1.5em;
+          padding: 0.75em 1.5em;
           height: auto;
-          margin-top: .35em;
+          margin-top: 0.35em;
           width: 296px;
 
           > * {
@@ -325,9 +410,9 @@ section.header {
           &--coming-soon {
             &:after {
               position: initial;
-              background: rgba(black, .25);
+              background: rgba(black, 0.25);
               margin-left: auto;
-              margin-right: -.65em;
+              margin-right: -0.65em;
               transform: none;
               padding: 4px 8px;
               opacity: 1;
@@ -340,7 +425,7 @@ section.header {
 
           &--coming-soon {
             &:after {
-              content: 'Coming Soon';
+              content: "Coming Soon";
             }
           }
         }
@@ -355,6 +440,7 @@ section.header {
     align-items: center;
     position: relative;
     padding: 0.9rem 0 1.2rem;
+
     &:hover {
       .dropdown_menu {
         position: absolute;
@@ -369,21 +455,25 @@ section.header {
 
 .dropdown_menu {
   display: none;
-  background: #3D414B;
+  background: #3d414b;
   border-radius: 16px;
+
   a {
     padding: 0.875rem 1.2rem;
     min-width: 170px;
     color: #fff;
+
     &:hover {
-      color: #F8B017;
+      color: #f8b017;
       background: rgba(255, 255, 255, 0.1);
     }
-    &:first-child{
+
+    &:first-child {
       border-top-left-radius: 16px;
       border-top-right-radius: 16px;
     }
-    &:last-child{
+
+    &:last-child {
       border-bottom-left-radius: 16px;
       border-bottom-right-radius: 16px;
     }

@@ -19,7 +19,7 @@
     <div class="container">
       <div class="greeting">
         <h1 class="headline">
-          Free money 💰. The Future of Finance. Press here now
+          The Future of Finance. <br> Sign up now
         </h1>
         <!--        <div class="preview">-->
         <!--          <div class="video">-->
@@ -40,8 +40,8 @@
           </a>
           <a v-scroll-to="'#buy-dfy'" class="dfy-button dfy-button--primary">Buy DFY
           </a>
-          <a :href="urls.pawn" target="_blank" class="dfy-button dfy-button--outline">Explore PAWN Market
-          </a>
+<!--          <a :href="urls.pawn" target="_blank" class="dfy-button dfy-button&#45;&#45;outline">Explore PAWN Market-->
+<!--          </a>-->
         </div>
       </div>
     </div>
@@ -72,7 +72,7 @@
 
 <script>
 // import { XIcon } from 'vue-feather-icons'
-import { PARTNERS, URLS, VIDEO_BACKGROUND } from '~/settings'
+import { URLS, VIDEO_BACKGROUND } from '~/settings'
 
 export default {
   components: {
@@ -87,7 +87,6 @@ export default {
 
   computed: {
     urls: () => URLS,
-    partners: () => PARTNERS,
     videoBackgroundURL: () => VIDEO_BACKGROUND
   }
 }

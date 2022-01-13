@@ -14,7 +14,9 @@ section.partners
           rel="noopener")
           img.logo(
             :src="i.image"
-            :alt="i.title")
+            :alt="i.title"
+            :class="{'height-48': i.name === 'Gate'}"
+            )
 </template>
 
 <script>
@@ -73,5 +75,9 @@ section.partners {
       }
     }
   }
+}
+
+.height-48 {
+  max-height: 48px !important;
 }
 </style>

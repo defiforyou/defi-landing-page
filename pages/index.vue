@@ -16,18 +16,18 @@
       .reward-mini(v-if="isRewardMini", @click="handleRewardMini")
         img.reward-icon(src="~assets/img/reward-click.png")
       home-hero-section#hero.sticky
+      home-get-us-section#team
       home-price-tickers-section#price-tickers
       v-app(style="background-color: #171A23")
         home-buy-dfy#buy-dfy
         //home-how-work
         payment-alert
       home-defi-for-you-section#defi-for-you
-      home-solution-section#solution
+      //home-solution-section#solution
       home-services-section#services
-      home-network-section#network
+      //home-network-section#network
       home-partners-section#partners
-      home-team-section#team
-      home-get-us-section#team
+      //home-team-section#team
       home-contact-section#contact
 </template>
 

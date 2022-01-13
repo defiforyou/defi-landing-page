@@ -27,8 +27,8 @@
               </div>
 
               <div class="buy-dfy__input">
-                <BuyWithCreditCard v-if="tab == 1" />
-                <BuyOnExchanges v-if="tab == 2" />
+                <BuyWithCreditCard v-if="tab === 1" />
+                <BuyOnExchanges v-if="tab === 2" />
               </div>
             </div>
           </v-col>
@@ -75,7 +75,7 @@ export default {
   },
   data () {
     return {
-      tab: 1
+      tab: 2
     }
   }
 }
