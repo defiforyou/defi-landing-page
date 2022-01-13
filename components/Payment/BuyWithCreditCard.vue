@@ -1,131 +1,10 @@
 <template>
   <div class="input-card">
     <v-form ref="formCard">
-      <div class="input-card__item">
-        <div class="input-card__label">
-          You pay
-        </div>
-        <div class="input-card__field">
-          <v-text-field
-            v-model="payload.pay"
-            :rules="payRules"
-            type="number"
-            placeholder="Enter amount"
-            color="#F8B017"
-            outlined
-            required
-            rounded
-            dense
-            dark
-            :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
-            class="field-amount"
-            :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
-          />
-
-          <v-select
-            v-model="payload.payCurrency"
-            :items="currencies.currenciesPay"
-            item-value="value"
-            item-text="text"
-            dense
-            outlined
-            color="#F8B017"
-            :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
-            :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
-            placeholder="All"
-            dark
-            rounded
-            append-icon="mdi-chevron-down"
-            class="select-currency"
-          />
-        </div>
-      </div>
-
-      <div class="input-card__item">
-        <div class="input-card__label">
-          You get
-        </div>
-
-        <div class="input-card__field">
-          <v-text-field
-            v-model="getValue"
-            type="number"
-            placeholder="Enter get"
-            color="#F8B017"
-            outlined
-            required
-            rounded
-            dense
-            dark
-            disabled
-            :loading="loadingRate"
-            :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
-            :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
-          />
-
-          <v-select
-            v-model="getCurrency"
-            :items="currencies.currenciesGet"
-            dense
-            outlined
-            color="#F8B017"
-            :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
-            :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
-            placeholder="All"
-            dark
-            rounded
-            append-icon=""
-            class="select-currency"
-          >
-            <template slot="selection" slot-scope="data">
-              <img
-                class="select-img"
-                :src="$mapImageCurrency(data.item)"
-                alt
-              >
-              <span style="font-weight: 500;font-size: 16px;">{{ data.item }}</span>
-            </template>
-            <template slot="item" slot-scope="data">
-              <v-list-item-content>
-                <v-list-item-title style="display: flex; align-items: center">
-                  <img
-                    class="select-img"
-                    :src="require(`~/assets/img/coin/${data.item}.png`)"
-                    alt
-                    style="width: 24px; height: 24px"
-                  >
-                  {{ data.item }}
-                </v-list-item-title>
-              </v-list-item-content>
-            </template>
-          </v-select>
-        </div>
-      </div>
-
-      <div class="input-card__item">
-        <div class="input-card__label">
-          Email
-        </div>
-        <v-text-field
-          v-model="email"
-          :rules="emailRules"
-          type="email"
-          placeholder="Enter email"
-          color="#F8B017"
-          outlined
-          required
-          rounded
-          dense
-          dark
-          :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
-          :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
-        />
-      </div>
-
-      <div class="input-card__item mb-0">
-        <!-- <div class="input-card__label mb-4">
+      <div class="input-card__item input-card__item--wallet">
+        <div class="input-card__label mb-4">
           Wallet address
-        </div> -->
+        </div>
 
         <v-text-field
           v-if="currentAddress"
@@ -161,27 +40,158 @@
           outlined
           color="#F8B017"
           rounded
+          class="connect-wallet"
           @click="isWallet = true"
         >
           Connect wallet
         </v-btn>
+      </div>
+      <div class="input-card__item">
+        <div class="input-card__label">
+          Amount
+        </div>
+        <div class="input-card__field">
+          <v-text-field
+            v-model="payload.amountPay"
+            :rules="payRules"
+            type="number"
+            placeholder="Enter amount"
+            color="#F8B017"
+            outlined
+            required
+            rounded
+            dense
+            dark
+            :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
+            class="field-amount"
+            :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
+          />
 
-        <!--        <div class="d-flex align-center checkbox">-->
-        <!--          <v-checkbox-->
-        <!--            v-model="isCheckBox"-->
-        <!--            color="#F8B017"-->
-        <!--            dark-->
-        <!--            @change="value => isDisable = !value"-->
-        <!--          />-->
+          <v-select
+            v-model="payload.currency"
+            :items="currencies.currenciesPay"
+            item-value="value"
+            item-text="text"
+            dense
+            outlined
+            color="#F8B017"
+            :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
+            :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
+            placeholder="All"
+            dark
+            rounded
+            append-icon="mdi-chevron-down"
+            class="select-currency"
+          />
+        </div>
+      </div>
 
-        <!--          <span class="checkbox-text">-->
-        <!--            I agree with the-->
-        <!--            <a href="https://defi-for-you.gitbook.io/faq/p2p-lending/term-business" target="_blank">Terms of Business</a>-->
-        <!--            and-->
-        <!--            <a href="https://defi-for-you.gitbook.io/faq/p2p-lending/privacy-policy" target="_blank">Privacy Policy</a>-->
-        <!--            of DeFi For You.-->
-        <!--          </span>-->
-        <!--        </div>-->
+      <div class="input-card__item">
+        <div class="input-card__label">
+          Receive
+          <v-tooltip
+            right
+          >
+            <template #activator="{ on, attrs }">
+              <v-icon small color="#C9CACD" v-bind="attrs" v-on="on">
+                mdi-information
+              </v-icon>
+            </template>
+            <span>Estimated amount</span>
+          </v-tooltip>
+        </div>
+
+        <div class="input-card__field">
+          <v-text-field
+            v-model="payload.amountGet"
+            type="number"
+            color="#F8B017"
+            outlined
+            required
+            rounded
+            dense
+            dark
+            disabled
+            :loading="loadingRate"
+            :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
+            :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
+          />
+
+          <v-select
+            v-model="currencyGet"
+            :items="currencies.currenciesGet"
+            dense
+            outlined
+            color="#F8B017"
+            :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
+            :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
+            placeholder="All"
+            dark
+            rounded
+            append-icon=""
+            class="select-currency"
+          >
+            <template slot="selection" slot-scope="data">
+              <img
+                class="select-img"
+                :src="$mapImageCurrency(currencies.currenciesGet.join(''))"
+                alt
+              >
+              <span style="font-weight: 500;font-size: 16px;">{{ data.item }}</span>
+            </template>
+            <template slot="item" slot-scope="data">
+              <v-list-item-content>
+                <v-list-item-title style="display: flex; align-items: center">
+                  <img
+                    class="select-img"
+                    :src="require(`~/assets/img/coin/${data.item}.png`)"
+                    alt
+                    style="width: 24px; height: 24px"
+                  >
+                  {{ data.item }}
+                </v-list-item-title>
+              </v-list-item-content>
+            </template>
+          </v-select>
+        </div>
+      </div>
+
+      <!-- <div class="input-card__item">
+        <div class="input-card__label">
+          Email
+        </div>
+        <v-text-field
+          v-model="email"
+          :rules="emailRules"
+          type="email"
+          placeholder="Enter email"
+          color="#F8B017"
+          outlined
+          required
+          rounded
+          dense
+          dark
+          :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
+          :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
+        />
+      </div> -->
+
+      <div class="input-card__item mb-0">
+        <div class="d-flex align-center checkbox">
+          <v-checkbox
+            v-model="isCheckBox"
+            color="#F8B017"
+            dark
+            @change="value => isDisable = !value"
+          />
+          <span class="checkbox-text">
+            I agree with the
+            <a href="https://defi-for-you.gitbook.io/faq/p2p-lending/term-business" target="_blank">Terms & Conditions and Policies</a>
+            <!-- and
+            <a href="https://defi-for-you.gitbook.io/faq/p2p-lending/privacy-policy" target="_blank">Privacy Policy</a> -->
+            of DeFi For You.
+          </span>
+        </div>
       </div>
     </v-form>
 
@@ -195,37 +205,40 @@
         width="114px"
         style="color: #FFFFFF"
         :disabled="isDisable"
-        @click="buyDFY()"
+        @click="goToPersonalInfo"
       >
-        Buy DFY
+        Continue
       </v-btn>
     </div>
 
     <ChooseWallet :show.sync="isWallet" />
-    <ModalConfirm :show.sync="isConfirm" :payload="payload" :get-value="getValue" :get-currency="getCurrency" :email="email" />
+    <ModalPersonalInfo :show.sync="isConfirm" />
+    <!-- <ModalConfirm :show.sync="isConfirm" :payload="payload" :get-value="getValue" :get-currency="getCurrency" :email="email" /> -->
   </div>
 </template>
 
 <script>
 import get from 'lodash/get'
-import { mapState } from 'vuex'
-import ChooseWallet from '../ChooseWallet'
-import ModalConfirm from '../Home/ModalConfirm'
+import { mapState, mapActions } from 'vuex'
+import ChooseWallet from '../ChooseWallet.vue'
+// import ModalConfirm from '../Home/ModalConfirm'
+import ModalPersonalInfo from './ModalPersonalInfo'
 export default {
   components: {
     ChooseWallet,
-    ModalConfirm
+    ModalPersonalInfo
+    // ModalConfirm
   },
 
   data () {
     return {
       payload: {
-        pay: '',
-        payCurrency: 'USD'
+        amountPay: '',
+        currency: 'USD',
+        amountGet: '0'
       },
-      email: '',
-      getValue: 0,
-      getCurrency: 'DFY',
+      currencyGet: 'DFY',
+      // email: '',
       isWallet: false,
       isCheckBox: true,
       isConfirm: false,
@@ -241,8 +254,8 @@ export default {
       return [
         v => !!v || 'Invalid amount',
         v => parseFloat(v) > 0 || 'Invalid amount',
-        v => /^\d+(\.\d{0,5})?$/.test(v) || 'must below 5 digit after decimal',
-        v => (v && v.length >= 0 && v.length <= 255) || 'Invalid amount'
+        v => /^\d+(\.\d{0,5})?$/.test(v) || 'Must below 5 digit after decimal',
+        v => (v && v.length >= 0 && v.length <= 50) || 'Invalid amount'
         // this.payload.payCurrency === 'USD' ? v => parseFloat(v) >= 40 || 'Amount must be greater than 40 USD' : true,
         // this.payload.payCurrency === 'VND' ? v => parseFloat(v) >= 912200 || 'Amount must be greater than 912,200 VND' : true,
         // this.payload.payCurrency === 'AUD' ? v => parseFloat(v) >= 54.35 || 'Amount must be greater than 54.35 AUD' : true,
@@ -262,13 +275,13 @@ export default {
         // this.payload.payCurrency === 'SEK' ? v => parseFloat(v) >= 347.39 || 'Amount must be greater than 347.39 SEK' : true
       ]
     },
-    emailRules () {
-      return [
-        // eslint-disable-next-line no-useless-escape
-        v => /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/.test(v) || 'Invalid email',
-        v => v.length <= 50 || 'Email with maximum 50 character'
-      ]
-    },
+    // emailRules () {
+    //   return [
+    //     // eslint-disable-next-line no-useless-escape
+    //     v => /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/.test(v) || 'Invalid email',
+    //     v => v.length <= 50 || 'Email with maximum 50 character'
+    //   ]
+    // },
     walletRules () {
       return [
         this.currentAddress ? true : v => 'Invalid Address'
@@ -289,22 +302,39 @@ export default {
 
   methods: {
     get,
+    ...mapActions('payment', ['getValueUser', 'getRateExchange']),
+    ...mapState('payment', ['valueUser', 'isLoading']),
     async getRate () {
+      // this.getRateExchange(this.payload)
       try {
         this.loadingRate = true
-        const { data } = await this.$axios.get(`https://indacoin.com/api/GetCoinConvertAmount/${this.payload.payCurrency}/${this.getCurrency}/${this.payload.pay}`)
+        // const { data } = await this.$axios.get(`https://indacoin.com/api/GetCoinConvertAmount/${this.payload.payCurrency}/${this.payload.getCurrency}/${this.payload.pay}`)
+        const { data } = await this.$axios.get(`${process.env.API_URL}/defi-pawn-crypto-service/public-api/v1.0.0/buy-dfy/currencies`)
         this.loadingRate = false
-        this.getValue = data
+        switch (this.payload.currency.toLowerCase()) {
+          case 'usd':
+            this.payload.amountGet = (data.data['defi-for-you'].usd * this.payload.amountPay).toFixed(5)
+            break
+          case 'eur':
+            this.payload.amountGet = (data.data['defi-for-you'].eur * this.payload.amountPay).toFixed(5)
+            break
+          case 'gbp':
+            this.payload.amountGet = (data.data['defi-for-you'].gbp * this.payload.amountPay).toFixed(5)
+            break
+          default: return 0
+        }
+        this.getValueUser(this.payload)
       } catch (e) {
-        console.log(e)
+        return e
       } finally {
         this.loadingRate = false
       }
     },
-    buyDFY () {
+    goToPersonalInfo () {
       if (this.$refs.formCard.validate()) {
         if (this.currentAddress) {
           this.isConfirm = true
+          this.getValueUser(this.payload)
         } else {
           this.$notify.error({ text: 'Please connect your wallet first' })
         }
