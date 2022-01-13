@@ -210,8 +210,8 @@ export default {
 
   data () {
     return {
-      address: 'abc',
-      email: 'a@gmail.com',
+      address: '',
+      email: '',
       phone: '',
       country: '',
       city: '',
