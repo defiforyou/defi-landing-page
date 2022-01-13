@@ -21,6 +21,7 @@
       v-app(style="background-color: #171A23")
         home-buy-dfy#buy-dfy
         //home-how-work
+        payment-alert
       home-defi-for-you-section#defi-for-you
       //home-solution-section#solution
       home-services-section#services
@@ -34,7 +35,6 @@
 // import moment from 'moment'
 // import get from 'lodash/get'
 import { mapActions, mapState, mapMutations } from 'vuex'
-
 export default {
   data () {
     return {
@@ -48,7 +48,7 @@ export default {
   async created () {
     await this.getStatus()
     await this.getBanners()
-    await this.getCurrencies()
+    // await this.getCurrencies()
   },
 
   mounted () {
@@ -69,7 +69,7 @@ export default {
       }
     },
     ...mapActions('reward', ['getBanners', 'getStatus']),
-    ...mapActions('indaCoin', ['getCurrencies']),
+    // ...mapActions('indaCoin', ['getCurrencies']),
     ...mapMutations('reward', ['SET_IS_REWARD']),
     setup () {
       if (window.innerWidth < 1200) {

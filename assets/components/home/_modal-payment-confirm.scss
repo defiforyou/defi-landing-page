@@ -1,0 +1,113 @@
+.scroll {
+  overflow-y: scroll;
+}
+.dfy-personal-info {
+  background: #23252e;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+}
+.button-close {
+  @media screen and (max-width: 960px) {
+    button {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+.button-back {
+  display: flex;
+  button {
+    width: 20px;
+    height: 20px;
+  }
+  svg {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+.label-back {
+  margin-left: 4px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+}
+.dialog-title {
+  font-family: "Inter";
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 39px;
+  margin: 0 auto;
+  @include media(sm-down) {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  @include media(xs) {
+    display: none;
+  }
+  &-mobile{
+    display: none;
+    @include media(sm-down) {
+    display: none;
+  }
+  @include media(xs) {
+    display: block;
+  }
+  }
+}
+
+.scroll {
+  overflow-y: scroll
+}
+
+.dialog-title {
+  font-family: 'Inter';
+}
+
+.modal-confirm {
+  padding: pxToRem(30px) 0;
+  font-weight: 500;
+  font-size: 20px;
+  color: #FFFFFF;
+  font-family: 'Inter';
+}
+
+.modal-confirm__label {
+  // margin-bottom: 10px;
+  font-size: 14px;
+  @include media(sm-down){
+    min-width: 90px;
+  }
+  @include media(sm) {
+    font-size: 20px;
+    min-width: 120px;
+    margin-bottom: 0;
+  }
+}
+
+.modal-confirm__data {
+  font-size: 16px;
+  @include media(sm) {
+    font-size: 20px;
+  }
+  a {
+    color: #2596FF;
+    text-decoration: underline;
+    font-size: 14px;
+    @include media(sm) {
+    font-size: 20px;
+  }
+  }
+}
+
+.v-card__text{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

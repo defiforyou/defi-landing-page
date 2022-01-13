@@ -1,6 +1,5 @@
 @import "fonts";
 @import "transitions";
-
 ::selection {
   color: black;
   background: $--color-primary;
@@ -45,7 +44,7 @@ h6 {
 a {
   color: $--color-text-body;
   text-decoration: none;
-  transition: .3s ease-in-out;
+  transition: 0.3s ease-in-out;
 
   &:hover {
     color: $--color-primary;
@@ -147,7 +146,7 @@ a {
   &--overlay {
     background: rgba(#f9fafb, 0.05);
     color: white;
-    transition: background .3s ease-in-out;
+    transition: background 0.3s ease-in-out;
 
     &:hover {
       background: rgba(#f9fafb, 0.1);
@@ -161,7 +160,7 @@ a {
     overflow: hidden;
 
     &:before {
-      content: '';
+      content: "";
       display: block;
       position: absolute;
       background: rgba(white, 0.5);
@@ -171,7 +170,7 @@ a {
       top: 0;
       filter: blur(10px);
       transform: translateX(-100px) skewX(-30deg);
-      transition: .3s;
+      transition: 0.3s;
     }
 
     &:hover {
@@ -190,7 +189,7 @@ a {
     transition: none;
 
     &:before {
-      content: '';
+      content: "";
       display: block;
       position: absolute;
       background: rgba(white, 0.5);
@@ -200,7 +199,7 @@ a {
       top: 0;
       filter: blur(10px);
       transform: translateX(-100px) skewX(-30deg);
-      transition: transform .3s;
+      transition: transform 0.3s;
     }
 
     &:hover {
@@ -228,7 +227,7 @@ a {
     position: relative;
 
     &:after {
-      content: 'Beta';
+      content: "Beta";
       background: $--color-info;
       color: white;
       font-size: 10px;
@@ -261,13 +260,13 @@ a {
       right: 0;
       transform: translateY(-50%);
       text-align: center;
-      content: 'Coming\ASoon';
+      content: "Coming\ASoon";
       white-space: pre;
       background: transparent;
       opacity: 0;
       font-size: 11px;
       line-height: 1.25em;
-      letter-spacing: .5px;
+      letter-spacing: 0.5px;
     }
   }
 

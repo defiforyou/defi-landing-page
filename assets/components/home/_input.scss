@@ -1,0 +1,27 @@
+.input-card__col {
+  width: 44%;
+  @include media(sm-down) {
+    width: 100%;
+  }
+}
+
+.select-phone {
+  flex: 1 !important;
+  margin-right: 16px !important;
+}
+
+.field-phone {
+  flex: 2 !important;
+}
+
+.input-card__label {
+  font-weight: 500;
+  color: $white;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+.input-card__field {
+  display: flex;
+  align-items: center;
+}
