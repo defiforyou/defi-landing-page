@@ -56,7 +56,7 @@
                   </div>
                   <div class="input-card__field input-card__field-icon">
                     <v-text-field
-                      v-model="cvv"
+                      v-model="cvvText"
                       :rules="cvvRules"
                       placeholder="Enter cvv"
                       type="text"
@@ -114,6 +114,7 @@
                         <template #activator="{ on, attrs }">
                           <v-text-field
                             v-model="formatDate"
+                            :rules="dateRules"
                             color="#F8B017"
                             placeholder="mm/yyyy"
                             outlined
@@ -132,6 +133,7 @@
                         </template>
                         <v-date-picker
                           v-model="date"
+                          :rules="dateRules"
                           type="month"
                           :min="new Date().toISOString().slice(0, 7)"
                           no-title
@@ -153,9 +155,9 @@
               </div>
               <div class="input-card__cols">
                 <InputTextField
-                  :text.sync="valueUser.pay"
+                  :text.sync="valueUser.amountPay"
                   label="Amount"
-                  suffix="USD"
+                  :suffix="valueUser.currency"
                   has-text
                   readonly
                 />
@@ -210,12 +212,11 @@ export default {
   data () {
     return {
       cardNumber: '',
-      cvv: '',
+      cvvText: '',
       gender: 'Mr',
       name: '',
       date: '',
-      isConfirm: false,
-      dataEnteredNew: this.dataEntered
+      isConfirm: false
     }
   },
 
@@ -252,6 +253,11 @@ export default {
         v => !!v || 'Name is required',
         v => (v && v.length >= 0 && v.length <= 100) || 'Name with maximum 100 characters'
       ]
+    },
+    dateRules () {
+      return [
+        v => !!v || 'Expiry date is required'
+      ]
     }
   },
   methods: {
@@ -266,17 +272,17 @@ export default {
     },
     handleSubmit () {
       if (this.$refs.formCard.validate()) {
-        this.dataEntered = {
+        const dataEntered = {
           cardNumber: btoa(this.cardNumber),
-          gender: this.gender,
           name: this.name,
           csv: btoa(this.cvvText),
           expiryMonth: new Date(this.date).getMonth() + 1,
           expiryYear: new Date(this.date).getFullYear(),
-          wallet_address: this.currentAddress
+          wallet_address: this.currentAddress,
+          amountPay: +this.valueUser.amountPay,
+          amountGet: +this.valueUser.amountGet
         }
-        this.getValueUser(this.dataEntered)
-        console.log('datanew', this.valueUser)
+        this.getValueUser(dataEntered)
         this.$emit('update:show', false)
         this.isConfirm = true
       } else

@@ -52,7 +52,7 @@
         </div>
         <div class="input-card__field">
           <v-text-field
-            v-model="payload.pay"
+            v-model="payload.amountPay"
             :rules="payRules"
             type="number"
             placeholder="Enter amount"
@@ -68,7 +68,7 @@
           />
 
           <v-select
-            v-model="payload.payCurrency"
+            v-model="payload.currency"
             :items="currencies.currenciesPay"
             item-value="value"
             item-text="text"
@@ -103,9 +103,8 @@
 
         <div class="input-card__field">
           <v-text-field
-            v-model="payload.getValue"
+            v-model="payload.amountGet"
             type="number"
-            placeholder="Enter get"
             color="#F8B017"
             outlined
             required
@@ -119,7 +118,7 @@
           />
 
           <v-select
-            v-model="payload.getCurrency"
+            v-model="currencyGet"
             :items="currencies.currenciesGet"
             dense
             outlined
@@ -234,11 +233,11 @@ export default {
   data () {
     return {
       payload: {
-        pay: '1000000',
-        payCurrency: 'USD',
-        getValue: 60000000,
-        getCurrency: 'DFY'
+        amountPay: '',
+        currency: 'USD',
+        amountGet: '0'
       },
+      currencyGet: 'DFY',
       // email: '',
       isWallet: false,
       isCheckBox: true,
@@ -303,15 +302,30 @@ export default {
 
   methods: {
     get,
-    ...mapActions('payment', ['getValueUser']),
+    ...mapActions('payment', ['getValueUser', 'getRateExchange']),
+    ...mapState('payment', ['valueUser', 'isLoading']),
     async getRate () {
+      // this.getRateExchange(this.payload)
       try {
         this.loadingRate = true
-        const { data } = await this.$axios.get(`https://indacoin.com/api/GetCoinConvertAmount/${this.payload.payCurrency}/${this.payload.getCurrency}/${this.payload.pay}`)
+        // const { data } = await this.$axios.get(`https://indacoin.com/api/GetCoinConvertAmount/${this.payload.payCurrency}/${this.payload.getCurrency}/${this.payload.pay}`)
+        const { data } = await this.$axios.get(`${process.env.API_URL}/defi-pawn-crypto-service/public-api/v1.0.0/buy-dfy/currencies`)
         this.loadingRate = false
-        this.payload.getValue = data
+        switch (this.payload.currency.toLowerCase()) {
+          case 'usd':
+            this.payload.amountGet = (data.data['defi-for-you'].usd * this.payload.amountPay).toFixed(5)
+            break
+          case 'eur':
+            this.payload.amountGet = (data.data['defi-for-you'].eur * this.payload.amountPay).toFixed(5)
+            break
+          case 'gbp':
+            this.payload.amountGet = (data.data['defi-for-you'].gbp * this.payload.amountPay).toFixed(5)
+            break
+          default: return 0
+        }
+        this.getValueUser(this.payload)
       } catch (e) {
-        console.log(e)
+        return e
       } finally {
         this.loadingRate = false
       }

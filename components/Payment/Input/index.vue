@@ -7,6 +7,7 @@
       <v-select
         v-if="hasSelect"
         :items="items"
+        :rules="rules"
         :item-value="valueSelect"
         :item-text="textSelect"
         dense
@@ -80,7 +81,7 @@ export default {
       default: false
     },
     text: {
-      type: String,
+      type: [String, Number],
       default: ''
     },
     suffix: {

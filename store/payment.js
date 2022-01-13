@@ -4,9 +4,8 @@
 export const state = () => ({
   valueUser: {
     amountPay: 0,
-    currencyPay: '',
-    amountGet: 0,
-    currencyGet: ''
+    currency: '',
+    amountGet: 0
   },
   countries: null,
   states: [],
@@ -51,7 +50,6 @@ export const actions = {
     commit('CLOSE_DIALOG')
   },
   showSuccessMessage ({ commit }, payload = {}) {
-    console.log('call')
     commit('SHOW_DIALOG', {
       ...payload,
       type: 'success'

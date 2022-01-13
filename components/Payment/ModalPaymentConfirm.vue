@@ -45,7 +45,7 @@
                 Amount:
               </div>
               <div class="modal-confirm__data">
-                {{ $numberFormatDecimal(valueUser.amountPay) }} {{ valueUser.payCurrency }}
+                {{ $numberFormatDecimal(valueUser.amountPay) }} {{ valueUser.currency }}
               </div>
             </div>
 
@@ -66,7 +66,7 @@
               <div class="d-flex modal-confirm__data">
                 <img
                   class="select-img"
-                  :src="$mapImageCurrency(valueUser.currencyGet)"
+                  :src="$mapImageCurrency('DFY')"
                   alt
                 >
                 {{ $numberFormatDecimal(valueUser.amountGet) }}&nbsp;
@@ -99,7 +99,7 @@
 
 <script>
 import get from 'lodash/get'
-import { mapGetters, mapState, mapActions } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import { ArrowLeftIcon } from 'vue-feather-icons'
 import Alert from './Alert'
 
@@ -121,7 +121,7 @@ export default {
   },
 
   computed: {
-    ...mapState('walletStore', ['currentAddress']),
+    // ...mapState('walletStore', ['currentAddress']),
     ...mapGetters('payment', ['valueUser', 'isShowing']),
     isShow: {
       get () {
@@ -140,25 +140,15 @@ export default {
       this.$emit('isBack')
     },
     ...mapActions('payment', ['showSuccessMessage', 'showErrorMessage']),
-
-    handlePay () {
-      // this.$emit('update:show', false)
-      // this.isConfirm = true
+    async handlePay () {
       try {
-        // this.loading = true
-        // const { data } = await this.$axios.post(`${process.env.API_URL}/defi-pawn-crypto-service/public-api/v1.0.0/indacoin/transactions`, {
-        //   amountGet: this.getValue,
-        //   amountPay: this.payload.pay,
-        //   currencyGet: this.getCurrency,
-        //   currencyPay: this.payload.payCurrency,
-        //   email: this.email,
-        //   walletAddress: this.currentAddress
-        // })
+        this.loading = true
+        await this.$axios.post(`${process.env.API_URL}/defi-pawn-crypto-service/public-api/v1.0.0/buy-dfy`, this.valueUser)
         this.loading = false
         // window.location = get(data, 'data.transactionUrl')
         this.showSuccessMessage()
       } catch (err) {
-        // this.showErrorMessage()
+        this.showErrorMessage()
       } finally {
         this.loading = false
       }

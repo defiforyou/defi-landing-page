@@ -1,13 +1,11 @@
 <template>
   <div>
-    <v-dialog
-      v-model="isShow"
-      width="867px"
-      dark
-      class="dfy-personal-info"
-    >
+    <v-dialog v-model="isShow" width="867px" dark class="dfy-personal-info">
       <client-only>
-        <v-card :height="$vuetify.breakpoint.xsOnly ? '450px' : undefined" class="scroll">
+        <v-card
+          :height="$vuetify.breakpoint.xsOnly ? '450px' : undefined"
+          class="scroll"
+        >
           <div class="button-close">
             <v-btn
               small
@@ -42,34 +40,24 @@
                   :rules="emailRules"
                   has-text
                 />
-                <!-- <InputTextField
-                  label="Phone"
-                  :select.sync="phoneSelect"
-                  value-select="phone_code"
-                  :text-select="showPhoneSelect"
-                  :text.sync="phone"
-                  has-select
-                  :items="phones"
-                  class-select="select-phone"
-                  class-input="field-phone"
-                  placeholder="Enter phone"
-                  :value-default="getPhoneDefault"
-                  :rules="phoneRules"
-                  has-text
-                /> -->
                 <div class="input-card__col">
                   <div class="input-card__label">
                     Phone
                   </div>
                   <div class="input-card__field">
                     <v-select
-                      v-model="phones[getIndexCountry]"
+                      :value="valuePhoneCode"
+                      :rules="phoneCodeRules"
                       :items="phones"
                       dense
                       outlined
                       color="#F8B017"
                       :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
-                      :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
+                      :style="
+                        $vuetify.breakpoint.smAndUp
+                          ? 'font-size: 16px'
+                          : 'font-size: 14px'
+                      "
                       dark
                       class="select-phone"
                       rounded
@@ -80,14 +68,23 @@
                         <img
                           :src="`https://flagcdn.com/h20/${item.country_code.toLowerCase()}.png`"
                         ><span>
-                          {{ item.phone_code.includes('+')?item.phone_code: `+${item.phone_code}` }}
+                          {{
+                            item.phone_code.includes("+")
+                              ? item.phone_code
+                              : `+${item.phone_code}`
+                          }}
                         </span>
                       </template>
                       <template #item="{ item }">
                         <img
                           :src="`https://flagcdn.com/h20/${item.country_code.toLowerCase()}.png`"
-                          style="width: 20px; height: 20px; border-radius: 50%;
-                        margin-right: 10px; object-fit: cover;"
+                          style="
+                            width: 20px;
+                            height: 20px;
+                            border-radius: 50%;
+                            margin-right: 10px;
+                            object-fit: cover;
+                          "
                         >{{ item.phone_code }}
                       </template>
                     </v-select>
@@ -105,22 +102,49 @@
                       class="field-phone"
                       :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
                       :style="
-                        $vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'
+                        $vuetify.breakpoint.smAndUp
+                          ? 'font-size: 16px'
+                          : 'font-size: 14px'
                       "
                     />
                   </div>
                 </div>
               </div>
               <div class="input-card__cols">
-                <InputTextField
+                <!-- <InputTextField
                   label="Country"
                   :items="countries"
-                  value-select="id"
+                  no-object
+                  value-select="country_code"
                   text-select="name"
                   placeholder-select="Select country"
                   :select.sync="country"
+                  :rules="countryRules"
                   has-select
-                />
+                /> -->
+                <div class="input-card__col">
+                  <div class="input-card__label">
+                    Country
+                  </div>
+                  <div class="input-card__field">
+                    <v-select
+                      v-model="country"
+                      :items="countries"
+                      :rules="countryRules"
+                      item-text="name"
+                      dense
+                      outlined
+                      color="#F8B017"
+                      :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
+                      :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
+                      dark
+                      rounded
+                      return-object
+                      append-icon="mdi-chevron-down"
+                      placeholder="Select country"
+                    />
+                  </div>
+                </div>
                 <InputTextField
                   label="City"
                   placeholder-select="Enter city"
@@ -134,7 +158,7 @@
                   label="State"
                   :select.sync="state"
                   :items="states"
-                  value-select="id"
+                  value-select="state_code"
                   text-select="name"
                   placeholder-select="Select state"
                   has-select
@@ -165,10 +189,7 @@
           </v-card-actions>
         </v-card>
       </client-only>
-      <ModalPaymentInfo
-        :show.sync="isConfirm"
-        @isBack="showModalBefore"
-      />
+      <ModalPaymentInfo :show.sync="isConfirm" @isBack="showModalBefore" />
     </v-dialog>
   </div>
 </template>
@@ -202,20 +223,54 @@ export default {
   computed: {
     ...mapGetters('payment', ['countries', 'states', 'phones', 'valueUser']),
     getIndexCountry () {
-      return this.phones.findIndex((item) => item.name === this.country.name)
+      return this.phones?.findIndex((item) => item?.name === this.country.name)
+    },
+    valuePhoneCode () {
+      return this.phones[this.getIndexCountry]
     },
     convertPhone () {
-      const phoneCode = this.phones[this.getIndexCountry].phone_code
-      return phoneCode.charAt(0) === '+' ? phoneCode.slice(1) + this.phone : phoneCode + this.phone
+      const phoneCode = this.phones[this.getIndexCountry]?.phone_code
+      return phoneCode.charAt(0) === '+'
+        ? phoneCode.slice(1) + this.phone
+        : phoneCode + this.phone
     },
     labelPostal () {
-      const postalArray = ['United Kingdom', 'Russia', 'Austria', 'Belgium', 'Bulgaria', 'Croatia', 'Republic of Cyprus', 'Czech Republic', 'Denmark', 'Estonia', 'Finland', 'France', 'Germany', 'Greece', 'Hungary', 'Ireland', 'Italy', 'Latvia', 'Lithuania', 'Luxembourg', 'Malta', 'Netherlands', 'Poland', 'Portugal', 'Romania', 'Slovakia', 'Slovenia', 'Spain', 'Sweden']
+      const postalArray = [
+        'United Kingdom',
+        'Russia',
+        'Austria',
+        'Belgium',
+        'Bulgaria',
+        'Croatia',
+        'Republic of Cyprus',
+        'Czech Republic',
+        'Denmark',
+        'Estonia',
+        'Finland',
+        'France',
+        'Germany',
+        'Greece',
+        'Hungary',
+        'Ireland',
+        'Italy',
+        'Latvia',
+        'Lithuania',
+        'Luxembourg',
+        'Malta',
+        'Netherlands',
+        'Poland',
+        'Portugal',
+        'Romania',
+        'Slovakia',
+        'Slovenia',
+        'Spain',
+        'Sweden'
+      ]
       return postalArray.includes(this.country.name) ? 'Postal' : 'Zip'
     },
     isShow: {
       get () {
         return this.show
-        // return true
       },
       set (value) {
         this.$emit('update:show', value)
@@ -223,45 +278,74 @@ export default {
     },
     addressRules () {
       return [
-        v => !!v || (v && v.length >= 0 && v.length <= 100) || 'Invalid Address Detail'
+        (v) =>
+          !!v ||
+          (v && v.length >= 0 && v.length <= 100) ||
+          'Invalid Address Detail'
       ]
     },
     emailRules () {
       return [
+        (v) =>
         // eslint-disable-next-line no-useless-escape
-        v => /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/.test(v) || 'Invalid email',
+          /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/.test(v) || 'Invalid email',
         // eslint-disable-next-line no-mixed-operators
-        v => v && v.length <= 50 || 'Email with maximum 50 character'
+        (v) => (v && v.length <= 50) || 'Email with maximum 50 character'
       ]
     },
     phoneRules () {
       return [
-        v => !!v || Number(v) > 0 || 'Invalid Phone number',
-        v => /^[0-9]+$/.test(v) || 'Invalid Phone number',
-        v => (v && v.length >= 0 && v.length <= 20) || 'Phone number with maximum 20 digits'
+        (v) => !!v || Number(v) > 0 || 'Invalid Phone number',
+        (v) => /^[0-9]+$/.test(v) || 'Invalid Phone number',
+        (v) =>
+          (v && v.length >= 0 && v.length <= 20) ||
+          'Phone number with maximum 20 digits'
       ]
     },
     postalRules () {
       return [
-        v => !!v || (this.labelPostal === 'Postal' ? 'Postal code is required' : 'Zip code is required '),
+        (v) =>
+          !!v ||
+          (this.labelPostal === 'Postal'
+            ? 'Postal code is required'
+            : 'Zip code is required '),
         // eslint-disable-next-line no-mixed-operators
-        v => v && v.length <= 50 || (this.labelPostal === 'Postal' ? 'Invalid Postal code' : 'Invalid Zip code')
+        (v) =>
+          (v && v.length <= 50) ||
+          (this.labelPostal === 'Postal'
+            ? 'Invalid Postal code'
+            : 'Invalid Zip code')
+      ]
+    },
+    countryRules () {
+      return [
+        (v) =>
+          // eslint-disable-next-line no-mixed-operators
+          Object.keys(v).length > 0 || 'Country is required'
+
+      ]
+    },
+    phoneCodeRules () {
+      return [
+        (v) =>
+          !!v || 'Phone code is required'
+
       ]
     },
     stateRules () {
       return [
-        v => !!v || 'State is required',
-        // eslint-disable-next-line no-mixed-operators
-        v => v && v.length <= 50 || 'Invalid state'
+        (v) => !!v || 'State is required'
       ]
     },
     cityRules () {
       return [
-        v => !!v || 'City is required',
+        (v) => !!v || 'City is required',
         // eslint-disable-next-line no-mixed-operators
-        v => v && v.length <= 50 || 'Invalid city',
+        (v) => (v && v.length <= 50) || 'Invalid city',
         // eslint-disable-next-line no-mixed-operators
-        v => v && /^[a-zA-Z0-9 _]*[a-zA-Z0-9][a-zA-Z0-9 _]*$/.test(v) || 'Invalid city'
+        (v) =>
+          (v && /^[a-zA-Z0-9ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ ]*$/.test(v)) ||
+          'Invalid city'
       ]
     }
   },
@@ -270,6 +354,8 @@ export default {
       this.getStates(this.country.id)
       // eslint-disable-next-line no-unused-expressions
       this.labelPostal
+      // eslint-disable-next-line no-unused-expressions
+      this.postalRules
     }
   },
   created () {
@@ -277,7 +363,12 @@ export default {
     this.getPhones()
   },
   methods: {
-    ...mapActions('payment', ['getCountries', 'getStates', 'getPhones', 'getValueUser']),
+    ...mapActions('payment', [
+      'getCountries',
+      'getStates',
+      'getPhones',
+      'getValueUser'
+    ]),
     get,
     showModalBefore () {
       this.$emit('update:show', true)
@@ -288,17 +379,17 @@ export default {
           address: this.address,
           email: this.email,
           phone: this.convertPhone,
-          country: this.country.id,
+          country: this.country.country_code,
           city: this.city,
-          state: this.state.state_code,
+          state: this.state.state_code || null,
           postal: this.postal
         }
-        console.log('data', dataEntered)
         this.getValueUser(dataEntered)
         this.$emit('update:show', false)
         this.isConfirm = true
-      } else
+      } else {
         this.isConfirm = false
+      }
     }
   }
 }
