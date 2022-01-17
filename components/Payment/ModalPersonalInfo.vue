@@ -1,6 +1,11 @@
 <template>
   <div>
-    <v-dialog v-model="isShow" width="867px" dark class="dfy-personal-info">
+    <v-dialog
+      v-model="isShow"
+      width="867px"
+      dark
+      class="dfy-personal-info"
+    >
       <client-only>
         <v-card
           :height="$vuetify.breakpoint.xsOnly ? '450px' : undefined"

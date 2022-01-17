@@ -1,6 +1,9 @@
 .scroll {
   overflow-y: scroll;
 }
+::v-deep.v-dialog__content.v-dialog__content--active{
+  z-index: 9999999999 !important;
+}
 .dfy-personal-info {
   background: #23252e;
 }

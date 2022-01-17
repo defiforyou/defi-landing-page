@@ -256,7 +256,9 @@
     height: 480px;
   }
 }
-
+::v-deep.select-currency .v-select__selections{
+  flex-wrap: nowrap !important;
+}
 .on-exchanges_link {
   margin: 0 auto;
   display: flex;

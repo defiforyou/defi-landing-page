@@ -313,13 +313,13 @@ export default {
         this.loadingRate = false
         switch (this.payload.currency.toLowerCase()) {
           case 'usd':
-            this.payload.amountGet = (data.data['defi-for-you'].usd * this.payload.amountPay).toFixed(5)
+            this.payload.amountGet = (this.payload.amountPay / data.data['defi-for-you'].usd).toFixed(5)
             break
           case 'eur':
-            this.payload.amountGet = (data.data['defi-for-you'].eur * this.payload.amountPay).toFixed(5)
+            this.payload.amountGet = (this.payload.amountPay / data.data['defi-for-you'].eur).toFixed(5)
             break
           case 'gbp':
-            this.payload.amountGet = (data.data['defi-for-you'].gbp * this.payload.amountPay).toFixed(5)
+            this.payload.amountGet = (this.payload.amountPay / data.data['defi-for-you'].gbp).toFixed(5)
             break
           default: return 0
         }
