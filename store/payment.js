@@ -57,8 +57,7 @@ export const actions = {
   },
   showErrorMessage ({ commit }, payload = {}) {
     commit('SHOW_DIALOG', {
-      ...payload,
-      text: payload.text || 'Something went wrong!',
+      text: payload || 'Something went wrong!',
       type: 'error'
     })
   },

@@ -69,6 +69,7 @@
                       :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
                       class="field-cvv"
                       :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
+                      @input="trimValueCVV"
                     />
                     <v-icon class="icon-input icon-info" color="#C9CACD">
                       mdi-information
@@ -104,8 +105,6 @@
                     <v-app id="inspire">
                       <v-menu
                         ref="menu"
-                        :close-on-content-click="false"
-                        :return-value.sync="date"
                         transition="scale-transition"
                         offset-y
                         max-width="290px"
@@ -134,19 +133,19 @@
                         <v-date-picker
                           v-model="date"
                           :rules="dateRules"
-                          type="month"
-                          :min="new Date().toISOString().slice(0, 7)"
                           no-title
                           scrollable
+                          type="month"
+                          :min="new Date().toISOString().slice(0, 7)"
                         >
-                          <v-spacer />
+                          <!-- <v-spacer />
                           <v-btn
                             text
                             color="primary"
                             @click="$refs.menu.save(date)"
                           >
                             OK
-                          </v-btn>
+                          </v-btn> -->
                         </v-date-picker>
                       </v-menu>
                     </v-app>
@@ -262,6 +261,9 @@ export default {
   },
   methods: {
     get,
+    trimValueCVV (evt) {
+      this.$emit('change', this.cvvText = evt.trim())
+    },
     ...mapActions('payment', ['getValueUser']),
     showModalBefore () {
       this.$emit('update:show', true)

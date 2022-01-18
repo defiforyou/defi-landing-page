@@ -4,7 +4,7 @@
       {{ label }}
     </div>
     <div class="input-card__field">
-      <v-select
+      <v-autocomplete
         v-if="hasSelect"
         :items="items"
         :rules="rules"
@@ -120,7 +120,7 @@ export default {
   },
   methods: {
     onInput (event) {
-      this.$emit('update:text', event)
+      this.$emit('update:text', event.trim())
     },
     onSelect (event) {
       this.$emit('update:select', event)
