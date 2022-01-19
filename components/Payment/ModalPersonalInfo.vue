@@ -2,7 +2,7 @@
   <div>
     <v-dialog
       v-model="isShow"
-      width="867px"
+      width="1120px"
       dark
       class="dfy-personal-info"
     >
@@ -50,10 +50,11 @@
                     Phone
                   </div>
                   <div class="input-card__field">
-                    <v-select
-                      :value="valuePhoneCode"
+                    <v-autocomplete
+                      v-model="phoneCodeSelect"
                       :rules="phoneCodeRules"
                       :items="phones"
+                      item-text="name"
                       dense
                       outlined
                       color="#F8B017"
@@ -90,14 +91,14 @@
                             margin-right: 10px;
                             object-fit: cover;
                           "
-                        >{{ item.phone_code }}
+                        >{{ item.name }}
                       </template>
-                    </v-select>
+                    </v-autocomplete>
                     <v-text-field
                       v-model="phone"
                       placeholder="Enter phone"
                       :rules="phoneRules"
-                      type="text"
+                      type="number"
                       color="#F8B017"
                       outlined
                       required
@@ -111,32 +112,24 @@
                           ? 'font-size: 16px'
                           : 'font-size: 14px'
                       "
+                      @keydown="(e)=>{if(e.keyCode === 190 || e.keyCode === 110 || e.shiftKey)
+                        e.preventDefault()}"
                     />
                   </div>
                 </div>
               </div>
               <div class="input-card__cols">
-                <!-- <InputTextField
-                  label="Country"
-                  :items="countries"
-                  no-object
-                  value-select="country_code"
-                  text-select="name"
-                  placeholder-select="Select country"
-                  :select.sync="country"
-                  :rules="countryRules"
-                  has-select
-                /> -->
                 <div class="input-card__col">
                   <div class="input-card__label">
                     Country
                   </div>
                   <div class="input-card__field">
-                    <v-select
+                    <v-autocomplete
                       v-model="country"
                       :items="countries"
                       :rules="countryRules"
                       item-text="name"
+                      item-value="phone_code"
                       dense
                       outlined
                       color="#F8B017"
@@ -201,7 +194,7 @@
 
 <script>
 import get from 'lodash/get'
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapActions, mapMutations } from 'vuex'
 import ModalPaymentInfo from './ModalPaymentInfo'
 import InputTextField from './Input'
 export default {
@@ -217,24 +210,19 @@ export default {
     return {
       address: '',
       email: '',
+      phoneCodeSelect: null,
       phone: '',
-      country: '',
+      country: null,
       city: '',
-      state: '',
+      state: null,
       postal: '',
       isConfirm: false
     }
   },
   computed: {
-    ...mapGetters('payment', ['countries', 'states', 'phones', 'valueUser']),
-    getIndexCountry () {
-      return this.phones?.findIndex((item) => item?.name === this.country.name)
-    },
-    valuePhoneCode () {
-      return this.phones[this.getIndexCountry]
-    },
+    ...mapGetters('payment', ['countries', 'states', 'phones', 'valueUser', 'isPostal']),
     convertPhone () {
-      const phoneCode = this.phones[this.getIndexCountry]?.phone_code
+      const phoneCode = this.phoneCodeSelect?.phone_code
       return phoneCode.charAt(0) === '+'
         ? phoneCode.slice(1) + this.phone
         : phoneCode + this.phone
@@ -271,7 +259,9 @@ export default {
         'Spain',
         'Sweden'
       ]
-      return postalArray.includes(this.country.name) ? 'Postal' : 'Zip'
+      // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+      postalArray.includes(this.country?.name) ? this.IS_POSTAL(true) : this.IS_POSTAL(false)
+      return postalArray.includes(this.country?.name) ? 'Postal' : 'Zip'
     },
     isShow: {
       get () {
@@ -324,17 +314,17 @@ export default {
     },
     countryRules () {
       return [
+        // (v) =>
+        //   // eslint-disable-next-line no-mixed-operators
+        //   Object?.keys(v)?.length > 0 || 'Country is required'
         (v) =>
-          // eslint-disable-next-line no-mixed-operators
-          Object.keys(v).length > 0 || 'Country is required'
-
+          !!v || 'Country is required'
       ]
     },
     phoneCodeRules () {
       return [
         (v) =>
           !!v || 'Phone code is required'
-
       ]
     },
     stateRules () {
@@ -356,11 +346,12 @@ export default {
   },
   watch: {
     country () {
-      this.getStates(this.country.id)
+      this.getStates(this.country?.id)
       // eslint-disable-next-line no-unused-expressions
       this.labelPostal
       // eslint-disable-next-line no-unused-expressions
       this.postalRules
+      this.phoneCodeSelect = this.phones[this.phones?.findIndex((item) => item?.name === this.country?.name)]
     }
   },
   created () {
@@ -368,6 +359,7 @@ export default {
     this.getPhones()
   },
   methods: {
+    ...mapMutations('payment', ['IS_POSTAL']),
     ...mapActions('payment', [
       'getCountries',
       'getStates',
@@ -384,9 +376,9 @@ export default {
           address: this.address,
           email: this.email,
           phone: this.convertPhone,
-          country: this.country.country_code,
+          country: this.country?.country_code,
           city: this.city,
-          state: this.state.state_code || null,
+          state: this.state?.state_code || null,
           postal: this.postal
         }
         this.getValueUser(dataEntered)

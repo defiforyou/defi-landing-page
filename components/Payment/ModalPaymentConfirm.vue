@@ -145,10 +145,10 @@ export default {
         this.loading = true
         await this.$axios.post(`${process.env.API_URL}/defi-pawn-crypto-service/public-api/v1.0.0/buy-dfy`, this.valueUser)
         this.loading = false
-        // window.location = get(data, 'data.transactionUrl')
+        this.$emit('update:show', false)
         this.showSuccessMessage()
       } catch (err) {
-        this.showErrorMessage()
+        this.showErrorMessage(err.response.data.error)
       } finally {
         this.loading = false
       }

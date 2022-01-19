@@ -12,7 +12,8 @@ export const state = () => ({
   phones: [],
   isShowing: false,
   text: '',
-  type: null
+  type: null,
+  isPostal: false
 })
 
 /**
@@ -39,6 +40,9 @@ export const getters = {
   },
   phones (state) {
     return state.phones
+  },
+  isPostal (state) {
+    return state.isPostal
   }
 }
 
@@ -57,8 +61,7 @@ export const actions = {
   },
   showErrorMessage ({ commit }, payload = {}) {
     commit('SHOW_DIALOG', {
-      ...payload,
-      text: payload.text || 'Something went wrong!',
+      text: payload !== 'error' ? payload : ['Something went wrong!'],
       type: 'error'
     })
   },
@@ -127,5 +130,8 @@ export const mutations = {
     state.isShowing = true
     state.text = payload.text
     state.type = payload.type
+  },
+  IS_POSTAL (state, payload) {
+    state.isPostal = payload
   }
 }
