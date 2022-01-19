@@ -11,7 +11,7 @@
                   :class="{'active': tab == 1}"
                   @click="tab = 1"
                 >
-                  Buy DFY using bank card
+                  Buy DFY with your Bank card
                   <!--                  <span class="cards">-->
                   <!--                    <img src="~assets/img/buy-dfy/visa.png" alt="">-->
                   <!--                    <img class="img-rectangle" src="~assets/img/buy-dfy/rectangle.png" alt="">-->
@@ -36,7 +36,7 @@
           <v-col cols="12" md="6" class="order-1 order-md-2">
             <div class="buy-dfy-img">
               <h2 class="buy-dfy__title">
-                Buy DFY using Bank card
+                Buy DFY with your Bank card
               </h2>
               <!--              <div class="buy-dfy__card">-->
               <!--                <div>-->
@@ -44,11 +44,11 @@
               <!--                  <img src="~assets/img/buy-dfy/mastecard-2.png" alt="">-->
               <!--                </div>-->
               <!--              </div>-->
-              <div class="buy-dfy__subtext">
-                <p class="text-left text-md-right mb-0">
-                  The easiest way to buy DFY tokens with Bank card
-                </p>
-              </div>
+<!--              <div class="buy-dfy__subtext">-->
+<!--                <p class="text-left text-md-right mb-0">-->
+<!--                  The easiest way to buy DFY tokens with Bank card-->
+<!--                </p>-->
+<!--              </div>-->
               <div class="buy-dfy__imgs--small">
                 <img src="/img/payment_visa.svg" alt="">
                 <img src="/img/payment_mastercard.svg" alt="">

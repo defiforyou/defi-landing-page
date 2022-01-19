@@ -16,8 +16,8 @@ section.defi-for-you
           p  Earn tokens from interest payments with peer to peer lending and scale the value of your crypto assets
         h2.title Loan Against NFTs attached to physical assets
         .description
-          p We are partnering with licenced digital asset shops in the UK and USA to facilitate the safe storage of physical assets like gold,diamonds,art,cars and more,all of which are represented by NFTs.
-          p First buy the NFT, which is attached to a physical asset validated by one of our trusted partners,then you can use this as collateral for a loan on the Defi For You platform.
+          p We are partnering with licenced digital asset shops in the UK and USA to facilitate the safe storage of physical assets like gold, diamonds, art, cars and more, all of which are represented by NFTs.
+          p First buy the NFT, which is attached to a physical asset validated by one of our trusted partners, then you can use this as collateral for a loan on the Defi For You platform.
 </template>
 
 <style lang="scss" scoped>
