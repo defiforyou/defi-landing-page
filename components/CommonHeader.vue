@@ -170,8 +170,8 @@ export default {
       },
       {
         text: 'Buy NFTs',
-        href: 'https://marketplace.defiforyou.uk/nft/search',
-        target: '_blank',
+        href: 'buy-nfts',
+        target: '',
         classes: {
           'dfy-button': true,
           'dfy-button--overlay': true,
@@ -180,12 +180,12 @@ export default {
       },
       {
         text: 'Loan against NFTs',
-        href: 'loan-against-nfts',
-        target: '',
+        href: URLS.farming,
+        target: '_blank',
         classes: {
           'dfy-button': true,
           'dfy-button--overlay': true,
-          'dfy-button--beta': false
+          'dfy-button--coming-soon': true
         }
       },
       {
@@ -196,7 +196,19 @@ export default {
           'dfy-button': true,
           'dfy-button--overlay': true,
           'dfy-button--beta': false
-        }
+        },
+        child: [
+          {
+            text: 'Soft NFTs',
+            href: 'https://marketplace.defiforyou.uk/nft/create',
+            target: '_blank'
+          },
+          {
+            text: 'Hard NFTs',
+            href: 'https://marketplace.defiforyou.uk/nft/create/hard',
+            target: '_blank'
+          }
+        ]
       },
       {
         text: 'P2P lending',
@@ -466,7 +478,6 @@ section.header {
               position: initial;
               background: rgba(black, 0.25);
               margin-left: auto;
-              margin-right: -0.65em;
               transform: none;
               padding: 4px 8px;
               opacity: 1;

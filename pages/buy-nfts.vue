@@ -15,7 +15,7 @@
               {{ item.content }}
             </div>
             <div class="action">
-              <a class="dfy-button dfy-button--primary">Buy DFY</a>
+              <a class="dfy-button dfy-button--primary" :href="item.link" target="_blank">Explore Now</a>
             </div>
           </div>
         </v-col>
@@ -50,24 +50,24 @@ export default {
           content:
             '<span>Find items of your choice in one of the Digital Asset shops,here you can buy,sell or loan against your purchase.All goods on display are attached to NFTs which are recorded on the blockchain and the physical assets are kept in safe storage with one of our trusted partners in fully licensed premises. <br> If the physical assets are collected by the owner it would require a newly minted NFT and validation.</span>',
           contentType: CONTENT_TYPE.HTML,
-          link: '',
+          link: 'https://app.defiforyou.uk/pawn/pawnshop-all',
           image: require('@/assets/img/loan-asignst-nfts/image-content-1.svg')
         },
         {
-          title: 'Hard NFT',
+          title: 'Hard NFTs',
           subTitle: '(NFT attached to a physical asset)',
           content:
             '<span>Discover a whole new concept where physical assets are attached to NFT,s <br> like gold,diamonds,art or even vacations to name just a few.</span>',
           contentType: CONTENT_TYPE.HTML,
-          link: '',
+          link: 'https://marketplace.defiforyou.uk/nft/search?nft_type=1',
           image: require('@/assets/img/loan-asignst-nfts/image-content-2.svg')
         },
         {
-          title: 'Soft NFT',
+          title: 'Soft NFTs',
           subTitle: '(Traditional NFT)',
           content: 'Explore the marketplace,collect,sell or loan against your NFT',
           contentType: CONTENT_TYPE.TEXT,
-          link: '',
+          link: 'https://marketplace.defiforyou.uk/nft/search?nft_type=0',
           image: require('@/assets/img/loan-asignst-nfts/image-content-3.svg')
         }
       ]
