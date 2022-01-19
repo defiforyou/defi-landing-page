@@ -56,6 +56,9 @@
     object-fit: cover;
   }
 }
+::v-deep.v-autocomplete.v-select.v-input--is-focused input{
+  min-width: 0;
+}
 ::v-deep.select-phone.v-text-field--rounded
   > .v-input__control
   > .v-input__slot {
