@@ -19,7 +19,8 @@
     <div class="container">
       <div class="greeting">
         <h1 class="headline">
-          The Future of Finance. <br> Sign up now
+          The Future of Finance.
+<!--          <br> Sign up now-->
         </h1>
         <!--        <div class="preview">-->
         <!--          <div class="video">-->
@@ -35,14 +36,14 @@
         <!--            </p>-->
         <!--          </div>-->
         <!--        </div>-->
-        <div class="actions">
-          <a :href="urls.joinAndReferral" class="dfy-button btn-referral" target="_blank">Join & Referral
-          </a>
-          <a v-scroll-to="'#buy-dfy'" class="dfy-button dfy-button--primary">Buy DFY
-          </a>
+<!--        <div class="actions">-->
+<!--          <a :href="urls.joinAndReferral" class="dfy-button btn-referral" target="_blank">Join & Referral-->
+<!--          </a>-->
+<!--          <a v-scroll-to="'#buy-dfy'" class="dfy-button dfy-button&#45;&#45;primary">Buy DFY-->
+<!--          </a>-->
 <!--          <a :href="urls.pawn" target="_blank" class="dfy-button dfy-button&#45;&#45;outline">Explore PAWN Market-->
 <!--          </a>-->
-        </div>
+<!--        </div>-->
       </div>
     </div>
     <!--      <div class="canvas">-->
@@ -240,13 +241,13 @@ section.hero {
     position: absolute;
     z-index: 2;
     padding: 2rem 10px 2rem 0;
-    margin-left: auto;
+    margin-right: auto;
     text-align: right;
     //width: 78%;
     //width: 48%;
     max-width: 800px;
-    bottom: 0;
-    right: 0;
+    top: 0;
+    left: 0;
 
     @include media(sm-down) {
       right: 50%;
