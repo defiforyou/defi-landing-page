@@ -8,67 +8,38 @@
           </nuxt-link>
         </div>
         <div class="menu">
-          <template v-if="menuType === 1">
-            <template v-for="(item, index) in menus">
-              <div v-if="item.child" :key="index" class="menu__parent">
-                <component :is="'a'">
-                  <div class="d-flex align-center">
-                    {{ item.text }}
-                    <ChevronDownIcon size="16" stroke-width="1" />
-                  </div>
-                  <div class="dropdown_menu">
-                    <component
-                      :is="i.to ? 'nuxt-link' : 'a'"
-                      v-for="(i, k) in item.child"
-                      :key="k"
-                      :to="i.to"
-                      :href="i.href"
-                      :target="i.target || '_self'"
-                      :class="i.classes || {}"
-                      v-text="i.text"
-                    />
-                  </div>
-                </component>
-              </div>
-
-              <component
-                :is="item.to ? 'nuxt-link' : 'a'"
-                v-else
-                :key="index"
-                :to="item.to"
-                :href="item.href"
-                :target="item.target || '_self'"
-                :class="item.classes || {}"
-                v-text="item.text"
-              />
-            </template>
-          </template>
-          <template
-            v-for="(item, index) in menusNew"
-            v-else-if="menuType === 2"
-          >
+          <template v-for="(item, index) in menus">
             <div v-if="item.child" :key="index" class="menu__parent">
-              <component :is="'a'">
-                <div class="menu-item">
-                  {{ item.name }}
+              <component :is="'a'" :class="item.classes || {}">
+                <div class="d-flex align-center">
+                  {{ item.text }}
+                  <ChevronDownIcon size="16" stroke-width="1" />
                 </div>
                 <div class="dropdown_menu">
                   <component
                     :is="i.to ? 'nuxt-link' : 'a'"
                     v-for="(i, k) in item.child"
                     :key="k"
-                    :to="i.link"
+                    :to="i.to"
                     :href="i.href"
                     :target="i.target || '_self'"
                     :class="i.classes || {}"
-                    v-text="i.name"
+                    v-text="i.text"
                   />
                 </div>
               </component>
             </div>
-            <div v-else :key="index" class="menu-item" :class="item.class">
-              <a :href="item.link" :target="item.target">{{ item.name }}</a>
-            </div>
+
+            <component
+              :is="item.to ? 'nuxt-link' : 'a'"
+              v-else
+              :key="index"
+              :to="item.to"
+              :href="item.href"
+              :target="item.target || '_self'"
+              :class="item.classes || {}"
+              v-text="item.text"
+            />
           </template>
         </div>
         <div class="toggler" @click="expanded = true">
@@ -131,8 +102,7 @@ export default {
   data () {
     return {
       expanded: false,
-      sticky: true,
-      menuType: 1
+      sticky: true
     }
   },
 
@@ -269,49 +239,6 @@ export default {
       //     'dfy-button--special': true
       //   }
       // }
-    ],
-    menusNew: () => [
-      {
-        name: 'Crypto Pawn',
-        child: [
-          {
-            name: 'Lender',
-            link: '',
-            highlight: false,
-            target: '_blank'
-          },
-          {
-            name: 'Borrowers',
-            link: '',
-            highlight: false,
-            target: '_blank'
-          }
-        ]
-      },
-      {
-        name: 'Hard NFTs',
-        highlight: false,
-        target: '_blank',
-        class: 'dfy-button--coming-soon'
-      },
-      {
-        name: 'Create NFT',
-        link: 'https://marketplace.defiforyou.uk/nft/create',
-        highlight: true,
-        target: '_blank'
-      },
-      {
-        name: 'NFT Marketplace',
-        link: 'https://marketplace.defiforyou.uk/',
-        highlight: false,
-        target: '_blank'
-      },
-      {
-        name: 'Mobile App',
-        link: 'https://defiforyou.uk/download-app',
-        highlight: false,
-        target: '_blank'
-      }
     ]
   }
 }

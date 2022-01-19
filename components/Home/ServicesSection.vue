@@ -3,9 +3,9 @@ section.services
   .container
     .dfy-flex.layout
       .introduce.half
-        h2.title Defi for you is digital asset-backed finance and NFT trading platform
-        .description
-          p DeFi For You is a crypto pawnbroking and NFT trading platform.
+        h2.title Defi For You is a digital asset-backed finance and NFT trading platform
+        //.description
+        //  p DeFi For You is a crypto pawnbroking and NFT trading platform.
       .features.half
         .feature
           img.icon(src="/img/service.pawnbrocker-service.svg" alt="Collateralized DeFi Loans" width="64" height="64")
@@ -16,7 +16,7 @@ section.services
           img.icon(src="/img/service.physical-asset-collateral.svg" alt="Physical Asset Collateral" width="64" height="64")
           div
             .name Physical Asset NFTs
-            p Securely store physical assets with our trusted partners and have them turned into Hard NFTs which can be used as collateral in our DeFi lending platform.
+            p Securely store physical assets with our one of trusted partners and have them turned into Hard NFTs which can be used as collateral in our DeFi lending platform.
         .feature
           img.icon(src="/img/service.save.svg" alt="NFT Collateral" width="64" height="64")
           div
