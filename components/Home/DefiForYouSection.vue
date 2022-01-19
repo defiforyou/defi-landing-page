@@ -14,9 +14,13 @@ section.defi-for-you
         h2.title Set up your very own crypto loan business on the DeFi For You platform
         .description
           p Earn crypto tokens from interest payments and gradually scale the value of your crypto assets. Want to build your crypto lending business even further?
-          p  We are partnering with licensed pawnbrokers in the UK to facilitate the storage of physical assets like gold, watches, cars, and more. These assets are then represented by NFTs.
+          p We are partnering with licensed pawnbrokers in the UK to facilitate the storage of physical assets like gold, watches, cars, and more. These assets are then represented by NFTs.
           p You can set up your own Crypto Pawn Brokerage on DeFi For You to offer loans against this ‘Hard NFT’ collateral. Loans are secured by smart contracts, meaning collateral can be trivially repossessed in the event of a borrower defaulting on their loan repayments.
           p It’s easy, secure, and draws on a business model that’s been around for thousands of years.
+        h2.title Loan Against NFTs attached to physical assets
+        .description
+          p We are partnering with licenced digital asset shops in the UK and USA to facilitate the safe storage of physical assets like gold,diamonds,art,cars and more,all of which are represented by NFTs.
+          p First buy the NFT, which is attached to a physical asset validated by one of our trusted partners,then you can use this as collateral for a loan on the Defi For You platform.
 </template>
 
 <style lang="scss" scoped>
@@ -105,11 +109,15 @@ section.defi-for-you {
   .text {
     flex: 1;
     z-index: 5;
+    h2 {
+      font-size: 1.125rem !important;
+    }
     @include media(sm-down) {
       max-width: 560px;
       margin: 0 auto;
     }
     .description {
+      margin-bottom: 24px;
       p {
         padding-top: 12px;
       }

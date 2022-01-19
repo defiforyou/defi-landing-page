@@ -132,7 +132,7 @@ export default {
     return {
       expanded: false,
       sticky: true,
-      menuType: 2
+      menuType: 1
     }
   },
 
@@ -169,8 +169,8 @@ export default {
         ]
       },
       {
-        text: 'P2P Lending',
-        href: URLS.lending,
+        text: 'Buy NFTs',
+        href: 'https://marketplace.defiforyou.uk/nft/search',
         target: '_blank',
         classes: {
           'dfy-button': true,
@@ -178,6 +178,57 @@ export default {
           'dfy-button--beta': false
         }
       },
+      {
+        text: 'Loan against NFTs',
+        href: 'loan-against-nfts',
+        target: '',
+        classes: {
+          'dfy-button': true,
+          'dfy-button--overlay': true,
+          'dfy-button--beta': false
+        }
+      },
+      {
+        text: 'Mint NFTs',
+        href: 'https://marketplace.defiforyou.uk/nft/create',
+        target: '_blank',
+        classes: {
+          'dfy-button': true,
+          'dfy-button--overlay': true,
+          'dfy-button--beta': false
+        }
+      },
+      {
+        text: 'P2P lending',
+        href: 'https://app.defiforyou.uk/pawn',
+        target: '_blank',
+        classes: {
+          'dfy-button': true,
+          'dfy-button--overlay': true,
+          'dfy-button--beta': false
+        }
+      },
+      {
+        text: 'Buy DFY',
+        to: {
+          name: 'index',
+          hash: '#price-tickers'
+        },
+        classes: {
+          'dfy-button': true,
+          'dfy-button--special': true
+        }
+      }
+      // {
+      //   text: 'P2P Lending',
+      //   href: URLS.lending,
+      //   target: '_blank',
+      //   classes: {
+      //     'dfy-button': true,
+      //     'dfy-button--overlay': true,
+      //     'dfy-button--beta': false
+      //   }
+      // },
       // {
       //   text: 'Staking',
       //   href: URLS.staking,
@@ -197,15 +248,15 @@ export default {
       //     // 'dfy-button--coming-soon': true
       //   }
       // },
-      {
-        text: 'Trade NFTs',
-        href: URLS.trade,
-        target: '_blank',
-        classes: {
-          'dfy-button': true,
-          'dfy-button--special': true
-        }
-      }
+      // {
+      //   text: 'Trade NFTs',
+      //   href: URLS.trade,
+      //   target: '_blank',
+      //   classes: {
+      //     'dfy-button': true,
+      //     'dfy-button--special': true
+      //   }
+      // }
     ],
     menusNew: () => [
       {
@@ -302,12 +353,15 @@ section.header {
         padding-right: 1rem;
         border-right: 1px solid #fff;
         font-size: 1rem;
+
         a {
           transition: 0s;
         }
+
         &:last-child {
           border: 0;
         }
+
         &.dfy-button--coming-soon:hover a {
           visibility: hidden;
         }
