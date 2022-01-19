@@ -98,7 +98,7 @@
                       v-model="phone"
                       placeholder="Enter phone"
                       :rules="phoneRules"
-                      type="text"
+                      type="number"
                       color="#F8B017"
                       outlined
                       required
@@ -112,7 +112,8 @@
                           ? 'font-size: 16px'
                           : 'font-size: 14px'
                       "
-                      @input="trimValuePhone"
+                      @keydown="(e)=>{if(e.keyCode === 190 || e.keyCode === 110 || e.shiftKey)
+                        e.preventDefault()}"
                     />
                   </div>
                 </div>
@@ -193,7 +194,7 @@
 
 <script>
 import get from 'lodash/get'
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapActions, mapMutations } from 'vuex'
 import ModalPaymentInfo from './ModalPaymentInfo'
 import InputTextField from './Input'
 export default {
@@ -207,19 +208,19 @@ export default {
 
   data () {
     return {
-      address: 'abc',
-      email: 'a@gmail.com',
+      address: '',
+      email: '',
       phoneCodeSelect: null,
-      phone: '123',
+      phone: '',
       country: null,
-      city: 'a',
+      city: '',
       state: null,
-      postal: 'd',
+      postal: '',
       isConfirm: false
     }
   },
   computed: {
-    ...mapGetters('payment', ['countries', 'states', 'phones', 'valueUser']),
+    ...mapGetters('payment', ['countries', 'states', 'phones', 'valueUser', 'isPostal']),
     convertPhone () {
       const phoneCode = this.phoneCodeSelect?.phone_code
       return phoneCode.charAt(0) === '+'
@@ -258,6 +259,8 @@ export default {
         'Spain',
         'Sweden'
       ]
+      // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+      postalArray.includes(this.country?.name) ? this.IS_POSTAL(true) : this.IS_POSTAL(false)
       return postalArray.includes(this.country?.name) ? 'Postal' : 'Zip'
     },
     isShow: {
@@ -356,6 +359,7 @@ export default {
     this.getPhones()
   },
   methods: {
+    ...mapMutations('payment', ['IS_POSTAL']),
     ...mapActions('payment', [
       'getCountries',
       'getStates',
@@ -363,9 +367,6 @@ export default {
       'getValueUser'
     ]),
     get,
-    trimValuePhone (evt) {
-      this.$emit('change', this.phone = evt.trim())
-    },
     showModalBefore () {
       this.$emit('update:show', true)
     },

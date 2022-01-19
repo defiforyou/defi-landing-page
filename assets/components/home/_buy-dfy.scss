@@ -57,17 +57,14 @@
 .buy-dfy__title {
   font-weight: 500;
   font-size: 24px;
-  margin-bottom: 12px;
-  line-height: 48px;
+  // margin-bottom: 12px;
+  line-height: 40px;
   text-align: left;
 
   @media (min-width: 960px) {
-    font-size: 40px;
-    margin-bottom: 12px;
-  }
-
-  @media (min-width: 960px) {
     text-align: right;
+    font-size: 40px;
+    line-height: 48px;
   }
 }
 
@@ -238,7 +235,7 @@
     margin-top: -5px;
     margin-right: -20px;
   }
-  @media screen and (max-width: 959px) and (min-width: 600px){
+  @media screen and (max-width: 959px) and (min-width: 600px) {
     margin-top: -4px;
   }
 }
@@ -256,7 +253,7 @@
     height: 480px;
   }
 }
-::v-deep.select-currency .v-select__selections{
+::v-deep.select-currency .v-select__selections {
   flex-wrap: nowrap !important;
 }
 .on-exchanges_link {

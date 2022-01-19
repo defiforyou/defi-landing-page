@@ -14,14 +14,16 @@
         outlined
         color="#F8B017"
         :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
-        :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
+        :style="
+          $vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'
+        "
         dark
         rounded
         return-object
         append-icon="mdi-chevron-down"
         :class="classSelect"
         :placeholder="placeholderSelect"
-        :value="valueDefault? valueDefault: select"
+        :value="valueDefault ? valueDefault : select"
         @input="onSelect($event)"
       />
       <v-text-field
@@ -36,7 +38,7 @@
         :readonly="readonly"
         dense
         dark
-        :suffix="suffix?suffix:''"
+        :suffix="suffix ? suffix : ''"
         :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
         :class="classInput"
         :style="
@@ -120,7 +122,7 @@ export default {
   },
   methods: {
     onInput (event) {
-      this.$emit('update:text', event.trim())
+      this.$emit('update:text', event)
     },
     onSelect (event) {
       this.$emit('update:select', event)

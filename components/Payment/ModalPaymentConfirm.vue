@@ -148,7 +148,7 @@ export default {
         this.$emit('update:show', false)
         this.showSuccessMessage()
       } catch (err) {
-        this.showErrorMessage(err.response.data.message)
+        this.showErrorMessage(err.response.data.error)
       } finally {
         this.loading = false
       }

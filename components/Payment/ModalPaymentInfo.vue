@@ -69,7 +69,6 @@
                       :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
                       class="field-cvv"
                       :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
-                      @input="trimValueCVV"
                     />
                     <v-icon class="icon-input icon-info" color="#C9CACD">
                       mdi-information
@@ -261,9 +260,6 @@ export default {
   },
   methods: {
     get,
-    trimValueCVV (evt) {
-      this.$emit('change', this.cvvText = evt.trim())
-    },
     ...mapActions('payment', ['getValueUser']),
     showModalBefore () {
       this.$emit('update:show', true)
