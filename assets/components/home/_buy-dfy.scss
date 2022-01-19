@@ -235,7 +235,7 @@
     margin-top: -5px;
     margin-right: -20px;
   }
-  @media screen and (max-width: 959px) and (min-width: 600px) {
+  @media screen and (max-width: 959px) and (min-width: 600px){
     margin-top: -4px;
   }
 }
@@ -253,7 +253,7 @@
     height: 480px;
   }
 }
-::v-deep.select-currency .v-select__selections {
+::v-deep.select-currency .v-select__selections{
   flex-wrap: nowrap !important;
 }
 .on-exchanges_link {
