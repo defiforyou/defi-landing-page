@@ -20,7 +20,7 @@ export const OFFICE_CONTRACT_TYPE = {
 
 export const OFFICES = [{
   name: 'DeFi For You — Hanoi Office',
-  vie: 'ask@defiforyou.uk',
+  // vie: 'ask@defiforyou.uk',
   eng: 'marketing@defiforyou.uk',
   address: 'BT NQ 25-15 Vinhomes Riverside, Long Bien, Hanoi, Vietnam',
   typeContact: OFFICE_CONTRACT_TYPE.EMAIL

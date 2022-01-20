@@ -150,8 +150,6 @@ export default {
       },
       {
         text: 'Loan against NFTs',
-        href: URLS.farming,
-        target: '_blank',
         classes: {
           'dfy-button': true,
           'dfy-button--overlay': true,
@@ -169,7 +167,7 @@ export default {
         },
         child: [
           {
-            text: 'Soft NFTs',
+            text: 'NFTs',
             href: 'https://marketplace.defiforyou.uk/nft/create',
             target: '_blank'
           },
