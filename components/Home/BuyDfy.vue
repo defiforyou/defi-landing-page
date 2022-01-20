@@ -11,7 +11,7 @@
                   :class="{'active': tab == 1}"
                   @click="tab = 1"
                 >
-                  Buy DFY using bank card
+                  Buy DFY with your Bank card
                   <!--                  <span class="cards">-->
                   <!--                    <img src="~assets/img/buy-dfy/visa.png" alt="">-->
                   <!--                    <img class="img-rectangle" src="~assets/img/buy-dfy/rectangle.png" alt="">-->
@@ -47,11 +47,11 @@
               <!--                  <img src="~assets/img/buy-dfy/mastecard-2.png" alt="">-->
               <!--                </div>-->
               <!--              </div>-->
-              <div class="buy-dfy__subtext">
-                <p class="text-left text-md-right mb-0">
-                  The easiest way to buy DFY tokens with Bank card
-                </p>
-              </div>
+<!--              <div class="buy-dfy__subtext">-->
+<!--                <p class="text-left text-md-right mb-0">-->
+<!--                  The easiest way to buy DFY tokens with Bank card-->
+<!--                </p>-->
+<!--              </div>-->
               <div class="buy-dfy__imgs--small">
                 <img src="/img/payment_visa.svg" alt="">
                 <img src="/img/payment_mastercard.svg" alt="">
