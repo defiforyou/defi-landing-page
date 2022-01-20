@@ -36,7 +36,10 @@
           <v-col cols="12" md="6" class="order-1 order-md-2">
             <div class="buy-dfy-img">
               <h2 class="buy-dfy__title">
-                Buy DFY with your Bank card
+                Buy DFY
+              </h2>
+              <h2 class="buy-dfy__title">
+                using Bank card
               </h2>
               <!--              <div class="buy-dfy__card">-->
               <!--                <div>-->

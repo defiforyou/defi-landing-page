@@ -22,8 +22,8 @@
           </p>
         </div>
         <div v-else-if="type==='error'">
-          <p class="title">
-            {{ text }}
+          <p v-for="item in text" :key="item.text" class="title">
+            {{ item.includes('postal') ? (!isPostal && item.replaceAll('postal', 'zip')): item }}
           </p>
         </div>
         <v-card-actions class="justify-center pb-8">
@@ -58,7 +58,8 @@ export default {
     ...mapGetters('payment', [
       'isShowing',
       'type',
-      'text'
+      'text',
+      'isPostal'
     ]),
     iconSrc () {
       switch (this.type) {
