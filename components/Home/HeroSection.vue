@@ -162,7 +162,9 @@ section.hero {
     height: calc(100% - 88px);
     top: 88px;
     @include media(sm-down) {
-      top: 0;
+      //top: 0;
+      position: absolute;
+      top: 100px;
     }
   }
 
@@ -250,24 +252,24 @@ section.hero {
     left: 0;
 
     @include media(sm-down) {
-      right: 50%;
-      transform: translateX(50%);
-      text-align: center;
-      width: 90%;
-      position: relative;
+      //right: 50%;
+      //transform: translateX(50%);
+      //text-align: center;
+      //width: 90%;
+      //position: relative;
     }
 
     .headline {
       margin: 0;
       font-size: 2rem;
 
-      @include media(md) {
+      //@include media(md) {
         //background: #F8B017;
         display: inline;
         padding: 4px 4px;
         color: #F8B017;
         user-select: none;
-      }
+      //}
 
       br.xso {
         display: none;
