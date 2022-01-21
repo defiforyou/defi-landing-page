@@ -162,9 +162,7 @@ section.hero {
     height: calc(100% - 88px);
     top: 88px;
     @include media(sm-down) {
-      //top: 0;
-      position: absolute;
-      top: 100px;
+      top: 0;
     }
   }
 
@@ -254,22 +252,23 @@ section.hero {
     @include media(sm-down) {
       //right: 50%;
       //transform: translateX(50%);
-      //text-align: center;
-      //width: 90%;
-      //position: relative;
+      text-align: center;
+      width: 90%;
+      position: relative;
+      margin: 0 auto;
     }
 
     .headline {
       margin: 0;
       font-size: 2rem;
 
-      //@include media(md) {
+      @include media(md) {
         //background: #F8B017;
         display: inline;
         padding: 4px 4px;
         color: #F8B017;
         user-select: none;
-      //}
+      }
 
       br.xso {
         display: none;

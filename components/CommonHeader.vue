@@ -56,29 +56,29 @@
             </div>
           </div>
           <div class="menu" @click="expanded = false">
-            <template v-for="(item, key) in menusNew">
+            <template v-for="(item, key) in menus">
               <template v-if="item.child">
                 <component
-                  :is="i.link ? 'nuxt-link' : 'a'"
+                  :is="i.to ? 'nuxt-link' : 'a'"
                   v-for="(i, k) in item.child"
-                  :key="`${key}-${k}`"
-                  :to="i.link"
-                  :href="i.link"
+                  :key="k"
+                  :to="i.to"
+                  :href="i.href"
                   :target="i.target || '_self'"
-                  :class="i.class || {}"
-                  v-text="i.name"
+                  :class="i.classes || {}"
+                  v-text="i.text"
                 />
               </template>
 
               <component
-                :is="item.link ? 'nuxt-link' : 'a'"
+                :is="item.to ? 'nuxt-link' : 'a'"
                 v-else
                 :key="key"
-                :to="item.link"
-                :href="item.link"
-                :target="'_self'"
-                :class="item.class || {}"
-                v-text="item.name"
+                :to="item.to"
+                :href="item.href"
+                :target="item.target || '_self'"
+                :class="item.classes || {}"
+                v-text="item.text"
               />
             </template>
           </div>
@@ -148,14 +148,14 @@ export default {
           'dfy-button--beta': false
         }
       },
-      {
-        text: 'Loan against NFTs',
-        classes: {
-          'dfy-button': true,
-          'dfy-button--overlay': true,
-          'dfy-button--coming-soon': true
-        }
-      },
+      // {
+      //   text: 'Loan against NFTs',
+      //   classes: {
+      //     'dfy-button': true,
+      //     'dfy-button--overlay': true,
+      //     'dfy-button--coming-soon': true
+      //   }
+      // },
       {
         text: 'Mint NFTs',
         href: 'https://marketplace.defiforyou.uk/nft/create',
