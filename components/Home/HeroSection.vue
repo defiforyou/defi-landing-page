@@ -250,11 +250,12 @@ section.hero {
     left: 0;
 
     @include media(sm-down) {
-      right: 50%;
-      transform: translateX(50%);
+      //right: 50%;
+      //transform: translateX(50%);
       text-align: center;
       width: 90%;
       position: relative;
+      margin: 0 auto;
     }
 
     .headline {
