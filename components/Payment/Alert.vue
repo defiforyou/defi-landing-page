@@ -85,7 +85,9 @@ export default {
     padding-top: 28px;
   }
 }
-
+::v-deep.card .v-image__image--cover {
+  background-size: unset;
+}
 .title{
   font-weight: 500;
   font-size: 20px;
