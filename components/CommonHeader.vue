@@ -8,67 +8,38 @@
           </nuxt-link>
         </div>
         <div class="menu">
-          <template v-if="menuType === 1">
-            <template v-for="(item, index) in menus">
-              <div v-if="item.child" :key="index" class="menu__parent">
-                <component :is="'a'">
-                  <div class="d-flex align-center">
-                    {{ item.text }}
-                    <ChevronDownIcon size="16" stroke-width="1" />
-                  </div>
-                  <div class="dropdown_menu">
-                    <component
-                      :is="i.to ? 'nuxt-link' : 'a'"
-                      v-for="(i, k) in item.child"
-                      :key="k"
-                      :to="i.to"
-                      :href="i.href"
-                      :target="i.target || '_self'"
-                      :class="i.classes || {}"
-                      v-text="i.text"
-                    />
-                  </div>
-                </component>
-              </div>
-
-              <component
-                :is="item.to ? 'nuxt-link' : 'a'"
-                v-else
-                :key="index"
-                :to="item.to"
-                :href="item.href"
-                :target="item.target || '_self'"
-                :class="item.classes || {}"
-                v-text="item.text"
-              />
-            </template>
-          </template>
-          <template
-            v-for="(item, index) in menusNew"
-            v-else-if="menuType === 2"
-          >
+          <template v-for="(item, index) in menus">
             <div v-if="item.child" :key="index" class="menu__parent">
-              <component :is="'a'">
-                <div class="menu-item">
-                  {{ item.name }}
+              <component :is="'a'" :class="item.classes || {}">
+                <div class="d-flex align-center">
+                  {{ item.text }}
+                  <ChevronDownIcon size="16" stroke-width="1" />
                 </div>
                 <div class="dropdown_menu">
                   <component
                     :is="i.to ? 'nuxt-link' : 'a'"
                     v-for="(i, k) in item.child"
                     :key="k"
-                    :to="i.link"
+                    :to="i.to"
                     :href="i.href"
                     :target="i.target || '_self'"
                     :class="i.classes || {}"
-                    v-text="i.name"
+                    v-text="i.text"
                   />
                 </div>
               </component>
             </div>
-            <div v-else :key="index" class="menu-item" :class="item.class">
-              <a :href="item.link" :target="item.target">{{ item.name }}</a>
-            </div>
+
+            <component
+              :is="item.to ? 'nuxt-link' : 'a'"
+              v-else
+              :key="index"
+              :to="item.to"
+              :href="item.href"
+              :target="item.target || '_self'"
+              :class="item.classes || {}"
+              v-text="item.text"
+            />
           </template>
         </div>
         <div class="toggler" @click="expanded = true">
@@ -85,29 +56,29 @@
             </div>
           </div>
           <div class="menu" @click="expanded = false">
-            <template v-for="(item, key) in menusNew">
+            <template v-for="(item, key) in menus">
               <template v-if="item.child">
                 <component
-                  :is="i.link ? 'nuxt-link' : 'a'"
+                  :is="i.to ? 'nuxt-link' : 'a'"
                   v-for="(i, k) in item.child"
-                  :key="`${key}-${k}`"
-                  :to="i.link"
-                  :href="i.link"
+                  :key="k"
+                  :to="i.to"
+                  :href="i.href"
                   :target="i.target || '_self'"
-                  :class="i.class || {}"
-                  v-text="i.name"
+                  :class="i.classes || {}"
+                  v-text="i.text"
                 />
               </template>
 
               <component
-                :is="item.link ? 'nuxt-link' : 'a'"
+                :is="item.to ? 'nuxt-link' : 'a'"
                 v-else
                 :key="key"
-                :to="item.link"
-                :href="item.link"
-                :target="'_self'"
-                :class="item.class || {}"
-                v-text="item.name"
+                :to="item.to"
+                :href="item.href"
+                :target="item.target || '_self'"
+                :class="item.classes || {}"
+                v-text="item.text"
               />
             </template>
           </div>
@@ -131,8 +102,7 @@ export default {
   data () {
     return {
       expanded: false,
-      sticky: true,
-      menuType: 2
+      sticky: true
     }
   },
 
@@ -169,8 +139,48 @@ export default {
         ]
       },
       {
-        text: 'P2P Lending',
-        href: URLS.lending,
+        text: 'Buy NFTs',
+        href: 'buy-nfts',
+        target: '',
+        classes: {
+          'dfy-button': true,
+          'dfy-button--overlay': true,
+          'dfy-button--beta': false
+        }
+      },
+      // {
+      //   text: 'Loan against NFTs',
+      //   classes: {
+      //     'dfy-button': true,
+      //     'dfy-button--overlay': true,
+      //     'dfy-button--coming-soon': true
+      //   }
+      // },
+      {
+        text: 'Mint NFTs',
+        href: 'https://marketplace.defiforyou.uk/nft/create',
+        target: '_blank',
+        classes: {
+          'dfy-button': true,
+          'dfy-button--overlay': true,
+          'dfy-button--beta': false
+        },
+        child: [
+          {
+            text: 'NFTs',
+            href: 'https://marketplace.defiforyou.uk/nft/create',
+            target: '_blank'
+          },
+          {
+            text: 'Hard NFTs',
+            href: 'https://marketplace.defiforyou.uk/nft/create/hard',
+            target: '_blank'
+          }
+        ]
+      },
+      {
+        text: 'P2P lending',
+        href: 'https://app.defiforyou.uk/pawn',
         target: '_blank',
         classes: {
           'dfy-button': true,
@@ -178,6 +188,27 @@ export default {
           'dfy-button--beta': false
         }
       },
+      {
+        text: 'Buy DFY',
+        to: {
+          name: 'index',
+          hash: '#price-tickers'
+        },
+        classes: {
+          'dfy-button': true,
+          'dfy-button--special': true
+        }
+      }
+      // {
+      //   text: 'P2P Lending',
+      //   href: URLS.lending,
+      //   target: '_blank',
+      //   classes: {
+      //     'dfy-button': true,
+      //     'dfy-button--overlay': true,
+      //     'dfy-button--beta': false
+      //   }
+      // },
       // {
       //   text: 'Staking',
       //   href: URLS.staking,
@@ -197,58 +228,15 @@ export default {
       //     // 'dfy-button--coming-soon': true
       //   }
       // },
-      {
-        text: 'Trade NFTs',
-        href: URLS.trade,
-        target: '_blank',
-        classes: {
-          'dfy-button': true,
-          'dfy-button--special': true
-        }
-      }
-    ],
-    menusNew: () => [
-      {
-        name: 'Crypto Pawn',
-        child: [
-          {
-            name: 'Lender',
-            link: '',
-            highlight: false,
-            target: '_blank'
-          },
-          {
-            name: 'Borrowers',
-            link: '',
-            highlight: false,
-            target: '_blank'
-          }
-        ]
-      },
-      {
-        name: 'Hard NFTs',
-        highlight: false,
-        target: '_blank',
-        class: 'dfy-button--coming-soon'
-      },
-      {
-        name: 'Create NFT',
-        link: 'https://marketplace.defiforyou.uk/nft/create',
-        highlight: true,
-        target: '_blank'
-      },
-      {
-        name: 'NFT Marketplace',
-        link: 'https://marketplace.defiforyou.uk/',
-        highlight: false,
-        target: '_blank'
-      },
-      {
-        name: 'Mobile App',
-        link: 'https://defiforyou.uk/download-app',
-        highlight: false,
-        target: '_blank'
-      }
+      // {
+      //   text: 'Trade NFTs',
+      //   href: URLS.trade,
+      //   target: '_blank',
+      //   classes: {
+      //     'dfy-button': true,
+      //     'dfy-button--special': true
+      //   }
+      // }
     ]
   }
 }
@@ -302,12 +290,15 @@ section.header {
         padding-right: 1rem;
         border-right: 1px solid #fff;
         font-size: 1rem;
+
         a {
           transition: 0s;
         }
+
         &:last-child {
           border: 0;
         }
+
         &.dfy-button--coming-soon:hover a {
           visibility: hidden;
         }
@@ -412,7 +403,6 @@ section.header {
               position: initial;
               background: rgba(black, 0.25);
               margin-left: auto;
-              margin-right: -0.65em;
               transform: none;
               padding: 4px 8px;
               opacity: 1;
