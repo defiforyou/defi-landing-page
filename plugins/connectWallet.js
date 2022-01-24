@@ -24,6 +24,8 @@ const logicAccountChanged = async (context, walletName, accounts) => {
         console.log(`no connect ${walletName}`)
       }
     }
+  } else {
+    context.$removeWalletAddress()
   }
 }
 
