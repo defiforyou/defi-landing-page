@@ -24,8 +24,6 @@ const logicAccountChanged = async (context, walletName, accounts) => {
         console.log(`no connect ${walletName}`)
       }
     }
-  } else {
-    context.$removeWalletAddress()
   }
 }
 
@@ -33,12 +31,16 @@ const eventAccount = (context, walletName) => {
   window.ethereum.on('accountsChanged', async function (accounts) {
     if (!_isEmpty(accounts)) {
       await logicAccountChanged(context, walletName, accounts)
+    } else {
+      context.$removeWalletAddress()
     }
   })
 
   window.BinanceChain.on('accountsChanged', async function (accounts) {
     if (!_isEmpty(accounts)) {
       await logicAccountChanged(context, walletName, accounts)
+    } else {
+      context.$removeWalletAddress()
     }
   })
 
