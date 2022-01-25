@@ -136,16 +136,7 @@
                           scrollable
                           type="month"
                           :min="new Date().toISOString().slice(0, 7)"
-                        >
-                          <!-- <v-spacer />
-                          <v-btn
-                            text
-                            color="primary"
-                            @click="$refs.menu.save(date)"
-                          >
-                            OK
-                          </v-btn> -->
-                        </v-date-picker>
+                        />
                       </v-menu>
                     </v-app>
                   </div>
@@ -220,9 +211,9 @@ export default {
 
   computed: {
     ...mapGetters('walletStore', ['currentAddress']),
-    ...mapGetters('payment', ['valueUser']),
+    ...mapGetters('payment', ['valueUser', 'type']),
     formatDate () {
-      return this.date === '' ? '' : moment(this.date).format('MM/YYYY')
+      return this.date === '' ? '' : moment(this.date)?.format('MM/YYYY')
     },
     isShow: {
       get () {
@@ -256,6 +247,17 @@ export default {
       return [
         v => !!v || 'Expiry date is required'
       ]
+    }
+  },
+  watch: {
+    type () {
+      if (this.type === 'success') {
+        this.cardNumber = ''
+        this.cvvText = ''
+        this.name = ''
+        this.date = ''
+        this.$refs.formCard.resetValidation()
+      }
     }
   },
   methods: {
