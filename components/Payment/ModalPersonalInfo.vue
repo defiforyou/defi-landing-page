@@ -359,6 +359,7 @@ export default {
     type () {
       if (this.type === 'success') {
         this.$refs.formCard.reset()
+        this.getStates(-1)
       }
     }
   },
