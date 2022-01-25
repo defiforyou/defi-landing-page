@@ -352,6 +352,9 @@ export default {
       // eslint-disable-next-line no-unused-expressions
       this.postalRules
       this.phoneCodeSelect = this.phones[this.phones?.findIndex((item) => item?.name === this.country?.name)]
+    },
+    phoneCodeSelect () {
+      this.country = this.countries[this.countries?.findIndex(item => item?.name === this.phoneCodeSelect?.name)]
     }
   },
   created () {
