@@ -144,7 +144,7 @@
                 <v-list-item-title style="display: flex; align-items: center">
                   <img
                     class="select-img"
-                    :src="require(`~/assets/img/coin/${data.item}.png`)"
+                    :src="`https://s3.ap-southeast-1.amazonaws.com/beta-storage-dfy/upload/${data.item}.png`"
                     alt
                     style="width: 24px; height: 24px"
                   >

@@ -7,7 +7,13 @@ import { getWeb3walletConnect } from './plugins/walletConnect'
 
 export const initWeb3 = async (extensionName = localStorage.getItem('extensionName'), isReadyEnableBlockchain = true) => {
   if (typeof initWeb3.instance === 'object' && initWeb3.extensionName === extensionName) {
-    return initWeb3.instance
+    try {
+      if (initWeb3.eth.getAccounts().length) {
+        return initWeb3.instance
+      }
+    } catch (error) {
+      // console.log(error, 11112)
+    }
   }
   const provider = await detectEthereumProvider()
   let web3 = null

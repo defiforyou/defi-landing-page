@@ -1,9 +1,9 @@
 export default (context, inject) => {
   const mapImageCurrency = (name) => {
     if (name) {
-      return require(`~/assets/img/coin/${name}.png`)
+      return `https://s3.ap-southeast-1.amazonaws.com/beta-storage-dfy/upload/${name}.png`
     } else {
-      return require('~/assets/img/coin/DFY.png')
+      return 'https://s3.ap-southeast-1.amazonaws.com/beta-storage-dfy/upload/DFY.png'
     }
   }
 

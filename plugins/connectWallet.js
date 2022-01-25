@@ -31,12 +31,16 @@ const eventAccount = (context, walletName) => {
   window.ethereum.on('accountsChanged', async function (accounts) {
     if (!_isEmpty(accounts)) {
       await logicAccountChanged(context, walletName, accounts)
+    } else {
+      context.$removeWalletAddress()
     }
   })
 
   window.BinanceChain.on('accountsChanged', async function (accounts) {
     if (!_isEmpty(accounts)) {
       await logicAccountChanged(context, walletName, accounts)
+    } else {
+      context.$removeWalletAddress()
     }
   })
 
@@ -61,9 +65,11 @@ export default (context, inject) => {
     try {
       await context.store.dispatch('walletStore/changeLoadingWallet', true)
 
+      // console.log(isReadyEnableBlockchain, 11111212)
       const web3 = await initWeb3(walletName, isReadyEnableBlockchain)
 
       const accounts = await web3.eth.getAccounts()
+      // console.log(accounts, 1111111111)
       if (accounts.length) {
         supportUpdateStore(context, accounts[0])
         eventAccount(context, walletName)
@@ -72,7 +78,7 @@ export default (context, inject) => {
         console.log(`no connect ${walletName}`)
       }
     } catch (error) {
-      // console.log(error)
+      // console.log(error, 111111111)
     } finally {
       await context.store.dispatch('walletStore/changeLoadingWallet', false)
     }

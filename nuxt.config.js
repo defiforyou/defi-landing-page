@@ -57,7 +57,8 @@ export default {
     { src: '~/plugins/mapImageCurrency' },
     { src: '~/plugins/numberFormatDecimal' },
     { src: '~/plugins/getBscLink' },
-    { src: '~/plugins/notify.js' }
+    { src: '~/plugins/notify.js' },
+    { src: '~/plugins/removeWalletAddress' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
