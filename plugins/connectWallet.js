@@ -29,19 +29,22 @@ const logicAccountChanged = async (context, walletName, accounts) => {
 
 const eventAccount = (context, walletName) => {
   window.ethereum.on('accountsChanged', async function (accounts) {
-    if (!_isEmpty(accounts)) {
-      await logicAccountChanged(context, walletName, accounts)
-    } else {
-      context.$removeWalletAddress()
-    }
+    await context.$removeWalletAddress()
+    // if (!_isEmpty(accounts)) {
+    //   await logicAccountChanged(context, walletName, accounts)
+    // } else {
+    //   console.log(111111111111112)
+    //   context.$removeWalletAddress()
+    // }
   })
 
   window.BinanceChain.on('accountsChanged', async function (accounts) {
-    if (!_isEmpty(accounts)) {
-      await logicAccountChanged(context, walletName, accounts)
-    } else {
-      context.$removeWalletAddress()
-    }
+    await context.$removeWalletAddress()
+    // if (!_isEmpty(accounts)) {
+    //   await logicAccountChanged(context, walletName, accounts)
+    // } else {
+    //   context.$removeWalletAddress()
+    // }
   })
 
   window.ethereum.on('networkChanged', async function (networkId) {
@@ -72,6 +75,7 @@ export default (context, inject) => {
       // console.log(accounts, 1111111111)
       if (accounts.length) {
         supportUpdateStore(context, accounts[0])
+        console.log(2222212121)
         eventAccount(context, walletName)
       } else {
         // eslint-disable-next-line no-console
