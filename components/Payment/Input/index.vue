@@ -36,6 +36,7 @@
         required
         rounded
         :readonly="readonly"
+        autocomplete="off"
         dense
         dark
         :suffix="suffix ? suffix : ''"

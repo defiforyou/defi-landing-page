@@ -139,7 +139,7 @@ export default {
       this.$emit('update:show', false)
       this.$emit('isBack')
     },
-    ...mapActions('payment', ['showSuccessMessage', 'showErrorMessage']),
+    ...mapActions('payment', ['showSuccessMessage', 'showErrorMessage', 'getValueUser']),
     async handlePay () {
       try {
         this.loading = true
@@ -147,6 +147,7 @@ export default {
         this.loading = false
         this.$emit('update:show', false)
         this.showSuccessMessage()
+        this.getValueUser({ amountPay: 0.2, currency: '', amountGet: 0 })
       } catch (err) {
         this.showErrorMessage(err.response.data.error)
       } finally {

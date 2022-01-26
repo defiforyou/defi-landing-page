@@ -124,7 +124,7 @@ export const mutations = {
     state.text = ''
     state.link = ''
     state.viewMore = null
-    // state.type = null
+    state.type = null
   },
   SHOW_DIALOG (state, payload) {
     state.isShowing = true
