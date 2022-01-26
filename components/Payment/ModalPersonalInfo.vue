@@ -220,7 +220,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('payment', ['countries', 'states', 'phones', 'valueUser', 'isPostal']),
+    ...mapGetters('payment', ['countries', 'states', 'phones', 'valueUser', 'isPostal', 'type']),
     convertPhone () {
       const phoneCode = this.phoneCodeSelect?.phone_code
       return phoneCode.charAt(0) === '+'
@@ -346,7 +346,7 @@ export default {
   },
   watch: {
     country () {
-      this.getStates(this.country?.id)
+      !!this.country?.id && this.getStates(this.country?.id)
       // eslint-disable-next-line no-unused-expressions
       this.labelPostal
       // eslint-disable-next-line no-unused-expressions
@@ -355,6 +355,12 @@ export default {
     },
     phoneCodeSelect () {
       this.country = this.countries[this.countries?.findIndex(item => item?.name === this.phoneCodeSelect?.name)]
+    },
+    type () {
+      if (this.type === 'success') {
+        this.$refs.formCard.reset()
+        this.getStates(-1)
+      }
     }
   },
   created () {

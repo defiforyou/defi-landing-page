@@ -219,7 +219,7 @@
 
 <script>
 import get from 'lodash/get'
-import { mapState, mapActions } from 'vuex'
+import { mapState, mapActions, mapGetters } from 'vuex'
 import ChooseWallet from '../ChooseWallet.vue'
 // import ModalConfirm from '../Home/ModalConfirm'
 import ModalPersonalInfo from './ModalPersonalInfo'
@@ -250,6 +250,7 @@ export default {
   computed: {
     ...mapState('walletStore', ['currentAddress']),
     ...mapState('indaCoin', ['currencies']),
+    ...mapGetters('payment', ['type']),
     payRules () {
       return [
         v => !!v || 'Invalid amount',
@@ -297,13 +298,18 @@ export default {
       handler () {
         this.getRate()
       }
+    },
+    type () {
+      if (this.type === 'success') {
+        this.payload = { ...this.payload, amountPay: '', currency: 'USD', amountGet: Math.floor(0) }
+        this.$refs.formCard.resetValidation()
+      }
     }
   },
 
   methods: {
     get,
     ...mapActions('payment', ['getValueUser', 'getRateExchange']),
-    ...mapState('payment', ['valueUser', 'isLoading']),
     async getRate () {
       // this.getRateExchange(this.payload)
       try {
@@ -313,13 +319,13 @@ export default {
         this.loadingRate = false
         switch (this.payload.currency.toLowerCase()) {
           case 'usd':
-            this.payload.amountGet = (this.payload.amountPay / data.data['defi-for-you'].usd).toFixed(5)
+            this.payload.amountGet = !+this.payload.amountPay ? 0 : (this.payload.amountPay / data.data['defi-for-you'].usd).toFixed(5)
             break
           case 'eur':
-            this.payload.amountGet = (this.payload.amountPay / data.data['defi-for-you'].eur).toFixed(5)
+            this.payload.amountGet = !+this.payload.amountPay ? 0 : (this.payload.amountPay / data.data['defi-for-you'].eur).toFixed(5)
             break
           case 'gbp':
-            this.payload.amountGet = (this.payload.amountPay / data.data['defi-for-you'].gbp).toFixed(5)
+            this.payload.amountGet = !+this.payload.amountPay ? 0 : (this.payload.amountPay / data.data['defi-for-you'].gbp).toFixed(5)
             break
           default: return 0
         }
