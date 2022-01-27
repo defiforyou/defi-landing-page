@@ -4,7 +4,7 @@ export const COPYRIGHT = '© 2021 DeFi For You. All rights reserved.'
 export const RECAPTCHA_SITE_KEY = '6LdOtzgaAAAAAAs5iSvp_xM_p9dP9DMEMmSjS1NG'
 export const RECAPTCHA_ENABLED = false
 
-export const VIDEO_BACKGROUND = 'https://defiforyou.mypinata.cloud/ipfs/QmU87ts7CmfVXPv3XBn2F1Thgkv2ChZCMYnZApvMGs5Ah3'
+export const VIDEO_BACKGROUND = 'https://defiforyou.mypinata.cloud/ipfs/QmaVBqibJTM5rX5SSF484wwT4Tj7xkV7SLjBK7EdAsZERf'
 
 export const CONTACT = {
   email: 'ask@defiforyou.uk',
