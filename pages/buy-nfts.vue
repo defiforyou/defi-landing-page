@@ -45,30 +45,30 @@ export default {
       CONTENT_TYPE,
       content: [
         {
-          title: 'Digital Asset Shops',
-          subTitle: null,
+          title: 'Hard NFT Shops',
+          subTitle: '(Collections of Physical Asset NFTs)',
           content:
-            '<span>Find items of your choice in one of the Digital Asset shops,here you can buy,sell or loan against your purchase.All goods on display are attached to NFTs which are recorded on the blockchain and the physical assets are kept in safe storage with one of our trusted partners in fully licensed premises. <br> If the physical assets are collected by the owner it would require a newly minted NFT and validation.</span>',
-          contentType: CONTENT_TYPE.HTML,
-          link: 'https://app.defiforyou.uk/pawn/pawnshop-all',
-          image: require('@/assets/img/loan-asignst-nfts/image-content-1.svg')
-        },
-        {
-          title: 'Hard NFTs',
-          subTitle: '(NFT attached to a physical asset)',
-          content:
-            '<span>Discover a whole new concept where physical assets are attached to NFT,s <br> like gold,diamonds,art or even vacations to name just a few.</span>',
+            '<span>Buy physical assets like gold and silver via NFTs, stored and insured with our trusted partners. Collect your items in-store by showing the NFT, or use the NFT as collateral for an asset-based loan.</span>',
           contentType: CONTENT_TYPE.HTML,
           link: 'https://marketplace.defiforyou.uk/nft/search?nft_type=1',
           image: require('@/assets/img/loan-asignst-nfts/image-content-2.svg')
         },
         {
-          title: 'Soft NFTs',
-          subTitle: '(Traditional NFT)',
-          content: 'Explore the marketplace,collect,sell or loan against your NFT',
-          contentType: CONTENT_TYPE.TEXT,
+          title: 'All Hard NFTs',
+          subTitle: '(NFTs Attached to a Physical Asset)',
+          content:
+            '<span>Discover a new breed of NFTs backed by physical assets like gold, silver, diamonds, and other commodities. Diversify your portfolio and hedge against volatility</span>',
+          contentType: CONTENT_TYPE.HTML,
           link: 'https://marketplace.defiforyou.uk/nft/search?nft_type=0',
           image: require('@/assets/img/loan-asignst-nfts/image-content-3.svg')
+        },
+        {
+          title: 'NFT Marketplace',
+          subTitle: '(Digital NFTs and Collectibles)',
+          content: 'Explore the NFT marketplace and find non-fungible tokens including digital art, gaming add-ons, rare collectibles and more. You can even create your own NFTs and upload them to the marketplace!',
+          contentType: CONTENT_TYPE.TEXT,
+          link: 'https://app.defiforyou.uk/pawn/pawnshop-all',
+          image: require('@/assets/img/loan-asignst-nfts/image-content-1.svg')
         }
       ]
     }
@@ -105,7 +105,7 @@ export default {
 
       .sub-title {
         font-weight: 500;
-        font-size: 24px;
+        font-size: 20px;
         color: #fff;
         margin-bottom: 20px;
         font-family: 'MyWebFont';
