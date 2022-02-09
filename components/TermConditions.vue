@@ -25,7 +25,7 @@
         <v-checkbox
           v-if="isSelectInvestor"
           v-model="scrollEnd"
-          class="pl-12"
+          class="pl-md-12 pl-4"
           label="I confirm to have read, understood and accepted the Terms and conditions."
         />
       </div>
@@ -174,6 +174,12 @@ export default {
     .title {
       font-size: 40px !important;
     }
+  }
+}
+@media screen and (max-width: 480px) {
+  .scroll-step2 {
+    max-height: 300px !important;
+    font-size: 12px;
   }
 }
 </style>
