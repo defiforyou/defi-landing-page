@@ -140,7 +140,7 @@ export default {
       },
       {
         text: 'Buy NFTs',
-        href: 'buy-nfts',
+        href: '/buy-nfts',
         target: '',
         classes: {
           'dfy-button': true,
@@ -157,7 +157,7 @@ export default {
       //   }
       // },
       {
-        text: 'Mint NFTs',
+        text: 'Create NFT',
         href: 'https://marketplace.defiforyou.uk/nft/create',
         target: '_blank',
         classes: {
