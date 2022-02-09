@@ -35,7 +35,7 @@ export const OFFICES = [{
   name: 'DeFi For You — London Office',
   vie: null,
   eng: 'sean@defiforyou.uk',
-  engSupporter: 'Sean Mason - Business Coach',
+  engSupporter: 'Sean Mason - UK CEO',
   address: 'Office 32 19-21 Crawford Street, London, United Kingdom, W1H 1PJ',
   registrationNumber: '13126050',
   companiesHouse: 'https://find-and-update.company-information.service.gov.uk/company/13126050?fbclid=IwAR3Fm3QHdllfP_z1QIZ9e9UX-warFarV1XuwBqsxXyPl0M3k-BLSvkNdXuE',

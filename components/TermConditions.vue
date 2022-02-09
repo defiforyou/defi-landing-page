@@ -7,20 +7,27 @@
     <v-card
       class="py-6 py-md-11 dialog-term-conditions"
     >
-      <div class="title mb-2 mb-md-8 px-4">
+      <div class="title mb-2 mb-md-8 pb-3 pt-4">
         <span v-if="isSelectInvestor">
           DeFi For You Crypto Ethics & Regulation UK
         </span>
         <span v-else>Select your investor type</span>
       </div>
       <div class="content mb-1">
-        <div class="scroll px-4 px-md-11" @scroll="handleScroll">
-          <term-conditions-content-term-condition v-if="isSelectInvestor" />
+        <div v-if="isSelectInvestor" class="scroll-step2 px-4 px-md-11">
+          <term-conditions-content-term-condition />
+        </div>
+        <div v-else class="scroll px-4 px-md-11">
           <term-conditions-content-investor
-            v-else
-            v-model="investorType"
+            v-model="isSelectInvestor"
           />
         </div>
+        <v-checkbox
+          v-if="isSelectInvestor"
+          v-model="scrollEnd"
+          class="pl-12"
+          label="I confirm to have read, understood and accepted the Terms and conditions."
+        />
       </div>
       <div class="actions">
         <v-btn
@@ -32,24 +39,10 @@
           :height="$vuetify.breakpoint.smAndUp ? '47px' : '40px'"
           width="114px"
           class="btn-bg-custom"
-          @click="onIUnderstand"
           :disabled="!scrollEnd"
+          @click="onIUnderstand"
         >
-          I Understand
-        </v-btn>
-        <v-btn
-          v-else
-          depressed
-          dense
-          color="#F8B017"
-          rounded
-          :height="$vuetify.breakpoint.smAndUp ? '47px' : '40px'"
-          width="114px"
-          class="btn-bg-custom"
-          @click="onContinue"
-          :disabled="![0,1,2].includes(investorType)"
-        >
-          Continue
+          Confirm
         </v-btn>
       </div>
     </v-card>
@@ -151,7 +144,14 @@ export default {
     .scroll {
       height: 100%;
       padding-top: 30px;
-      padding-bottom: 30px;
+      // padding-bottom: 30px;
+      // max-height: 445px;
+      // overflow-x: auto;
+    }
+    .scroll-step2 {
+      height: 100%;
+      padding-top: 30px;
+      // padding-bottom: 30px;
       max-height: 445px;
       overflow-x: auto;
     }
