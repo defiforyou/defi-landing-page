@@ -7,7 +7,7 @@ export const RECAPTCHA_ENABLED = false
 export const VIDEO_BACKGROUND = 'https://defiforyou.mypinata.cloud/ipfs/QmaVBqibJTM5rX5SSF484wwT4Tj7xkV7SLjBK7EdAsZERf'
 
 export const CONTACT = {
-  email: 'ask@defiforyou.uk',
+  // email: 'ask@defiforyou.uk',
   support: 'support@defiforyou.uk',
   form: 'https://formspree.io/f/xeqvjeva',
   tech: 'https://mail.google.com/mail/?view=cm&fs=1&to=tech@defiforyou.uk'
