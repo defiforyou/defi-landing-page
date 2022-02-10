@@ -59,7 +59,7 @@ export default {
           content:
             '<span>Discover a new breed of NFTs backed by physical assets like gold, silver, diamonds, and other commodities. Diversify your portfolio and hedge against volatility</span>',
           contentType: CONTENT_TYPE.HTML,
-          link: 'https://marketplace.defiforyou.uk/nft/search?nft_type=0',
+          link: 'https://marketplace.defiforyou.uk/nft/search?nft_type=1',
           image: require('@/assets/img/loan-asignst-nfts/image-content-3.svg')
         },
         {
@@ -67,7 +67,7 @@ export default {
           subTitle: '(Digital NFTs and Collectibles)',
           content: 'Explore the NFT marketplace and find non-fungible tokens including digital art, gaming add-ons, rare collectibles and more. You can even create your own NFTs and upload them to the marketplace!',
           contentType: CONTENT_TYPE.TEXT,
-          link: 'https://app.defiforyou.uk/pawn/pawnshop-all',
+          link: 'https://marketplace.defiforyou.uk/',
           image: require('@/assets/img/loan-asignst-nfts/image-content-1.svg')
         }
       ]
