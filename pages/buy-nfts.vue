@@ -78,7 +78,7 @@ export default {
 
 <style scoped lang="scss">
 @font-face {
-  font-family: 'MyWebFont';
+  font-family: 'DrukWide';
   src: url('@/assets/font/DrukWide-Medium.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
 }
 
@@ -99,7 +99,7 @@ export default {
         font-size: 40px;
         margin-bottom: 20px;
         color: #fff;
-        font-family: 'MyWebFont';
+        font-family: 'DrukWide';
         line-height: 1;
       }
 
@@ -108,7 +108,7 @@ export default {
         font-size: 20px;
         color: #fff;
         margin-bottom: 20px;
-        font-family: 'MyWebFont';
+        font-family: 'DrukWide';
       }
 
       .content-text {
