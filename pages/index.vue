@@ -14,7 +14,7 @@
     .sections
       home-modal-reward(@close="closeRewardModal", v-if="isReward")
       .reward-mini(v-if="isRewardMini", @click="handleRewardMini")
-        img.reward-icon(src="~assets/img/reward-click.png")
+        img.reward-icon(src="~assets/img/crypto-cashing.png")
       home-hero-section#hero.sticky
       home-get-us-section#team
       home-price-tickers-section#price-tickers
@@ -38,7 +38,7 @@ import { mapActions, mapState, mapMutations } from 'vuex'
 export default {
   data () {
     return {
-      isRewardMini: false
+      isRewardMini: true
     }
   },
   computed: {
@@ -128,9 +128,10 @@ export default {
     },
 
     handleRewardMini () {
-      this.SET_IS_REWARD(true)
+      // this.SET_IS_REWARD(true)
       // this.isReward = true
-      this.isRewardMini = false
+      // this.isRewardMini = false
+      window.open('https://cryptocashing.co.uk/', '_blank').focus()
     }
   }
 }
