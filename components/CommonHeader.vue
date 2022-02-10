@@ -150,7 +150,7 @@ export default {
       },
       {
         text: 'Loan against NFTs',
-        href: 'loan-against-nfts',
+        href: '/loan-against-nfts',
         classes: {
           'dfy-button': true,
           'dfy-button--overlay': true,
