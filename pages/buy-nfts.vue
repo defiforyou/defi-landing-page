@@ -50,7 +50,7 @@ export default {
           content:
             '<span>Buy physical assets like gold and silver via NFTs, stored and insured with our trusted partners. Collect your items in-store by showing the NFT, or use the NFT as collateral for an asset-based loan.</span>',
           contentType: CONTENT_TYPE.HTML,
-          link: 'https://marketplace.defiforyou.uk/nft/search?nft_type=1',
+          link: 'https://marketplace.defiforyou.uk/collections/search?name=&sort=&type=1',
           image: require('@/assets/img/loan-asignst-nfts/image-content-2.svg')
         },
         {
