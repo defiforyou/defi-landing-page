@@ -148,14 +148,15 @@ export default {
           'dfy-button--beta': false
         }
       },
-      // {
-      //   text: 'Loan against NFTs',
-      //   classes: {
-      //     'dfy-button': true,
-      //     'dfy-button--overlay': true,
-      //     'dfy-button--coming-soon': true
-      //   }
-      // },
+      {
+        text: 'Loan against NFTs',
+        href: 'loan-against-nfts',
+        classes: {
+          'dfy-button': true,
+          'dfy-button--overlay': true,
+          'dfy-button--coming-soon': false
+        }
+      },
       {
         text: 'Create NFT',
         href: 'https://marketplace.defiforyou.uk/nft/create',
