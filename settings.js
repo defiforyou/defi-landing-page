@@ -58,7 +58,7 @@ export const URLS = {
   staking: 'https://app.defiforyou.uk/staking/',
   farming: 'https://app.defiforyou.uk/farm/list/',
   trade: 'https://marketplace.defiforyou.uk/',
-  whitepaper: '/defi-for-you-whitepaper.v2.pdf',
+  whitepaper: '/defi-for-you-whitepaper-version-3.1.pdf',
   app: '#',
   android: '#',
   ios: '#',

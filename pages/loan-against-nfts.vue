@@ -9,7 +9,7 @@
         <img v-else src="@/assets/img/loan-asignst-nfts/digram-mobile.svg" alt="">
       </div>
       <div class="page-subtitle">
-        Upload your NFT and use as collateral for a loan
+        Select your NFT and use as collateral for a loan
       </div>
       <div class="action">
         <a
@@ -17,7 +17,7 @@
           href="https://marketplace.defiforyou.uk/inventory/nft-list/notonmarket"
           target="_blank"
         >
-          Upload now
+          Select now
         </a>
       </div>
     </div>
@@ -48,10 +48,12 @@ export default {
   .page-title {
     font-family: "DrukWide";
     font-weight: 500;
+    text-align: center;
     font-size: 30px;
     color: #ffffff;
     margin-bottom: 70px;
     line-height: 1;
+    padding: 0px 235px;
   }
 
   .diagram {
