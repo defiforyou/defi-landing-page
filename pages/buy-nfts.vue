@@ -51,7 +51,7 @@ export default {
             '<span>Buy physical assets like gold and silver via NFTs, stored and insured with our trusted partners. Collect your items in-store by showing the NFT, or use the NFT as collateral for an asset-based loan.</span>',
           contentType: CONTENT_TYPE.HTML,
           link: 'https://marketplace.defiforyou.uk/collections/search?name=&sort=&type=1',
-          image: require('@/assets/img/loan-asignst-nfts/image-content-2.svg')
+          image: require('@/assets/img/loan-asignst-nfts/image-content-1.svg')
         },
         {
           title: 'All Hard NFTs',
@@ -60,7 +60,7 @@ export default {
             '<span>Discover a new breed of NFTs backed by physical assets like gold, silver, diamonds, and other commodities. Diversify your portfolio and hedge against volatility</span>',
           contentType: CONTENT_TYPE.HTML,
           link: 'https://marketplace.defiforyou.uk/nft/search?nft_type=1',
-          image: require('@/assets/img/loan-asignst-nfts/image-content-3.svg')
+          image: require('@/assets/img/loan-asignst-nfts/image-content-2.svg')
         },
         {
           title: 'NFT Marketplace',
@@ -68,7 +68,7 @@ export default {
           content: 'Explore the NFT marketplace and find non-fungible tokens including digital art, gaming add-ons, rare collectibles and more. You can even create your own NFTs and upload them to the marketplace!',
           contentType: CONTENT_TYPE.TEXT,
           link: 'https://marketplace.defiforyou.uk/',
-          image: require('@/assets/img/loan-asignst-nfts/image-content-1.svg')
+          image: require('@/assets/img/loan-asignst-nfts/image-content-3.svg')
         }
       ]
     }
