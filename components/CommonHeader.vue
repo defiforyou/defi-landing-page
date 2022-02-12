@@ -10,7 +10,7 @@
         <div class="menu">
           <template v-for="(item, index) in menus">
             <div v-if="item.child" :key="index" class="menu__parent">
-              <component :is="'a'" :class="item.classes || {}">
+              <component :is="'a'" :class="item.classes || {}" :href="item.href">
                 <div class="d-flex align-center">
                   {{ item.text }}
                   <ChevronDownIcon size="16" stroke-width="1" />
@@ -176,7 +176,7 @@ export default {
       },
       {
         text: 'Create NFT',
-        href: 'https://marketplace.defiforyou.uk/nft/create',
+        // href: 'https://marketplace.defiforyou.uk/nft/create',
         target: '_blank',
         classes: {
           'dfy-button': true,
