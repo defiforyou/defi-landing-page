@@ -149,7 +149,7 @@ export default {
       // overflow-x: auto;
     }
     .scroll-step2 {
-      height: 100%;
+      height: 45vh;
       padding-top: 30px;
       // padding-bottom: 30px;
       max-height: 445px;
