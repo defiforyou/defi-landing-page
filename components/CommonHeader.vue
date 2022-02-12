@@ -146,7 +146,24 @@ export default {
           'dfy-button': true,
           'dfy-button--overlay': true,
           'dfy-button--beta': false
-        }
+        },
+        child: [
+          {
+            text: 'NFT Market',
+            href: 'https://marketplace.defiforyou.uk/collections/search?name=&sort=&type=1',
+            target: '_blank'
+          },
+          {
+            text: 'Hard NFT',
+            href: 'https://marketplace.defiforyou.uk/nft/search?nft_type=1',
+            target: '_blank'
+          },
+          {
+            text: 'NFT Shops',
+            href: 'https://marketplace.defiforyou.uk/',
+            target: '_blank'
+          }
+        ]
       },
       {
         text: 'Loan against NFTs',
