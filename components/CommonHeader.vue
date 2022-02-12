@@ -10,7 +10,7 @@
         <div class="menu">
           <template v-for="(item, index) in menus">
             <div v-if="item.child" :key="index" class="menu__parent">
-              <component :is="'a'" :class="item.classes || {}">
+              <component :is="'a'" :class="item.classes || {}" :href="item.href">
                 <div class="d-flex align-center">
                   {{ item.text }}
                   <ChevronDownIcon size="16" stroke-width="1" />
@@ -146,7 +146,24 @@ export default {
           'dfy-button': true,
           'dfy-button--overlay': true,
           'dfy-button--beta': false
-        }
+        },
+        child: [
+          {
+            text: 'NFT Market',
+            href: 'https://marketplace.defiforyou.uk/collections/search?name=&sort=&type=1',
+            target: '_blank'
+          },
+          {
+            text: 'Hard NFT',
+            href: 'https://marketplace.defiforyou.uk/nft/search?nft_type=1',
+            target: '_blank'
+          },
+          {
+            text: 'NFT Shops',
+            href: 'https://marketplace.defiforyou.uk/',
+            target: '_blank'
+          }
+        ]
       },
       {
         text: 'Loan against NFTs',
@@ -159,7 +176,7 @@ export default {
       },
       {
         text: 'Create NFT',
-        href: 'https://marketplace.defiforyou.uk/nft/create',
+        // href: 'https://marketplace.defiforyou.uk/nft/create',
         target: '_blank',
         classes: {
           'dfy-button': true,
