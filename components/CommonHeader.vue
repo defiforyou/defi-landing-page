@@ -150,7 +150,7 @@ export default {
         child: [
           {
             text: 'NFT Market',
-            href: 'https://marketplace.defiforyou.uk/collections/search?name=&sort=&type=1',
+            href: 'https://marketplace.defiforyou.uk/',
             target: '_blank'
           },
           {
@@ -160,7 +160,7 @@ export default {
           },
           {
             text: 'NFT Shops',
-            href: 'https://marketplace.defiforyou.uk/',
+            href: 'https://marketplace.defiforyou.uk/collections/search?name=&sort=&type=1',
             target: '_blank'
           }
         ]
