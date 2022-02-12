@@ -87,8 +87,9 @@ export default {
   @include media(sm-down) {
     padding-top: 16px;
     .page-title, .page-subtitle {
-      font-size: 16px;
+      font-size: 14px;
       margin-bottom: 26px;
+      padding: 0;
     }
     .diagram {
       margin-bottom: 26px;
