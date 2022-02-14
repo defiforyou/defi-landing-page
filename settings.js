@@ -147,6 +147,12 @@ export const PARTNERS = [{
   image: '/img/partner.gate.svg',
   favicon: '/img/partner.gate.favicon.svg',
   exchange: true
+}, {
+  name: 'DigChain',
+  url: 'https://digchain.org/',
+  image: '/img/digchain.png',
+  favicon: '/img/partner.dig.favicon.png',
+  exchange: true
 }]
 
 export const TEAM_MEMBERS = [
