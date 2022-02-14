@@ -222,23 +222,23 @@ export default {
     @keyframes ring {
       0% {
         right: 20px;
-        bottom: 100px
+        bottom: 150px
       }
       25% {
         right: 20px;
-        bottom: 75px
+        bottom: 125px
       }
       50% {
         right: 45px;
-        bottom: 75px
+        bottom: 125px
       }
       75% {
         right: 45px;
-        bottom: 100px
+        bottom: 150px
       }
       100% {
         right: 20px;
-        bottom: 100px
+        bottom: 150px
       }
     }
   }

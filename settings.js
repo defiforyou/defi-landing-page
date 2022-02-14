@@ -109,7 +109,7 @@ export const PARTNERS = [{
 },
 {
   name: 'BitGlobal',
-  url: '',
+  url: 'https://www.bitglobal.com/en-us/spot/trade?q=DFY-USDT',
   image: '/img/partner.bitglobal.png',
   favicon: '/img/partner.bitglobal.png',
   exchange: true
@@ -123,14 +123,14 @@ export const PARTNERS = [{
 // },
 {
   name: 'srnArt',
-  url: '',
+  url: 'https://srnartgallery.com/',
   image: '/img/partner.srnArt.png',
   favicon: '/img/partner.srnArt.png',
   exchange: true
 },
 {
   name: 'chainLink',
-  url: 'https://www.bitglobal.com/en-us/spot/trade?q=DFY-USDT',
+  url: 'https://chain.link/',
   image: '/img/partner.chainlink.png',
   favicon: '/img/partner.chainlink.png',
   exchange: true
