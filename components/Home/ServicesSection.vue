@@ -1,9 +1,20 @@
 <template lang="pug">
 section.services
   .container
+    h2.title Defi For You is a digital asset-backed finance and NFT trading platform
     .dfy-flex.layout
-      .introduce.half
-        h2.title Defi For You is a digital asset-backed finance and NFT trading platform
+      .features.half
+        .feature
+          img.icon(src="/img/service.save.svg" alt="NFT Collateral" width="64" height="64")
+          div
+            .name Crypto Asset-backed Finance
+            p Open a digital asset shop and earn passive income by issuing secured stablecoin loans to users on the DeFi For You platform.
+        .feature
+          img.icon(src="/img/service.crypto-pawnbroking.svg" alt="Crypto Pawnbroking" width="64" height="64")
+          div
+            .name Trade NFTs
+            p Put your NFTs on the market, or use them as collateral for a stablecoin loan. Get more liquidity from your NFTs without selling them.
+      //- .introduce.half
         //.description
         //  p DeFi For You is a crypto pawnbroking and NFT trading platform.
       .features.half
@@ -17,21 +28,16 @@ section.services
           div
             .name Physical Asset NFTs
             p Securely store physical assets with our one of trusted partners and have them turned into Hard NFTs which can be used as collateral in our DeFi lending platform.
-        .feature
-          img.icon(src="/img/service.save.svg" alt="NFT Collateral" width="64" height="64")
-          div
-            .name Crypto Asset-backed Finance
-            p Open a digital asset shop and earn passive income by issuing secured stablecoin loans to users on the DeFi For You platform.
-        .feature
-          img.icon(src="/img/service.crypto-pawnbroking.svg" alt="Crypto Pawnbroking" width="64" height="64")
-          div
-            .name Trade NFTs
-            p Put your NFTs on the market, or use them as collateral for a stablecoin loan. Get more liquidity from your NFTs without selling them.
 </template>
 
 <style lang="scss" scoped>
 section.services {
-  padding: 8em 0;
+  .title {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 0 160px;
+  }
+  padding: 2em 0;
   @include media(sm-down) {
     padding: 2em 0;
     margin-top: $--gap-home-section;
@@ -45,6 +51,7 @@ section.services {
     }
     .half {
       flex: 1;
+      margin-right: 15px;
     }
   }
   .introduce {

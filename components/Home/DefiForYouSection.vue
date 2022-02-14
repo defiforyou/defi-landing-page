@@ -4,20 +4,20 @@ section.defi-for-you
     .dfy-flex.layout
       .wallets
         .screens
-          .screen.metamask
-            img(src="/img/ViewToken.png" alt="Metamask")
-          .screen.binance
-            img(src="/img/Home.png" alt="Binance")
-          .screen.trustwallet
-            img(src="/img/Marketplace.png" alt="Trustwallet")
+          img(src="/img/gold.png" alt="Metamask")
+          //- .screen.metamask
+          //- .screen.binance
+          //-   img(src="/img/Home.png" alt="Binance")
+          //- .screen.trustwallet
+          //-   img(src="/img/Marketplace.png" alt="Trustwallet")
       .text
-        h2.title Set up your very own crypto loan business on the DeFi For You platform
+        h2.title Buy and Loan against NFTs attached to physical assets.
         .description
-          p  Earn tokens from interest payments with peer to peer lending and scale the value of your crypto assets
-        h2.title Loan Against NFTs attached to physical assets
+          p  Would you like to diversify your portfolio using your cryptocurrency to buy items like gold, silver and diamonds? This will be made possible by purchasing NFTs which are attached to that specific asset. These will be stored and insured with one of our trusted partners. You can also redeem the goods by giving the NFT to the partner, who will then burn it and give you the asset. Loans can also be made available in stablecoin by using the physical goods as collateral.
+        h3.title Use case for DFY
         .description
-          p We are partnering with licenced digital asset shops in the UK and USA to facilitate the safe storage of physical assets like gold, diamonds, art, cars and more, all of which are represented by NFTs.
-          p First buy the NFT, which is attached to a physical asset validated by one of our trusted partners, then you can use this as collateral for a loan on the Defi For You platform.
+          p All sales of NFTs will incur 2.5% charge of which 1.25% will be used to buy DFY on exchanges, which will be burned.
+          p All minting fees are in DFY, which will also be burned.
 </template>
 
 <style lang="scss" scoped>
@@ -106,7 +106,7 @@ section.defi-for-you {
   .text {
     flex: 1;
     z-index: 5;
-    h2 {
+    h3 {
       font-size: 1.125rem !important;
     }
     @include media(sm-down) {
@@ -114,7 +114,7 @@ section.defi-for-you {
       margin: 0 auto;
     }
     .description {
-      margin-bottom: 24px;
+      margin-bottom: 70px;
       p {
         padding-top: 12px;
       }
