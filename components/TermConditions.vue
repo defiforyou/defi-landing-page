@@ -58,7 +58,7 @@ export default {
   name: 'TermConditions',
   data () {
     return {
-      show: true,
+      show: false,
       investorType: null,
       isSelectInvestor: false,
       scrollEnd: false
