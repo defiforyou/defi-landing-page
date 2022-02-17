@@ -51,17 +51,18 @@ export default {
     text-align: center;
     font-size: 30px;
     color: #ffffff;
-    margin-bottom: 70px;
+    margin-bottom: 20px;
     line-height: 1;
     padding: 0px 235px;
   }
 
   .diagram {
+    text-align: center;
     width: 100%;
     margin-bottom: 45px;
 
     img {
-      width: 100%;
+      width: 70%;
       height: auto;
     }
   }
