@@ -256,6 +256,16 @@ export default {
       //   }
       // }
     ]
+  },
+  mounted () {
+    this.scrollBuyExchange()
+  },
+  methods: {
+    scrollBuyExchange () {
+      if (this.$route.fullPath === '/#price-tickers') {
+        this.$router.push('/#price-tickers')
+      }
+    }
   }
 }
 </script>
