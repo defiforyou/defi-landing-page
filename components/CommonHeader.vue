@@ -258,12 +258,12 @@ export default {
     ]
   },
   mounted () {
-    this.scrollBuyExchange()
+    setTimeout(() => this.scrollBuyExchange(), 2000)
   },
   methods: {
     scrollBuyExchange () {
       if (this.$route.fullPath === '/#price-tickers') {
-        this.$router.push('/#price-tickers')
+        document.getElementById('price-tickers').scrollIntoView()
       }
     }
   }
