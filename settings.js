@@ -186,21 +186,21 @@ export const TEAM_MEMBERS = [
     facebook: 'https://www.facebook.com/tuanvietkey',
     linkedin: 'https://www.linkedin.com/in/dang-minh-tuan-a3b32551/'
   },
-  {
-    position: 'CEO of Blockchain Developer Asia',
-    image: '/img/team.cong-nguyen.jpg',
-    name: 'Cong Nguyen',
-    bio: 'Cong is developing the DeFi For You. platform, as well as blockchain projects for the Vietnamese government, banks, and industry.',
-    other: {
-      width: 180,
-      image: '/img/logo.blockchain-developer-asia.png',
-      name: 'Blockchain Developer Asia',
-      link: 'https://blockchaindeveloper.asia'
-    },
-    email: '',
-    facebook: 'https://www.facebook.com/cong.nguyen.1614',
-    linkedin: 'https://www.linkedin.com/in/cong-nguyen-b5b274102'
-  },
+  // {
+  //   position: 'CEO of Blockchain Developer Asia',
+  //   image: '/img/team.cong-nguyen.jpg',
+  //   name: 'Cong Nguyen',
+  //   bio: 'Cong is developing the DeFi For You. platform, as well as blockchain projects for the Vietnamese government, banks, and industry.',
+  //   other: {
+  //     width: 180,
+  //     image: '/img/logo.blockchain-developer-asia.png',
+  //     name: 'Blockchain Developer Asia',
+  //     link: 'https://blockchaindeveloper.asia'
+  //   },
+  //   email: '',
+  //   facebook: 'https://www.facebook.com/cong.nguyen.1614',
+  //   linkedin: 'https://www.linkedin.com/in/cong-nguyen-b5b274102'
+  // },
   {
     position: 'CFO',
     image: '/img/team.sean-mason.jpg',
