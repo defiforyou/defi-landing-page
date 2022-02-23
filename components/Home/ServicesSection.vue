@@ -36,11 +36,16 @@ section.services {
     text-align: center;
     margin-bottom: 50px;
     padding: 0 160px;
+    @include media(sm-down) {
+      padding: 0;
+      text-align: left;
+      margin-bottom: 2rem;
+    }
   }
   padding: 2em 0;
   @include media(sm-down) {
     padding: 2em 0;
-    margin-top: $--gap-home-section;
+    //margin-top: $--gap-home-section;
   }
   .layout {
     align-items: center;
