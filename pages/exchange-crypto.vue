@@ -29,6 +29,7 @@
                     placeholder="Select token"
                     style="width: 40%"
                     custom
+                    item-value="id"
                   >
                     <template #selection="{ item }">
                       <img
@@ -36,12 +37,10 @@
                         :src="$mapImageCurrency(item.symbol)"
                         alt
                       >
-                      <span style="font-weight: 500;font-size: 16px;">{{
-                        item.symbol
-                      }}</span>
+                      <span style="font-weight: 500;font-size: 16px;">{{ item.symbol }}</span>
                     </template>
                     <template #item="{ item }">
-                      <v-list-item-content>
+                      <v-list-item-content @click="onChangeCryptoAssetToken(item)">
                         <v-list-item-title
                           style="display: flex; align-items: center"
                         >
@@ -63,12 +62,28 @@
               <v-col class="py-0" cols="12" md="6">
                 <select-custom
                   v-model="form.fiat_money_id"
-                  :options="options"
+                  :options="listFiats"
                   :rules="rules.fiat_money_id"
                   placeholder="Select receive"
                   label="Receive fiat"
                   required
-                />
+                  item-text="fiat_money"
+                  item-value="id"
+                  custom
+                >
+                  <template #selection="{ item }">
+                    <span style="font-weight: 500;font-size: 16px;">{{ item.fiat_money }}</span>
+                  </template>
+                  <template #item="{ item }">
+                    <v-list-item-content @click="onChangeFiatMoney(item)">
+                      <v-list-item-title
+                        style="display: flex; align-items: center"
+                      >
+                        {{ item.fiat_money }}
+                      </v-list-item-title>
+                    </v-list-item-content>
+                  </template>
+                </select-custom>
               </v-col>
               <v-col class="py-0" cols="12">
                 <div class="form-sub-title mb-6">
@@ -78,7 +93,7 @@
               <v-col class="py-0" cols="12" md="6">
                 <input-custom
                   v-model="form.email_sender"
-                  :rules="nameRules"
+                  :rules="rules.email_sender"
                   placeholder="Enter email"
                   label="Email"
                   required
@@ -103,6 +118,7 @@
                       required
                       :options="listPhoneCountries"
                       :rules="rules.phone.countries"
+                      item-value="id"
                     >
                       <template slot="selection" slot-scope="data">
                         <span style="font-weight: 500;font-size: 16px;">{{
@@ -111,7 +127,7 @@
                       </template>
 
                       <template slot="item" slot-scope="data">
-                        <v-list-item-content>
+                        <v-list-item-content @click="onChangeCountryCode(data)">
                           <v-list-item-title
                             style="display: flex;align-items: center"
                           >
@@ -120,36 +136,6 @@
                         </v-list-item-content>
                       </template>
                     </auto-complete-custom>
-                    <!--                    <v-autocomplete-->
-                    <!--                      outlined-->
-                    <!--                      dense-->
-                    <!--                      rounded-->
-                    <!--                      color="yellow yellow-10"-->
-                    <!--                      height="3rem"-->
-                    <!--                      hide-details="auto"-->
-                    <!--                      dark-->
-                    <!--                      required-->
-                    <!--                      :rules="rules.phone.countries"-->
-                    <!--                      :items="listPhoneCountries"-->
-                    <!--                      item-text="name"-->
-                    <!--                      item-value="code"-->
-                    <!--                    >-->
-                    <!--                      <template slot="selection" slot-scope="data">-->
-                    <!--                        <span style="font-weight: 500;font-size: 16px;">{{-->
-                    <!--                          data.item.code-->
-                    <!--                        }}</span>-->
-                    <!--                      </template>-->
-
-                    <!--                      <template slot="item" slot-scope="data">-->
-                    <!--                        <v-list-item-content>-->
-                    <!--                          <v-list-item-title-->
-                    <!--                            style="display: flex;align-items: center"-->
-                    <!--                          >-->
-                    <!--                            {{ data.item.name }}-->
-                    <!--                          </v-list-item-title>-->
-                    <!--                        </v-list-item-content>-->
-                    <!--                      </template>-->
-                    <!--                    </v-autocomplete>-->
                   </v-col>
 
                   <v-col cols="12" md="7">
@@ -176,12 +162,28 @@
               <v-col class="py-0" cols="12" md="6">
                 <select-custom
                   v-model="form.bank_details_request.bank_id"
-                  :options="options"
+                  :options="listBanks"
                   :rules="rules.bank_id"
                   placeholder="Select bank"
                   label="Select bank"
                   required
-                />
+                  item-value="id"
+                  item-text="name_bank"
+                  custom
+                >
+                  <template #selection="{ item }">
+                    <span>{{ item.name_bank }}</span>
+                  </template>
+                  <template #item="{ item }">
+                    <v-list-item-content @click="onChangeBank(item)">
+                      <v-list-item-title
+                        style="display: flex; align-items: center"
+                      >
+                        <span>{{ item.name_bank }}</span>
+                      </v-list-item-title>
+                    </v-list-item-content>
+                  </template>
+                </select-custom>
               </v-col>
               <v-col class="py-0" cols="12" md="6">
                 <input-custom
@@ -212,9 +214,25 @@
               </v-col>
             </v-row>
           </v-form>
+          <div class="action py-12 d-flex justify-center">
+            <button class="submit dfy-button dfy-button--primary" @click="onConfirmOrder">
+              Confirm Order
+            </button>
+          </div>
         </div>
       </div>
     </div>
+    <popup-confirm-exchange
+      v-model="showPopUpConfirmExchange"
+      :data="form"
+      @onConfirm="onCreateExchangeCrypto"
+    />
+    <v-overlay :value="loading">
+      <v-progress-circular
+        indeterminate
+        color="amber"
+      />
+    </v-overlay>
   </div>
 </template>
 
@@ -225,10 +243,17 @@ import Banner from '~/components/exchange-crypto/Banner'
 import InputCustom from '~/components/Custom/InputCustom'
 import SelectCustom from '~/components/Custom/SelectCustom'
 import AutoCompleteCustom from '~/components/Custom/AutocompleteCustom'
+import { createExchangeCrypto } from '~/api/exchange-crypto-service'
+import PopupConfirmExchange from '~/components/exchange-crypto/PopupConfirmExchange'
+const DIALOG_TYPE = {
+  SUCCESS: 1,
+  ERRORS: 0
+}
 
 export default {
   name: 'ExchangeCrypto',
   components: {
+    PopupConfirmExchange,
     AutoCompleteCustom,
     SelectCustom,
     InputCustom,
@@ -252,8 +277,11 @@ export default {
           bank_id: null,
           bank_account: null,
           card_holder: null,
-          sort_code: null
-        }
+          sort_code: null,
+          bank_name: null
+        },
+        crypto_asset_token: null,
+        fiat_money_name: null
       },
       rules: {
         amount: [v => !!v || 'Amount is required'],
@@ -268,7 +296,7 @@ export default {
             v =>
               (v && v.length <= 50) || 'Phone number with maximum 50 character',
             v =>
-              isValidPhoneNumber(`${this.form.phone_country_id}${v}`) ||
+              isValidPhoneNumber(`${this.phone_country_code}${v}`) ||
               'Wrong phone number format'
           ]
         },
@@ -277,26 +305,17 @@ export default {
         card_holder: [v => !!v || 'Card holder is required'],
         sort_code: [v => !!v || 'Sort code is required']
       },
-      nameRules: [
-        v => !!v || 'Name is required',
-        v => (v && v.length <= 10) || 'Name must be less than 10 characters'
-      ],
-      options: [
-        {
-          text: 'option 1',
-          value: '1'
-        },
-        {
-          text: 'option 2',
-          value: '2'
-        }
-      ]
+      phone_country_code: null,
+      loading: false,
+      showPopUpConfirmExchange: false
     }
   },
   computed: {
     ...mapState('exchange-crypto-store', [
       'listAmountTokens',
-      'listPhoneCountries'
+      'listPhoneCountries',
+      'listFiats',
+      'listBanks'
     ])
   },
   created () {
@@ -310,6 +329,18 @@ export default {
       'fetchListPhoneCountries'
     ]),
     isValidPhoneNumber,
+    onChangeFiatMoney (val) {
+      this.form.fiat_money_name = val.fiat_money
+    },
+    onChangeBank (val) {
+      this.form.bank_details_request.bank_name = val.name_bank
+    },
+    onChangeCryptoAssetToken ({ symbol }) {
+      this.form.crypto_asset_token = symbol
+    },
+    onChangeCountryCode ({ item }) {
+      this.phone_country_code = item.code
+    },
     onInitData () {
       this.fetchListAmountTokens()
       this.fetchListFiats()
@@ -318,6 +349,29 @@ export default {
     },
     onValidate () {
       this.$refs.form.validate()
+    },
+    async onCreateExchangeCrypto () {
+      try {
+        this.showPopUpConfirmExchange = false
+        this.loading = true
+        await createExchangeCrypto(this.form)
+        this.$dialogMessage.show({
+          type: DIALOG_TYPE.SUCCESS,
+          message: 'Created successfully'
+        })
+      } catch (e) {
+        this.$dialogMessage.show({
+          type: DIALOG_TYPE.ERRORS,
+          message: 'Error'
+        })
+      } finally {
+        this.loading = false
+      }
+    },
+    onConfirmOrder () {
+      if (this.$refs.form.validate()) {
+        this.showPopUpConfirmExchange = true
+      }
     }
   }
 }
@@ -358,6 +412,9 @@ export default {
       font-size: 20px;
       color: #ffffff;
     }
+  }
+  .action {
+
   }
 }
 

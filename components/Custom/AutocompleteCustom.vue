@@ -7,7 +7,7 @@
     <v-autocomplete
       v-model="isValue"
       :items="options"
-      placeholder="placeholder"
+      :placeholder="placeholder"
       rounded
       solo
       class="v-autocomplete-custom"
@@ -19,8 +19,8 @@
       dark
       required
       :rules="rules"
-      item-text="name"
-      item-value="code"
+      :item-text="itemText"
+      :item-value="itemValue"
     >
       <template #no-data>
         <slot name="no-data" />
@@ -62,6 +62,14 @@ export default {
     label: {
       type: String,
       default: ''
+    },
+    itemText: {
+      type: String,
+      default: 'text'
+    },
+    itemValue: {
+      type: String,
+      default: 'value'
     }
   },
   computed: {

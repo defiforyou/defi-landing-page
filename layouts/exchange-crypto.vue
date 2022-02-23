@@ -7,14 +7,16 @@
       <term-conditions />
     </v-app>
     <common-footer />
+    <dialog-message />
   </div>
 </template>
 
 <script>
 import Alert from '~/components/Alert'
+import DialogMessage from '~/components/exchange-crypto/DialogMessage'
 export default {
   name: 'ExchangeCrypto',
-  components: { Alert },
+  components: { DialogMessage, Alert },
   data () {
     return {
       emptyLinkBlocker: null
