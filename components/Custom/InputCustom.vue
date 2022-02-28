@@ -12,8 +12,11 @@
       :placeholder="placeholder"
       required
       :rules="rules"
+      color="#F8B017"
       :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
-      :style="$vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'"
+      :style="
+        $vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'
+      "
     />
   </div>
 </template>
@@ -62,7 +65,10 @@ export default {
 }
 .v-text-field-custom ::v-deep {
   .v-input__slot {
-    min-height: 44px !important;
+    min-height: 40px !important;
+    @include media(md) {
+      min-height: 44px !important;
+    }
   }
 }
 </style>

@@ -12,13 +12,14 @@
           <v-form ref="form" v-model="valid" lazy-validation>
             <v-row>
               <v-col class="py-0" cols="12" md="6">
-                <div style="display: flex">
+                <div class="d-flex">
                   <input-custom
                     v-model="form.amount"
                     :rules="rules.amount"
                     placeholder="Enter Amount"
                     label="Amount"
-                    style="width: 60%; padding-right: 16px"
+                    style="width: 60%"
+                    class="pr-2 pr-md-4"
                     required
                   />
                   <select-custom
@@ -37,18 +38,20 @@
                         :src="$mapImageCurrency(item.symbol)"
                         alt
                       >
-                      <span style="font-weight: 500;font-size: 16px;">{{ item.symbol }}</span>
+                      <span style="font-weight: 500; font-size: 16px">{{
+                        item.symbol
+                      }}</span>
                     </template>
                     <template #item="{ item }">
-                      <v-list-item-content @click="onChangeCryptoAssetToken(item)">
+                      <v-list-item-content
+                        @click="onChangeCryptoAssetToken(item)"
+                      >
                         <v-list-item-title
                           style="display: flex; align-items: center"
                         >
                           <img
                             class="select-img"
-                            :src="
-                              `https://s3.ap-southeast-1.amazonaws.com/beta-storage-dfy/upload/${item.symbol}.png`
-                            "
+                            :src="`https://s3.ap-southeast-1.amazonaws.com/beta-storage-dfy/upload/${item.symbol}.png`"
                             alt
                             style="width: 24px; height: 24px"
                           >
@@ -72,7 +75,9 @@
                   custom
                 >
                   <template #selection="{ item }">
-                    <span style="font-weight: 500;font-size: 16px;">{{ item.fiat_money }}</span>
+                    <span style="font-weight: 500; font-size: 16px">{{
+                      item.fiat_money
+                    }}</span>
                   </template>
                   <template #item="{ item }">
                     <v-list-item-content @click="onChangeFiatMoney(item)">
@@ -110,7 +115,7 @@
               </v-col>
               <v-col class="py-0" cols="12" md="6">
                 <v-row>
-                  <v-col cols="12" md="5">
+                  <v-col cols="12" md="5" class="py-0">
                     <auto-complete-custom
                       v-model="form.phone_country_id"
                       placeholder="Select countries"
@@ -121,7 +126,7 @@
                       item-value="id"
                     >
                       <template slot="selection" slot-scope="data">
-                        <span style="font-weight: 500;font-size: 16px;">{{
+                        <span style="font-weight: 500; font-size: 16px">{{
                           data.item.code
                         }}</span>
                       </template>
@@ -129,7 +134,7 @@
                       <template slot="item" slot-scope="data">
                         <v-list-item-content @click="onChangeCountryCode(data)">
                           <v-list-item-title
-                            style="display: flex;align-items: center"
+                            style="display: flex; align-items: center"
                           >
                             {{ data.item.name }}
                           </v-list-item-title>
@@ -138,7 +143,7 @@
                     </auto-complete-custom>
                   </v-col>
 
-                  <v-col cols="12" md="7">
+                  <v-col cols="12" md="7" class="py-0">
                     <input-custom
                       v-model="form.phone_number"
                       :rules="rules.phone.phoneNumber"
@@ -215,7 +220,10 @@
             </v-row>
           </v-form>
           <div class="action py-12 d-flex justify-center">
-            <button class="submit dfy-button dfy-button--primary" @click="onConfirmOrder">
+            <button
+              class="submit dfy-button dfy-button--primary"
+              @click="onConfirmOrder"
+            >
               Confirm Order
             </button>
           </div>
@@ -228,10 +236,7 @@
       @onConfirm="onCreateExchangeCrypto"
     />
     <v-overlay :value="loading">
-      <v-progress-circular
-        indeterminate
-        color="amber"
-      />
+      <v-progress-circular indeterminate color="amber" />
     </v-overlay>
   </div>
 </template>
@@ -284,26 +289,26 @@ export default {
         fiat_money_name: null
       },
       rules: {
-        amount: [v => !!v || 'Amount is required'],
-        crypto_asset_id: [v => !!v || 'Token is required'],
-        fiat_money_id: [v => !!v || 'Receive fiat is required'],
-        email_sender: [v => !!v || 'Email is required'],
-        full_name: [v => !!v || 'Full name is required'],
+        amount: [(v) => !!v || 'Amount is required'],
+        crypto_asset_id: [(v) => !!v || 'Token is required'],
+        fiat_money_id: [(v) => !!v || 'Receive fiat is required'],
+        email_sender: [(v) => !!v || 'Email is required'],
+        full_name: [(v) => !!v || 'Full name is required'],
         phone: {
-          countries: [v => !!v || 'Code country is required'],
+          countries: [(v) => !!v || 'Code country is required'],
           phoneNumber: [
-            v => !!v || 'Phone number is required',
-            v =>
+            (v) => !!v || 'Phone number is required',
+            (v) =>
               (v && v.length <= 50) || 'Phone number with maximum 50 character',
-            v =>
+            (v) =>
               isValidPhoneNumber(`${this.phone_country_code}${v}`) ||
               'Wrong phone number format'
           ]
         },
-        bank_id: [v => !!v || 'Bank is required'],
-        bank_account: [v => !!v || 'Bank account is required'],
-        card_holder: [v => !!v || 'Card holder is required'],
-        sort_code: [v => !!v || 'Sort code is required']
+        bank_id: [(v) => !!v || 'Bank is required'],
+        bank_account: [(v) => !!v || 'Bank account is required'],
+        card_holder: [(v) => !!v || 'Card holder is required'],
+        sort_code: [(v) => !!v || 'Sort code is required']
       },
       phone_country_code: null,
       loading: false,
@@ -357,7 +362,10 @@ export default {
         await createExchangeCrypto(this.form)
         this.$dialogMessage.show({
           type: DIALOG_TYPE.SUCCESS,
-          message: 'Created successfully'
+          message: 'Created successfully',
+          onConfirm: () => {
+            this.$refs.form.reset()
+          }
         })
       } catch (e) {
         this.$dialogMessage.show({
@@ -394,27 +402,45 @@ export default {
 }
 
 .main-content {
-  margin-top: 62px;
-
+  margin-top: 24px;
   .form {
     background: #282c37;
-    border-radius: 20px;
-    padding: 24px 53px;
+    border-radius: 12px;
+    padding: 12px 24px;
 
     &-title {
       font-weight: 600;
-      font-size: 36px;
+      font-size: 24px;
       color: #fff;
     }
 
     &-sub-title {
       font-weight: 600;
-      font-size: 20px;
+      font-size: 16px;
       color: #ffffff;
     }
   }
-  .action {
+  @include media(md) {
+    margin-top: 62px;
+    .form {
+      background: #282c37;
+      border-radius: 20px;
+      padding: 24px 53px;
 
+      &-title {
+        font-weight: 600;
+        font-size: 36px;
+        color: #fff;
+      }
+
+      &-sub-title {
+        font-weight: 600;
+        font-size: 20px;
+        color: #ffffff;
+      }
+    }
+  }
+  .action {
   }
 }
 

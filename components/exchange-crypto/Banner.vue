@@ -42,6 +42,28 @@ export default {
     font-size: 12px;
     font-weight: 500;
   }
+
+  height: 125px;
+  img {
+    width: 150px;
+    bottom: 0;
+    left: 20px;
+  }
+  .text-content {
+    margin: 0 auto;
+    height: 100%;
+    background: #11111130;
+    padding: 28px 12px 0px;
+  }
+  &-title {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  &-subtitle {
+    font-size: 12px;
+  }
+
   @include media(md) {
     height: 175px;
     img {

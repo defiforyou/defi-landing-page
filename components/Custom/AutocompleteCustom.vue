@@ -14,13 +14,17 @@
       filled
       outlined
       dense
-      color="yellow yellow-10"
       hide-details="auto"
       dark
       required
       :rules="rules"
       :item-text="itemText"
       :item-value="itemValue"
+      color="#F8B017"
+      :height="$vuetify.breakpoint.smAndUp ? '44px' : '40px'"
+      :style="
+        $vuetify.breakpoint.smAndUp ? 'font-size: 16px' : 'font-size: 14px'
+      "
     >
       <template #no-data>
         <slot name="no-data" />
@@ -89,7 +93,7 @@ export default {
 .v-autocomplete-custom ::v-deep {
   .v-input__slot {
     background: transparent !important;
-    min-height: 44px !important;
+    //min-height: 44px !important;
   }
 }
 .label {
