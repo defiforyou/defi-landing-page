@@ -14,7 +14,7 @@
       <div class="action">
         <a
           class="submit dfy-button dfy-button--primary btn-upload"
-          href="https://marketplace.defiforyou.uk/inventory/nft-list/notonmarket"
+          href="https://app.defiforyou.uk/pawn/nft-offer?page=0&size=10"
           target="_blank"
         >
           Select now
