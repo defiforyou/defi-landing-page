@@ -6,13 +6,13 @@
           <v-col cols="12" md="6" class="order-2 order-md-1">
             <div class="buy-dfy-with">
               <div class="buy-dfy__tabs">
-                <span
+                <!-- <span
                   class="buy-dfy__tabs--card tab-1 text-uppercase"
                   :class="{'active': tab == 1}"
                   @click="tab = 1"
                 >
                   Buy DFY using bank card
-                </span>
+                </span>-->
                 <!--<span class="cards">
                   <img src="~assets/img/buy-dfy/visa.png" alt="">
                   <img class="img-rectangle" src="~assets/img/buy-dfy/rectangle.png" alt="">
@@ -20,7 +20,7 @@
                 </span>-->
 
                 <span
-                  class="buy-dfy__tabs--card text-uppercase"
+                  class="buy-dfy__tabs--card text-uppercase active"
                   :class="{'active': tab == 2}"
                   @click="tab = 2"
                 >Buy DFY on Exchanges</span>
@@ -34,12 +34,12 @@
           </v-col>
 
           <v-col cols="12" md="6" class="order-1 order-md-2">
-            <div class="buy-dfy-img">
-              <h2 class="buy-dfy__title">
+             <div class="buy-dfy-img">
+              <!-- <h2 class="buy-dfy__title">
                 Buy DFY
-              </h2>
+              </h2>-->
               <h2 class="buy-dfy__title">
-                using Bank card
+                Buy DFY Tokens
               </h2>
               <!--              <div class="buy-dfy__card">-->
               <!--                <div>-->
@@ -52,12 +52,15 @@
                   The easiest way to buy DFY tokens with Bank card
                 </p>
               </div>
-              <div class="buy-dfy__imgs--small">
+              <!--<div class="buy-dfy__imgs--small">
                 <img src="/img/payment_visa.svg" alt="">
                 <img src="/img/payment_mastercard.svg" alt="">
-              </div>
-              <div class="buy-dfy__img">
+              </div>-->
+              <!-- <div class="buy-dfy__img">
                 <img src="~assets/img/buy-dfy/buy-dfy.png" alt="">
+              </div>-->
+              <div class="buy-dfy__img">
+                <img src="~assets/img/buy-dfy/payment_card_2.png" alt="">
               </div>
             </div>
           </v-col>
