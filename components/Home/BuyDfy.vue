@@ -6,27 +6,28 @@
           <v-col cols="12" md="6" class="order-2 order-md-1">
             <div class="buy-dfy-with">
               <div class="buy-dfy__tabs">
-                <!-- <span
+                <span
                   class="buy-dfy__tabs--card tab-1 text-uppercase"
                   :class="{'active': tab == 1}"
                   @click="tab = 1"
                 >
                   Buy DFY using bank card
-                </span> -->
-                <!--                  <span class="cards">-->
-                <!--                    <img src="~assets/img/buy-dfy/visa.png" alt="">-->
-                <!--                    <img class="img-rectangle" src="~assets/img/buy-dfy/rectangle.png" alt="">-->
-                <!--                    <img src="~assets/img/buy-dfy/mastecard.png" alt="">-->
-                <!--                  </span>-->
+                </span>
+                <!--<span class="cards">
+                  <img src="~assets/img/buy-dfy/visa.png" alt="">
+                  <img class="img-rectangle" src="~assets/img/buy-dfy/rectangle.png" alt="">
+                  <img src="~assets/img/buy-dfy/mastecard.png" alt="">
+                </span>-->
 
                 <span
-                  class="buy-dfy__tabs--card text-uppercase active"
+                  class="buy-dfy__tabs--card text-uppercase"
+                  :class="{'active': tab == 2}"
                   @click="tab = 2"
                 >Buy DFY on Exchanges</span>
               </div>
 
               <div class="buy-dfy__input">
-                <!-- <BuyWithCreditCard v-if="tab === 1" /> -->
+                <BuyWithCreditCard v-if="tab === 1" />
                 <BuyOnExchanges v-if="tab === 2" />
               </div>
             </div>
@@ -68,11 +69,11 @@
 </template>
 
 <script>
-// import BuyWithCreditCard from '../Payment/BuyWithCreditCard.vue'
+import BuyWithCreditCard from '../Payment/BuyWithCreditCard.vue'
 import BuyOnExchanges from './BuyOnExchanges'
 export default {
   components: {
-    // BuyWithCreditCard,
+    BuyWithCreditCard,
     BuyOnExchanges
   },
   data () {
