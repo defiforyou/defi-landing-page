@@ -16,7 +16,7 @@
                 a.button__ios.dfy-button.dfy-button--special(:href="urls.downloadIos" target="_blank" rel="noopener")
                   img(src="/img/download_ios.svg" alt="")
                   span iOS
-                img.qr_code(src="/img/QR_ios.jpeg" alt="")
+                img.qr_code(src="/img/QR_ios.png" alt="")
               .button
                 a.button__android.dfy-button.dfy-button--special(:href="urls.downloadAndroid" target="_blank" rel="noopener")
                   img(src="/img/download_android.svg" alt="")
