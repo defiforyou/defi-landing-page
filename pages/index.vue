@@ -15,6 +15,8 @@
       home-modal-reward(@close="closeRewardModal", v-if="isReward")
       .reward-mini(v-if="isRewardMini", @click="handleRewardMini")
         img.reward-icon(src="~assets/img/crypto-cashing.png")
+      .reward-mini-2(v-if="isRewardMini", @click="handleRewardMini2")
+        img.reward-icon(src="~assets/img/link-page-sp.png")
       home-hero-section#hero.sticky
       home-get-us-section#team
       home-price-tickers-section#price-tickers
@@ -132,6 +134,12 @@ export default {
       // this.isReward = true
       // this.isRewardMini = false
       window.open('https://cryptocashing.co.uk/', '_blank').focus()
+    },
+    handleRewardMini2 () {
+      // this.SET_IS_REWARD(true)
+      // this.isReward = true
+      // this.isRewardMini = false
+      window.open('https://app.defiforyou.uk/ukraine-support', '_blank').focus()
     }
   }
 }
@@ -241,6 +249,42 @@ export default {
         bottom: 150px
       }
     }
+  }
+  .reward-mini-2 {
+    cursor: pointer;
+    position: fixed;
+    z-index: 1001;
+    bottom: 20px;
+    left: 20px;
+    width: 80px;
+    // animation: ring 2s infinite;
+
+    @media (min-width: 960px) {
+      width: unset
+    }
+
+    // @keyframes ring {
+    //   0% {
+    //     right: 20px;
+    //     bottom: 150px
+    //   }
+    //   25% {
+    //     right: 20px;
+    //     bottom: 125px
+    //   }
+    //   50% {
+    //     right: 45px;
+    //     bottom: 125px
+    //   }
+    //   75% {
+    //     right: 45px;
+    //     bottom: 150px
+    //   }
+    //   100% {
+    //     right: 20px;
+    //     bottom: 150px
+    //   }
+    // }
   }
 }
 </style>
