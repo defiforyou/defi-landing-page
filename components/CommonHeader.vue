@@ -167,7 +167,8 @@ export default {
       },
       {
         text: 'Loan against NFTs',
-        href: '/loan-against-nfts',
+        href: 'https://app.defiforyou.uk/pawn/nft-offer?page=0&size=10',
+        target: '_blank',
         classes: {
           'dfy-button': true,
           'dfy-button--overlay': true,
