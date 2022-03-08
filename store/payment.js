@@ -60,8 +60,9 @@ export const actions = {
     })
   },
   showErrorMessage ({ commit }, payload = {}) {
+    console.log(payload.message, 'payload')
     commit('SHOW_DIALOG', {
-      text: payload !== 'error' ? payload : ['Something went wrong!'],
+      text: payload.error === 'error' ? payload.message : ['Something went wrong!'],
       type: 'error'
     })
   },
