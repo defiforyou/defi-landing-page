@@ -21,10 +21,11 @@
             We will inform you by email
           </p>
         </div>
-        <div v-else-if="type==='error'">
-          <p v-for="item in text" :key="item.text" class="title">
+        <div v-else-if="type==='error'" class="title px-2">
+          {{ text }}
+          <!-- <p v-for="item in text" :key="item.text" class="title">
             {{ item.includes('postal') ? (!isPostal && item.replaceAll('postal', 'zip')): item }}
-          </p>
+          </p> -->
         </div>
         <v-card-actions class="justify-center pb-8">
           <v-btn
