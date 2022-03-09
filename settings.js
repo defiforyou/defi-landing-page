@@ -247,16 +247,16 @@ export const TEAM_MEMBERS = [
   //   facebook: '',
   //   linkedin: ''
   // },
-  {
-    position: 'Vice Director of Internal Audit, VietBank',
-    image: '/img/team.hoang-dung.jpg',
-    name: 'Dung Hoang',
-    bio: 'Dung\'s role as an advisor helps us to self-audit the project, alongside having third-parties like CertiK audit us, to ensure we\'re on track.',
-    other: null,
-    email: '',
-    facebook: '',
-    linkedin: ''
-  },
+  // {
+  //   position: 'Vice Director of Internal Audit, VietBank',
+  //   image: '/img/team.hoang-dung.jpg',
+  //   name: 'Dung Hoang',
+  //   bio: 'Dung\'s role as an advisor helps us to self-audit the project, alongside having third-parties like CertiK audit us, to ensure we\'re on track.',
+  //   other: null,
+  //   email: '',
+  //   facebook: '',
+  //   linkedin: ''
+  // },
   {
     position: 'Pawnbroker Partner',
     image: '/img/team.miles-mann.jpg',
