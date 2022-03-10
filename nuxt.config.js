@@ -112,9 +112,10 @@ export default {
 
   publicRuntimeConfig: {
     recaptcha: {
-      siteKey: RECAPTCHA_SITE_KEY,
-      hideBadge: true,
-      version: 3
+      siteKey: '6LcSG9EaAAAAABvbpHkdugGmjEWeYPp6NoPPDEvt',
+      hideBadge: false,
+      // size: 'invisible',
+      version: 2
     }
   }
 }

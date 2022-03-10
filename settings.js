@@ -2,7 +2,7 @@ export const OG_ROOT = 'https://defi-c5be4.web.app'
 export const COPYRIGHT = '© 2021 DeFi For You. All rights reserved.'
 
 export const RECAPTCHA_SITE_KEY = '6LdOtzgaAAAAAAs5iSvp_xM_p9dP9DMEMmSjS1NG'
-export const RECAPTCHA_ENABLED = false
+export const RECAPTCHA_ENABLED = true
 
 export const VIDEO_BACKGROUND = 'https://defiforyou.mypinata.cloud/ipfs/QmaVBqibJTM5rX5SSF484wwT4Tj7xkV7SLjBK7EdAsZERf'
 
