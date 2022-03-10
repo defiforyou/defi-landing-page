@@ -59,11 +59,11 @@ section.contact
                     v-model="form.message"
                     placeholder="How could we help you with?"
                     required)
-
+            div
+              recaptcha
             .error
               transition(name="fade-in")
                 span(v-if="error" v-text="error")
-
             button.submit.dfy-button.dfy-button--primary(
               type="submit"
               @click.prevent="submit") Send your message ->
@@ -96,17 +96,19 @@ export default {
     }
   },
 
-  async mounted () {
-    if (RECAPTCHA_ENABLED) {
-      try {
-        await this.$recaptcha.init()
-      } catch (e) {}
-    }
-  },
+  // async mounted () {
+  //   if (RECAPTCHA_ENABLED) {
+  //     try {
+  //       await this.$recaptcha.init()
+  //     } catch (e) {
+  //       console.log(111)
+  //     }
+  //   }
+  // },
 
-  beforeDestroy () {
-    if (RECAPTCHA_ENABLED) this.$recaptcha.destroy()
-  },
+  // beforeDestroy () {
+  //   if (RECAPTCHA_ENABLED) this.$recaptcha.destroy()
+  // },
 
   methods: {
     reset () {
@@ -150,14 +152,16 @@ export default {
         })
     },
 
-    submit () {
+    async submit () {
+      const token = await this.$recaptcha.getResponse()
+      console.log('ReCaptcha token:', token)
       this.validate()
         .then(() => {
           this.error = null
           this.loading = true
           const cb = RECAPTCHA_ENABLED
-            ? this.tokenize().then(this.send)
-            : this.send()
+            ? this.tokenize().then(this.send(token))
+            : this.send(token)
           return cb
             .catch(() => {
               this.completed = false
@@ -170,6 +174,7 @@ export default {
         .catch(e => {
           this.error = e.message
         })
+      await this.$recaptcha.reset()
     }
   }
 }

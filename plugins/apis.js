@@ -49,7 +49,7 @@ export default ({ $axios }, inject) => {
 
     contactUs (data) {
       return $axios
-        .$post('https://gw.defiforyou.uk/defi-user-service/public-api/v1.0.0/contact-us', data)
+        .$post('https://gwapi.defiforyou.uk/defi-user-service/public-api/v1.0.0/contact-us', data)
     }
   })
 }
