@@ -86,23 +86,53 @@ export default {
       if (['0', '1', '2'].includes(this.getInvestor())) {
         this.isSelectInvestor = true
       }
-      if (+this.getTermCondition() === 1) {
+      // eslint-disable-next-line eqeqeq
+      if (+this.getTermCondition() === 1 || this.getTermCondition() == 'true' || this.getTermCondition() == true) {
         this.show = false
       } else {
         this.show = true
       }
     },
     setTermCondition () {
+      this.setCookie('terms-and-conditions', true)
       localStorage.setItem(localName.term, 1)
     },
     getTermCondition () {
+      // eslint-disable-next-line eqeqeq
+      if (this.getCookie('terms-and-conditions')) {
+        return this.getCookie('terms-and-conditions')
+      }
       return localStorage.getItem(localName.term)
     },
     setInvestor () {
+      this.setCookie('investor-type', this.investorType)
       localStorage.setItem(localName.investor, this.investorType)
     },
     getInvestor () {
+      if (this.getCookie('investor-type')) {
+        return this.getCookie('investor-type')
+      }
       return localStorage.getItem(localName.investor)
+    },
+    setCookie (cname, cvalue) {
+      document.cookie = cname + '=' + cvalue + ';' + ';domain=.defiforyou.uk;path=/'
+    },
+    getCookie (cname) {
+      const name = cname + '='
+      const decodedCookie = decodeURIComponent(document.cookie)
+      const ca = decodedCookie.split(';')
+      for (let i = 0; i < ca.length; i++) {
+        let c = ca[i]
+        // eslint-disable-next-line eqeqeq
+        while (c.charAt(0) == ' ') {
+          c = c.substring(1)
+        }
+        // eslint-disable-next-line eqeqeq
+        if (c.indexOf(name) == 0) {
+          return c.substring(name.length, c.length)
+        }
+      }
+      return ''
     }
   }
 }
