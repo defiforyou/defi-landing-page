@@ -149,18 +149,18 @@ export default {
         },
         child: [
           {
-            text: 'NFT Market',
-            href: 'https://marketplace.defiforyou.uk/',
+            text: 'NFT Shops',
+            href: 'https://marketplace.defiforyou.uk/collections/search?name=&sort=&type=1',
             target: '_blank'
           },
           {
-            text: 'Hard NFT',
+            text: 'Hard NFT Market',
             href: 'https://marketplace.defiforyou.uk/nft/search?nft_type=1',
             target: '_blank'
           },
           {
-            text: 'NFT Shops',
-            href: 'https://marketplace.defiforyou.uk/collections/search?name=&sort=&type=1',
+            text: "All NFT's",
+            href: 'https://marketplace.defiforyou.uk/',
             target: '_blank'
           }
         ]
