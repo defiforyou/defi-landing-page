@@ -39,7 +39,7 @@
                 Buy DFY
               </h2>
               <h2 class="buy-dfy__title">
-                Buy DFY Tokens
+                using Bank card
               </h2>
               <!--              <div class="buy-dfy__card">-->
               <!--                <div>-->
@@ -53,6 +53,8 @@
                 </p>
               </div>
               <div class="buy-dfy__imgs--small">
+                <img src="/img/payment_unionpay.svg" alt="">
+                <img src="/img/payment_amex.svg" alt="">
                 <img src="/img/payment_visa.svg" alt="">
                 <img src="/img/payment_mastercard.svg" alt="">
               </div>
