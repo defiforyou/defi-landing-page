@@ -47,7 +47,7 @@ export const ABOUT = {
 }
 
 export const URLS = {
-  github: 'https://github.com/defi-vn/',
+  github: 'https://github.com/defiforyou/',
   telegram: 'https://t.me/DeFiForYou_English',
   facebook: 'https://www.facebook.com/DeFiForYouDFY',
   youtube: 'https://www.youtube.com/channel/UCGaSCU17Zo_2CzJNaBeUHaA/featured',
