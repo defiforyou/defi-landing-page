@@ -98,11 +98,11 @@ section.footer
             li
               popover-exchanges(placement="top-start")
                 a(:href="urls.buy") Buy DFY on Exchanges ->
-        .about
-         .title About DeFi For You.
-         .introduce
-         strong DeFi For You
-         span {{about.introduce}}
+        //- .about
+        //-  .title About DeFi For You.
+        //-  .introduce
+        //-  strong DeFi For You
+        //-  span {{about.introduce}}
   .copyright
     .container
       .layout.dfy-flex

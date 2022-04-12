@@ -40,7 +40,7 @@ import { mapActions, mapState, mapMutations } from 'vuex'
 export default {
   data () {
     return {
-      isRewardMini: true
+      isRewardMini: false
     }
   },
   computed: {
