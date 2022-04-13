@@ -13,8 +13,8 @@
     //      img(src="/img/token.nfts.png" alt="NFTs")
     .sections
       home-modal-reward(@close="closeRewardModal", v-if="isReward")
-      .reward-mini(v-if="isRewardMini", @click="handleRewardMini")
-        img.reward-icon(src="~assets/img/crypto-cashing.png")
+      //- .reward-mini(v-if="isRewardMini", @click="handleRewardMini")
+      //-   img.reward-icon(src="~assets/img/crypto-cashing.png")
       .reward-mini-2(v-if="isRewardMini", @click="handleRewardMini2")
         img.reward-icon(src="~assets/img/link-page-sp.png")
       home-hero-section#hero.sticky
@@ -40,7 +40,7 @@ import { mapActions, mapState, mapMutations } from 'vuex'
 export default {
   data () {
     return {
-      isRewardMini: false
+      isRewardMini: true
     }
   },
   computed: {
