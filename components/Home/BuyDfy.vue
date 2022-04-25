@@ -48,8 +48,8 @@
               <!--                </div>-->
               <!--              </div>-->
               <div class="buy-dfy__subtext">
-                <p class="text-left text-md-right mb-0">
-                  The easiest way to buy DFY tokens with Bank card
+                <p class="text-left text-md-right mb-0" style="color: red;">
+                  Sorry for any inconvenience, payment gateway will be back on soon
                 </p>
               </div>
               <div class="buy-dfy__imgs--small">
