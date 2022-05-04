@@ -17,18 +17,24 @@
           </h2>
           <p>Access a seamless crypto wallet and explore all the features of DeFi For You on your smartphone.</p>
           <p>Download the DeFi For You app on iOS and Android now following the links below.</p>
-          <p class="coming-soon">
+          <!-- <p class="coming-soon">
             Coming soon on:
-          </p>
+          </p> -->
           <div class="download d-flex align-center">
             <nuxt-link :to="{name: 'download-app'}">
+              <v-button class="submit dfy-button dfy-button--primary">
+                Dapp for iOS & Android
+              </v-button>
+            </nuxt-link>
+
+            <!-- <nuxt-link :to="{name: 'download-app'}">
               <img src="/img/icon-app-store.svg" alt="">
               <img src="/img/QR_ios.jpeg" class="qr_code">
             </nuxt-link>
             <nuxt-link :to="{name: 'download-app'}">
               <img src="/img/icon-google-play.svg" alt="">
               <img src="/img/QR_android.jpeg" class="qr_code">
-            </nuxt-link>
+            </nuxt-link> -->
           </div>
         </div>
       </div>
