@@ -31,6 +31,7 @@
       home-partners-section#partners
       //home-team-section#team
       home-contact-section#contact
+    home-modal-success(:show.sync="isShow", :isSuccess="isSuccess")
 </template>
 
 <script>
@@ -40,7 +41,9 @@ import { mapActions, mapState, mapMutations } from 'vuex'
 export default {
   data () {
     return {
-      isRewardMini: true
+      isRewardMini: true,
+      isShow: (this.$route.query.payment === 'true') || false,
+      isSuccess: (this.$route.query.success === 'true') || false
     }
   },
   computed: {

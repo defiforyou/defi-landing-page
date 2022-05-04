@@ -143,13 +143,16 @@ export default {
     async handlePay () {
       try {
         this.loading = true
-        await this.$axios.post(`${process.env.API_URL}/defi-pawn-crypto-service/public-api/v1.0.0/buy-dfy`, this.valueUser)
+        const { data } = await this.$axios.post(`${process.env.API_URL}/defi-pawn-crypto-service/public-api/v1.0.0/buy-dfy`, this.valueUser)
         this.loading = false
         this.$emit('update:show', false)
         this.showSuccessMessage()
         this.getValueUser({ amountPay: 0.2, currency: '', amountGet: 0 })
+        if (get(data, 'data.transactionUrl')) {
+          window.open(get(data, 'data.transactionUrl'), '_blank').focus()
+        }
       } catch (err) {
-        this.showErrorMessage(err.response.data.error)
+        this.showErrorMessage(err.response.data)
       } finally {
         this.loading = false
       }
