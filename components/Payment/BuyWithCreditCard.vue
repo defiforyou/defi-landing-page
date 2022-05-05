@@ -211,6 +211,12 @@
       </v-btn>
     </div>
 
+    <div class="mt-4">
+      <span class="warning-text">
+        This function is currently under maitainance, error might occur during this time.
+        Contact live support or email ask@defiforyou.uk if you have any problem</span>
+    </div>
+
     <ChooseWallet :show.sync="isWallet" />
     <ModalPersonalInfo :show.sync="isConfirm" />
     <!-- <ModalConfirm :show.sync="isConfirm" :payload="payload" :get-value="getValue" :get-currency="getCurrency" :email="email" /> -->

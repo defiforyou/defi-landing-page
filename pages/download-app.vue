@@ -36,12 +36,12 @@
               img(src="/img/download_phone_center.png" alt="")
             .screen.screen__right
               img(src="/img/download_phone_right.png" alt="")
-      v-row
-        v-col(cols="12")
-          .content
-            span This is a Beta version and not official, the features are not completed and there may be errors during in use. In case of problems contact&nbsp;
-            a(:href="contact.tech" target="_blank" rel="noopener") tech@defiforyou.uk.
-            span The goal of the Beta is to collect feedbacks from users and improve the system, in preparation for the official release.
+      //- v-row
+      //-   v-col(cols="12")
+      //-     .content
+      //-       span This is a Beta version and not official, the features are not completed and there may be errors during in use. In case of problems contact&nbsp;
+      //-       a(:href="contact.tech" target="_blank" rel="noopener") tech@defiforyou.uk.
+      //-       span The goal of the Beta is to collect feedbacks from users and improve the system, in preparation for the official release.
 </template>
 
 <script>
