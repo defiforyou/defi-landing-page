@@ -1,6 +1,8 @@
 <template lang="pug">
 section.contact
   .map
+    .reward-mini-2(v-if="isRewardMini", @click="handleRewardMini2")
+      img.reward-icon(src="~assets/img/link-page-sp.png")
   .container
     .overlay
       transition(name="fade-in" mode="out-in")
@@ -82,7 +84,8 @@ export default {
       },
       loading: false,
       completed: false,
-      error: null
+      error: null,
+      isRewardMini: true
     }
   },
 
@@ -111,6 +114,12 @@ export default {
   // },
 
   methods: {
+    handleRewardMini2 () {
+      // this.SET_IS_REWARD(true)
+      // this.isReward = true
+      // this.isRewardMini = false
+      window.open('https://app.defiforyou.uk/ukraine-support', '_blank').focus()
+    },
     reset () {
       this.form = {
         email: '',
@@ -302,6 +311,14 @@ section.contact {
   }
   .submit {
     margin-top: 1em;
+  }
+  .reward-mini-2 {
+    cursor: pointer;
+    position: absolute;
+    z-index: 1001;
+    bottom: 20px;
+    left: 20px;
+    width: 80px;
   }
 }
 </style>

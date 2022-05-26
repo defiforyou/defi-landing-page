@@ -14,10 +14,10 @@ section.defi-for-you
         h2.title Buy and Loan against NFTs attached to physical assets.
         .description
           p  Would you like to diversify your portfolio using your cryptocurrency to buy items like gold, silver and diamonds? This will be made possible by purchasing NFTs which are attached to that specific asset. These will be stored and insured with one of our trusted partners. You can also redeem the goods by giving the NFT to the partner, who will then burn it and give you the asset. Loans can also be made available in stablecoin by using the physical goods as collateral.
-        h3.title Use case for DFY
-        .description
-          p All sales of NFTs will incur 2.5% charge of which 1.25% will be used to buy DFY on exchanges, which will be burned.
-          p All minting fees are in DFY, which will also be burned.
+        //- h3.title Use case for DFY
+        //- .description
+        //-   p All sales of NFTs will incur 2.5% charge of which 1.25% will be used to buy DFY on exchanges, which will be burned.
+        //-   p All minting fees are in DFY, which will also be burned.
 </template>
 
 <style lang="scss" scoped>
