@@ -15,8 +15,8 @@
       home-modal-reward(@close="closeRewardModal", v-if="isReward")
       //- .reward-mini(v-if="isRewardMini", @click="handleRewardMini")
       //-   img.reward-icon(src="~assets/img/crypto-cashing.png")
-      .reward-mini-2(v-if="isRewardMini", @click="handleRewardMini2")
-        img.reward-icon(src="~assets/img/link-page-sp.png")
+      //- .reward-mini-2(v-if="isRewardMini", @click="handleRewardMini2")
+      //-   img.reward-icon(src="~assets/img/link-page-sp.png")
       home-hero-section#hero.sticky
       home-get-us-section#team
       home-price-tickers-section#price-tickers
