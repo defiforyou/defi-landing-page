@@ -213,7 +213,7 @@
 
     <div class="mt-4">
       <span class="warning-text">
-        This function is currently under maitainance, error might occur during this time.
+        This function is currently under maintenance, error might occur during this time.
         Contact live support or email ask@defiforyou.uk if you have any problem</span>
     </div>
 
