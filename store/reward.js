@@ -3,7 +3,8 @@
  */
 export const state = () => ({
   banners: {},
-  isReward: false
+  isReward: false,
+  priceGold: []
 })
 
 /**
@@ -40,6 +41,19 @@ export const actions = {
     } catch (err) {
       return err
     }
+  },
+  async getGoldPrice ({ state, commit }) {
+    try {
+      const { data } = await this.$axios.get(`${process.env.API_URL}/defi-pawn-crypto-service/public-api/v1.0.0/gold-bar-pricing`)
+
+      // eslint-disable-next-line eqeqeq
+      if (data.code == 0) {
+        commit('SET_PRICE', data.data)
+      }
+      return data || {}
+    } catch (err) {
+      return err
+    }
   }
 
 }
@@ -53,6 +67,9 @@ export const mutations = {
   },
   SET_IS_REWARD (state, data) {
     state.isReward = data
+  },
+  SET_PRICE (currState, data) {
+    currState.priceGold = data
   }
 
 }
