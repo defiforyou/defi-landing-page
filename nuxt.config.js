@@ -59,6 +59,7 @@ export default {
     { src: '~/plugins/getBscLink' },
     { src: '~/plugins/notify.js' },
     { src: '~/plugins/livechat', mode: 'client' },
+    { src: '~/plugins/dplayer', mode: 'client' },
     { src: '~/plugins/removeWalletAddress' }
   ],
 
