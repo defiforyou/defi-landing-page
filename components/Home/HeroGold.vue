@@ -330,7 +330,15 @@ export default {
 
   @include media(sm-down) {
     flex-direction: column;
-
+    > .text {
+      width: 100%;
+      text-align: center;
+    }
+    > .right {
+      margin-top: 30px;
+      width: 100%;
+      text-align: center;
+    }
     > div {
       width: 100%;
       text-align: center;
