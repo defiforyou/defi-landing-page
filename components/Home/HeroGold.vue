@@ -66,7 +66,7 @@
             <div class="go-here" style="margin-right: 30px;">
               Go here 2<sup>st</sup>
             </div>
-            <v-btn class="gradient-btn" large rounded @click="$router.push('/')">
+            <v-btn class="gradient-btn" large rounded @click="linkToMarket()">
               Buy Gold NFT
             </v-btn>
           </div>
@@ -102,10 +102,10 @@
               </v-row>
             </div>
           </div>
-          <div class="d-flex" style="margin-top: 30px">
+          <!-- <div class="d-flex" style="margin-top: 30px">
             <img src="~assets/img/preview-video/1.png" style="margin-right: 8px; cursor: pointer;" alt="#" @click="handleShowPreview(item1)">
             <img src="~assets/img/preview-video/2.png" style="margin-left: 8px; cursor: pointer;" alt="#" @click="handleShowPreview(item2)">
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -184,6 +184,9 @@ export default {
         type: file.type
       }
       this.showPreview = true
+    },
+    linkToMarket () {
+      window.location.href = 'https://marketplace.defiforyou.uk/collections/0xd84e196cab681adc97a1aee887b413f3c4ca6f36'
     }
   }
 }
