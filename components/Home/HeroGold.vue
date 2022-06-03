@@ -2,7 +2,7 @@
   <div class="gold-bullion">
     <div class="container">
       <h2 class="text--title" style="align-items: center;">
-        Gold Bullion NFTS
+        GOLD BULLION NFTs
       </h2>
       <div class="dfy-flex layout">
         <div class="text">
@@ -17,7 +17,7 @@
             </span>
           </div>
           <div class="second" style="margin-top: 53px;">
-            To buy Gold represented by NFT’S
+            To buy Gold represented by NFTs
           </div>
           <div class="second" style="margin-bottom: 18px;">
             You must first hold DFY in your purchase wallet
@@ -150,13 +150,13 @@ export default {
       ],
       holdDfys: [
         {
-          title: 'Hold of $75 DFY - 5g (Up to 104% Buy Back)'
+          title: 'Hold 75 USD of DFY - 5g (Up to 104% Buy Back)'
         },
         {
-          title: 'Hold of $500 DFY - 10g + 20g (Up to 106% Buy Back)'
+          title: 'Hold 500 USD of DFY - 10g + 20g (Up to 106% Buy Back)'
         },
         {
-          title: 'Hold of $1000 DFY - 50g + 100g (Up to 107.5% Buy Back)'
+          title: 'Hold 1000 USD of DFY - 50g + 100g (Up to 107.5% Buy Back)'
         }
       ],
       showPreview: false,
@@ -394,7 +394,6 @@ export default {
     font-weight: 700;
     font-size: 56px;
     line-height: 68px;
-    text-transform: uppercase;
 
     background: linear-gradient(180deg, #A0702D 5.85%, #FFD25F 49.81%, #805515 96.61%);
     -webkit-background-clip: text;
