@@ -75,7 +75,7 @@
         <div class="right">
           <div class="daily-gold">
             <div class="daily-gold__title">
-              Daily Gold Prices
+              Daily Gold Prices USDT
             </div>
             <div class="daily-gold__box">
               <v-row no-gutters style="margin-bottom: 5px;">
@@ -133,7 +133,7 @@ export default {
           title: 'Insured with T.H March'
         },
         {
-          title: 'Guaranteed Buy Back from Cotswold Fine Jewellery Group in USDT/USDC'
+          title: 'Guaranteed Buy Back from Cotswold Fine Jewellery Group in USDT'
         },
         {
           title: 'Free storage'
