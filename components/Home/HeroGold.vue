@@ -64,7 +64,7 @@
           </div>
           <div class="d-flex justify-center align-center" style="margin-top: 60px;">
             <div class="go-here" style="margin-right: 30px;">
-              Go here 2<sup>st</sup>
+              Go here 2<sup>nd</sup>
             </div>
             <v-btn class="gradient-btn" style="font-family: 'Montserrat'; font-style: normal;" large rounded @click="linkToMarket()">
               Buy Gold NFT
