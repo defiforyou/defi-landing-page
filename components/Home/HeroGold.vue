@@ -127,7 +127,7 @@ export default {
     return {
       contents: [
         {
-          title: 'Cookson Gold purchased in bulk by Cotswold Fine Jewellery Group + volted in UK'
+          title: 'Cookson Gold purchased in bulk by Cotswold Fine Jewellery Group + vaulted in UK'
         },
         {
           title: 'Insured with T.H March'
