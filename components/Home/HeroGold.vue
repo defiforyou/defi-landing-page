@@ -108,6 +108,20 @@
           </div> -->
         </div>
       </div>
+      <div>
+        <h2 class="title2" style="align-items: center;">
+          Cotswold Fine Jewellery Group
+        </h2>
+        <div class="content2" style="margin-top: 9px;">
+          Cotswold Fine Jewellery Group is one of the oldest established jewellers in the UK and can trace its origins back as far as 1741.
+        </div>
+        <div class="content2">
+          Cotswold Fine Jewellery Group guarantee to Buy Back all gold NFTs (see protection and service for full details)
+        </div>
+        <div style="text-align: center; margin-top: 45px;">
+          <img src="~/assets/img/cotswold.png" alt="Cotswold Fine Jewellery Group">
+        </div>
+      </div>
     </div>
     <PreViewMedia
       :dialog.sync="showPreview"
@@ -193,6 +207,31 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.title2 {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 39px;
+
+  /* Gold */
+
+  color: #DBA83D;
+  text-align: center;
+  margin-top: 110px;
+}
+.content2 {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+
+  /* Color/ Neutral/ White */
+
+  color: #FFFFFF;
+}
 .daily-gold {
   text-align: center;
   height: 292px;
