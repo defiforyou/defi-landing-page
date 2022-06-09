@@ -156,7 +156,7 @@ export default {
           title: 'Collection of the physical gold asset (UK only)'
         },
         {
-          title: 'Up to 107.5% Buy Back rate based on daily price'
+          title: 'Up to 110% Buy Back rate based on daily price'
         },
         {
           title: '0% commission on NFT purchase'
@@ -167,10 +167,10 @@ export default {
           title: 'Hold 75 USD of DFY - 5g (Up to 104% Buy Back)'
         },
         {
-          title: 'Hold 500 USD of DFY - 10g + 20g (Up to 106% Buy Back)'
+          title: 'Hold 500 USD of DFY - 10g + 20g (Up to 107% Buy Back)'
         },
         {
-          title: 'Hold 1000 USD of DFY - 50g + 100g (Up to 107.5% Buy Back)'
+          title: 'Hold 1000 USD of DFY - 50g + 100g (Up to 110% Buy Back)'
         }
       ],
       showPreview: false,
