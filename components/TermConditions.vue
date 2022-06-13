@@ -60,7 +60,7 @@ export default {
     return {
       show: false,
       investorType: null,
-      isSelectInvestor: false,
+      isSelectInvestor: true,
       scrollEnd: false
     }
   },
