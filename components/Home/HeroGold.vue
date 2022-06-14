@@ -102,10 +102,10 @@
               </v-row>
             </div>
           </div>
-          <!-- <div class="d-flex" style="margin-top: 30px">
+          <div class="d-flex" style="margin-top: 30px">
             <img src="~assets/img/preview-video/1.png" style="margin-right: 8px; cursor: pointer;" alt="#" @click="handleShowPreview(item1)">
-            <img src="~assets/img/preview-video/2.png" style="margin-left: 8px; cursor: pointer;" alt="#" @click="handleShowPreview(item2)">
-          </div> -->
+            <!-- <img src="~assets/img/preview-video/2.png" style="margin-left: 8px; cursor: pointer;" alt="#" @click="handleShowPreview(item2)"> -->
+          </div>
         </div>
       </div>
       <div>
@@ -179,11 +179,11 @@ export default {
         type: ''
       },
       item1: {
-        url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+        url: 'https://defiforyou.mypinata.cloud/ipfs/QmZL6vfZjAWZvxpJbWSxt9SMTbZ3NXZkqE7HFp4beABHcX',
         type: 'VIDEO'
       },
       item2: {
-        url: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+        url: 'https://defiforyou.mypinata.cloud/ipfs/QmZL6vfZjAWZvxpJbWSxt9SMTbZ3NXZkqE7HFp4beABHcX',
         type: 'VIDEO'
       }
     }
