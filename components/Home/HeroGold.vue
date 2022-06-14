@@ -2,8 +2,71 @@
   <div class="gold-bullion">
     <div class="container">
       <h2 class="text--title" style="align-items: center;">
-        GOLD BULLION NFTs
+        SECURE YOUR WEALTH WITH GOLD
       </h2>
+      <div style="text-align: center; margin-top: 40px; margin-bottom: 30px;">
+        <v-btn class="gradient-btn" style="font-family: 'Montserrat'; font-style: normal;" large rounded @click="linkToMarket()">
+          Buy Gold NFT
+        </v-btn>
+      </div>
+      <div
+        style="font-family: 'Montserrat';
+              font-style: normal;
+              font-weight: 500;
+              font-size: 16px;
+              line-height: 20px;
+              text-align: center;
+
+              color: #FFFFFF;
+        "
+      >
+        Transfer your wealth or crypto currency into gold bullion and earn 7-12%, 0% commision.
+      </div>
+      <div
+        style="font-family: 'Montserrat';
+              font-style: normal;
+              font-weight: 500;
+              font-size: 16px;
+              line-height: 20px;
+              text-align: center;
+
+              color: #FFFFFF;
+        "
+      >
+        With the crypto marketplumiting to record lows scure it in gold held free at Cookson Vault or collect it in the UK.
+      </div>
+      <div
+        style="font-family: 'Montserrat';
+              font-style: normal;
+              font-weight: 500;
+              font-size: 16px;
+              line-height: 20px;
+              text-align: center;
+
+              color: #FFFFFF;
+        "
+      >
+        Hold gold until the crypto market corrects itself.
+      </div>
+
+      <div style="text-align: center; margin-top: 33px; margin-bottom: 40px;">
+        <v-btn
+          color="#DBA83D"
+          style="font-family: 'Montserrat'; font-style: normal;"
+          large
+          rounded
+          outlined
+          @click.prevent="window.open('tel:+440800649722')"
+        >
+          <div style="color: #FFFFFF; margin-right: 15px;">
+            Call On
+          </div>
+          <span>
+            +44 0800649722
+          </span>
+        </v-btn>
+      </div>
+
       <div class="dfy-flex layout">
         <div class="text">
           <div v-for="(item, index) in contents" :key="index" style="margin-bottom: 10px;">
@@ -16,13 +79,13 @@
               {{ item.title }}
             </span>
           </div>
-          <div class="second" style="margin-top: 53px;">
+          <!-- <div class="second" style="margin-top: 53px;">
             To buy Gold represented by NFTs
-          </div>
-          <div class="second" style="margin-bottom: 18px;">
+          </div> -->
+          <!-- <div class="second" style="margin-bottom: 18px;">
             You must first hold DFY in your purchase wallet
-          </div>
-          <div v-for="(item, index) in holdDfys" :key="index">
+          </div> -->
+          <!-- <div v-for="(item, index) in holdDfys" :key="index">
             <v-icon
               large
               color="#DBA83D"
@@ -33,8 +96,8 @@
             <span class="content">
               {{ item.title }}
             </span>
-          </div>
-          <div class="d-flex" style="margin-top: 21px;">
+          </div> -->
+          <!-- <div class="d-flex" style="margin-top: 21px;">
             <div class="go-here" style="margin-right: 30px;">
               Go here 1<sup>st</sup>
             </div>
@@ -61,14 +124,15 @@
             <a class="cex" href="https://pancakeswap.finance/swap#/swap?outputCurrency=0xd98560689c6e748dc37bc410b4d3096b1aa3d8c2" target="_blank">
               Pancake
             </a>
-          </div>
-          <div class="d-flex justify-center align-center" style="margin-top: 60px;">
+          </div> -->
+          <!-- <div class="d-flex justify-center align-center" style="margin-top: 60px;">
             <div class="go-here" style="margin-right: 30px;">
               Go here 2<sup>nd</sup>
             </div>
-            <v-btn class="gradient-btn" style="font-family: 'Montserrat'; font-style: normal;" large rounded @click="linkToMarket()">
-              Buy Gold NFT
-            </v-btn>
+          </div> -->
+          <div style="text-align: center; margin-top: 100px;">
+            <img src="~assets/img/logo/547.png" alt="" style="margin-right: 125px;">
+            <img src="~assets/img/logo/214.png" alt="">
           </div>
         </div>
 
@@ -157,10 +221,10 @@ export default {
         },
         {
           title: 'Up to 110% Buy Back rate based on daily price'
-        },
-        {
-          title: '0% commission on NFT purchase'
         }
+        // {
+        //   title: '0% commission on NFT purchase'
+        // }
       ],
       holdDfys: [
         {
