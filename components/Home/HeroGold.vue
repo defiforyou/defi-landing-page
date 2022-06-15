@@ -20,7 +20,7 @@
               color: #FFFFFF;
         "
       >
-        Transfer your crypto and wealth into gold bullion during the crypto bear market.
+        Transfer your crypto and wealth now into gold bullion during the crypto bear market
       </div>
       <!-- <div
         style="font-family: 'Montserrat';
@@ -205,7 +205,7 @@ export default {
     return {
       contents: [
         {
-          title: 'Cookson Gold purchased in bulk by Cotswold Fine Jewellery Group + vaulted in UK'
+          title: 'Cooksongold purchased in bulk by Cotswold Fine Jewellery Group + vaulted in UK'
         },
         {
           title: 'Insured with T.H March'
