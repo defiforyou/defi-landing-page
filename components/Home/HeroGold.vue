@@ -20,7 +20,7 @@
               color: #FFFFFF;
         "
       >
-        Transfer your wealth or crypto currency into gold bullion and earn 7-12%, 0% commision.
+        Transfer your crypto and wealth into gold bullion during the crypto bear market.
       </div>
       <div
         style="font-family: 'Montserrat';
@@ -42,14 +42,14 @@
               font-size: 16px;
               line-height: 20px;
               text-align: center;
-
+              margin-bottom: 60px;
               color: #FFFFFF;
         "
       >
         Hold gold until the crypto market corrects itself.
       </div>
 
-      <div style="text-align: center; margin-top: 33px; margin-bottom: 40px;">
+      <!-- <div style="text-align: center; margin-top: 33px; margin-bottom: 40px;">
         <v-btn
           color="#DBA83D"
           style="font-family: 'Montserrat'; font-style: normal;"
@@ -65,7 +65,7 @@
             +44 0800649722
           </span>
         </v-btn>
-      </div>
+      </div> -->
 
       <div class="dfy-flex layout">
         <div class="text">
