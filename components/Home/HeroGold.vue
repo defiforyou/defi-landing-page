@@ -131,7 +131,7 @@
             </div>
           </div> -->
           <div style="text-align: center; margin-top: 100px;">
-            <img src="~assets/img/logo/547.jpg" alt="" style="margin-right: 80px;">
+            <img src="~assets/img/logo/547.png" alt="" style="margin-right: 80px;">
             <img src="~assets/img/logo/214.png" alt="">
           </div>
         </div>
@@ -181,6 +181,9 @@
         </div>
         <div class="content2">
           Cotswold Fine Jewellery Group guarantee to Buy Back all gold NFTs (see protection and service for full details)
+        </div>
+        <div class="content3">
+          <a href="https://www.cotswoldfinejewellery.co.uk" target="_blank" style="color: #DBA83D;">www.cotswoldfinejewellery.co.uk</a>
         </div>
         <div style="text-align: center; margin-top: 45px;">
           <img src="~/assets/img/cotswold.png" alt="Cotswold Fine Jewellery Group">
@@ -295,6 +298,16 @@ export default {
   /* Color/ Neutral/ White */
 
   color: #FFFFFF;
+}
+.content3 {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  text-decoration: underline;
+  margin-top: 20px;
 }
 .daily-gold {
   text-align: center;
