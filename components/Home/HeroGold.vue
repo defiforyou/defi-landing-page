@@ -169,7 +169,7 @@
           <div class="d-flex" style="margin-top: 30px">
             <div>
               <div style="color: #DBA83D; text-align: center; width: 194px; font-weight: 600; font-size: 16px;">
-                How i made money
+                How I made money
               </div>
               <div style="color: #DBA83D; text-align: center; width: 194px; font-weight: 600; font-size: 16px;">
                 in a bear market
