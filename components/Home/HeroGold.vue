@@ -168,10 +168,10 @@
           </div>
           <div class="d-flex" style="margin-top: 30px">
             <div>
-              <div style="color: #DBA83D; text-align: center; width: 194px;">
+              <div style="color: #DBA83D; text-align: center; width: 194px; font-weight: 600; font-size: 16px;">
                 How i made money
               </div>
-              <div style="color: #DBA83D; text-align: center; width: 194px;">
+              <div style="color: #DBA83D; text-align: center; width: 194px; font-weight: 600; font-size: 16px;">
                 in a bear market
               </div>
               <img src="~assets/img/preview-video/1.png" style="margin-right: 8px; cursor: pointer;" alt="#" @click="handleShowPreview(item1)"></img>
