@@ -131,7 +131,7 @@
             </div>
           </div> -->
           <div style="text-align: center; margin-top: 100px;">
-            <img src="~assets/img/logo/547.png" alt="" style="margin-right: 80px;">
+            <img src="~assets/img/logo/547.png" alt="">
             <img src="~assets/img/logo/214.png" alt="">
           </div>
         </div>
@@ -168,17 +168,17 @@
           </div>
           <div class="d-flex" style="margin-top: 30px">
             <div>
-              <div style="color: #DBA83D; text-align: center; width: 194px; font-weight: 600; font-size: 16px;">
+              <div style="color: #DBA83D; text-align: center; font-weight: 600; font-size: 16px;">
                 How I made money
               </div>
-              <div style="color: #DBA83D; text-align: center; width: 194px; font-weight: 600; font-size: 16px;">
+              <div style="color: #DBA83D; text-align: center; font-weight: 600; font-size: 16px;">
                 in a bear market
               </div>
-              <img src="~assets/img/preview-video/1.png" style="width: 194px; margin-right: 8px; cursor: pointer;" alt="#" @click="handleShowPreview(item1)"></img>
+              <img src="~assets/img/preview-video/1.png" style=" margin-right: 8px; cursor: pointer;" alt="#" @click="handleShowPreview(item1)"></img>
             </div>
             <div>
               <div style="margin-top: 48px;"></div>
-              <img src="~assets/img/preview-video/2.png" style="margin-left: 8px; cursor: pointer; " alt="#" @click.prevent="callOpen()">
+              <img src="~assets/img/preview-video/2.png" style=" margin-left: 8px; cursor: pointer; " alt="#" @click.prevent="callOpen()">
             </div>
           </div>
         </div>
