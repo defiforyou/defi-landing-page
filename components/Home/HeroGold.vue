@@ -20,7 +20,7 @@
               color: #FFFFFF;
         "
       >
-        Transfer your crypto and wealth now into gold bullion during the crypto bear market
+        Transfer your crypto and wealth now into gold bullion during the crypto bear market and earn up to 10 percent a year and guaranty by gold
       </div>
       <!-- <div
         style="font-family: 'Montserrat';
@@ -174,9 +174,12 @@
               <div style="color: #DBA83D; text-align: center; width: 194px; font-weight: 600; font-size: 16px;">
                 in a bear market
               </div>
-              <img src="~assets/img/preview-video/1.png" style="margin-right: 8px; cursor: pointer;" alt="#" @click="handleShowPreview(item1)"></img>
+              <img src="~assets/img/preview-video/1.png" style="width: 194px; margin-right: 8px; cursor: pointer;" alt="#" @click="handleShowPreview(item1)"></img>
             </div>
-            <!-- <img src="~assets/img/preview-video/2.png" style="margin-left: 8px; cursor: pointer;" alt="#" @click="handleShowPreview(item2)"> -->
+            <div>
+              <div style="margin-top: 48px;"></div>
+              <img src="~assets/img/preview-video/2.png" style="margin-left: 8px; cursor: pointer; " alt="#" @click.prevent="callOpen()">
+            </div>
           </div>
         </div>
       </div>
@@ -258,7 +261,7 @@ export default {
         type: 'VIDEO'
       },
       item2: {
-        url: 'https://defiforyou.mypinata.cloud/ipfs/QmZL6vfZjAWZvxpJbWSxt9SMTbZ3NXZkqE7HFp4beABHcX',
+        url: 'https://www.itv.com/hub/million-pound-pawn/10a0980a0001',
         type: 'VIDEO'
       }
     }
@@ -273,6 +276,9 @@ export default {
         type: file.type
       }
       this.showPreview = true
+    },
+    callOpen () {
+      window.open('https://www.itv.com/hub/million-pound-pawn/10a0980a0001', '_blank')
     },
     linkToMarket () {
       window.location.href = 'https://marketplace.defiforyou.uk/collections/0xd84e196cab681adc97a1aee887b413f3c4ca6f36'
