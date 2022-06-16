@@ -158,16 +158,24 @@
                   {{ item.weight }}
                 </v-col>
                 <v-col class="daily-gold__box--content" style="margin-top: 5px;">
-                  {{ Math.round((item.priceOfGm + Number.EPSILON) * 100) / 100 }}
+                  {{ (Math.round((item.priceOfGm + Number.EPSILON) * 100) / 100).toFixed(2) }}
                 </v-col>
                 <v-col class="daily-gold__box--content" style="margin-top: 5px;">
-                  {{ Math.round((item.price + Number.EPSILON) * 100) / 100 }}
+                  {{ (Math.round((item.price + Number.EPSILON) * 100) / 100).toFixed(2) }}
                 </v-col>
               </v-row>
             </div>
           </div>
           <div class="d-flex" style="margin-top: 30px">
-            <img src="~assets/img/preview-video/1.png" style="margin-right: 8px; cursor: pointer;" alt="#" @click="handleShowPreview(item1)">
+            <div>
+              <div style="color: #DBA83D; text-align: center; width: 194px;">
+                How i made money
+              </div>
+              <div style="color: #DBA83D; text-align: center; width: 194px;">
+                in a bear market
+              </div>
+              <img src="~assets/img/preview-video/1.png" style="margin-right: 8px; cursor: pointer;" alt="#" @click="handleShowPreview(item1)"></img>
+            </div>
             <!-- <img src="~assets/img/preview-video/2.png" style="margin-left: 8px; cursor: pointer;" alt="#" @click="handleShowPreview(item2)"> -->
           </div>
         </div>
