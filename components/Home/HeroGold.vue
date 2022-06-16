@@ -20,7 +20,7 @@
               color: #FFFFFF;
         "
       >
-        Transfer your crypto and wealth now into gold bullion during the crypto bear market and earn up to 10 percent a year and guaranty by gold
+        Transfer your crypto and wealth now into gold bullion during the crypto bear market and earn up to 10 percent a year and guaranteed by gold
       </div>
       <!-- <div
         style="font-family: 'Montserrat';
