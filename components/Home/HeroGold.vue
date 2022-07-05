@@ -269,11 +269,11 @@ export default {
         type: ''
       },
       item1: {
-        url: 'https://defiforyou.mypinata.cloud/ipfs/QmZL6vfZjAWZvxpJbWSxt9SMTbZ3NXZkqE7HFp4beABHcX',
+        url: 'https://s3.ap-southeast-1.amazonaws.com/beta-storage-dfy/upload/1e96d6124e6645dfac126355cf18c59816569896312.mp4',
         type: 'VIDEO'
       },
       item2: {
-        url: 'https://s3.ap-southeast-1.amazonaws.com/beta-storage-dfy/upload/1e96d6124e6645dfac126355cf18c59816569896312.mp4',
+        url: 'https://s3.ap-southeast-1.amazonaws.com/beta-storage-dfy/upload/dcf9881d65fb1dc1519beab66328d123.mp4',
         type: 'VIDEO'
       }
     }
