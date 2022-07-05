@@ -189,8 +189,11 @@
               <img src="~assets/img/preview-video/1.png" style=" margin-right: 8px; cursor: pointer;" alt="#" @click="handleShowPreview(item1)"></img>
             </div>
             <div>
-              <div style="color: #DBA83D; text-align: center; font-weight: 600; font-size: 16px; margin-top: 25px;">
-                Company Credibility
+              <div style="color: #DBA83D; text-align: center; font-weight: 600; font-size: 16px;">
+                Company
+              </div>
+              <div style="color: #DBA83D; text-align: center; font-weight: 600; font-size: 16px;">
+                Credibility
               </div>
               <img src="~assets/img/preview-video/2.png" style=" margin-left: 8px; cursor: pointer; " alt="#" @click.prevent="handleShowPreview(item2)">
             </div>
