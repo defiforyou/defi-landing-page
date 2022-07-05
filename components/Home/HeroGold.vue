@@ -181,16 +181,16 @@
           <div class="d-flex" style="margin-top: 30px">
             <div>
               <div style="color: #DBA83D; text-align: center; font-weight: 600; font-size: 16px;">
-                How I made money
+                How to buy
               </div>
               <div style="color: #DBA83D; text-align: center; font-weight: 600; font-size: 16px;">
-                in a bear market
+                Gold NFTs
               </div>
               <img src="~assets/img/preview-video/1.png" style=" margin-right: 8px; cursor: pointer;" alt="#" @click="handleShowPreview(item1)"></img>
             </div>
             <div>
               <div style="margin-top: 48px;"></div>
-              <img src="~assets/img/preview-video/2.png" style=" margin-left: 8px; cursor: pointer; " alt="#" @click.prevent="callOpen()">
+              <img src="~assets/img/preview-video/2.png" style=" margin-left: 8px; cursor: pointer; " alt="#" @click.prevent="handleShowPreview(item2)">
             </div>
           </div>
         </div>
@@ -273,7 +273,7 @@ export default {
         type: 'VIDEO'
       },
       item2: {
-        url: 'https://www.itv.com/hub/million-pound-pawn/10a0980a0001',
+        url: 'https://s3.ap-southeast-1.amazonaws.com/beta-storage-dfy/upload/1e96d6124e6645dfac126355cf18c59816569896312.mp4',
         type: 'VIDEO'
       }
     }
