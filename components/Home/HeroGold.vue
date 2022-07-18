@@ -342,7 +342,7 @@ export default {
 }
 .daily-gold {
   text-align: center;
-  height: 292px;
+  height: 330px;
   background: #33313F;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
@@ -366,7 +366,7 @@ export default {
   }
 
   &__box {
-    height: 237px;
+    height: 280px;
     margin: 7px;
 
     /* Color/ Neutral/ Black */
